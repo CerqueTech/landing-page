@@ -18,6 +18,9 @@ const { text_one, text_two, text_three } = Astro.props;
     />{text_three}
   </h1>
 </section>
+<footer>
+  <p>Cerquetech Solutions®</p>
+</footer>
 
 <style>
   section {
@@ -51,6 +54,17 @@ const { text_one, text_two, text_three } = Astro.props;
     height: 1em;
     vertical-align: middle;
     animation: spin 2s linear infinite;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
   }
 
   @keyframes spin {
