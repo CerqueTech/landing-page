@@ -3,12 +3,13 @@ interface Props {
   text_one: string;
   text_two: string;
   text_three: string;
+  text_footer: string;
 }
 
-const { text_one, text_two, text_three } = Astro.props;
+const { text_one, text_two, text_three, text_footer } = Astro.props;
 ---
 
-<section>
+<section id="content" class="flash">
   <h1 class="first-row">{text_one}</h1>
   <h1 class="second-row">
     {text_two}<img
@@ -18,8 +19,8 @@ const { text_one, text_two, text_three } = Astro.props;
     />{text_three}
   </h1>
 </section>
-<footer>
-  <p>Cerquetech Solutions®</p>
+<footer class="flash">
+  <p>{text_footer}</p>
 </footer>
 
 <style>
@@ -64,7 +65,22 @@ const { text_one, text_two, text_three } = Astro.props;
     text-align: center;
     width: 100%;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .flash {
+    animation: flash 2s linear;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes flash {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   @keyframes spin {
