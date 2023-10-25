@@ -29,27 +29,100 @@ const { title } = Astro.props;
     <meta property="og:url" content="https://www.cerquetech.com" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="assets/images/logo/favourite_icon.svg" />
+
+    <!-- Fraimwork - CSS Include -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+
+    <!-- Icon Font - CSS Include -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/fontawesome-pro.css"
+    />
+
+    <!-- Animation - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css" />
+
+    <!-- Meanmenu - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/meanmenu.min.css" />
+
+    <!-- Cursor - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/cursor.css" />
+
+    <!-- Carousel - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css" />
+
+    <!-- Video & Image Popup - CSS Include -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/magnific-popup.css"
+    />
+
+    <!-- Select - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nice-select.css" />
+
+    <!-- Counter - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/odometer.css" />
+
+    <!-- Custom - CSS Include -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
     <slot />
+    <script src="../../public/assets/js/jquery.min.js"></script>
+    <script src="../../public/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/assets/js/bootstrap-dropdown-ml-hack.js"></script>
+
+    <!-- animation - jquery include -->
+    <script src="../../public/assets/js/cursor.js"></script>
+    <script src="../../public/assets/js/wow.min.js"></script>
+    <script src="../../public/assets/js/tilt.min.js"></script>
+    <script src="../../public/assets/js/parallax.min.js"></script>
+    <script src="../../public/assets/js/parallax-scroll.js"></script>
+
+    <!-- Carousel - Jquery Include -->
+    <script src="../../public/assets/js/slick.min.js"></script>
+
+    <!-- Video & Image Popup - Jquery Include -->
+    <script src="../../public/assets/js/magnific-popup.min.js"></script>
+
+    <!-- Select - Jquery Include -->
+    <script src="../../public/assets/js/nice-select.min.js"></script>
+
+    <!-- Counter - Jquery Include -->
+    <script src="../../public/assets/js/appear.js"></script>
+    <script src="../../public/assets/js/odometer.min.js"></script>
+
+    <!-- Isotope Filter - Jquery Include -->
+    <script src="../../public/assets/js/isotope.pkgd.min.js"></script>
+
+    <!-- Meanmenu Filter - Jquery Include -->
+    <script src="../../public/assets/js/meanmenu.min.js"></script>
+
+    <!-- Masonry - Jquery Include -->
+    <script src="../../public/assets/js/masonry.pkgd.min.js"></script>
+    <script src="../../public/assets/js/imagesloaded.pkgd.min.js"></script>
+
+    <!-- Countdown Timer - jquery include -->
+    <script src="../../public/assets/js/countdown.js"></script>
+
+    <!-- Type - jquery include -->
+    <script src="../../public/assets/js/type.js"></script>
+
+    <!-- Setting - jquery include -->
+    <script src="../../public/assets/js/setting.js"></script>
+
+    <!-- Custom - Jquery Include -->
+    <script src="../../public/assets/js/main.js"></script>
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: 'Silkscreen';
-    src:
-      url('/fonts/Silkscreen-Regular.ttf') format('truetype'),
-      url('/fonts/Silkscreen-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  html {
-    font-family: Silkscreen, fallback-fonts, sans-serif;
-    color: #fff;
-    background: #000;
-  }
-</style>
