@@ -1,0 +1,237 @@
+<footer class="site_footer style_1">
+    <div class="footer_widget_area bg_dark_3">
+      <div class="container">
+        <div class="footer_widget_grid">
+          <div class="site_logo">
+               <a class="site_link" href="index.html">
+              <img src="assets/images/logo/site_logo_white.svg" alt="Site Logo - Paradox - Agency Template">
+            </a>
+          </div>
+          <div class="footer_widget">
+            <h3 class="footer_widget_title">Contact Us</h3>
+            <div class="icon_list_widget">
+              <h4 class="widget_title mb-0">
+                If you want to Get a New Idea:
+              </h4>
+              <ul class="icon_list unordered_list_block">
+                <li>
+                  <a href="mailto:contact@paradox.com">
+                    <span class="list_item_text">
+                      contact@paradox.com
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer_widget">
+            <h3 class="footer_widget_title">Find Us</h3>
+            <div class="icon_list_widget">
+              <ul class="icon_list unordered_list_block">
+                <li>
+                  <div class="w-location mb-2">
+                    <img src="assets/images/icons/icon_mapmark.svg" alt="Icon Mapmark">
+                  </div>
+                  <a target="_blank" href="https://www.google.com/maps">
+                    <span class="list_item_text">
+                      1989 Timber Ridge Road <small class="d-md-block">Sacramento CA, California</small>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer_widget">
+            <h3 class="footer_widget_title">Newsletter</h3>
+            <form action="#">
+              <div class="small_newsletter_form">
+                <input type="email" placeholder="Email Adreess">
+                <button type="submit">
+                  <i class="far fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="form-check mb-0">
+                <input type="checkbox" id="checkMeOut">
+                <label for="checkMeOut">Check me out</label>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom bg_dark_3">
+      <div class="container">
+        <div class="footer_bottom_grid">
+          <div class="copyright_widget">
+            Copyright © 2023 by <a target="_blank" href="https://themeforest.net/user/bdevs/portfolio"><u>Bdevs</u></a> All Rights Reserved.
+          </div>
+          <div class="backtotop style_1">
+            <a href="#" class="scroll">
+              <i class="fal fa-chevron-up"></i>
+            </a>
+          </div>
+          <div class="footer_social">
+            <ul class="social_icon unordered_list_end">
+              <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+.footer_widget_grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 50px 15px;
+	@media #{$lg,$md} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media #{$xs,$sm} {
+		grid-template-columns:auto;
+	}
+}
+.footer_bottom_grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px 30px;
+	place-content: space-between;
+	align-items: center;
+	@media #{$xs,$sm} {
+		grid-template-columns: auto;
+		place-items: center;
+		justify-content: center;
+	}
+}
+.site_footer {
+	p {
+		color: #5D636A;
+		font-size: 17px;
+		line-height: 27px;
+		margin-bottom: 30px;
+	}
+
+	.site_logo {
+		margin-bottom: 28px;
+	}
+
+	.icon_list_widget {
+		.widget_title {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 27px;
+		}
+	}
+
+	.small_newsletter_form {
+		margin-bottom: 20px;
+	}
+}
+
+.footer_widget_title {
+	font-size: 21px;
+	margin-bottom: 20px;
+}
+.site_footer.style_1,
+.site_footer.style_3 {
+	.social_icon {
+		a {
+			color: rgba(255, 255, 255, 0.2);
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			&:hover {
+				color: $color_white;
+				border-color: $color_primary;
+				background-color: $color_primary;
+			}
+		}
+	}
+}
+
+.site_footer.style_1 {
+	color: $color_body_2;
+	.footer_widget_title {
+		color: $color_white;
+	}
+
+	label {
+		color: $color_body_2;
+	}
+
+	.icon_list_widget {
+		.widget_title {
+			color: $color_body_2;
+		}
+	}
+	.icon_list {
+		.list_item_text {
+			color: $color_white;
+		}
+		a {
+			&:hover {
+				.list_item_text {
+					color: $color_primary;
+				}
+			}
+		}
+	}
+
+	.form-check {
+		input {
+			border: 1px solid $color_body_2;
+			&:checked {
+				border-color: $color_primary;
+			}
+		}
+	}
+
+	.copyright_widget {
+		color: $color_white;
+		a {
+			color: $color_white;
+			&:hover {
+				color: $color_primary;
+			}
+		}
+	}
+
+	.footer_widget_area {
+		position: relative;
+		padding: 127px 0 84px;
+		@media #{$md} {
+			padding: 100px 0 100px;
+		}
+		@media #{$xs,$sm,$md} {
+			padding: 84px 0 84px;
+		}
+	}
+
+	.footer_bottom {
+		padding: 30px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		@media #{$xs,$sm} {
+			padding-bottom: 0;
+		}
+	}
+	.backtotop.style_1 {
+		margin-bottom: -40px;
+		text-align: center;
+		@media #{$xs,$sm} {
+			margin-bottom: 0;
+			order: 2;
+		}
+
+		
+		.scroll {
+			color: $color_white;
+			background-color: rgba(255, 255, 255, 0.1);
+			&:hover {
+				background-color: $color_warning;
+				color: $color_dark;
+			}
+		}
+	}
+}
+  </style>
