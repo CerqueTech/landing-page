@@ -1,4 +1,4 @@
-import $ from "jquery"
+
 // Setting JS - Start
   // --------------------------------------------------
 	function bd_settings_append($x) {

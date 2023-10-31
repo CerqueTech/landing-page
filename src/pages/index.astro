@@ -1,14 +1,44 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Providing from '../components/Providing.astro';
-import Layout from '../layouts/Layout.astro';
+import ClientLogoSection from "../components/ClientLogoSection.astro";
+import CounterSection from "../components/CounterSection.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import PortfolioSection from "../components/PortfolioSection.astro";
+import Providing from "../components/Providing.astro";
+import ReviewSection from "../components/ReviewSection.astro";
+import StepSection from "../components/StepSection.astro";
+import TeamSection from "../components/TeamSection.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Cerquetech Solutions">
-  <main>
-    <Header></Header>
-    <Providing></Providing>
-    <Footer></Footer>
-  </main>
+  <div class="page_wrapper">
+    <header class="site_header site_header_1">
+      <Header />
+    </header>
+    <main class="page_content">
+      <div>
+        <Providing />
+      </div>
+      <div>
+        <StepSection />
+      </div>
+      <div>
+        <CounterSection />
+      </div>
+      <div>
+        <ClientLogoSection />
+        <PortfolioSection />
+      </div>
+      <div>
+        <TeamSection />
+      </div>
+      <div>
+        <ReviewSection/>
+      </div>
+    </main>
+    <footer class="site_footer style_1">
+      <Footer />
+    </footer>
+  </div>
 </Layout>
