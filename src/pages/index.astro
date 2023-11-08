@@ -3,8 +3,9 @@ import ClientLogoSection from "../components/ClientLogoSection.astro";
 import CounterSection from "../components/CounterSection.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import PortfolioSection from "../components/PortfolioSection.astro";
+import PortafolioSection from "../components/PortafolioSection";
 import Providing from "../components/Providing.astro";
+import ProvidingSection from "../components/ProvidingSection";
 import ReviewSection from "../components/ReviewSection.astro";
 import StepSection from "../components/StepSection.astro";
 import TeamSection from "../components/TeamSection.astro";
@@ -18,27 +19,29 @@ import Layout from "../layouts/Layout.astro";
     </header>
     <main class="page_content">
       <div>
-        <Providing />
+        <ProvidingSection client:visible />
       </div>
-      <div>
+      <section class="starter_steps_section section_space_lg">
         <StepSection />
-      </div>
-      <div>
+      </section>
+      <section class="counter_section section_space_lg decoration_wrap">
         <CounterSection />
-      </div>
-      <div>
+      </section>
+      <div class="client_logo_section bg_warning">
         <ClientLogoSection />
-        <PortfolioSection />
       </div>
-      <div>
+      <section class="portfolio_section section_space_lg bg_primary">
+        <PortafolioSection client:visible />
+      </section>
+      <section class="team_section section_space_lg bg_half_top_light">
         <TeamSection />
-      </div>
-      <div>
-        <ReviewSection/>
-      </div>
+      </section>
+      <section class="review_section bg_light position-relative">
+        <ReviewSection />
+      </section>
+      <footer class="site_footer style_1">
+        <Footer />
+      </footer>
     </main>
-    <footer class="site_footer style_1">
-      <Footer />
-    </footer>
   </div>
 </Layout>
