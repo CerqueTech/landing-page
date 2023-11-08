@@ -62,7 +62,10 @@ const { title } = Astro.props;
 
     <!-- Custom - CSS Include -->
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-
+    <!--Slick css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -107,8 +110,6 @@ const { title } = Astro.props;
 
     <!-- Countdown Timer - jquery include -->
     <script src="/assets/js/countdown.js" is:inline ></script>
-    <script src="/assets/js/countdown.js" is:inline ></script>
-    <script src="/assets/js/countdown.js" is:inline ></script>
 
     <!-- Type - jquery include -->
     <script src="/assets/js/type.js" is:inline></script>
@@ -118,5 +119,11 @@ const { title } = Astro.props;
 
     <!-- Custom - Jquery Include -->
     <script src="/assets/js/main.js" is:inline></script>
+
+    <!-- Slick Js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" is:inline></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js" is:inline></script>
+
+    
   </body>
 </html>
