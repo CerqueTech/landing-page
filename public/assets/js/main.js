@@ -56,19 +56,6 @@
   });
   // OffCanvas - End
   // --------------------------------------------------
-  
-  // sticky header - start
-  // --------------------------------------------------
-  $(window).on('scroll', function () {
-    if ($(this).scrollTop() > 0) {
-      $('.site_header').addClass("sticky")
-    } else {
-      $('.site_header').removeClass("sticky")
-    }
-  });
-  // sticky header - end
-  // --------------------------------------------------
-
   // Select - Start
   // --------------------------------------------------
   $('select').niceSelect();
