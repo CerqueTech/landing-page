@@ -4,7 +4,6 @@ import CounterSection from "../components/CounterSection.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import PortafolioSection from "../components/PortafolioSection";
-import Providing from "../components/Providing.astro";
 import ProvidingSection from "../components/ProvidingSection";
 import ReviewSection from "../components/ReviewSection.astro";
 import StepSection from "../components/StepSection.astro";
@@ -18,9 +17,9 @@ import Layout from "../layouts/Layout.astro";
       <Header />
     </header>
     <main class="page_content">
-      <div>
+      <section class="service_section section_space_lg">
         <ProvidingSection client:visible />
-      </div>
+      </section>
       <section class="starter_steps_section section_space_lg">
         <StepSection />
       </section>
