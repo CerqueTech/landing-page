@@ -1,10 +1,9 @@
 import Slider from "react-slick";
-
 const PortafolioSection = () => {
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    speed: 600,
     slidesToShow: 2,
     slidesToScroll: 1,
   };

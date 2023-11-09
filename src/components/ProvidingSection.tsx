@@ -112,7 +112,7 @@ const ProdivingSection = () => {
               >
                 <span className="btn_icon">
                   <img
-                    src="assets/images/icons/icon_arrow_down_right_dark_2.svg"
+                    src="/assets/images/icons/icon_arrow_down_right_dark_2.svg"
                     alt="Paradox icons"
                   />
                 </span>
@@ -124,11 +124,11 @@ const ProdivingSection = () => {
               <div
                 className="item_icon"
                 style={{
-                  backgroundImage: "assets/images/shapes/shape_color_4.svg",
+                  backgroundImage: "/assets/images/shapes/shape_color_4.svg",
                 }}
               >
                 <img
-                  src="assets/images/icons/icon_speaker.svg"
+                  src="/assets/images/icons/icon_speaker.svg"
                   alt="Paradox Icon"
                 />
               </div>
@@ -146,7 +146,7 @@ const ProdivingSection = () => {
               >
                 <span className="btn_icon">
                   <img
-                    src="assets/images/icons/icon_arrow_down_right_dark_2.svg"
+                    src="/assets/images/icons/icon_arrow_down_right_dark_2.svg"
                     alt="Paradox icons"
                   />
                 </span>
@@ -158,11 +158,11 @@ const ProdivingSection = () => {
               <div
                 className="item_icon"
                 style={{
-                  backgroundImage: "assets/images/shapes/shape_color_5.svg",
+                  backgroundImage: "/assets/images/shapes/shape_color_5.svg",
                 }}
               >
                 <img
-                  src="assets/images/icons/icon_camera_2.svg"
+                  src="/assets/images/icons/icon_camera_2.svg"
                   alt="Paradox Icon"
                 />
               </div>
@@ -180,7 +180,7 @@ const ProdivingSection = () => {
               >
                 <span className="btn_icon">
                   <img
-                    src="assets/images/icons/icon_arrow_down_right_dark_2.svg"
+                    src="/assets/images/icons/icon_arrow_down_right_dark_2.svg"
                     alt="Paradox icons"
                   />
                 </span>

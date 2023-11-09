@@ -15,7 +15,7 @@ const ReviewSection = () => {
           <div className="testimonial-player">
             <div className="video_widget rounded-0">
               <img
-                src="assets/images/video/video_poster_image_2.jpg"
+                src="assets/images/video/video_poster_image_1.jpg"
                 alt="Paradox Video Poster Image"
               />
               <a
