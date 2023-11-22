@@ -1,3 +1,7 @@
+---
+import StepItem from "./StepItem.astro";
+---
+
 <div class="deco_item shado">
   <img src="assets/images/shapes/shape_circle_2.svg" alt="Paradox Shape" />
 </div>
@@ -7,49 +11,32 @@
       <div class="starter_steps_group decoration_wrap mb-4 mg-lg-0">
         <ul class="unordered_list">
           <li>
-            <div class="content_wrap wow bounceIn" data-wow-delay=".1s">
-              <div class="item_icon">
-                <img
-                  src="assets/images/icons/icon_team_white.svg"
-                  alt="Paradox Icon Team"
-                />
-              </div>
-              <h3 class="item_title m-0">World-class Team</h3>
-            </div>
+            <StepItem
+              title="World-class Team"
+              delay=".1s"
+            />
           </li>
           <li>
-            <div class="content_wrap wow bounceIn" data-wow-delay=".2s">
-              <div class="item_icon">
-                <img
-                  src="assets/images/icons/icon_comment_white.svg"
-                  alt="Paradox Icon Comment"
-                />
-              </div>
-              <h3 class="item_title m-0">Quickly Response</h3>
-            </div>
+            <StepItem
+              title="Quickly Response"
+              delay=".2s"
+            />
           </li>
           <li>
-            <div class="content_wrap wow bounceIn" data-wow-delay=".3s">
-              <div class="item_icon">
-                <img
-                  src="assets/images/icons/icon_medal_white.svg"
-                  alt="Paradox Icon Medal"
-                />
-              </div>
-              <h3 class="item_title m-0">Satisfaction Guarantee</h3>
-            </div>
+            <StepItem
+            title="Satisfaction Guarantee"
+            delay=".3s"
+          />
           </li>
         </ul>
         <div class="deco_item shape_1">
           <img
             src="assets/images/shapes/shape_circle_dashed_1.svg"
-            alt="Paradox Shape"
           />
         </div>
         <div class="deco_item shape_2">
           <img
             src="assets/images/shapes/shape_circle_2.svg"
-            alt="Paradox Shape"
           />
         </div>
       </div>

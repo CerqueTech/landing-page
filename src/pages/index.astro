@@ -2,19 +2,19 @@
 import ClientLogoSection from "../components/ClientLogoSection.astro";
 import CounterSection from "../components/CounterSection.astro";
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.jsx";
+import Header from "../components/Header/Header.jsx";
 import HeroeSection from "../components/HeroeSection.astro";
-import PortafolioSection from "../components/PortafolioSection.jsx";
-import ProvidingSection from "../components/ProvidingSection.jsx";
-import ReviewSection from "../components/ReviewSection.jsx";
-import StepSection from "../components/StepSection.astro";
-import TeamSection from "../components/TeamSection.astro";
+import PortafolioSection from "../components/Portafolio/PortafolioSection.jsx";
+import ProvidingSection from "../components/Providing/ProvidingSection.jsx";
+import ReviewSection from "../components/Review/ReviewSection.jsx";
+import StepSection from "../components/Step/StepSection.astro";
+import TeamSection from "../components/Team/TeamSection.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Cerquetech Solutions">
   <div class="page_wrapper">
-      <Header client:visible />
+      <Header client:only />
     <main class="page_content">
       <section class="hero_banner_section style_3 bg_primary">
         <HeroeSection />
@@ -38,7 +38,7 @@ import Layout from "../layouts/Layout.astro";
         <TeamSection />
       </section>
       <section class="review_section bg_light position-relative">
-        <ReviewSection client:visible />
+        <ReviewSection client:visible/>
       </section>
     </main>
     <footer class="site_footer style_4">
@@ -52,6 +52,6 @@ import Layout from "../layouts/Layout.astro";
     margin-top: 50px;
   }
   .service_section_2{
-    background-color: linear-gradient(90deg, #F1F1FC 0%, rgba(241, 241, 252, 0) 100%);;
+    background-color: linear-gradient(90deg, #F1F1FC 0%, rgba(241, 241, 252, 0) 100%);
   }
 </style>

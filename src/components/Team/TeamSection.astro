@@ -1,0 +1,55 @@
+---
+import Admin from "./Admin.astro";
+---
+
+<div class="container">
+  <div class="section_heading text-center">
+    <h2 class="heading_subtitle text-uppercase">
+      <span class="double_icon">
+        <i class="fas fa-sharp fa-square-full"></i>
+        <i class="fas fa-sharp fa-square-full"></i>
+      </span>
+      <span>Our Team</span>
+    </h2>
+    <h3 class="heading_title mb-0">Our Team Members</h3>
+  </div>
+  
+  <div class="row justify-content-center">
+    <Admin
+      name="Gary M. Martin"
+      designation="Sr. Product Manager"
+      image="assets/images/team/team_admin_image_1.png"
+    />
+    <Admin
+      name="Karen L. Head"
+      designation="Sr. Digital Marketer"
+      image="assets/images/team/team_admin_image_2.png"
+    />
+    <Admin
+      name="Daniel S. Anson"
+      designation="Sr. UI/UX Designer"
+      image="assets/images/team/team_admin_image_3.png"
+    />
+    <Admin
+      name="William P. Robinson"
+      designation="Sr. Developer"
+      image="assets/images/team/team_admin_image_4.png"
+    />
+
+    <div class="btn_wrap pb-0 text-center">
+      <a href="team.html" class="bd-btn-link btn_primary">
+        <span class="bd-button-content-wrapper">
+          <span class="bd-button-icon">
+            <i class="fa-light fa-arrow-right-long"></i>
+          </span>
+          <span class="pd-animation-flip">
+            <span class="bd-btn-anim-wrapp">
+              <span class="bd-button-text">Join with Us</span>
+              <span class="bd-button-text">Join with Us</span>
+            </span>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
