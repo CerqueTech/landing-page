@@ -17,9 +17,9 @@ const ProdivingSection = () => {
         </h2>
         <h3 className="heading_title mb-0">Providing solutions</h3>
       </div>
-      <div className="common_carousel_4col row" data-slick='{"arrows": false}'>
+      <div className="common_carousel_4col row" >
         <Slider {...settings}>
-          <ProvidingElement
+          <ProvidingElement 
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
             title="Development"
@@ -53,12 +53,6 @@ const ProdivingSection = () => {
             shape="assets/images/shapes/shape_color_6.svg"
             iconImage="assets/images/icons/icon_code_4.svg"
             title="Programming"
-            description="We are help generate positive the cash flow"
-          />
-          <ProvidingElement
-            shape="assets/images/shapes/shape_color_7.svg"
-            iconImage="assets/images/icons/icon_idea_3.svg"
-            title="Business"
             description="We are help generate positive the cash flow"
           />
           <ProvidingElement

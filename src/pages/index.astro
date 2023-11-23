@@ -1,4 +1,5 @@
 ---
+import BackToTop from "../BackTotop";
 import ClientLogoSection from "../components/ClientLogoSection.astro";
 import CounterSection from "../components/CounterSection.astro";
 import Footer from "../components/Footer.astro";
@@ -10,48 +11,146 @@ import ReviewSection from "../components/Review/ReviewSection.jsx";
 import StepSection from "../components/Step/StepSection.astro";
 import TeamSection from "../components/Team/TeamSection.astro";
 import Layout from "../layouts/Layout.astro";
+
+
 ---
 
 <Layout title="Cerquetech Solutions">
-  <div class="page_wrapper">
-      <Header client:only />
-    <main class="page_content">
-      <section class="hero_banner_section style_3 bg_primary">
-        <HeroeSection />
-      </section>
-      <section class="service_section_2" style="background-image: url('assets/images/shapes/shape_7.svg');">
-        <ProvidingSection client:visible />
-      </section>
-      <section class="starter_steps_section section_space_lg">
-        <StepSection />
-      </section>
-      <section class="counter_section section_space_lg decoration_wrap">
-        <CounterSection />
-      </section>
-      <div class="client_logo_section bg_warning">
-        <ClientLogoSection />
+  <body class="bg_light_3">
+    <!-- Offcanvas area start -->
+    <div class="fix">
+      <div class="offcanvas__info">
+        <div class="offcanvas__wrapper">
+          <div class="offcanvas__content">
+            <div
+              class="offcanvas__top mb-4 d-flex justify-content-between align-items-center"
+            >
+              <div class="offcanvas__logo">
+                <a href="index.html">
+                  <img
+                    src="assets/images/logo/site_logo_white.svg"
+                    alt="logo not found"
+                  />
+                </a>
+              </div>
+              <div class="offcanvas__close">
+                <svg
+                  class="menu-close-btn"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="33.666"
+                  height="33.666"
+                  viewBox="0 0 33.666 33.666"
+                  ><path d="m1.414 1.414 30.83763383 30.83763383"></path><path
+                    d="M1.414 32.252 32.25163383 1.41436617"></path></svg
+                >
+              </div>
+            </div>
+            <div class="mobile-menu fix mb-4"></div>
+            <div class="offcanvas__contact text-center">
+              <h4 class="offcanvas__title">Contact Info</h4>
+              <div class="offcanvas__contact-text mb-2">
+                <p>
+                  <a href="mailto:paradox@example" target="_blank"
+                    >paradox@example.com</a
+                  >
+                </p>
+                <span><a href="tel:725214456">725 214 456</a></span>
+              </div>
+              <div class="offcanvas__contact-text">
+                <p>
+                  <a target="_blank" href="https://www.google.com/maps"
+                    >Folkungagatan 83, Stockholm, Sweden</a
+                  >
+                </p>
+              </div>
+            </div>
+            <div class="offcanvas__devider"></div>
+            <div class="offcanvas__social">
+              <ul>
+                <li>
+                  <a target="_blank" href="https://www.facebook.com">Facebook</a
+                  >
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.instagram.com"
+                    >Instagram</a
+                  >
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.twitter.com">Twitter</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.linkedin.com">Linkedin</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <section class="portfolio_section section_space_lg bg_primary">
-        <PortafolioSection client:visible />
-      </section>
-      <section class="team_section section_space_lg bg_half_top_light">
-        <TeamSection />
-      </section>
-      <section class="review_section bg_light position-relative">
-        <ReviewSection client:visible/>
-      </section>
-    </main>
-    <footer class="site_footer style_4">
-      <Footer />
-    </footer>
-  </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    <div class="offcanvas__overlay-white"></div>
+
+    <div class="page_wrapper">
+      <!--
+      <div class="backtotop position-fixed text-center">
+        <a href="#" class="scroll">
+          <i class="far fa-arrow-up"></i>
+        </a>
+      </div>
+       -->
+       
+      <BackToTop client:visible/>
+      <Header transition:persist client:only />
+      <main class="page_content">
+        <section class="hero_banner_section style_3 bg_primary">
+          <HeroeSection />
+        </section>
+        <section class="service_section_2">
+          <ProvidingSection client:visible />
+        </section>
+        <section class="starter_steps_section section_space_lg">
+          <StepSection />
+        </section>
+        <section class="counter_section section_space_lg decoration_wrap">
+          <CounterSection />
+        </section>
+        <div class="client_logo_section bg_warning">
+          <ClientLogoSection />
+        </div>
+        <section class="portfolio_section section_space_lg bg_primary">
+          <PortafolioSection client:visible />
+        </section>
+        <section class="team_section section_space_lg bg_half_top_light">
+          <TeamSection />
+        </section>
+        <section class="review_section bg_light position-relative">
+          <ReviewSection client:visible />
+        </section>
+      </main>
+      <footer class="site_footer style_4">
+        <Footer transition:persist />
+      </footer>
+    </div>
+  </body>
 </Layout>
 
 <style>
-  .site_footer{
+  .site_footer {
     margin-top: 50px;
   }
-  .service_section_2{
-    background-color: linear-gradient(90deg, #F1F1FC 0%, rgba(241, 241, 252, 0) 100%);
+  .service_section_2 {
+    background-color: linear-gradient(
+      90deg,
+      #f1f1fc 0%,
+      rgba(241, 241, 252, 0) 100%
+    );
+    background-image: url("assets/images/shapes/shape_7.svg");
+  }
+
+  .hero_banner_section {
+    width: 100vw !important; 
+    height: 100vh !important;
   }
 </style>

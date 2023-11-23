@@ -1,17 +1,15 @@
 ---
-export interface Props{
-    title:string;
-    delay:string;
+export interface Props {
+  title: string;
+  delay: string;
 }
 
-const { title, delay } = Astro.props; 
+const { title, delay } = Astro.props;
 ---
 
 <div class="content_wrap wow bounceIn" data-wow-delay={delay}>
-    <div class="item_icon">
-      <img
-        src="assets/images/icons/icon_team_white.svg"
-      />
-    </div>
-    <h3 class="item_title m-0">{title}</h3>
+  <div class="item_icon">
+    <img src="assets/images/icons/icon_team_white.svg" />
   </div>
+  <h3 class="item_title m-0">{title}</h3>
+</div>

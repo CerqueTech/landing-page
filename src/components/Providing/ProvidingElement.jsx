@@ -1,6 +1,6 @@
 const ProvidingElement = (props) => {
   return (
-    <div className="carousel_item col">
+    <div className="col">
       <div className="service_item style_4 bg-white">
         <div
           className="item_icon"

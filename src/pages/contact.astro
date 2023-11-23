@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Contact">
   <div class="page_wrapper">
-    <Header client:visible />
+    <Header transition:persist client:visible />
     <main class="page_content">
       <section class="contact_section section_space_lg">
         <div class="container">
@@ -133,7 +133,7 @@ import Layout from "../layouts/Layout.astro";
       </section>
     </main>
     <footer class="site_footer style_4">
-      <Footer />
+      <Footer transition:persist/>
     </footer>
   </div>
 </Layout>

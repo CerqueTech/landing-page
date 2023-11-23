@@ -1,0 +1,39 @@
+---
+export default interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<section class="page_banner text-center">
+  <div class="container decoration_wrap">
+    <h1 class="page_title">{title}</h1>
+    <ul class="breadcrumb_nav unordered_list_center">
+      <li><a href="index.html">Home</a></li>
+      <li>{title}</li>
+    </ul>
+
+    <div class="deco_item shape_1 wow fadeInUp" data-wow-delay=".1s">
+      <img
+        src="assets/images/shapes/shape_circle_1.svg"
+        data-parallax='{"y" : -140, "smoothness": 10}'
+        alt="Paradox - Shape Image"
+      />
+    </div>
+    <div class="deco_item shape_2 wow rotateInDownRight" data-wow-delay=".1s">
+      <img
+        src="assets/images/shapes/shape_circle_half_1.svg"
+        data-parallax='{"y" : 200, "smoothness": 10}'
+        alt="Paradox - Shape Image"
+      />
+    </div>
+    <div class="deco_item shape_3 wow fadeInDown">
+      <img
+        src="assets/images/shapes/shape_1.svg"
+        data-parallax='{"x" : -200, "smoothness": 10}'
+        alt="Paradox - Shape Image"
+      />
+    </div>
+  </div>
+</section>
