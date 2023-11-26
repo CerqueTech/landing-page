@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-import { animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from "react-scroll";
+
+import "./BackToTop.css";
 
 const BackToTop = () => {
   const [showButton, setShowButton] = useState(false);
+
+  const scrollToTop = () => {
+    scroll.scrollToTop
+      /*{
+      duration: 200,
+      delay:50, 
+      smooth: true,
+      offset:-10,
+    }
+    */
+      ();
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,28 +28,16 @@ const BackToTop = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  const scrollToTop = () => {
-    scroll.scrollToTop({
-      duration: 1000,
-      smooth: 'easeInOutQuint'
-    });
-  };
-
   return (
-    <div
-      className={
-        showButton
-          ? "backtotop position-fixed"
-          : "backtotop position-fixed hidden"
-      }>
-      <a href="#" className="scroll" onClick={scrollToTop}>
+    <div className={`backtotop position-fixed ${showButton ? "" : "hidden"}`} onClick={scrollToTop}>
+      <a href="#" className="scroll">
         <i className="far fa-arrow-up"></i>
       </a>
     </div>

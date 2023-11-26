@@ -24,26 +24,6 @@
   // carousel - End
   // --------------------------------------------------
 
-  
-  // Back To Top - Start
-  // --------------------------------------------------
-  $(function() {
-    $(".scroll").on('click', function() {
-      $("html,body").animate({scrollTop: 0}, "slow");
-      return false
-    });
-  });
-
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.backtotop.position-fixed:hidden').stop(true, true).fadeIn();
-    } else {
-      $('.backtotop.position-fixed').stop(true, true).fadeOut();
-    }
-  });
-  // Back To Top - End
-  // --------------------------------------------------
-
   // OffCanvas - Start
   // --------------------------------------------------
   $(".offcanvas__close,.offcanvas__overlay").on("click", function () {

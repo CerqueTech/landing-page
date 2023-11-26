@@ -4,10 +4,15 @@ import ProvidingElement from "./ProvidingElement";
 const ProdivingSection = () => {
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 600,
+    infinite: true,
+    speed: 2500,
     slidesToShow: 4,
     slidesToScroll: 3,
+    autoplay:true,
+    autoplaySpeed: 10000,
+    easing: 'ease-in',
+    pauseOnHover: false, 
+    pauseOnFocus: false,
   };
   return (
     <div className="container">

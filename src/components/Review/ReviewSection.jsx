@@ -4,9 +4,14 @@ const ReviewSection = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed: 6000,
+    easing: 'ease-in',
+    pauseOnHover: false, 
+    pauseOnFocus: false,
   };
 
   return (

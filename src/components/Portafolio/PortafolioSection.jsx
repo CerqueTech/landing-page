@@ -4,9 +4,14 @@ const PortafolioSection = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 2000,
     slidesToShow: 2,
     slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed: 10000,
+    easing: 'ease-in',
+    pauseOnHover: false, 
+    pauseOnFocus: false,
   };
 
   return (
