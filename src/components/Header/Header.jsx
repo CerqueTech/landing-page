@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import './Header.css';
 const Header = () => {
   const [isSticky, setSticky] = useState(false);
+  const hola = () =>{
+    console.log("hola");
+  }
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -109,7 +112,7 @@ const Header = () => {
                  </a>
                 </li>
               </ul>
-              <div className="offcanvas-toggle d-lg-none">
+              <div className="offcanvas-toggle d-lg-none" onClick={hola}>
                 <a className="bar-icon is-white" href="">
                   <span></span>
                   <span>

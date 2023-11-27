@@ -11,13 +11,15 @@ import ReviewSection from "../components/Review/ReviewSection.jsx";
 import StepSection from "../components/Step/StepSection.astro";
 import TeamSection from "../components/Team/TeamSection.astro";
 import Layout from "../layouts/Layout.astro";
-
-
+import Preloader from "../components/Preloader/Preloader";
+import Offcanvas from "../components/Offcanvas/Offcanvas";
 ---
 
 <Layout title="Cerquetech Solutions">
   <body class="bg_light_3">
+    <Preloader client:only />
     <!-- Offcanvas area start -->
+    <!-- 
     <div class="fix">
       <div class="offcanvas__info">
         <div class="offcanvas__wrapper">
@@ -91,16 +93,10 @@ import Layout from "../layouts/Layout.astro";
     </div>
     <div class="offcanvas__overlay"></div>
     <div class="offcanvas__overlay-white"></div>
-
+  -->
+    <Offcanvas client:visible/>
     <div class="page_wrapper">
-      <!--
-      <div class="backtotop position-fixed text-center">
-        <a href="#" class="scroll">
-          <i class="far fa-arrow-up"></i>
-        </a>
-      </div>
-       -->
-      <BackToTop client:only/>
+      <BackToTop client:only />
       <Header transition:persist client:only />
       <main class="page_content">
         <section class="hero_banner_section style_3 bg_primary">
@@ -149,8 +145,11 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .hero_banner_section {
-    width: 100vw !important; 
+    width: 100vw !important;
     height: 100vh !important;
   }
+  .page_wrapper {
+    overflow: hidden;
+    position: relative;
+  }
 </style>
-../components/BackTotop.jsx../components/Scroll/BackTotop.jsx../components/Scroll/BackTotop.jsx
