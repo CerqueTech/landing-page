@@ -1,45 +1,54 @@
-import React, { useState } from "react";
-
-const Offcanvas = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-    console.log("hola");
+import './Offcanvas.css';
+const Offcanvas = (props) => {
+  const handleCLick = () => {
+    props.updateOpen();
   };
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
   return (
-    <div className={`fix ${isOpen ? "info-open" : ""}`}>
-      <div className="offcanvas__info">
-        <div className="offcanvas__wrapper">
-          <div className="offcanvas__content">
-            <div className="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
-              <div className="offcanvas__logo">
-                <a href="index.html">
-                  <img
-                    src="assets/images/logo/site_logo_white.svg"
-                    alt="logo not found"
-                  />
-                </a>
-              </div>
-              <div className="offcanvas__close" onClick={handleClose}>
-                <svg
-                  className="menu-close-btn"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="33.666"
-                  height="33.666"
-                  viewBox="0 0 33.666 33.666"
-                >
-                  <path d="m1.414 1.414 30.83763383 30.83763383"></path>
-                  <path d="M1.414 32.252 32.25163383 1.41436617"></path>
-                </svg>
+    <>
+      <div className="fix">
+        <div
+          className={
+            props.open ? "offcanvas__info info-open" : "offcanvas__info"
+          }
+        >
+          <div className="offcanvas__wrapper">
+            <div className="offcanvas__content">
+              <div className="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
+                <div className="offcanvas__logo">
+                  <a href="index.html">
+                    <img
+                      src="assets/images/logo/site_logo_white.svg"
+                      alt="logo not found"
+                    />
+                  </a>
+                </div>
+
+                <div className="offcanvas__close" onClick={handleCLick}>
+                  <svg
+                    className="menu-close-btn"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="33.666"
+                    height="33.666"
+                    viewBox="0 0 33.666 33.666"
+                  >
+                    <path d="m1.414 1.414 30.83763383 30.83763383"></path>
+                    <path d="M1.414 32.252 32.25163383 1.41436617"></path>
+                  </svg>
+                </div>
               </div>
             </div>
-            <div className="mobile-menu fix mb-4"></div>
+
+            <div className="mobile-menu fix mb-4">
+              <div className="mobile-menu fix mb-4 mean-container">
+                <nav className="mean-nav">
+                  <ul className="ul-mean ">
+                    <li className="has-dropdown"><a href="index.html">Home</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
+                    <li className="has-dropdown"><a href="services.html">Services</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
+                    <li className="has-dropdown"><a href="contact.html">Contact</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
             <div className="offcanvas__contact text-center">
               <h4 className="offcanvas__title">Contact Info</h4>
               <div className="offcanvas__contact-text mb-2">
@@ -88,13 +97,13 @@ const Offcanvas = () => {
           </div>
         </div>
       </div>
-      {isOpen && (
-        <div>
-          <div className="offcanvas__overlay" onClick={handleToggle}></div>
-          <div className="offcanvas__overlay-white"></div>
-        </div>
-      )}
-    </div>
+      <div
+        className={
+          props.open ? "offcanvas__overlay overlay-open" : "offcanvas__overlay"
+        }
+      ></div>
+      <div className="offcanvas__overlay-white"></div>
+    </>
   );
 };
 

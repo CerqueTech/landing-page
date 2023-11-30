@@ -15,31 +15,9 @@
 		$('#preloader').delay(500).fadeOut(500);
 	});
   // Preloader - End
-  // --------------------------------------------------
-
-  // carousel - Start
-  // --------------------------------------------------
-	var bd_rtl = localStorage.getItem('bd_dir');
-  let rtl_setting = bd_rtl == 'rtl' ? true : false;
-  // carousel - End
-  // --------------------------------------------------
-
-  // OffCanvas - Start
-  // --------------------------------------------------
-  $(".offcanvas__close,.offcanvas__overlay").on("click", function () {
-    $(".offcanvas__info").removeClass("info-open");
-    $(".offcanvas__overlay").removeClass("overlay-open");
-  });
-  $(".offcanvas-toggle").on("click", function () {
-    $(".offcanvas__info").addClass("info-open");
-    $(".offcanvas__overlay").addClass("overlay-open");
-  });
-  // OffCanvas - End
-  // --------------------------------------------------
   // Select - Start
   // --------------------------------------------------
   $('select').niceSelect();
-
   // Select - End
   // --------------------------------------------------
 

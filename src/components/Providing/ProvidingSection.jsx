@@ -13,6 +13,41 @@ const ProdivingSection = () => {
     easing: 'ease-in',
     pauseOnHover: false, 
     pauseOnFocus: false,
+    responsive:[
+      {
+  			breakpoint: 1400,
+  			settings: {
+  				slidesToShow: 3,
+  			},
+  		},
+  		{
+  			breakpoint: 1200,
+  			settings: {
+  				slidesToShow: 2,
+  			},
+  		},
+  		{
+  			breakpoint: 992,
+  			settings: {
+  				slidesToShow: 2,
+  			},
+  		},
+  		{
+  			breakpoint: 768,
+  			settings: {
+  				slidesToShow: 1,
+          centerMode: true,
+          centerPadding: '80px',
+  			},
+  		},
+  		{
+  			breakpoint: 575,
+  			settings: {
+  				slidesToShow: 1,
+  			},
+  		},
+    ]
+    
   };
   return (
     <div className="container">

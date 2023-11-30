@@ -3,7 +3,7 @@ import StepItem from "./StepItem.astro";
 ---
 
 <div class="deco_item shado">
-  <img src="assets/images/shapes/shape_circle_2.svg" alt="Paradox Shape" />
+  <img src="assets/images/shapes/shape_circle_2.svg" />
 </div>
 <div class="container decoration_wrap">
   <div class="row align-items-center">
@@ -11,33 +11,20 @@ import StepItem from "./StepItem.astro";
       <div class="starter_steps_group decoration_wrap mb-4 mg-lg-0">
         <ul class="unordered_list">
           <li>
-            <StepItem
-              title="World-class Team"
-              delay=".1s"
-            />
+            <StepItem title="World-class Team" delay=".1s" />
           </li>
           <li>
-            <StepItem
-              title="Quickly Response"
-              delay=".2s"
-            />
+            <StepItem title="Quickly Response" delay=".2s" />
           </li>
           <li>
-            <StepItem
-            title="Satisfaction Guarantee"
-            delay=".3s"
-          />
+            <StepItem title="Satisfaction Guarantee" delay=".3s" />
           </li>
         </ul>
         <div class="deco_item shape_1">
-          <img
-            src="assets/images/shapes/shape_circle_dashed_1.svg"
-          />
+          <img src="assets/images/shapes/shape_circle_dashed_1.svg" />
         </div>
         <div class="deco_item shape_2">
-          <img
-            src="assets/images/shapes/shape_circle_2.svg"
-          />
+          <img src="assets/images/shapes/shape_circle_2.svg" />
         </div>
       </div>
     </div>
@@ -94,18 +81,46 @@ import StepItem from "./StepItem.astro";
       </div>
     </div>
   </div>
-  <div class="deco_item shape_3 wow fadeInUp" data-wow-delay=".1s">
+  <div class="deco_item shape_3 wow fadeInUp circle" data-wow-delay=".1s">
     <img
-      src="/assets/images/shapes/shape_circle_1.svg"
+      src="assets/images/shapes/shape_circle_1.svg"
       data-parallax='{"y" : -140, "smoothness": 10}'
-      alt="Paradox Shape Circle"
+      class="imgCicle"
     />
   </div>
-  <div class="deco_item shape_4 wow fadeInDown" data-wow-delay=".1s">
+  <div
+    class="deco_item shape_4 wow fadeInDown animated fade"
+    data-wow-delay=".1s"
+  >
     <img
-      src="/assets/images/shapes/shape_close_icon.png"
+      src="assets/images/shapes/shape_close_icon.png"
       data-parallax='{"y" : 140, "smoothness": 10}'
-      alt="Paradox Shape Close"
+      class="close"
     />
   </div>
 </div>
+
+<style>
+  .circle {
+    visibility: visible;
+    animation-delay: 0.1s;
+    animation-name: fadeInUp;
+  }
+  .close {
+    transform: translate3d(0px, 140px, 0px) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    -webkit-transform: translate3d(0px, 140px, 0px) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+  }
+  .fade {
+    visibility: visible;
+    animation-delay: 0.1s;
+    animation-name: uicoreFadeInDown, uicoreFadeIn;
+  }
+  .imgCicle {
+    transform: translate3d(0px, -41.707px, 0px) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    -webkit-transform: translate3d(0px, -41.707px, 0px) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+  }
+</style>

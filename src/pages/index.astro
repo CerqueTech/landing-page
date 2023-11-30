@@ -11,92 +11,12 @@ import ReviewSection from "../components/Review/ReviewSection.jsx";
 import StepSection from "../components/Step/StepSection.astro";
 import TeamSection from "../components/Team/TeamSection.astro";
 import Layout from "../layouts/Layout.astro";
-import Preloader from "../components/Preloader/Preloader";
-import Offcanvas from "../components/Offcanvas/Offcanvas";
 ---
 
 <Layout title="Cerquetech Solutions">
-  <body class="bg_light_3">
-    <Preloader client:only />
-    <!-- Offcanvas area start -->
-    <!-- 
-    <div class="fix">
-      <div class="offcanvas__info">
-        <div class="offcanvas__wrapper">
-          <div class="offcanvas__content">
-            <div
-              class="offcanvas__top mb-4 d-flex justify-content-between align-items-center"
-            >
-              <div class="offcanvas__logo">
-                <a href="index.html">
-                  <img
-                    src="assets/images/logo/site_logo_white.svg"
-                    alt="logo not found"
-                  />
-                </a>
-              </div>
-              <div class="offcanvas__close">
-                <svg
-                  class="menu-close-btn"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="33.666"
-                  height="33.666"
-                  viewBox="0 0 33.666 33.666"
-                  ><path d="m1.414 1.414 30.83763383 30.83763383"></path><path
-                    d="M1.414 32.252 32.25163383 1.41436617"></path></svg
-                >
-              </div>
-            </div>
-            <div class="mobile-menu fix mb-4"></div>
-            <div class="offcanvas__contact text-center">
-              <h4 class="offcanvas__title">Contact Info</h4>
-              <div class="offcanvas__contact-text mb-2">
-                <p>
-                  <a href="mailto:paradox@example" target="_blank"
-                    >paradox@example.com</a
-                  >
-                </p>
-                <span><a href="tel:725214456">725 214 456</a></span>
-              </div>
-              <div class="offcanvas__contact-text">
-                <p>
-                  <a target="_blank" href="https://www.google.com/maps"
-                    >Folkungagatan 83, Stockholm, Sweden</a
-                  >
-                </p>
-              </div>
-            </div>
-            <div class="offcanvas__devider"></div>
-            <div class="offcanvas__social">
-              <ul>
-                <li>
-                  <a target="_blank" href="https://www.facebook.com">Facebook</a
-                  >
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.instagram.com"
-                    >Instagram</a
-                  >
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.twitter.com">Twitter</a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.linkedin.com">Linkedin</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="offcanvas__overlay"></div>
-    <div class="offcanvas__overlay-white"></div>
-  -->
-    <Offcanvas client:visible/>
     <div class="page_wrapper">
-      <BackToTop client:only />
+      <BackToTop transition:persist client:only />
+      
       <Header transition:persist client:only />
       <main class="page_content">
         <section class="hero_banner_section style_3 bg_primary">
@@ -128,7 +48,6 @@ import Offcanvas from "../components/Offcanvas/Offcanvas";
         <Footer transition:persist />
       </footer>
     </div>
-  </body>
 </Layout>
 
 <style>
