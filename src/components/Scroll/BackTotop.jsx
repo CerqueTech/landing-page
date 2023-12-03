@@ -8,15 +8,12 @@ const BackToTop = () => {
   const [showButton, setShowButton] = useState(false);
 
   const scrollToTop = () => {
-    scroll.scrollToTop
-      /*{
+    scroll.scrollToTop({
       duration: 200,
-      delay:50, 
+      delay: 50,
       smooth: true,
-      offset:-10,
-    }
-    */
-      ();
+      offset: -10,
+    });
   };
 
   useEffect(() => {
@@ -28,7 +25,7 @@ const BackToTop = () => {
       }
     };
 
-      window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -36,8 +33,11 @@ const BackToTop = () => {
   }, []);
 
   return (
-    <div className={`backtotop position-fixed ${showButton ? "" : "hidden"}`} onClick={scrollToTop}>
-      <a href="#" className="scroll">
+    <div
+      className={`backtotop position-fixed ${showButton ? "" : "hidden"}`}
+      onClick={scrollToTop}
+    >
+      <a className="scroll">
         <i className="far fa-arrow-up"></i>
       </a>
     </div>

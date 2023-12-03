@@ -15,9 +15,8 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Cerquetech Solutions">
     <div class="page_wrapper">
-      <BackToTop transition:persist client:only />
-      
-      <Header transition:persist client:only />
+      <BackToTop client:load />
+      <Header transition:persist client:visible />
       <main class="page_content">
         <section class="hero_banner_section style_3 bg_primary">
           <HeroeSection />

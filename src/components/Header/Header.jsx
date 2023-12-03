@@ -25,7 +25,7 @@ const Header = () => {
     ? "site_header site_header_3 sticky"
     : "site_header site_header_3";
 
-  const colorText = isSticky ? "" : "text-white";
+  //const colorText = isSticky ? "" : "text-white";
 
   const swapElems = () => {
     setElemOpen(!elemOpen);

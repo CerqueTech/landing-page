@@ -8,7 +8,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" style="--clr-theme-1: #FFC444;" bd-theme="bd-theme-dark" dir="ltr">
   <head>
     <meta charset="utf-8"/>
     
@@ -50,8 +50,9 @@ const { title } = Astro.props;
 
     <!-- Cursor - CSS Include -->
     <link rel="stylesheet" type="text/css" href="/assets/css/cursor.css">
-
+    
     <!-- Carousel - CSS Include -->
+
     <link rel="stylesheet" type="text/css" href="/assets/css/slick.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css">
 
@@ -72,59 +73,9 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <slot />  
-
-    <script src="/assets/js/jquery.min.js" is:inline></script>
-    <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
-    <script src="/assets/js/bootstrap-dropdown-ml-hack.js"is:inline></script>
-
-    <!-- animation - jquery include -->
+  <body class="bg_light_3">
+    <slot />
     <script src="/assets/js/cursor.js" is:inline></script>
-    <script src="/assets/js/wow.min.js" is:inline></script>
-    <script src="/assets/js/tilt.min.js" is:inline></script>
-    <script src="/assets/js/parallax.min.js" is:inline></script>
-    <script src="/assets/js/parallax-scroll.js" is:inline></script>
-
-    <!-- Carousel - Jquery Include -->
-    <script src="/assets/js/slick.min.js" is:inline></script>
-
-    <!-- Video & Image Popup - Jquery Include -->
-    <script src="/assets/js/magnific-popup.min.js" is:inline></script>
-
-    <!-- Select - Jquery Include -->
-    <script src="/assets/js/nice-select.min.js" is:inline></script>
-    
-    <!-- Counter - Jquery Include -->
-    <script src="/assets/js/appear.js" is:inline></script>
-    <script src="/assets/js/odometer.min.js" is:inline></script>
-
-    <!-- Isotope Filter - Jquery Include -->
-    <script src="/assets/js/isotope.pkgd.min.js" is:inline></script>
-
-    <!-- Meanmenu Filter - Jquery Include -->
-    <script src="/assets/js/isotope.pkgd.min.js" is:inline ></script>
-    <script src="/assets/js/isotope.pkgd.min.js" is:inline></script>
-    <script src="/assets/js/meanmenu.min.js" is:inline ></script>
-
-    <!-- Masonry - Jquery Include -->
-    <script src="/assets/js/masonry.pkgd.min.js" is:inline></script>
-    <script src="/assets/js/imagesloaded.pkgd.min.js" is:inline></script>
-
-    <!-- Countdown Timer - jquery include -->
-    <script src="/assets/js/countdown.js" is:inline ></script>
-
-    <!-- Type - jquery include -->
-    <script src="/assets/js/type.js" is:inline></script>
-
-    <!-- Setting - jquery include -->
-    <script src="/assets/js/setting.js" is:inline></script>
-
-    <!-- Custom - Jquery Include -->
-    <script src="/assets/js/main.js" is:inline></script>
-
-    <!-- Slick Js -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" is:inline></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js" is:inline></script>
+    <script src="/assets/js/wow.min.js" is:inline></script>  
   </body>
 </html>
