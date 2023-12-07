@@ -1,13 +1,13 @@
 ---
-import BackToTop from "../components/Scroll/BackTotop.jsx";
 import ClientLogoSection from "../components/ClientLogoSection.astro";
-import CounterSection from "../components/CounterSection.astro";
+import CounterSection from "../components/Counter/CounterSection";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header/Header.jsx";
 import HeroeSection from "../components/HeroeSection.astro";
 import PortafolioSection from "../components/Portafolio/PortafolioSection.jsx";
 import ProvidingSection from "../components/Providing/ProvidingSection.jsx";
 import ReviewSection from "../components/Review/ReviewSection.jsx";
+import BackToTop from "../components/Scroll/BackTotop";
 import StepSection from "../components/Step/StepSection.astro";
 import TeamSection from "../components/Team/TeamSection.astro";
 import Layout from "../layouts/Layout.astro";
@@ -28,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
           <StepSection />
         </section>
         <section class="counter_section section_space_lg decoration_wrap">
-          <CounterSection />
+          <CounterSection client:only/>                
         </section>
         <div class="client_logo_section bg_warning">
           <ClientLogoSection />
@@ -48,7 +48,6 @@ import Layout from "../layouts/Layout.astro";
       </footer>
     </div>
 </Layout>
-
 <style>
   .site_footer {
     margin-top: 50px;
