@@ -2,12 +2,12 @@ import "./StyleButton.css";
 import { useState } from "react";
 const StyleButton = () => {
   const [style, setStyle] = useState(false);
-  const swap = () =>{
+  const swap = () => {
     setStyle(!style);
-  }
-  const darkMode = () =>{
-    document.body.style.backgroundColor ="#050122";
-  }
+  };
+  const darkMode = () => {
+    document.body.style.backgroundColor = "#050122";
+  };
   return (
     <div className="boton" onClick={darkMode}>
       <input type="checkbox" id="btn-switch" />

@@ -1,5 +1,5 @@
 ---
-import StepItem from "./StepItem.astro";
+import StepItem from "./StepItem.jsx";
 ---
 
 <div class="deco_item shado">
@@ -11,13 +11,13 @@ import StepItem from "./StepItem.astro";
       <div class="starter_steps_group decoration_wrap mb-4 mg-lg-0">
         <ul class="unordered_list">
           <li>
-            <StepItem title="World-class Team" delay=".1s" />
+            <StepItem client:visible title="World-class Team" delay=0.3 />
           </li>
           <li>
-            <StepItem title="Quickly Response" delay=".2s" />
+            <StepItem client:visible title="Quickly Response" delay=0.9 />
           </li>
           <li>
-            <StepItem title="Satisfaction Guarantee" delay=".3s" />
+            <StepItem client:visible title="Satisfaction Guarantee" delay=1.2 />
           </li>
         </ul>
         <div class="deco_item shape_1">
