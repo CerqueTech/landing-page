@@ -25,8 +25,6 @@ const Header = () => {
     ? "site_header site_header_3 sticky"
     : "site_header site_header_3";
 
-  //const colorText = isSticky ? "" : "text-white";
-
   const swapElems = () => {
     setElemOpen(!elemOpen);
   }
@@ -52,7 +50,7 @@ const Header = () => {
                 <nav id="mobile-menu">
                   <ul>
                     <li className="has-dropdown">
-                      <a href="index.html">Home</a>
+                      <a href="index.html">Inicio</a>
                       <ul className="submenu">
                         <li className="active">
                           <a href="index.html">Creative Agency</a>
@@ -111,7 +109,7 @@ const Header = () => {
                     </li>
 
                     <li className="has-dropdown">
-                      <a href="blog.html">Services</a>
+                      <a href="blog.html">Servicios</a>
                       <ul className="submenu">
                         <li>
                           <a href="service.html">Service Layout 1</a>
@@ -132,7 +130,7 @@ const Header = () => {
                     </li>
 
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <a href="contact.html">Contactanos</a>
                     </li>
                   </ul>
                 </nav>
@@ -158,8 +156,8 @@ const Header = () => {
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Get a Quotes</span>
-                          <span className="bd-button-text">Get a Quotes</span>
+                          <span className="bd-button-text">Cotizaciones</span>
+                          <span className="bd-button-text">Cotizaciones</span>
                         </span>
                       </span>
                     </span>

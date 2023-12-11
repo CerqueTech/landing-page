@@ -40,12 +40,12 @@ const ReviewSection = () => {
           <div className="common_carousel_1col row">
             <Slider {...settings}>
               <ReviewElement
-                title="Best Customer Support"
-                content="Customer feedback will help you understand exactly how
-             your customers experience your service or product and
-             fixing their concerns will lead to an improved client
-             experience. Customer satisfaction leads to customer
-             retention Excellent."
+                title="Mejor atención al cliente"
+                content="Los comentarios de los clientes le ayudarán a comprender exactamente cómo
+                sus clientes experimentan su servicio o producto y
+                solucionar sus inquietudes conducirá a un mejor cliente
+                experiencia. La satisfacción del cliente conduce al cliente.
+                retención Excelente."
                 icon="/assets/images/icons/icon_quote_dark.svg"
                 imgAdmin="assets/images/meta/avatar_1.png"
                 adminName="Manuel K. Peoples"
@@ -53,12 +53,12 @@ const ReviewSection = () => {
               />
 
               <ReviewElement
-                title="Best Customer Support"
-                content="Customer feedback will help you understand exactly how
-             your customers experience your service or product and
-             fixing their concerns will lead to an improved client
-             experience. Customer satisfaction leads to customer
-             retention Excellent."
+                title="Mejor atención al cliente"
+                content="Los comentarios de los clientes le ayudarán a comprender exactamente cómo
+                sus clientes experimentan su servicio o producto y
+                solucionar sus inquietudes conducirá a un mejor cliente
+                experiencia. La satisfacción del cliente conduce al cliente.
+                retención Excelente."
                 icon="/assets/images/icons/icon_quote_dark.svg"
                 imgAdmin="assets/images/meta/avatar_2.png"
                 adminName="Manuel K. Peoples"
@@ -66,12 +66,12 @@ const ReviewSection = () => {
               />
 
               <ReviewElement
-                title="Best Customer Support"
-                content="Customer feedback will help you understand exactly how
-             your customers experience your service or product and
-             fixing their concerns will lead to an improved client
-             experience. Customer satisfaction leads to customer
-             retention Excellent."
+                title="Mejor atención al cliente"
+                content="Los comentarios de los clientes le ayudarán a comprender exactamente cómo
+                sus clientes experimentan su servicio o producto y
+                solucionar sus inquietudes conducirá a un mejor cliente
+                experiencia. La satisfacción del cliente conduce al cliente.
+                retención Excelente."
                 icon="/assets/images/icons/icon_quote_dark.svg"
                 imgAdmin="assets/images/meta/avatar_3.png"
                 adminName="Manuel K. Peoples"

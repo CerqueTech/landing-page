@@ -22,32 +22,32 @@ const PortafolioSection = () => {
             <i className="fas fa-sharp fa-square-full"></i>
             <i className="fas fa-sharp fa-square-full"></i>
           </span>
-          <span>Our Work</span>
+          <span>Nuestro trabajo</span>
         </h2>
-        <h3 className="heading_title mb-0">Our Latest Work</h3>
+        <h3 className="heading_title mb-0">Nuestro último trabajo</h3>
       </div>
       <div className="portfolio_carousel">
         <div className="common_carousel_centered"></div>
         <Slider {...settings}>
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_1.jpg"
-            signTitle="Mobile App"
-            signDescription="Mobile Furniture Store App"
+            signTitle="Aplicación movil"
+            signDescription="Aplicación de tienda de muebles móvil"
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_2.jpg"
             signTitle="UI/UX"
-            signDescription=" Street Art Map of the City"
+            signDescription="Mapa de arte callejero de la ciudad"
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_3.jpg"
-            signTitle="Webpage"
-            signDescription="Crafting Effective Landing Page"
+            signTitle="Página web"
+            signDescription="Elaboración de una página de destino eficaz"
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_4.jpg"
-            signTitle="Product"
-            signDescription="3D Package Tracking Delivery"
+            signTitle="Producto"
+            signDescription="Entrega de seguimiento de paquetes 3D"
           />
         </Slider>
       </div>
