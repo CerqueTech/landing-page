@@ -16,7 +16,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Cerquetech Solutions">
     <div class="page_wrapper">
       <BackToTop client:load />
-      <Header transition:persist client:visible />
+      <Header client:visible/>
       <main class="page_content">
         <section class="hero_banner_section style_3 bg_primary">
           <HeroeSection />
@@ -28,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
           <StepSection />
         </section>
         <section class="counter_section section_space_lg decoration_wrap">
-          <CounterSection transition:persist client:only/>                
+          <CounterSection client:visible/>                
         </section>
         <div class="client_logo_section bg_warning">
           <ClientLogoSection />
