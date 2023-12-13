@@ -27,10 +27,10 @@ const Header = () => {
 
   const swapElems = () => {
     setElemOpen(!elemOpen);
-  }
+  };
   const updateOpen = () => {
     swapElems();
-  }
+  };
   return (
     <>
       <Offcanvas open={elemOpen} updateOpen={updateOpen} />
@@ -51,84 +51,11 @@ const Header = () => {
                   <ul>
                     <li className="has-dropdown">
                       <a href="index.html">Inicio</a>
-                      <ul className="submenu">
-                        <li className="active">
-                          <a href="index.html">Creative Agency</a>
-                        </li>
-                        <li>
-                          <a href="personal_portfolio.html">
-                            Personal Portfolio
-                          </a>
-                        </li>
-                        <li>
-                          <a href="startup_business.html">Startup Business</a>
-                        </li>
-                        <li>
-                          <a href="digital_agency.html">Digital Agency</a>
-                        </li>
-                        <li>
-                          <a href="business_consulting.html">
-                            Business Consulting
-                          </a>
-                        </li>
-                        <li>
-                          <a href="it_agency.html">IT Agency</a>
-                        </li>
-                        <li className="has-dropdown">
-                          <a href="">RTL Demos</a>
-                          <ul className="submenu">
-                            <li>
-                              <a href="index_rtl.html">Creative Agency RTL</a>
-                            </li>
-                            <li>
-                              <a href="personal_portfolio_rtl.html">
-                                Personal Portfolio RTL
-                              </a>
-                            </li>
-                            <li>
-                              <a href="startup_business_rtl.html">
-                                Startup Business RTL
-                              </a>
-                            </li>
-                            <li>
-                              <a href="digital_agency_rtl.html">
-                                Digital Agency RTL
-                              </a>
-                            </li>
-                            <li>
-                              <a href="business_consulting_rtl.html">
-                                Business Consulting RTL
-                              </a>
-                            </li>
-                            <li>
-                              <a href="it_agency_rtl.html">IT Agency RTL</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
                     </li>
 
                     <li className="has-dropdown">
                       <a href="blog.html">Servicios</a>
-                      <ul className="submenu">
-                        <li>
-                          <a href="">Service Layout 1</a>
-                        </li>
-                        <li>
-                          <a href="">Service Layout 2</a>
-                        </li>
-                        <li>
-                          <a href="">Service Layout 3</a>
-                        </li>
-                        <li>
-                          <a href="">Service Layout 4</a>
-                        </li>
-                        <li>
-                          <a href="">Service Details</a>
-                        </li>
-                      </ul>
                     </li>
-
                     <li>
                       <a href="contact.html">Contactanos</a>
                     </li>
@@ -149,7 +76,7 @@ const Header = () => {
             <div className="header_right">
               <ul className="header_btns_group unordered_list_end d-none d-md-inline-flex">
                 <li>
-                  <StyleButton/>
+                  <StyleButton />
                 </li>
                 <li>
                   <a href="contact.html" className="bd-btn-link outline-white">
@@ -164,7 +91,7 @@ const Header = () => {
                   </a>
                 </li>
               </ul>
-              <div className="offcanvas-toggle d-lg-none" onClick= {swapElems}>
+              <div className="offcanvas-toggle d-lg-none" onClick={swapElems}>
                 <a className="bar-icon is-white" href="">
                   <span></span>
                   <span>
