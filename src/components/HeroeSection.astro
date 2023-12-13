@@ -16,13 +16,13 @@
                 <span class="bd-button-text">Iniciar la cooperacion</span>
               </span>
             </span>
-          </span>
-        </a>
+          </a>
+        </span>
       </div>
     </div>
-    <div class="col-12 col-md-5 col-lg-6">
+    <div class="col-12 col-md-7 col-lg-6 ml-5">
       <div class="hero_banner_image_3 decoration_wrap">
-        <div class="man_image wow fadeInUp" data-wow-delay=".4s">
+        <div class="man_image">
           <img
             src="assets/images/banner/hero_banner_image_3.png"
             alt="Paradox Illustration Image"
@@ -30,11 +30,9 @@
         </div>
         <div class="deco_item shape_1">
           <img
-            class="wow zoomIn"
-            data-wow-delay=".2s"
             src="assets/images/shapes/shape_star_smooth.svg"
-            alt="Paradox Illustration Image"
-          />
+            class="deco"
+            />
         </div>
       </div>
     </div>
@@ -81,7 +79,12 @@
   }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .hero_banner_image_3 {
-      margin: 0 15%;
+      margin: 0;
+
+    }
+    .hero_banner_section.style_3 .man_image {
+      width: 425px;
+      
     }
   }
 
@@ -92,6 +95,10 @@
     .hero_banner_section.style_3 {
       padding: 100px 0 50px;
     }
+    
+.hero_banner_image_3{
+  padding-left: 155px;
+}
   }
   @media only screen and (min-width: 1200px) and (max-width: 1399px) {
     .hero_banner_section.style_3 {
@@ -210,5 +217,6 @@
     .hero_banner_section.style_3 .shape_1 {
       display: none;
     }
+    
   }
 </style>

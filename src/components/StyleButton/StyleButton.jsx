@@ -11,7 +11,7 @@ const StyleButton = () => {
   return (
     <div className="boton" onClick={darkMode}>
       <input type="checkbox" id="btn-switch" />
-      <label htmlFor="btn-switch" className="lbl-switch"></label>
+      <label htmlFor="btn-switch" className="lbl-switch" id="lbl-switch"></label>
     </div>
   );
 };

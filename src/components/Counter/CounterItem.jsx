@@ -1,37 +1,32 @@
-import React, { useEffect, useRef, useState } from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
-import 'odometer/themes/odometer-theme-default.css';
+import React, { useEffect, useRef, useState } from "react";
+import VisibilitySensor from "react-visibility-sensor";
+import "odometer/themes/odometer-theme-default.css";
 
-const CounterItem = ({ key, count, title, supText, parallaxY, smoothness }) => {
+const CounterItem = ({ count, title, supText, parallaxY, smoothness }) => {
   const odometerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [initialState, setInitialState] = useState(true);
+  const [odometerInstance, setOdometerInstance] = useState(null);
 
   useEffect(() => {
-    if (isVisible && typeof document !== 'undefined') {
-      import('odometer').then((Odometer) => {
-        const odometerInstance = new Odometer.default({
+    if (isVisible && odometerRef.current && !odometerInstance) {
+      import("odometer").then((Odometer) => {
+        const newOdometerInstance = new Odometer.default({
           el: odometerRef.current,
           value: 0,
-          format: '(,ddd)',
+          format: "(,ddd)",
           duration: 1000,
         });
 
-        if (initialState) {
-          odometerInstance.update(count);
-          setInitialState(false);
-        }
-
-        return () => {
-          odometerInstance.remove();
-        };
+        newOdometerInstance.update(count);
+        setOdometerInstance(newOdometerInstance);
       });
+    } 
+    else if (!isVisible && odometerInstance) {
+      odometerInstance.update(0);
+      setOdometerInstance(null);
     }
-  }, [count, isVisible, initialState, key]);
+  }, [count, isVisible, odometerInstance]);
 
-  useEffect(() => {
-    setInitialState(true);
-  }, [count, key]);
 
   return (
     <VisibilitySensor
@@ -40,13 +35,19 @@ const CounterItem = ({ key, count, title, supText, parallaxY, smoothness }) => {
         if (visibility) {
           setIsVisible(true);
         }
+        else{
+          setIsVisible(false);
+        }
       }}
     >
-      <div className={`col-lg-4 col-md-6 col-sm-12`} data-parallax={`{"y": ${parallaxY}, "smoothness": ${smoothness}}`}>
+      <div
+        className={`col-lg-4 col-md-6 col-sm-12`}
+        data-parallax={`{"y": ${parallaxY}, "smoothness": ${smoothness}}`}
+      >
         <div className="counter_item mb-5 mb-lg-0">
           <div className="counter_value">
             <span className="odometer" ref={odometerRef}></span>
-            <sup className='m-2'>{supText}</sup>
+            <sup className="m-2">{supText}</sup>
           </div>
           <h3 className="counter_title mb-0">{title}</h3>
         </div>

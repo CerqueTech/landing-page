@@ -1,10 +1,10 @@
 const ReviewElement = (props) => {
   return (
     <div className="carousel_item col">
-      <div className="review_item style_3">
+      <div className="review_item style_2 text-center">
         <h3 className="review_title">{props.title}</h3>
         <ul className="rating_star unordered_list">
-          {[...Array(5)].map((_, index) => (
+          {[...Array(parseInt (props.start))].map((_, index) => (
             <li key={index}>
               <i className="fas fa-star"></i>
             </li>
@@ -20,11 +20,11 @@ const ReviewElement = (props) => {
         </span>
         <div className="admin_item">
           <div className="admin_thumbnail">
-            <img src={props.imgAdmin} alt="Admin Avatar" />
+            <img src={props.img} alt="Admin Avatar" />
           </div>
           <div className="admin_info">
-            <h3 className="admin_name">{props.adminName}</h3>
-            <span className="admin_designation">{props.adminDesignation}</span>
+            <h3 className="admin_name">{props.name}</h3>
+            <span className="admin_designation">{props.designation}</span>
           </div>
         </div>
       </div>

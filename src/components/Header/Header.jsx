@@ -112,19 +112,19 @@ const Header = () => {
                       <a href="blog.html">Servicios</a>
                       <ul className="submenu">
                         <li>
-                          <a href="service.html">Service Layout 1</a>
+                          <a href="">Service Layout 1</a>
                         </li>
                         <li>
-                          <a href="service_2.html">Service Layout 2</a>
+                          <a href="">Service Layout 2</a>
                         </li>
                         <li>
-                          <a href="service_3.html">Service Layout 3</a>
+                          <a href="">Service Layout 3</a>
                         </li>
                         <li>
-                          <a href="service_4.html">Service Layout 4</a>
+                          <a href="">Service Layout 4</a>
                         </li>
                         <li>
-                          <a href="service_details.html">Service Details</a>
+                          <a href="">Service Details</a>
                         </li>
                       </ul>
                     </li>

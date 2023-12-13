@@ -1,21 +1,21 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 const StepItem = ({ delay, title }) => {
   const contentRef = useRef(null);
 
   useEffect(() => {
     const element = contentRef.current;
-
     if (element) {
-      const animation = gsap.timeline({ paused: true })
+      const animation = gsap
+        .timeline({ paused: true })
         .set(element, { opacity: 0, y: 50 })
         .to(element, {
           opacity: 1,
           y: 0,
           duration: 0.8,
           delay: parseFloat(delay) || 0,
-          ease: 'power3.out',
+          ease: "power3.out",
         });
 
       animation.play();
