@@ -3,7 +3,7 @@ const PortafolioElement = (props) => {
     <div className="carousel_item">
       <div className="portfolio_item layout_fullimage">
         <div className="item_image">
-          <a href="portfolio_details.html">
+          <a href="">
             <img
               src={props.portfolioImage}
             />
@@ -16,7 +16,7 @@ const PortafolioElement = (props) => {
             </li>
           </ul>
           <h3 className="item_title mb-0">
-            <a href="portfolio_details.html">{props.signDescription}</a>
+            <a href="">{props.signDescription}</a>
           </h3>
         </div>
       </div>
