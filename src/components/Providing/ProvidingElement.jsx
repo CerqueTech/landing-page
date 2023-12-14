@@ -14,8 +14,6 @@ const ProvidingElement = (props) => {
         </div>
         <a
           className="item_details_btn"
-          href=""
-          data-magnetic
           data-cursor="-opaque"
         >
           <span className="btn_icon">

@@ -58,65 +58,65 @@ const ProdivingSection = () => {
     <div className="container">
       <div className="section_heading style_4 text-center">
         <h2 className="heading_subtitle text-uppercase">
-          <span>Servicios</span>
+          <span>Our Service</span>
         </h2>
-        <h3 className="heading_title mb-0">Nuestras soluciones</h3>
+        <h3 className="heading_title mb-0">Providing solutions</h3>
       </div>
       <div className="common_carousel_4col row" >
         <Slider {...settings}>
           <ProvidingElement 
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
-            title="Desarrollo"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Development"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_2.svg"
             iconImage="assets/images/icons/icon_house_2.svg"
-            title="Diseño UX/UI"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="UX/UI Design"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_3.svg"
             iconImage="assets/images/icons/icon_grid_2.svg"
-            title="Aplicaciones"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Application"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_4.svg"
             iconImage="/assets/images/icons/icon_speaker.svg"
             title="Marketing"
-            description="Ayudamos a generar flujo de caja positivo"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="/assets/images/shapes/shape_color_5.svg"
             iconImage="/assets/images/icons/icon_camera_2.svg"
-            title="Edición de video"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Video Editing"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_6.svg"
             iconImage="assets/images/icons/icon_code_4.svg"
-            title="Programación"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Programming"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_7.svg"
             iconImage="assets/images/icons/icon_idea_3.svg"
-            title="Negocio"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Business"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_8.svg"
             iconImage="assets/images/icons/icon_cog.svg"
-            title="Apoyo técnico"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Tech Support"
+            description="We are help generate positive the cash flow"
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_5.svg"
             iconImage="assets/images/icons/icon_camera_2.svg"
-            title="Edición de video"
-            description="Ayudamos a generar flujo de caja positivo"
+            title="Video Editing"
+            description=" We are help generate positive the cash flow"
           />
         </Slider>
       </div>

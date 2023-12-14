@@ -10,7 +10,7 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" data-bs-theme="dark" />
+    <meta charset="UTF-8"/>
     <meta
       name="description"
       content="Cerquetech Solutions es una empresa líder en tecnología especializada en desarrollo web, soluciones de software y más."
@@ -64,7 +64,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg_light_3">
+  <body>
     <ViewTransitions transition:persist />
     <slot />
     <script src="assets/js/jquery.min.js" is:inline></script>
@@ -77,6 +77,9 @@ const { title } = Astro.props;
       a,
       small {
         text-decoration: none;
+      }
+      .service_item{
+        background-color:black;
       }
     </style>
   </body>

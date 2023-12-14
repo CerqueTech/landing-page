@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
 import "odometer/themes/odometer-theme-default.css";
 
-const CounterItem = ({ count, title, supText, parallaxY, smoothness }) => {
+const CounterItem = ({ count, title, supText}) => {
   const odometerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [odometerInstance, setOdometerInstance] = useState(null);
@@ -20,13 +20,11 @@ const CounterItem = ({ count, title, supText, parallaxY, smoothness }) => {
         newOdometerInstance.update(count);
         setOdometerInstance(newOdometerInstance);
       });
-    } 
-    else if (!isVisible && odometerInstance) {
+    } else if (!isVisible && odometerInstance) {
       odometerInstance.update(0);
       setOdometerInstance(null);
     }
   }, [count, isVisible, odometerInstance]);
-
 
   return (
     <VisibilitySensor
@@ -34,15 +32,13 @@ const CounterItem = ({ count, title, supText, parallaxY, smoothness }) => {
       onChange={(visibility) => {
         if (visibility) {
           setIsVisible(true);
-        }
-        else{
+        } else {
           setIsVisible(false);
         }
       }}
     >
       <div
         className={`col-lg-4 col-md-6 col-sm-12`}
-        data-parallax={`{"y": ${parallaxY}, "smoothness": ${smoothness}}`}
       >
         <div className="counter_item mb-5 mb-lg-0">
           <div className="counter_value">
