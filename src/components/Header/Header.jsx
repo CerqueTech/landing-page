@@ -51,7 +51,7 @@ const Header = ({menu}) => {
                       <a href="index.html">Inicio</a>
                     </li>
                     <li className="has-dropdown">
-                      <a href="services.html">Servicios</a>
+                      <a href="service.html">Servicios</a>
                     </li>
                     <li>
                       <a href="contact.html">Contactanos</a>

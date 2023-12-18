@@ -43,7 +43,7 @@ const Offcanvas = (props) => {
                 <nav className="mean-nav">
                   <ul className="ul-mean ">
                     <li className="has-dropdown"><a href="index.html">Inicio</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
-                    <li className="has-dropdown"><a href="services.html">Servicios</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
+                    <li className="has-dropdown"><a href="service.html">Servicios</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
                     <li className="has-dropdown"><a href="contact.html">Contactanos</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
                   </ul>
                 </nav>

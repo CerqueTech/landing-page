@@ -1,10 +1,13 @@
+---
+import FaqItem from "./FaqItem.astro";
+---
+
 <div class="container">
   <div class="row">
-    <div class="col col-lg-4">
+    <div class="col-lg-4 col-md-6">
       <div class="section_heading mb-lg-0">
         <h2 class="heading_title">Need to know User Common Questions</h2>
-
-        <a href="faq.html" class="bd-btn-link btn_primary">
+        <a href="" class="bd-btn-link btn_primary">
           <span class="bd-button-content-wrapper">
             <span class="bd-button-icon">
               <i class="fa-light fa-arrow-right-long"></i>
@@ -19,132 +22,52 @@
         </a>
       </div>
     </div>
-    <div class="col col-lg-8">
+    <div class="col-lg-8 col-md-6">
       <div class="accordion_wrap" id="faq_accordion">
-        <div class="accordion_item">
-          <h3 class="accordion_header m-0" id="heading_one">
-            <button
-              class="accordion_button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse_one"
-              aria-expanded="true"
-              aria-controls="collapse_one"
-            >
-              How much does a new website cost?
-            </button>
-          </h3>
-          <div
-            id="collapse_one"
-            class="accordion-collapse collapse show"
-            aria-labelledby="heading_one"
-            data-bs-parent="#faq_accordion"
-          >
-            <div class="accordion_body">
-              <p class="m-0">
-                Regular maintenance is essential for a website to stabilize its
-                flexibility and reliability. Proper maintenance would help in
-                ensuring your <a href="#!">website’s security</a>, invite new
-                visitors, boost traffic and more. Of course, we can help you out
-                with proper and professional website maintenance in addition to
-                development as it supports
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion_item">
-          <h3 class="accordion_header m-0" id="heading_two">
-            <button
-              class="accordion_button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse_two"
-              aria-expanded="false"
-              aria-controls="collapse_two"
-            >
-              Will you maintain my site for me?
-            </button>
-          </h3>
-          <div
-            id="collapse_two"
-            class="accordion-collapse collapse"
-            aria-labelledby="heading_two"
-            data-bs-parent="#faq_accordion"
-          >
-            <div class="accordion_body">
-              <p class="m-0">
-                Regular maintenance is essential for a website to stabilize its
-                flexibility and reliability. Proper maintenance would help in
-                ensuring your <a href="#!">website’s security</a>, invite new
-                visitors, boost traffic and more. Of course, we can help you out
-                with proper and professional website maintenance in addition to
-                development as it supports
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion_item">
-          <h3 class="accordion_header m-0" id="heading_three">
-            <button
-              class="accordion_button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse_three"
-              aria-expanded="false"
-              aria-controls="collapse_three"
-            >
-              Will my website be mobile-friendly?
-            </button>
-          </h3>
-          <div
-            id="collapse_three"
-            class="accordion-collapse collapse"
-            aria-labelledby="heading_three"
-            data-bs-parent="#faq_accordion"
-          >
-            <div class="accordion_body">
-              <p class="m-0">
-                Regular maintenance is essential for a website to stabilize its
-                flexibility and reliability. Proper maintenance would help in
-                ensuring your <a href="#!">website’s security</a>, invite new
-                visitors, boost traffic and more. Of course, we can help you out
-                with proper and professional website maintenance in addition to
-                development as it supports
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion_item">
-          <h3 class="accordion_header m-0" id="heading_four">
-            <button
-              class="accordion_button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse_four"
-              aria-expanded="false"
-              aria-controls="collapse_four"
-            >
-              What if I need help on my site down the road?
-            </button>
-          </h3>
-          <div
-            id="collapse_four"
-            class="accordion-collapse collapse"
-            aria-labelledby="heading_four"
-            data-bs-parent="#faq_accordion"
-          >
-            <div class="accordion_body">
-              <p class="m-0">
-                Regular maintenance is essential for a website to stabilize its
-                flexibility and reliability. Proper maintenance would help in
-                ensuring your <a href="#!">website’s security</a>, invite new
-                visitors, boost traffic and more. Of course, we can help you out
-                with proper and professional website maintenance in addition to
-                development as it supports
-              </p>
-            </div>
-          </div>
-        </div>
+        <FaqItem
+          txtHeader="How much does a new website cost?"
+          txtBody={`Regular maintenance is essential for a website to stabilize its
+          flexibility and reliability. Proper maintenance would help in
+          ensuring your website’s security, invite new
+          visitors, boost traffic and more. Of course, we can help you out
+          with proper and professional website maintenance in addition to
+          development as it supports`}
+          id="one"
+          expanded={true}
+        />
+        <FaqItem
+          txtHeader="Will you maintain my site for me?"
+          txtBody={`Regular maintenance is essential for a website to stabilize its
+            flexibility and reliability. Proper maintenance would help in
+            ensuring your website’s security, invite new
+            visitors, boost traffic and more. Of course, we can help you out
+            with proper and professional website maintenance in addition to
+            development as it supports`}
+          id="two"
+          expanded={false}
+        />
+        <FaqItem
+          txtHeader="Will my website be mobile-friendly?"
+          txtBody={`Regular maintenance is essential for a website to stabilize its
+              flexibility and reliability. Proper maintenance would help in
+              ensuring your website’s security, invite new
+              visitors, boost traffic and more. Of course, we can help you out
+              with proper and professional website maintenance in addition to
+              development as it supports`}
+          id="three"
+          expanded={false}
+        />
+        <FaqItem
+          txtHeader="What if I need help on my site down the road?"
+          txtBody={`Regular maintenance is essential for a website to stabilize its
+              flexibility and reliability. Proper maintenance would help in
+              ensuring your website’s security, invite new
+              visitors, boost traffic and more. Of course, we can help you out
+              with proper and professional website maintenance in addition to
+              development as it supports`}
+          id="four"
+          expanded={false}
+        />
       </div>
     </div>
   </div>
