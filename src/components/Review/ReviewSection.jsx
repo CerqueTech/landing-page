@@ -79,7 +79,7 @@ const ReviewSection = () => {
         <Slider ref={sliderRef} {...settings}>
           <ReviewElement
             title="Mejor atención al cliente"
-            start="5"
+            start={5}
             content="Los comentarios de los clientes lo ayudarán a comprender exactamente cómo sus clientes experimentan su servicio o producto y solucionar sus inquietudes conducirá a una mejor experiencia del cliente. La satisfacción del cliente conduce a la retención del cliente Excelente."
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_1.png"
@@ -88,7 +88,7 @@ const ReviewSection = () => {
           />
           <ReviewElement
             title="Mejor atención al cliente"
-            start="4"
+            start={4}
             content="Los comentarios de los clientes lo ayudarán a comprender exactamente cómo sus clientes experimentan su servicio o producto y solucionar sus inquietudes conducirá a una mejor experiencia del cliente. La satisfacción del cliente conduce a la retención del cliente Excelente."
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_2.png"
@@ -97,7 +97,7 @@ const ReviewSection = () => {
           />
           <ReviewElement
             title="Mejor atención al cliente"
-            start="3"
+            start={3}
             content="Los comentarios de los clientes lo ayudarán a comprender exactamente cómo sus clientes experimentan su servicio o producto y solucionar sus inquietudes conducirá a una mejor experiencia del cliente. La satisfacción del cliente conduce a la retención del cliente Excelente."
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_3.png"
@@ -129,5 +129,12 @@ const ReviewSection = () => {
     </div>
   );
 };
+
+ const arrow = () => {
+  return (
+    <>
+    </>
+  );
+ }
 
 export default ReviewSection;

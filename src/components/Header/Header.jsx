@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas";
-import "./Header.css";
 import StyleButton from "../StyleButton/StyleButton";
-const Header = () => {
+const Header = ({menu}) => {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   useEffect(() => {
@@ -41,20 +40,18 @@ const Header = () => {
               <a className="site_link" href="index.html">
                 <img
                   src="assets/images/logo/site_logo_white_2.svg"
-                  alt="Site Logo - Paradox - Agency Template"
                 />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
-              <div className="main-menu main-menu-3">
+              <div className={"main-menu "+ menu}>
                 <nav id="mobile-menu">
                   <ul>
                     <li className="has-dropdown">
                       <a href="index.html">Inicio</a>
                     </li>
-
                     <li className="has-dropdown">
-                      <a href="">Servicios</a>
+                      <a href="services.html">Servicios</a>
                     </li>
                     <li>
                       <a href="contact.html">Contactanos</a>

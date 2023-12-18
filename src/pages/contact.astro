@@ -2,138 +2,34 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header/Header.jsx";
 import Layout from "../layouts/Layout.astro";
+import BackToTop from "../components/Scroll/BackTotop.jsx";
+import ContactForm from "../components/ContactComponents/ContactForm.astro";
+import FaqSection from "../components/ContactComponents/FaqSection.astro";
+import PageBannerSection from "../components/PageBannerSection.astro";
 ---
 
 <Layout title="Contact">
   <div class="page_wrapper">
-    <Header client:visible />
+    <BackToTop client:load />
+    <Header menu="" client:visible />
     <main class="page_content">
-      <section class="contact_section section_space_lg">
-        <div class="container">
-          <div class="section_heading">
-            <h2 class="heading_subtitle text-uppercase">
-              <span class="double_icon">
-                <i class="fas fa-sharp fa-square-full"></i>
-                <i class="fas fa-sharp fa-square-full"></i>
-              </span>
-              <span>Contact Us</span>
-            </h2>
-            <h3 class="heading_title mb-0">Feel Free Contact Us</h3>
-          </div>
-
-          <div class="row">
-            <div class="col col-lg-6">
-              <div class="contact_form">
-                <form action="#">
-                  <div class="row">
-                    <div class="col col-md-6">
-                      <div class="form-group m-0">
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="firstname"
-                          placeholder="First Name"
-                        />
-                      </div>
-                    </div>
-                    <div class="col col-md-6">
-                      <div class="form-group m-0">
-                        <input
-                          class="form-control"
-                          type="text"
-                          name="lastname"
-                          placeholder="Last Name"
-                        />
-                      </div>
-                    </div>
-                    <div class="col col-md-6">
-                      <div class="form-group m-0">
-                        <input
-                          class="form-control"
-                          type="email"
-                          name="email"
-                          placeholder="Email Address"
-                        />
-                      </div>
-                    </div>
-                    <div class="col col-md-6">
-                      <div class="select_option m-0">
-                        <select>
-                          <option data-display="Subject">Select Subject</option>
-                          <option value="development"
-                            >Website Development</option
-                          >
-                          <option value="design">UX/UI Design</option>
-                          <option value="development">App Development</option>
-                          <option value="editing">Video Editing</option>
-                          <option value="programming">Programming & Tech</option
-                          >
-                          <option value="business">Business Consuting</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <textarea
-                          class="form-control"
-                          name="message"
-                          placeholder="Write your Message"></textarea>
-                      </div>
-
-                      <button type="submit" class="bd-btn-link">
-                        <span class="bd-button-content-wrapper">
-                          <span class="bd-button-icon">
-                            <i class="fa-light fa-arrow-right-long"></i>
-                          </span>
-                          <span class="pd-animation-flip">
-                            <span class="bd-btn-anim-wrapp">
-                              <span class="bd-button-text">Send Now</span>
-                              <span class="bd-button-text">Send Now</span>
-                            </span>
-                          </span>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="col col-lg-6">
-              <ul
-                class="contact_info_list style_2 ps-lg-4 unordered_list_block"
-              >
-                <li>
-                  <strong>Loaction:</strong>
-                  <span>1989 Timber Ridge Road Sacramento CA, California</span>
-                </li>
-                <li>
-                  <strong>Phone:</strong>
-                  <span>+1-202-555-0149</span>
-                </li>
-                <li>
-                  <strong>Email:</strong>
-                  <span>contact@paradox.com</span>
-                </li>
-                <li>
-                  <strong>Opening:</strong>
-                  <span>10am - 6pm, Friday Close</span>
-                </li>
-                <li>
-                  <strong>Follow Us:</strong>
-                  <ul class="social_icon unordered_list">
-                    <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#!"><i class="fab fa-youtube"></i></a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <section class="page_banner text-center">
+        <PageBannerSection
+          title="Contact Us"
+          aHref="index.html"
+          aText="Home"
+          liText="Contact"
+        />
+      </section>
+      <section class="contact_form_section">
+        <ContactForm />
+      </section>
+      <section class="faq_section section_space_lg">
+        <FaqSection />
       </section>
     </main>
     <footer class="site_footer style_4">
-      <Footer transition:persist/>
+      <Footer transition:persist />
     </footer>
   </div>
 </Layout>

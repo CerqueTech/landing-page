@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import VisibilitySensor from "react-visibility-sensor";
 import "odometer/themes/odometer-theme-default.css";
 
-const CounterItem = ({ count, title, supText}) => {
+const CounterItem = ({ count, title, supText }) => {
   const odometerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [odometerInstance, setOdometerInstance] = useState(null);
@@ -37,9 +37,7 @@ const CounterItem = ({ count, title, supText}) => {
         }
       }}
     >
-      <div
-        className={`col-lg-4 col-md-6 col-sm-12`}
-      >
+      <div className={`col-lg-4 col-md-6 col-sm-12`}>
         <div className="counter_item mb-5 mb-lg-0">
           <div className="counter_value">
             <span className="odometer" ref={odometerRef}></span>

@@ -3934,7 +3934,7 @@ textarea.form-control {
   position: relative;
   padding: 260px 0 150px;
   background: linear-gradient(0deg, rgba(83, 85, 223, 0.2) 0%, rgba(83, 85, 223, 0) 100%);
-}
+} 
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 1400px) and (max-width: 1600px) {
   .page_banner {
     padding: 220px 0 150px;

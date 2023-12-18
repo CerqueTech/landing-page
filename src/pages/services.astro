@@ -1,0 +1,31 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header/Header";
+import PageBannerSection from "../components/PageBannerSection.astro";
+import BackToTop from "../components/Scroll/BackTotop";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Services">
+  <div class="page_wrapper">
+    <BackToTop client:load />
+    <Header menu="" client:visible />
+    <main class="page_content">
+      <section class="page_banner text-center">
+        <PageBannerSection
+          title="Services"
+          aHref="index.html"
+          aText="Home"
+          liText="Services"
+        />
+      </section>
+      <h1>
+        Toodoo...
+      </h1>
+    </main>
+
+    <footer class="site_footer style_4">
+      <Footer transition:persist />
+    </footer>
+  </div>
+</Layout>

@@ -4,7 +4,7 @@ const ReviewElement = (props) => {
       <div className="review_item style_2 text-center">
         <h3 className="review_title">{props.title}</h3>
         <ul className="rating_star unordered_list">
-          {[...Array(parseInt (props.start))].map((_, index) => (
+          {[...Array(props.start)].map((_, index) => (
             <li key={index}>
               <i className="fas fa-star"></i>
             </li>

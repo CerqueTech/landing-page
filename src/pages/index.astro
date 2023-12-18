@@ -13,10 +13,10 @@ import TeamSection from "../components/Team/TeamSection.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Cerquetech Solutions"  data-bs-theme="dark">
+<Layout title="Cerquetech Solutions">
     <div class="page_wrapper">
       <BackToTop client:load />
-      <Header client:visible/>
+      <Header menu="main-menu-3" client:visible/>
       <main class="page_content">
         <section class="hero_banner_section style_3 bg_primary">
           <HeroeSection />
@@ -44,7 +44,7 @@ import Layout from "../layouts/Layout.astro";
         </section>
       </main>
       <footer class="site_footer style_4">
-        <Footer transition:persist />
+        <Footer/>
       </footer>
     </div>
 </Layout>
