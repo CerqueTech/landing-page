@@ -7594,7 +7594,7 @@ textarea.form-control {
 }
 
 .starter_steps_section {
-  background-color: #F1F1FC;
+  background-color: #FFFFFF;
   position: relative;
   overflow-y: clip;
 }
@@ -7675,7 +7675,7 @@ textarea.form-control {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #F1F1FC;
 }
 @media (max-width: 575px), only screen and (min-width: 576px) and (max-width: 767px) {
   .starter_steps_group .content_wrap {

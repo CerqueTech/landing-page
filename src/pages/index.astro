@@ -24,15 +24,15 @@ import Layout from "../layouts/Layout.astro";
          <section class="service_section_2">
           <ProvidingSection client:only="react" />
         </section>
+        <div class="client_logo_section bg_warning">
+          <ClientLogoSection />
+        </div>
         <section class="starter_steps_section section_space_lg">
           <StepSection />
         </section>
         <section class="counter_section section_space_lg decoration_wrap">
           <CounterSection client:only="react"/>                
         </section>
-        <div class="client_logo_section bg_warning">
-          <ClientLogoSection />
-        </div>
          <section class="portfolio_section section_space_lg bg_primary">
           <PortafolioSection client:only="react" />
         </section>
