@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas";
-import StyleButton from "../StyleButton/StyleButton";
-const Header = ({menu}) => {
+import StyleButton from "../StyleButton/StyleButton"
+const Header = (props) => {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   useEffect(() => {
@@ -39,12 +39,15 @@ const Header = ({menu}) => {
             <div className="site_logo">
               <a className="site_link" href="index.html">
                 <img
-                  src="assets/images/logo/site_logo_white_2.svg"
+                  src={
+                    "assets/images/logo/site_logo_" +
+                    (props.menu ==  "" ? "dark.svg" : "white_2.svg")
+                  }
                 />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
-              <div className={"main-menu "+ menu}>
+              <div className={"main-menu " + props.menu}>
                 <nav id="mobile-menu">
                   <ul>
                     <li className="has-dropdown">
@@ -76,7 +79,13 @@ const Header = ({menu}) => {
                   <StyleButton />
                 </li>
                 <li>
-                  <a href="contact.html" className="bd-btn-link outline-white">
+                  <a
+                    href="contact.html"
+                    className={
+                      "bd-btn-link outline-" +
+                      (props.menu == "" ? "dark" : "white")
+                    }
+                  >
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
@@ -89,7 +98,7 @@ const Header = ({menu}) => {
                 </li>
               </ul>
               <div className="offcanvas-toggle d-lg-none" onClick={swapElems}>
-                <a className="bar-icon is-white" href="">
+                <a className={"bar-icon"+ (props.menu === "" ? "" : " is-white")} href="">
                   <span></span>
                   <span>
                     <small></small>
@@ -105,3 +114,6 @@ const Header = ({menu}) => {
   );
 };
 export default Header;
+/*
+Revisar la clase menu-main junto a la clase bd-btn-link outline-white {posible solucion al problema de los}
+*/

@@ -1,5 +1,5 @@
 ---
-import FaqItem from "./FaqItem.astro";
+import FaqItem from "./FaqItem";
 ---
 
 <div class="container">
@@ -25,48 +25,52 @@ import FaqItem from "./FaqItem.astro";
     <div class="col-lg-8 col-md-6">
       <div class="accordion_wrap" id="faq_accordion">
         <FaqItem
+          id="one"
           txtHeader="How much does a new website cost?"
           txtBody={`Regular maintenance is essential for a website to stabilize its
           flexibility and reliability. Proper maintenance would help in
-          ensuring your website’s security, invite new
+          ensuring your website s security, invite new
           visitors, boost traffic and more. Of course, we can help you out
           with proper and professional website maintenance in addition to
           development as it supports`}
-          id="one"
           expanded={true}
+          client:visible
         />
         <FaqItem
+          id="two"
           txtHeader="Will you maintain my site for me?"
           txtBody={`Regular maintenance is essential for a website to stabilize its
             flexibility and reliability. Proper maintenance would help in
-            ensuring your website’s security, invite new
+            ensuring your website s security, invite new
             visitors, boost traffic and more. Of course, we can help you out
             with proper and professional website maintenance in addition to
             development as it supports`}
-          id="two"
           expanded={false}
+          client:visible
         />
         <FaqItem
+          id="three"
           txtHeader="Will my website be mobile-friendly?"
           txtBody={`Regular maintenance is essential for a website to stabilize its
               flexibility and reliability. Proper maintenance would help in
-              ensuring your website’s security, invite new
+              ensuring your website s security, invite new
               visitors, boost traffic and more. Of course, we can help you out
               with proper and professional website maintenance in addition to
               development as it supports`}
-          id="three"
           expanded={false}
+          client:visible
         />
         <FaqItem
+          id="four"
           txtHeader="What if I need help on my site down the road?"
           txtBody={`Regular maintenance is essential for a website to stabilize its
               flexibility and reliability. Proper maintenance would help in
-              ensuring your website’s security, invite new
+              ensuring your website s security, invite new
               visitors, boost traffic and more. Of course, we can help you out
               with proper and professional website maintenance in addition to
               development as it supports`}
-          id="four"
           expanded={false}
+          client:visible
         />
       </div>
     </div>
