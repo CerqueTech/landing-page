@@ -1,58 +1,57 @@
-import Slider from "react-slick";
-import ProvidingElement from "./ProvidingElement";
+import Slider from 'react-slick';
+import ProvidingElement from './ProvidingElement';
 
-export default function ProdivingSection () {
+export default function ProdivingSection() {
   const settings = {
     dots: true,
     infinite: true,
     speed: 2500,
     slidesToShow: 4,
     slidesToScroll: 3,
-    autoplay:true,
+    autoplay: true,
     autoplaySpeed: 10000,
     easing: 'ease-in',
-    pauseOnHover: false, 
+    pauseOnHover: false,
     pauseOnFocus: false,
-    responsive:[
+    responsive: [
       {
-  			breakpoint: 1400,
-  			settings: {
-  				slidesToShow: 3,
-          slidesToScroll: 1, 
-  			},
-  		},
-  		{
-  			breakpoint: 1200,
-  			settings: {
-  				slidesToShow: 2,
-          slidesToScroll: 1, 
-  			},
-  		},
-  		{
-  			breakpoint: 992,
-  			settings: {
-  				slidesToShow: 2,
-          slidesToScroll: 1, 
-  			},
-  		},
-  		{
-  			breakpoint: 768,
-  			settings: {
-  				slidesToShow: 1,
-          slidesToScroll: 1, 
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '80px',
-  			},
-  		},
-  		{
-  			breakpoint: 575,
-  			settings: {
-  				slidesToShow: 1,
-          slidesToScroll: 1, 
-  			},
-  		},
+          centerPadding: '80px'
+        }
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
     ]
-    
   };
   return (
     <div className="container">
@@ -62,9 +61,9 @@ export default function ProdivingSection () {
         </h2>
         <h3 className="heading_title mb-0">Providing solutions</h3>
       </div>
-      <div className="common_carousel_4col row" >
+      <div className="common_carousel_4col row">
         <Slider {...settings}>
-          <ProvidingElement 
+          <ProvidingElement
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
             title="Development"
@@ -122,4 +121,4 @@ export default function ProdivingSection () {
       </div>
     </div>
   );
-};
+}

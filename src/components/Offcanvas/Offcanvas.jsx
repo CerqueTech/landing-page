@@ -1,5 +1,5 @@
 import './Offcanvas.css';
- export default function Offcanvas(props) {
+export default function Offcanvas(props) {
   const handleCLick = () => {
     props.updateOpen();
   };
@@ -8,7 +8,7 @@ import './Offcanvas.css';
       <div className="fix">
         <div
           className={
-            props.open ? "offcanvas__info info-open" : "offcanvas__info"
+            props.open ? 'offcanvas__info info-open' : 'offcanvas__info'
           }
         >
           <div className="offcanvas__wrapper">
@@ -42,9 +42,24 @@ import './Offcanvas.css';
               <div className="mobile-menu fix mb-4 mean-container">
                 <nav className="mean-nav">
                   <ul className="ul-mean ">
-                    <li className="has-dropdown"><a href="index.html">Inicio</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
-                    <li className="has-dropdown"><a href="service.html">Servicios</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
-                    <li className="has-dropdown"><a href="contact.html">Contactanos</a><a className="mean-expand" href="#"><i className="fal fa-plus"></i></a></li>
+                    <li className="has-dropdown">
+                      <a href="index.html">Inicio</a>
+                      <a className="mean-expand" href="#">
+                        <i className="fal fa-plus"></i>
+                      </a>
+                    </li>
+                    <li className="has-dropdown">
+                      <a href="service.html">Servicios</a>
+                      <a className="mean-expand" href="#">
+                        <i className="fal fa-plus"></i>
+                      </a>
+                    </li>
+                    <li className="has-dropdown">
+                      <a href="contact.html">Contactanos</a>
+                      <a className="mean-expand" href="#">
+                        <i className="fal fa-plus"></i>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
               </div>
@@ -99,11 +114,10 @@ import './Offcanvas.css';
       </div>
       <div
         className={
-          props.open ? "offcanvas__overlay overlay-open" : "offcanvas__overlay"
+          props.open ? 'offcanvas__overlay overlay-open' : 'offcanvas__overlay'
         }
       ></div>
       <div className="offcanvas__overlay-white"></div>
     </>
   );
-};
-
+}

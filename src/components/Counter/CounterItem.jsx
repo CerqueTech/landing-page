@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import VisibilitySensor from "react-visibility-sensor";
-import "odometer/themes/odometer-theme-default.css";
+import React, { useEffect, useRef, useState } from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
+import 'odometer/themes/odometer-theme-default.css';
 
 const CounterItem = ({ count, title, supText }) => {
   const odometerRef = useRef(null);
@@ -9,12 +9,12 @@ const CounterItem = ({ count, title, supText }) => {
 
   useEffect(() => {
     if (isVisible && odometerRef.current && !odometerInstance) {
-      import("odometer").then((Odometer) => {
+      import('odometer').then((Odometer) => {
         const newOdometerInstance = new Odometer.default({
           el: odometerRef.current,
           value: 0,
-          format: "(,ddd)",
-          duration: 1000,
+          format: '(,ddd)',
+          duration: 1000
         });
 
         newOdometerInstance.update(count);

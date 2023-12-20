@@ -6,14 +6,14 @@
 // * Author         :  BDevs (https://themeforest.net/user/bdevs)
 // ==================================================
 
-(function($) {
-  "use strict";
+(function ($) {
+  'use strict';
 
   // Preloader - Start
   // --------------------------------------------------
-	$(window).on('load', function (event) {
-		$('#preloader').delay(500).fadeOut(500);
-	});
+  $(window).on('load', function (event) {
+    $('#preloader').delay(500).fadeOut(500);
+  });
   // Preloader - End
   // Select - Start
   // --------------------------------------------------
@@ -23,27 +23,30 @@
 
   // 	Data Css - Start
   // --------------------------------------------------
-	$("[data-background").each(function () {
-		$(this).css("background-image", "url( " + $(this).attr("data-background") + "  )");
-	});
+  $('[data-background').each(function () {
+    $(this).css(
+      'background-image',
+      'url( ' + $(this).attr('data-background') + '  )'
+    );
+  });
 
-	$("[data-width]").each(function () {
-		$(this).css("width", $(this).attr("data-width"));
-	});
+  $('[data-width]').each(function () {
+    $(this).css('width', $(this).attr('data-width'));
+  });
 
-	$("[data-bg-color]").each(function () {
-		$(this).css("background-color", $(this).attr("data-bg-color"));
-	});
+  $('[data-bg-color]').each(function () {
+    $(this).css('background-color', $(this).attr('data-bg-color'));
+  });
   // 	Data Css - End
   // --------------------------------------------------
 
   // 	Mobile Menu - Start
   // --------------------------------------------------
-	$('#mobile-menu').meanmenu({
-		meanMenuContainer: '.mobile-menu',
-		meanScreenWidth: "991",
-		meanExpand: ['<i class="fal fa-plus"></i>'],
-	});
+  $('#mobile-menu').meanmenu({
+    meanMenuContainer: '.mobile-menu',
+    meanScreenWidth: '991',
+    meanExpand: ['<i class="fal fa-plus"></i>']
+  });
   // Mobile Menu - End
   // --------------------------------------------------
 
@@ -53,7 +56,7 @@
     animateClass: 'animated',
     offset: 100,
     mobile: true,
-    duration: 1000,
+    duration: 1000
   });
   wow.init();
   // wow js - end
@@ -62,36 +65,41 @@
   // Tilt - Start
   // --------------------------------------------------
   $('.tilt').tilt({
-    maxTilt:        12,
-    perspective:    1000,
-    scale:          1,
-    speed:          1000,
-    glare:          false,
-    maxGlare:       1
+    maxTilt: 12,
+    perspective: 1000,
+    scale: 1,
+    speed: 1000,
+    glare: false,
+    maxGlare: 1
   });
-  
+
   // Tilt - End
   // --------------------------------------------------
   // Mouse Move Parallax - Start
   // --------------------------------------------------
   $('.mouse_move').parallax({
     scalarX: 10.0,
-    scalarY: 10.0,
+    scalarY: 10.0
   });
   // Mouse Move Parallax - End
   // --------------------------------------------------
 
   // Multy Countdown - Start
   // --------------------------------------------------
-  $('.countdown_timer').each(function(){
-    $('[data-countdown]').each(function() {
-      var $this = $(this), finalDate = $(this).data('countdown');
-      $this.countdown(finalDate, function(event) {
-        var $this = $(this).html(event.strftime(''
-          + '<li class="days_count"><div><strong>%D</strong><span>Days</span></div></li>'
-          + '<li class="hours_count"><div><strong>%H</strong><span>Hours</span></div></li>'
-          + '<li class="minutes_count"><div><strong>%M</strong><span>Mins</span></div></li>'
-          + '<li class="seconds_count"><div><strong>%S</strong><span>Secs</span></div></li>'));
+  $('.countdown_timer').each(function () {
+    $('[data-countdown]').each(function () {
+      var $this = $(this),
+        finalDate = $(this).data('countdown');
+      $this.countdown(finalDate, function (event) {
+        var $this = $(this).html(
+          event.strftime(
+            '' +
+              '<li class="days_count"><div><strong>%D</strong><span>Days</span></div></li>' +
+              '<li class="hours_count"><div><strong>%H</strong><span>Hours</span></div></li>' +
+              '<li class="minutes_count"><div><strong>%M</strong><span>Mins</span></div></li>' +
+              '<li class="seconds_count"><div><strong>%S</strong><span>Secs</span></div></li>'
+          )
+        );
       });
     });
   });
@@ -120,11 +128,10 @@
     zoom: {
       enabled: true,
       duration: 300,
-      opener: function(element) {
+      opener: function (element) {
         return element.find('img');
       }
     }
-    
   });
   // Videos & Images popup - End
   // --------------------------------------------------
@@ -132,9 +139,9 @@
   // Odometer Counter - Start
   // --------------------------------------------------
   jQuery('.odometer').appear(function (e) {
-    var odo = jQuery(".odometer");
+    var odo = jQuery('.odometer');
     odo.each(function () {
-      var countNumber = jQuery(this).attr("data-count");
+      var countNumber = jQuery(this).attr('data-count');
       jQuery(this).html(countNumber);
     });
   });
@@ -144,68 +151,67 @@
   // Isotope Filter - Start
   // --------------------------------------------------
   // init Isotope
-	$(".portfolio-active").imagesLoaded(function () {
-		var $grid = $(".grid").isotope({
-			itemSelector: ".grid-item",
-			itemSelector: ".element-item",
-			percentPosition: true,
-			masonry: {
-				// use outer width of grid-sizer for columnWidth
-				columnWidth: 1,
-			},
-		});
+  $('.portfolio-active').imagesLoaded(function () {
+    var $grid = $('.grid').isotope({
+      itemSelector: '.grid-item',
+      itemSelector: '.element-item',
+      percentPosition: true,
+      masonry: {
+        // use outer width of grid-sizer for columnWidth
+        columnWidth: 1
+      }
+    });
 
-		// filter items on button click
-		$(".portfolio-active").on("click", "button", function () {
-			var filterValue = $(this).attr("data-filter");
-			$grid.isotope({ filter: filterValue });
-		});
+    // filter items on button click
+    $('.portfolio-active').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
 
-		//for menu active class
-		$(".masonary-menu button").on("click", function (event) {
-			$(this).siblings(".active").removeClass("active");
-			$(this).addClass("active");
-			event.preventDefault();
-		});
-	});
+    //for menu active class
+    $('.masonary-menu button').on('click', function (event) {
+      $(this).siblings('.active').removeClass('active');
+      $(this).addClass('active');
+      event.preventDefault();
+    });
+  });
 
   // Isotope Filter - End
   // --------------------------------------------------
 
   // masoney grid layout - Start
   // --------------------------------------------------
-  $(".grid").imagesLoaded(function () {
-		var $grid = $(".grid").isotope({
-			// options
-			layoutMode: "fitRows",
-		});
-		// filter items on button click
-		$(".portfolio_button").on("click", "button", function () {
-			var filterValue = $(this).attr("data-filter");
-			$grid.isotope({ filter: filterValue });
-		});
+  $('.grid').imagesLoaded(function () {
+    var $grid = $('.grid').isotope({
+      // options
+      layoutMode: 'fitRows'
+    });
+    // filter items on button click
+    $('.portfolio_button').on('click', 'button', function () {
+      var filterValue = $(this).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
 
-		//for menu active class
-		$(".portfolio_button button").on("click", function (event) {
-			$(this).siblings(".active").removeClass("active");
-			$(this).addClass("active");
-			event.preventDefault();
-		});
-	});
+    //for menu active class
+    $('.portfolio_button button').on('click', function (event) {
+      $(this).siblings('.active').removeClass('active');
+      $(this).addClass('active');
+      event.preventDefault();
+    });
+  });
 
   // masoney grid layout - Start
   // --------------------------------------------------
-  var $masoney = $('.masoney-grid').imagesLoaded( function() {
+  var $masoney = $('.masoney-grid').imagesLoaded(function () {
     $masoney.masonry({
       itemSelector: '.grid-item',
       percentPosition: true,
       columnWidth: '.grid-sizer'
-    }); 
+    });
   });
   // masoney grid layout - End
 
   // --------------------------------------------------
-  
 
   // Common Carousels - Start
   // --------------------------------------------------
@@ -218,8 +224,8 @@
     slidesToShow: 1,
     pauseOnHover: true,
     autoplaySpeed: 5000,
-    prevArrow: ".cc1c_left_arrow",
-    nextArrow: ".cc1c_right_arrow"
+    prevArrow: '.cc1c_left_arrow',
+    nextArrow: '.cc1c_right_arrow'
   });
 
   $('.common_carousel_2col').slick({
@@ -233,23 +239,23 @@
     pauseOnHover: true,
     autoplaySpeed: 5000,
     rtl: rtl_setting,
-    prevArrow: ".cc2c_left_arrow",
-    nextArrow: ".cc2c_right_arrow",
+    prevArrow: '.cc2c_left_arrow',
+    nextArrow: '.cc2c_right_arrow',
     responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
       }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    }
     ]
   });
 
@@ -264,33 +270,33 @@
     pauseOnHover: true,
     autoplaySpeed: 5000,
     rtl: rtl_setting,
-    prevArrow: ".cc3c_left_arrow",
-    nextArrow: ".cc3c_right_arrow",
+    prevArrow: '.cc3c_left_arrow',
+    nextArrow: '.cc3c_right_arrow',
     responsive: [
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 2,
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2
+        }
       },
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2
+        }
       },
-    },
-    {
-      breakpoint: 678,
-      settings: {
-        slidesToShow: 1,
+      {
+        breakpoint: 678,
+        settings: {
+          slidesToShow: 1
+        }
       },
-    },
-    {
-      breakpoint: 575,
-      settings: {
-        slidesToShow: 1,
-      },
-    },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1
+        }
+      }
     ]
   });
 
@@ -305,23 +311,23 @@
     pauseOnHover: true,
     autoplaySpeed: 5000,
     rtl: rtl_setting,
-    prevArrow: ".cc4c_left_arrow",
-    nextArrow: ".cc4c_right_arrow",
+    prevArrow: '.cc4c_left_arrow',
+    nextArrow: '.cc4c_right_arrow',
     responsive: [
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
       }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    }
     ]
   });
 
@@ -336,34 +342,34 @@
     pauseOnHover: true,
     autoplaySpeed: 5000,
     rtl: rtl_setting,
-    prevArrow: ".ccc_left_arrow",
-    nextArrow: ".ccc_right_arrow",
-  	responsive: [
-  		{
-  			breakpoint: 1200,
-  			settings: {
-  				slidesToShow: 2,
-  			},
-  		},
-  		{
-  			breakpoint: 992,
-  			settings: {
-  				slidesToShow: 2,
-  			},
-  		},
-  		{
-  			breakpoint: 767,
-  			settings: {
-  				slidesToShow: 1,
-  			},
-  		},
-  		{
-  			breakpoint: 575,
-  			settings: {
-  				slidesToShow: 1,
-  			},
-  		},
-  	]
+    prevArrow: '.ccc_left_arrow',
+    nextArrow: '.ccc_right_arrow',
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   });
   $('.common_carousel_centered_2').slick({
     dots: true,
@@ -376,41 +382,41 @@
     pauseOnHover: true,
     autoplaySpeed: 5000,
     rtl: rtl_setting,
-    prevArrow: ".ccc2_left_arrow",
-    nextArrow: ".ccc2_right_arrow",
+    prevArrow: '.ccc2_left_arrow',
+    nextArrow: '.ccc2_right_arrow',
     responsive: [
-  		{
-  			breakpoint: 1400,
-  			settings: {
-  				slidesToShow: 3,
-  			},
-  		},
-  		{
-  			breakpoint: 1200,
-  			settings: {
-  				slidesToShow: 2,
-  			},
-  		},
-  		{
-  			breakpoint: 992,
-  			settings: {
-  				slidesToShow: 2,
-  			},
-  		},
-  		{
-  			breakpoint: 768,
-  			settings: {
-  				slidesToShow: 1,
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
           centerMode: true,
-          centerPadding: '80px',
-  			},
-  		},
-  		{
-  			breakpoint: 575,
-  			settings: {
-  				slidesToShow: 1,
-  			},
-  		},
+          centerPadding: '80px'
+        }
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1
+        }
+      }
     ]
   });
   // Common Carousels - End
@@ -430,40 +436,38 @@
     pauseOnHover: true,
     rtl: rtl_setting,
     responsive: [
-    {
-      breakpoint: 1600,
-      settings: {
-        slidesToShow: 4,
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 1400,
+        settings: {
+          slidesToShow: 3.5
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2.5
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1
+        }
       }
-    },
-    {
-      breakpoint: 1400,
-      settings: {
-        slidesToShow: 3.5,
-      }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2.5,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-      }
-    },
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-      }
-    }
     ]
   });
   // History Carousel - End
   // --------------------------------------------------
-
 });
-

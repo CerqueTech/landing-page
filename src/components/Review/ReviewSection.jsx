@@ -1,8 +1,8 @@
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import ReviewElement from "./ReviewElement";
+import React, { useRef } from 'react';
+import Slider from 'react-slick';
+import ReviewElement from './ReviewElement';
 
-export default function ReviewSection  (){
+export default function ReviewSection() {
   const settings = {
     infinite: true,
     speed: 1500,
@@ -11,7 +11,7 @@ export default function ReviewSection  (){
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
-    easing: "ease-in",
+    easing: 'ease-in',
     pauseOnHover: false,
     pauseOnFocus: false,
     responsive: [
@@ -19,38 +19,38 @@ export default function ReviewSection  (){
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 575,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const sliderRef = useRef(null);
@@ -128,12 +128,8 @@ export default function ReviewSection  (){
       </div>
     </div>
   );
+}
+
+const arrow = () => {
+  return <></>;
 };
-
- const arrow = () => {
-  return (
-    <>
-    </>
-  );
- }
-

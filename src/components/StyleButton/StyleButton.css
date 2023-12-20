@@ -1,32 +1,32 @@
-.boton{
-    margin:10px;
+.boton {
+  margin: 10px;
 }
-.lbl-switch{
-    display: inline-block;
-    width: 55px;
-    height: 30px;
-    background-color: #aaa;
-    border-radius: 100px;
-    position: relative;
-    cursor: pointer;
+.lbl-switch {
+  display: inline-block;
+  width: 55px;
+  height: 30px;
+  background-color: #aaa;
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
 }
-#btn-switch:checked~ .lbl-switch{
-    background-color: #61a0ff;
+#btn-switch:checked ~ .lbl-switch {
+  background-color: #61a0ff;
 }
-.lbl-switch::after{
-    position:absolute;
-    content: '';
-    width: 22px;
-    height: 22px;
-    background-color: #fff;
-    border-radius: 100px;
-    top:4px;
-    left: 5px;
-    transition: 0.3s;
+.lbl-switch::after {
+  position: absolute;
+  content: '';
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border-radius: 100px;
+  top: 4px;
+  left: 5px;
+  transition: 0.3s;
 }
-#btn-switch:checked~ .lbl-switch::after{
-    left: 28px;
+#btn-switch:checked ~ .lbl-switch::after {
+  left: 28px;
 }
-#btn-switch{
-    display: none;
+#btn-switch {
+  display: none;
 }

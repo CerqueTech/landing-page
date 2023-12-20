@@ -1,12 +1,10 @@
-export default function PortafolioElement  (props)  {
+export default function PortafolioElement(props) {
   return (
     <div className="carousel_item">
       <div className="portfolio_item layout_fullimage">
         <div className="item_image">
           <a href="">
-            <img
-              src={props.portfolioImage}
-            />
+            <img src={props.portfolioImage} />
           </a>
         </div>
         <div className="item_content">
@@ -22,5 +20,4 @@ export default function PortafolioElement  (props)  {
       </div>
     </div>
   );
-};
-
+}

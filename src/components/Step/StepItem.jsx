@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
-export default function StepItem  ({ delay, title })  {
+export default function StepItem({ delay, title }) {
   const contentRef = useRef(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function StepItem  ({ delay, title })  {
           y: 0,
           duration: 0.8,
           delay: parseFloat(delay) || 0,
-          ease: "power3.out",
+          ease: 'power3.out'
         });
 
       animation.play();
@@ -30,5 +30,4 @@ export default function StepItem  ({ delay, title })  {
       <h3 className="item_title m-0">{title}</h3>
     </div>
   );
-};
-
+}

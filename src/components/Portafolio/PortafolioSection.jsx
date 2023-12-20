@@ -1,17 +1,17 @@
-import Slider from "react-slick";
-import PortafolioElement from "./PortafolioElement";
-export default function PortafolioSection ()  {
+import Slider from 'react-slick';
+import PortafolioElement from './PortafolioElement';
+export default function PortafolioSection() {
   const settings = {
     dots: true,
     infinite: true,
     speed: 2000,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay:true,
+    autoplay: true,
     autoplaySpeed: 10000,
     easing: 'ease-in',
-    pauseOnHover: false, 
-    pauseOnFocus: false,
+    pauseOnHover: false,
+    pauseOnFocus: false
   };
 
   return (
@@ -53,5 +53,4 @@ export default function PortafolioSection ()  {
       </div>
     </div>
   );
-};
-
+}

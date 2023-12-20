@@ -1,4 +1,4 @@
-export default function ProvidingElement  (props) {
+export default function ProvidingElement(props) {
   return (
     <div className="col">
       <div className="service_item style_4 bg-white">
@@ -12,10 +12,7 @@ export default function ProvidingElement  (props) {
           <h3 className="item_title">{props.title}</h3>
           <p className="item_description">{props.description}</p>
         </div>
-        <a
-          className="item_details_btn"
-          data-cursor="-opaque"
-        >
+        <a className="item_details_btn" data-cursor="-opaque">
           <span className="btn_icon">
             <img
               src="assets/images/icons/icon_arrow_down_right_dark_2.svg"
@@ -26,4 +23,4 @@ export default function ProvidingElement  (props) {
       </div>
     </div>
   );
-};
+}

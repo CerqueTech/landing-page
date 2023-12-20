@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
-export default function Preloader () {
+export default function Preloader() {
   useEffect(() => {
-    const preloader = document.getElementById("preloader");
+    const preloader = document.getElementById('preloader');
     if (preloader) {
       setTimeout(() => {
-        preloader.style.transition = "opacity 0.5s ease";
-        preloader.style.opacity = "0";
+        preloader.style.transition = 'opacity 0.5s ease';
+        preloader.style.opacity = '0';
         setTimeout(() => {
-          preloader.style.display = "none";
+          preloader.style.display = 'none';
         }, 500);
       }, 500);
     }
@@ -23,4 +23,4 @@ export default function Preloader () {
       </div>
     </div>
   );
-};
+}

@@ -1,4 +1,4 @@
-export default function ReviewElement  (props)  {
+export default function ReviewElement(props) {
   return (
     <div className="carousel_item col">
       <div className="review_item style_2 text-center">
@@ -10,13 +10,9 @@ export default function ReviewElement  (props)  {
             </li>
           ))}
         </ul>
-        <p className="review_content">
-          {props.content}
-        </p>
+        <p className="review_content">{props.content}</p>
         <span className="quote_icon">
-          <img
-            src={props.icon}
-          />
+          <img src={props.icon} />
         </span>
         <div className="admin_item">
           <div className="admin_thumbnail">
@@ -30,4 +26,4 @@ export default function ReviewElement  (props)  {
       </div>
     </div>
   );
-};
+}

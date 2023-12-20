@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import Offcanvas from "../Offcanvas/Offcanvas";
-import StyleButton from "../StyleButton/StyleButton";
- export default function Header(props) {
+import { useState, useEffect } from 'react';
+import Offcanvas from '../Offcanvas/Offcanvas';
+import StyleButton from '../StyleButton/StyleButton';
+export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   useEffect(() => {
@@ -13,16 +13,16 @@ import StyleButton from "../StyleButton/StyleButton";
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const headerClass = isSticky
-    ? "site_header site_header_3 sticky"
-    : "site_header site_header_3";
+    ? 'site_header site_header_3 sticky'
+    : 'site_header site_header_3';
 
   const swapElems = () => {
     setElemOpen(!elemOpen);
@@ -40,14 +40,14 @@ import StyleButton from "../StyleButton/StyleButton";
               <a className="site_link" href="index.html">
                 <img
                   src={
-                    "assets/images/logo/site_logo_" +
-                    (props.menu == "" ? "dark.svg" : "white_2.svg")
+                    'assets/images/logo/site_logo_' +
+                    (props.menu == '' ? 'dark.svg' : 'white_2.svg')
                   }
                 />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
-              <div className={"main-menu " + props.menu}>
+              <div className={'main-menu ' + props.menu}>
                 <nav id="mobile-menu">
                   <ul>
                     <li className="has-dropdown">
@@ -82,8 +82,8 @@ import StyleButton from "../StyleButton/StyleButton";
                   <a
                     href="contact.html"
                     className={
-                      "bd-btn-link outline-" +
-                      (props.menu == "" ? "dark" : "white")
+                      'bd-btn-link outline-' +
+                      (props.menu == '' ? 'dark' : 'white')
                     }
                   >
                     <span className="bd-button-content-wrapper">
@@ -100,7 +100,7 @@ import StyleButton from "../StyleButton/StyleButton";
               <div className="offcanvas-toggle d-lg-none" onClick={swapElems}>
                 <a
                   className={
-                    "bar-icon" + (props.menu === "" ? "" : " is-white")
+                    'bar-icon' + (props.menu === '' ? '' : ' is-white')
                   }
                   href=""
                 >
@@ -117,7 +117,7 @@ import StyleButton from "../StyleButton/StyleButton";
       </div>
     </>
   );
-};
+}
 /*
 Revisar la clase menu-main junto a la clase bd-btn-link outline-white {posible solucion al problema de los}
 */
