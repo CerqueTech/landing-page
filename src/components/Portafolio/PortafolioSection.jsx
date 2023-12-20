@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import PortafolioElement from "./PortafolioElement";
-const PortafolioSection = () => {
+export default function PortafolioSection ()  {
   const settings = {
     dots: true,
     infinite: true,
@@ -55,4 +55,3 @@ const PortafolioSection = () => {
   );
 };
 
-export default PortafolioSection;

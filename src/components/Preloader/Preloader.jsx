@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const Preloader = () => {
+export default function Preloader () {
   useEffect(() => {
     const preloader = document.getElementById("preloader");
     if (preloader) {
@@ -24,5 +24,3 @@ const Preloader = () => {
     </div>
   );
 };
-
-export default Preloader;

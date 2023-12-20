@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import ReviewElement from "./ReviewElement";
 
-const ReviewSection = () => {
+export default function ReviewSection  (){
   const settings = {
     infinite: true,
     speed: 1500,
@@ -137,4 +137,3 @@ const ReviewSection = () => {
   );
  }
 
-export default ReviewSection;

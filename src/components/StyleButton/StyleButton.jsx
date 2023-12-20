@@ -1,6 +1,6 @@
 import "./StyleButton.css";
 import { useState } from "react";
-const StyleButton = () => {
+export default function StyleButton  ()  {
   const [style, setStyle] = useState(false);
   const swap = () => {
     setStyle(!style);
@@ -16,4 +16,3 @@ const StyleButton = () => {
   );
 };
 
-export default StyleButton;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const StepItem = ({ delay, title }) => {
+export default function StepItem  ({ delay, title })  {
   const contentRef = useRef(null);
 
   useEffect(() => {
@@ -32,4 +32,3 @@ const StepItem = ({ delay, title }) => {
   );
 };
 
-export default StepItem;

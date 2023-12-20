@@ -1,4 +1,4 @@
-const ReviewElement = (props) => {
+export default function ReviewElement  (props)  {
   return (
     <div className="carousel_item col">
       <div className="review_item style_2 text-center">
@@ -31,4 +31,3 @@ const ReviewElement = (props) => {
     </div>
   );
 };
-export default ReviewElement;

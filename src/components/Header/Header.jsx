@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas";
-import StyleButton from "../StyleButton/StyleButton"
-const Header = (props) => {
+import StyleButton from "../StyleButton/StyleButton";
+ export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   useEffect(() => {
@@ -41,7 +41,7 @@ const Header = (props) => {
                 <img
                   src={
                     "assets/images/logo/site_logo_" +
-                    (props.menu ==  "" ? "dark.svg" : "white_2.svg")
+                    (props.menu == "" ? "dark.svg" : "white_2.svg")
                   }
                 />
               </a>
@@ -98,7 +98,12 @@ const Header = (props) => {
                 </li>
               </ul>
               <div className="offcanvas-toggle d-lg-none" onClick={swapElems}>
-                <a className={"bar-icon"+ (props.menu === "" ? "" : " is-white")} href="">
+                <a
+                  className={
+                    "bar-icon" + (props.menu === "" ? "" : " is-white")
+                  }
+                  href=""
+                >
                   <span></span>
                   <span>
                     <small></small>
@@ -113,7 +118,6 @@ const Header = (props) => {
     </>
   );
 };
-export default Header;
 /*
 Revisar la clase menu-main junto a la clase bd-btn-link outline-white {posible solucion al problema de los}
 */

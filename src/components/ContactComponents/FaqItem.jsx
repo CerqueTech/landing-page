@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const FaqItem = (props) => {
+ export default function FaqItem (props) {
   const [expan, setExpan] = useState(props.expanded);
 
   useEffect(() => {
@@ -35,5 +35,3 @@ const FaqItem = (props) => {
     </div>
   );
 };
-
-export default FaqItem;

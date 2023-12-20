@@ -1,5 +1,5 @@
 import './Offcanvas.css';
-const Offcanvas = (props) => {
+ export default function Offcanvas(props) {
   const handleCLick = () => {
     props.updateOpen();
   };
@@ -107,4 +107,3 @@ const Offcanvas = (props) => {
   );
 };
 
-export default Offcanvas;

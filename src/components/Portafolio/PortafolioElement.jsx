@@ -1,4 +1,4 @@
-const PortafolioElement = (props) => {
+export default function PortafolioElement  (props)  {
   return (
     <div className="carousel_item">
       <div className="portfolio_item layout_fullimage">
@@ -23,4 +23,4 @@ const PortafolioElement = (props) => {
     </div>
   );
 };
-export default PortafolioElement;
+

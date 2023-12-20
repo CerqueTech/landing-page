@@ -4,7 +4,7 @@ import { animateScroll as scroll } from "react-scroll";
 
 import "./BackToTop.css";
 
-const BackToTop = () => {
+export default function BackToTop  ()  {
   const [showButton, setShowButton] = useState(false);
 
   const scrollToTop = () => {
@@ -43,5 +43,3 @@ const BackToTop = () => {
     </div>
   );
 };
-
-export default BackToTop;

@@ -1,4 +1,4 @@
-const ProvidingElement = (props) => {
+export default function ProvidingElement  (props) {
   return (
     <div className="col">
       <div className="service_item style_4 bg-white">
@@ -27,4 +27,3 @@ const ProvidingElement = (props) => {
     </div>
   );
 };
-export default ProvidingElement;
