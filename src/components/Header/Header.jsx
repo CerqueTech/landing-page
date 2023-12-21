@@ -118,6 +118,3 @@ export default function Header(props) {
     </>
   );
 }
-/*
-Revisar la clase menu-main junto a la clase bd-btn-link outline-white {posible solucion al problema de los}
-*/
