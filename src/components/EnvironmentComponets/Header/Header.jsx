@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Offcanvas from '../Offcanvas/Offcanvas';
-import StyleButton from '../StyleButton/StyleButton';
+import Offcanvas from '../Offcanvas/Offcanvas.jsx';
+import StyleButton from '../../StyleButton/StyleButton';
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);

@@ -41,7 +41,7 @@ const CounterItem = ({ count, title, supText,dataParallax }) => {
         setIsVisible(visibility);
       }}
     >
-      <div className="col-lg-4 col-md-6 col-sm-12"  >
+      <div className="col-lg-4 col-md-6 col-sm-12"  data-parallax={dataParallax}>
         <div className="counter_item mb-5 mb-lg-0">
           <div className="counter_value">
             <span className="odometer" ref={odometerRef}></span>

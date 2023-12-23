@@ -12,11 +12,7 @@ const CounterSection = () => {
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
-          <CounterItem
-            count={1690}
-            title="Proyecto completado"
-            supText="+"
-          />
+          <CounterItem count={1690} title="Proyecto completado" supText="+" />
           <CounterItem
             count={100}
             title="Satisfacción del cliente"
@@ -25,7 +21,7 @@ const CounterSection = () => {
           />
         </div>
       </div>
-      <Decos/>
+      <Decos />
     </>
   );
 };

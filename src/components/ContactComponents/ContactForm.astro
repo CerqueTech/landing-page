@@ -31,7 +31,7 @@
                     class="form-control"
                     type="text"
                     name="lastname"
-                    placeholder="apellido"
+                    placeholder="Apellido"
                   />
                 </div>
               </div>
@@ -41,7 +41,7 @@
                     class="form-control"
                     type="email"
                     name="email"
-                    placeholder="Email Address"
+                    placeholder="Email"
                     autocomplete="email"
                   />
                 </div>
@@ -53,15 +53,21 @@
                     id="subjectSelect"
                     name="subject"
                   >
-                    <option value="" selected disabled>Select Subject</option>
-                    <option value="website-development"
-                      >Website Development</option
+                    <option value="" selected disabled
+                      >Seleccionar Asunto</option
                     >
-                    <option value="design">UX/UI Design</option>
-                    <option value="app-development">App Development</option>
-                    <option value="editing">Video Editing</option>
-                    <option value="programming">Programming & Tech</option>
-                    <option value="business">Business Consulting</option>
+                    <option value="website-development"
+                      >Desarrollo de sitios web</option
+                    >
+                    <option value="design">Diseño UX/UI</option>
+                    <option value="app-development"
+                      >Desarrollo de aplicaciones</option
+                    >
+                    <option value="editing">Edición de video</option>
+                    <option value="programming"
+                      >Programación y tecnología</option
+                    >
+                    <option value="business">Consulta de trabajo</option>
                   </select>
                 </div>
               </div>
@@ -70,20 +76,20 @@
                   <textarea
                     class="form-control"
                     name="message"
-                    placeholder="Write your Message"></textarea>
+                    placeholder="Escribe tu mensaje"></textarea>
                 </div>
               </div>
-              <div class="col-12 text-center">     
-                 <button type="submit" class="bd-btn-link btn_warning">
+              <div class="col-12 text-center">
+                <button type="submit" class="bd-btn-link btn_warning">
                   <span class="bd-button-content-wrapper">
                     <span class="bd-button-icon">
-                     <i class="fa-light fa-arrow-right-long"></i>
+                      <i class="fa-light fa-arrow-right-long"></i>
                     </span>
                     <span class="pd-animation-flip">
-                       <span class="bd-btn-anim-wrapp">
-                          <span class="bd-button-text">Send Now</span>
-                          <span class="bd-button-text">Send Now</span>
-                       </span>
+                      <span class="bd-btn-anim-wrapp">
+                        <span class="bd-button-text">Enviar ahora</span>
+                        <span class="bd-button-text">Enviar ahora</span>
+                      </span>
                     </span>
                   </span>
                 </button>
@@ -110,16 +116,16 @@
   </div>
 </div>
 <style>
-   .select::after {
-      content: '\f078'; 
-      font-family: 'Font Awesome 5 Pro'; 
-      font-weight: 900;
-      font-size: 12px;
-      position: absolute;
-      top: calc(50% - 7px); 
-      right: 10px;
-      pointer-events: none;
-    }
+  .select::after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 12px;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 10px;
+    pointer-events: none;
+  }
   @keyframes fadeInUp {
     from {
       opacity: 0;
