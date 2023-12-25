@@ -1,11 +1,11 @@
 ---
 import BackToTop from "../components/EnvironmentComponets/Scroll/BackTotop.jsx";
+import BannerSection from "../components/EnvironmentComponets/BannerSection.astro";
 import ContactForm from "../components/ContactComponents/ContactForm.astro";
 import FaqSection from "../components/ContactComponents/FaqSection.astro";
 import Footer from "../components/EnvironmentComponets/Footer.astro";
 import Header from "../components/EnvironmentComponets/Header/Header.jsx";;
 import Layout from "../layouts/Layout.astro";
-import PageBannerSection from "../components/PageBannerSection.astro";
 ---
 
 <Layout title="Contact">
@@ -14,7 +14,7 @@ import PageBannerSection from "../components/PageBannerSection.astro";
     <Header menu="" client:visible/>
     <main class="page_content">
       <section class="page_banner text-center">
-        <PageBannerSection
+        <BannerSection
           title="Contactanos"
           aHref="index.html"
           aText="Inicio"
@@ -32,4 +32,4 @@ import PageBannerSection from "../components/PageBannerSection.astro";
       <Footer/>
     </footer>
   </div>
-</Layout>../components/EnvironmentComponets/Scroll/BackTotop.jsx
+</Layout>

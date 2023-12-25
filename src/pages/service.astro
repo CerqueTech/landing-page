@@ -1,9 +1,9 @@
 ---
 import BackToTop from "../components/EnvironmentComponets/Scroll/BackTotop.jsx";
+import BannerSection from "../components/EnvironmentComponets/BannerSection.astro";
 import Footer from "../components/EnvironmentComponets/Footer.astro";
 import Header from "../components/EnvironmentComponets/Header/Header.jsx";
 import Layout from "../layouts/Layout.astro";
-import PageBannerSection from "../components/PageBannerSection.astro";
 import ServicesSection from "../components/ServicesComponents/ServicesSection.astro";
 ---
 
@@ -13,7 +13,7 @@ import ServicesSection from "../components/ServicesComponents/ServicesSection.as
     <Header menu="" client:visible />
     <main class="page_content">
       <section class="page_banner text-center">
-        <PageBannerSection
+        <BannerSection
           title="Services"
           aHref="index.html"
           aText="Home"

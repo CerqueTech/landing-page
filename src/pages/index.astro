@@ -6,18 +6,18 @@ import Footer from "../components/EnvironmentComponets/Footer.astro";
 import Header from "../components/EnvironmentComponets/Header/Header";
 import HeroeSection from "../components/IndexComponents/HeroeSection.astro";
 import Layout from "../layouts/Layout.astro";
-import PortafolioSection from "../components/Portafolio/PortafolioSection.jsx";
+import PortafolioSection from "../components/IndexComponents/Portafolio/PortafolioSection.jsx";
+import Preloader from "../components/EnvironmentComponets/Preloader/Preloader.jsx";
 import ProvidingSection from "../components/IndexComponents/Providing/ProvidingSection.jsx";
-import ReviewSection from "../components/Review/ReviewSection.jsx";
+import ReviewSection from "../components/IndexComponents/Review/ReviewSection.jsx";
 import StepSection from "../components/IndexComponents/Step/StepSection.astro";
 import TeamSection from "../components/IndexComponents/Team/TeamSection.astro";
-import Preloader from "../components/EnvironmentComponets/Preloader/Preloader.astro"
 ---
 
 <Layout title="Cerquetech Solutions">
-  <!-- Preloader TOODO
-  <Preloader/>
-   -->
+  <!-- Preloader TOODO 
+  <Preloader client:load />
+  -->
   <div class="page_wrapper">
     <BackToTop client:load />
     <Header menu="main-menu-3" client:visible />

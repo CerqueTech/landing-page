@@ -130,6 +130,3 @@ export default function ReviewSection() {
   );
 }
 
-const arrow = () => {
-  return <></>;
-};
