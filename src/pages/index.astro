@@ -26,23 +26,23 @@ import TeamSection from "../components/IndexComponents/Team/TeamSection.astro";
         <HeroeSection />
       </section>
       <section class="service_section_2">
-        <ProvidingSection client:visible />
+        <ProvidingSection client:only="react" />
       </section>
       <ClientLogoSection />
       <section class="starter_steps_section section_space_lg">
         <StepSection />
       </section>
       <section class="counter_section section_space_lg decoration_wrap">
-        <CounterSection client:visible />
+        <CounterSection client:only="react" />
       </section>
       <section class="portfolio_section section_space_lg bg_primary">
-        <PortafolioSection client:visible />
+        <PortafolioSection client:only="react" />
       </section>
       <section class="team_section section_space_lg bg_half_top_light">
         <TeamSection />
       </section>
       <section class="review_section section_space_lg bg_primary">
-        <ReviewSection client:visible />
+        <ReviewSection client:only="react" />
       </section>
     </main>
     <footer class="site_footer style_4">
