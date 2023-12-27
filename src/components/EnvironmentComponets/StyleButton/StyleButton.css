@@ -1,32 +1,40 @@
-.boton {
-  margin: 10px;
-}
-.lbl-switch {
-  display: inline-block;
-  width: 55px;
-  height: 30px;
-  background-color: #aaa;
-  border-radius: 100px;
+
+.switch{
+  background-color: #343D5B;
+  border-radius: 1000px;
+  border: none;
   position: relative;
   cursor: pointer;
+  display: flex;
+  outline: none;
 }
-#btn-switch:checked ~ .lbl-switch {
-  background-color: #61a0ff;
+.switch span{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color:#fff;
 }
-.lbl-switch::after {
+.switch::after{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
   position: absolute;
-  content: '';
-  width: 22px;
-  height: 22px;
-  background-color: #fff;
+  background: #f1f1f1;
+  top: 0;
+  left: 0;
+  right: unset;
   border-radius: 100px;
-  top: 4px;
-  left: 5px;
-  transition: 0.3s;
+  transition: 0.9s ease all;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, .2);
 }
-#btn-switch:checked ~ .lbl-switch::after {
-  left: 28px;
+.switch.active{
+  background-color: #FFC961;
+  color: #000;
 }
-#btn-switch {
-  display: none;
+.switch.active::after{
+  right: 0;
+  left: unset;
 }

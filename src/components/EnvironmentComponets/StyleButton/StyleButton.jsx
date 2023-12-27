@@ -1,21 +1,18 @@
 import "./StyleButton.css";
 import { useState } from "react";
+
 export default function StyleButton() {
-  const [style, setStyle] = useState(false);
-  const swap = () => {
-    setStyle(!style);
+  const [color, setColor] = useState("");
+
+  const toggle = () => {
+    document.body.classList.toggle('dark');
+    setColor((prevColor) => (prevColor === "" ? " active" : ""));
   };
-  const darkMode = () => {
-    document.body.style.backgroundColor = "#050122";
-  };
+
   return (
-    <div className="boton" onClick={darkMode}>
-      <input type="checkbox" id="btn-switch" />
-      <label
-        htmlFor="btn-switch"
-        className="lbl-switch"
-        id="lbl-switch"
-      ></label>
-    </div>
+    <button className={"switch" + color} id="switch" onClick={toggle}>
+      <span><i className="fas fa-sun"></i></span>
+      <span><i className="fas fa-moon"></i></span>
+    </button>
   );
 }
