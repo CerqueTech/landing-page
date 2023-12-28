@@ -18,7 +18,7 @@ import TeamSection from "../components/IndexComponents/Team/TeamSection.astro";
   <Preloader client:load />
   <div class="page_wrapper">
     <BackToTop client:load />
-    <Header menu="main-menu-3" client:visible />
+    <Header menu="main-menu-3" client:visible  />
     <main class="page_content">
       <section class="hero_banner_section style_3 bg_primary">
         <HeroeSection />
@@ -31,8 +31,7 @@ import TeamSection from "../components/IndexComponents/Team/TeamSection.astro";
         <StepSection />
       </section>
       <section class="counter_section section_space_lg decoration_wrap">
-        <!--Problemas cuando voy a otra pagina y vuelvo al index -->
-        <CounterSection client:only="react"/>
+        <CounterSection client:visible transition:persist/>
       </section>
       <section class="portfolio_section section_space_lg bg_primary">
         <PortafolioSection client:only="react" transition:persist/>
