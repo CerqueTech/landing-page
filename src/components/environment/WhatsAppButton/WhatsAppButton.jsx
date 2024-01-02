@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
         phoneNumber="+541140541120"
         accountName="Mateo Cerquetella"
         chatMessage='¡Hola! ¿Cómo puedo ayudarte?'
-        statusMessage='Normalmente responde en 1 hora...'
+        statusMessage='Normalmente responde en 1 hora'
         placeholder= 'Ingresa tu mensaje...'
         avatar="assets/images/whatsapp/icon.jpeg"
         messageDelay={1.5}
