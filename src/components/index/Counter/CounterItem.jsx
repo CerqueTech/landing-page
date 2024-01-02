@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import VisibilitySensor from "react-visibility-sensor";
-import "odometer/themes/odometer-theme-default.css";
+import React, { useEffect, useRef, useState } from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
+import 'odometer/themes/odometer-theme-default.css';
 
-const CounterItem = ({ count, title, supText,dataParallax }) => {
+const CounterItem = ({ count, title, supText, dataParallax }) => {
   const odometerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [odometerInstance, setOdometerInstance] = useState(null);
@@ -11,13 +11,13 @@ const CounterItem = ({ count, title, supText,dataParallax }) => {
     let unmounted = false;
 
     if (isVisible && odometerRef.current && !odometerInstance) {
-      import("odometer").then((Odometer) => {
+      import('odometer').then((Odometer) => {
         if (!unmounted) {
           const newOdometerInstance = new Odometer.default({
             el: odometerRef.current,
             value: 0,
-            format: "(,ddd)",
-            duration: 1000,
+            format: '(,ddd)',
+            duration: 1000
           });
 
           newOdometerInstance.update(count);
@@ -41,7 +41,7 @@ const CounterItem = ({ count, title, supText,dataParallax }) => {
         setIsVisible(visibility);
       }}
     >
-      <div className="col-lg-4 col-md-6 col-sm-12"  data-parallax={dataParallax}>
+      <div className="col-lg-4 col-md-6 col-sm-12" data-parallax={dataParallax}>
         <div className="counter_item mb-5 mb-lg-0">
           <div className="counter_value">
             <span className="odometer" ref={odometerRef}></span>
@@ -51,8 +51,7 @@ const CounterItem = ({ count, title, supText,dataParallax }) => {
         </div>
       </div>
     </VisibilitySensor>
-    );
-  
+  );
 };
 
 export default CounterItem;

@@ -639,8 +639,8 @@
               toPixels
                 ? (px * curValue) / amount
                 : px && curValue
-                  ? (amount / px) * curValue
-                  : 0
+                ? (amount / px) * curValue
+                : 0
             );
           },
           _get = function _get(target, property, unit, uncache) {
@@ -1093,8 +1093,8 @@
                 nextSibling
                   ? parent.insertBefore(target, nextSibling)
                   : parent
-                    ? parent.appendChild(target)
-                    : _docElement.removeChild(target);
+                  ? parent.appendChild(target)
+                  : _docElement.removeChild(target);
               }
             }
 
@@ -1476,8 +1476,8 @@
             cache.renderTransform = cache.svg
               ? _renderSVGTransforms
               : _supports3D
-                ? _renderCSSTransforms
-                : _renderNon3DTransforms;
+              ? _renderCSSTransforms
+              : _renderNon3DTransforms;
             cache.uncache = 0;
             return cache;
           },
@@ -2238,15 +2238,15 @@
                     ? _setterScaleWithRender
                     : _setterTransformWithRender)
               : target.style &&
-                  !Object(
-                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_isUndefined']
-                  )(target.style[property])
-                ? _setterCSSStyle
-                : ~property.indexOf('-')
-                  ? _setterCSSProp
-                  : Object(
-                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_getSetter']
-                    )(target, property);
+                !Object(
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_isUndefined']
+                )(target.style[property])
+              ? _setterCSSStyle
+              : ~property.indexOf('-')
+              ? _setterCSSProp
+              : Object(
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_getSetter']
+                )(target, property);
           },
           core: {
             _removeProperty: _removeProperty,
@@ -3029,8 +3029,8 @@
               (value + '').match(_delimitedValueExp).length < 2
               ? n
               : _isString(value)
-                ? value.trim()
-                : value;
+              ? value.trim()
+              : value;
           },
           _passThrough = function _passThrough(p) {
             return p;
@@ -3240,8 +3240,8 @@
               (child._ts >= 0
                 ? 0
                 : child._dirty
-                  ? child.totalDuration()
-                  : child._tDur)
+                ? child.totalDuration()
+                : child._tDur)
             );
           },
           _setEnd = function _setEnd(animation) {
@@ -3542,8 +3542,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             animation._tDur = !repeat
               ? dur
               : repeat < 0
-                ? 1e10
-                : _round(dur * (repeat + 1) + animation._rDelay * repeat);
+              ? 1e10
+              : _round(dur * (repeat + 1) + animation._rDelay * repeat);
             totalProgress && !leavePlayhead
               ? _alignPlayhead(
                   animation,
@@ -3663,12 +3663,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               (_coreInitted || !_wake())
               ? _slice.call(_doc.querySelectorAll(value), 0)
               : _isArray(value)
-                ? _flatten(value, leaveStrings)
-                : _isArrayLike(value)
-                  ? _slice.call(value, 0)
-                  : value
-                    ? [value]
-                    : [];
+              ? _flatten(value, leaveStrings)
+              : _isArrayLike(value)
+              ? _slice.call(value, 0)
+              : value
+              ? [value]
+              : [];
           },
           shuffle = function shuffle(a) {
             return a.sort(function () {
@@ -3767,10 +3767,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       (wrapAt > l
                         ? l - 1
                         : !axis
-                          ? Math.max(wrapAt, l / wrapAt)
-                          : axis === 'y'
-                            ? l / wrapAt
-                            : wrapAt) ||
+                        ? Math.max(wrapAt, l / wrapAt)
+                        : axis === 'y'
+                        ? l / wrapAt
+                        : wrapAt) ||
                     0) * (from === 'edges' ? -1 : 1);
                 distances.b = l < 0 ? base - l : base;
                 distances.u = getUnit(vars.amount || vars.each) || 0; //unit
@@ -3818,40 +3818,39 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               !isArray
                 ? _roundModifier(snapTo)
                 : _isFunction(snapTo)
-                  ? function (raw) {
-                      is2D = snapTo(raw);
-                      return Math.abs(is2D - raw) <= radius ? is2D : raw;
-                    }
-                  : function (raw) {
-                      var x = parseFloat(is2D ? raw.x : raw),
-                        y = parseFloat(is2D ? raw.y : 0),
-                        min = _bigNum,
-                        closest = 0,
-                        i = snapTo.length,
-                        dx,
-                        dy;
+                ? function (raw) {
+                    is2D = snapTo(raw);
+                    return Math.abs(is2D - raw) <= radius ? is2D : raw;
+                  }
+                : function (raw) {
+                    var x = parseFloat(is2D ? raw.x : raw),
+                      y = parseFloat(is2D ? raw.y : 0),
+                      min = _bigNum,
+                      closest = 0,
+                      i = snapTo.length,
+                      dx,
+                      dy;
 
-                      while (i--) {
-                        if (is2D) {
-                          dx = snapTo[i].x - x;
-                          dy = snapTo[i].y - y;
-                          dx = dx * dx + dy * dy;
-                        } else {
-                          dx = Math.abs(snapTo[i] - x);
-                        }
-
-                        if (dx < min) {
-                          min = dx;
-                          closest = i;
-                        }
+                    while (i--) {
+                      if (is2D) {
+                        dx = snapTo[i].x - x;
+                        dy = snapTo[i].y - y;
+                        dx = dx * dx + dy * dy;
+                      } else {
+                        dx = Math.abs(snapTo[i] - x);
                       }
 
-                      closest =
-                        !radius || min <= radius ? snapTo[closest] : raw;
-                      return is2D || closest === raw || _isNumber(raw)
-                        ? closest
-                        : closest + getUnit(raw);
+                      if (dx < min) {
+                        min = dx;
+                        closest = i;
+                      }
                     }
+
+                    closest = !radius || min <= radius ? snapTo[closest] : raw;
+                    return is2D || closest === raw || _isNumber(raw)
+                      ? closest
+                      : closest + getUnit(raw);
+                  }
             );
           },
           random = function random(
@@ -3864,8 +3863,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               _isArray(min)
                 ? !max
                 : roundingIncrement === true
-                  ? !!(roundingIncrement = 0)
-                  : !returnFunction,
+                ? !!(roundingIncrement = 0)
+                : !returnFunction,
               function () {
                 return _isArray(min)
                   ? min[~~(Math.random() * min.length)]
@@ -4182,10 +4181,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               ((h * 6 < 1
                 ? m1 + (m2 - m1) * h * 6
                 : h < 0.5
-                  ? m2
-                  : h * 3 < 2
-                    ? m1 + (m2 - m1) * (2 / 3 - h) * 6
-                    : m1) *
+                ? m2
+                : h * 3 < 2
+                ? m1 + (m2 - m1) * (2 / 3 - h) * 6
+                : m1) *
                 _255 +
                 0.5) |
               0
@@ -4195,8 +4194,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             var a = !v
                 ? _colorLookup.black
                 : _isNumber(v)
-                  ? [v >> 16, (v >> 8) & _255, v & _255]
-                  : 0,
+                ? [v >> 16, (v >> 8) & _255, v & _255]
+                : 0,
               r,
               g,
               b,
@@ -4290,8 +4289,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   max === r
                     ? (g - b) / d + (g < b ? 6 : 0)
                     : max === g
-                      ? (b - r) / d + 2
-                      : (r - g) / d + 4;
+                    ? (b - r) / d + 2
+                    : (r - g) / d + 4;
                 h *= 60;
               }
 
@@ -4363,8 +4362,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       : (d.length
                           ? d
                           : colors.length
-                            ? colors
-                            : orderMatchData
+                          ? colors
+                          : orderMatchData
                         ).shift());
                 }
               }
@@ -4594,8 +4593,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         .map(_numericIfPossible)
                 )
               : _easeMap._CE && _customEaseExp.test(name)
-                ? _easeMap._CE('', name)
-                : ease;
+              ? _easeMap._CE('', name)
+              : ease;
           },
           _invertEase = function _invertEase(ease) {
             return function (p) {
@@ -4673,8 +4672,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     (p === 'easeIn'
                       ? '.in'
                       : p === 'easeOut'
-                        ? '.out'
-                        : '.inOut')
+                      ? '.out'
+                      : '.inOut')
                 ] = _easeMap[name + '.' + p] = ease[p];
               }
             });
@@ -4704,10 +4703,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 type === 'out'
                   ? easeOut
                   : type === 'in'
-                    ? function (p) {
-                        return 1 - easeOut(1 - p);
-                      }
-                    : _easeInOutFromOut(easeOut);
+                  ? function (p) {
+                      return 1 - easeOut(1 - p);
+                    }
+                  : _easeInOutFromOut(easeOut);
 
             p2 = _2PI / p2; //precalculate to optimize
 
@@ -4729,10 +4728,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 type === 'out'
                   ? easeOut
                   : type === 'in'
-                    ? function (p) {
-                        return 1 - easeOut(1 - p);
-                      }
-                    : _easeInOutFromOut(easeOut);
+                  ? function (p) {
+                      return 1 - easeOut(1 - p);
+                    }
+                  : _easeInOutFromOut(easeOut);
 
             ease.config = function (overshoot) {
               return _configBack(type, overshoot);
@@ -4796,10 +4795,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               return p < n1
                 ? n * p * p
                 : p < n2
-                  ? n * Math.pow(p - 1.5 / c, 2) + 0.75
-                  : p < n3
-                    ? n * (p -= 2.25 / c) * p + 0.9375
-                    : n * Math.pow(p - 2.625 / c, 2) + 0.984375;
+                ? n * Math.pow(p - 1.5 / c, 2) + 0.75
+                : p < n3
+                ? n * (p -= 2.25 / c) * p + 0.9375
+                : n * Math.pow(p - 2.625 / c, 2) + 0.984375;
             };
 
           _insertEase(
@@ -5020,8 +5019,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return arguments.length
               ? this.totalTime(this.totalDuration() * value, suppressEvents)
               : this.totalDuration()
-                ? Math.min(1, this._tTime / this._tDur)
-                : this.ratio;
+              ? Math.min(1, this._tTime / this._tDur)
+              : this.ratio;
           };
 
           _proto.progress = function progress(value, suppressEvents) {
@@ -5035,8 +5034,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   suppressEvents
                 )
               : this.duration()
-                ? Math.min(1, this._time / this._dur)
-                : this.ratio;
+              ? Math.min(1, this._time / this._dur)
+              : this.ratio;
           };
 
           _proto.iteration = function iteration(value, suppressEvents) {
@@ -5048,8 +5047,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   suppressEvents
                 )
               : this._repeat
-                ? _animationCycle(this._tTime, cycleDuration) + 1
-                : 1;
+              ? _animationCycle(this._tTime, cycleDuration) + 1
+              : 1;
           }; // potential future addition:
           // isPlayingBackwards() {
           //    let animation = this,
@@ -5145,12 +5144,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return !parent
               ? this._tTime
               : wrapRepeats &&
-                  (!this._ts ||
-                    (this._repeat && this._time && this.totalProgress() < 1))
-                ? this._tTime % (this._dur + this._rDelay)
-                : !this._ts
-                  ? this._tTime
-                  : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
+                (!this._ts ||
+                  (this._repeat && this._time && this.totalProgress() < 1))
+              ? this._tTime % (this._dur + this._rDelay)
+              : !this._ts
+              ? this._tTime
+              : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
           };
 
           _proto.globalTime = function globalTime(rawTime) {
@@ -5494,8 +5493,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 totalTime >= 0
                   ? tDur
                   : totalTime < _tinyNum
-                    ? 0
-                    : totalTime,
+                  ? 0
+                  : totalTime,
               crossingStart =
                 this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
               time,
@@ -6189,8 +6188,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
                   self._lock = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add().
 
-                  _addToTimeline(self, child, start - child._delay, 1)._lock =
-                    0;
+                  _addToTimeline(
+                    self,
+                    child,
+                    start - child._delay,
+                    1
+                  )._lock = 0;
                 } else {
                   prevStart = start;
                 }
@@ -6370,20 +6373,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 start !== 'get'
                   ? start
                   : !_isFunction(currentValue)
-                    ? currentValue
-                    : funcParam
-                      ? target[
-                          prop.indexOf('set') ||
-                          !_isFunction(target['get' + prop.substr(3)])
-                            ? prop
-                            : 'get' + prop.substr(3)
-                        ](funcParam)
-                      : target[prop](),
+                  ? currentValue
+                  : funcParam
+                  ? target[
+                      prop.indexOf('set') ||
+                      !_isFunction(target['get' + prop.substr(3)])
+                        ? prop
+                        : 'get' + prop.substr(3)
+                    ](funcParam)
+                  : target[prop](),
               setter = !_isFunction(currentValue)
                 ? _setterPlain
                 : funcParam
-                  ? _setterFuncWithParam
-                  : _setterFunc,
+                ? _setterFuncWithParam
+                : _setterFunc,
               pt;
 
             if (_isString(end)) {
@@ -6780,8 +6783,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return _isFunction(value)
               ? value.call(tween, i, target, targets)
               : _isString(value) && ~value.indexOf('random(')
-                ? _replaceRandom(value)
-                : value;
+              ? _replaceRandom(value)
+              : value;
           },
           _staggerTweenProps =
             _callbackNames + 'repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase',
@@ -6979,8 +6982,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 totalTime > tDur - _tinyNum && totalTime >= 0
                   ? tDur
                   : totalTime < _tinyNum
-                    ? 0
-                    : totalTime,
+                  ? 0
+                  : totalTime,
               time,
               pt,
               iteration,
@@ -7114,8 +7117,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   totalTime < 0
                     ? totalTime
                     : !time && isYoyo
-                      ? -_tinyNum
-                      : timeline._dur * ratio,
+                    ? -_tinyNum
+                    : timeline._dur * ratio,
                   suppressEvents,
                   force
                 )) ||
@@ -7394,8 +7397,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return _isFunction(target[property])
               ? _setterFunc
               : _isUndefined(target[property]) && target.setAttribute
-                ? _setterAttribute
-                : _setterPlain;
+              ? _setterAttribute
+              : _setterPlain;
           },
           _renderPlain = function _renderPlain(ratio, data) {
             return data.set(
@@ -7621,15 +7624,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return !target
               ? target
               : !property
-                ? function (property, unit, uncache) {
-                    return format(
-                      (
-                        (_plugins[property] && _plugins[property].get) ||
-                        getter
-                      )(target, property, unit, uncache)
-                    );
-                  }
-                : format(
+              ? function (property, unit, uncache) {
+                  return format(
                     ((_plugins[property] && _plugins[property].get) || getter)(
                       target,
                       property,
@@ -7637,6 +7633,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       uncache
                     )
                   );
+                }
+              : format(
+                  ((_plugins[property] && _plugins[property].get) || getter)(
+                    target,
+                    property,
+                    unit,
+                    uncache
+                  )
+                );
           },
           quickSetter: function quickSetter(target, property, unit) {
             target = toArray(target);
@@ -8935,15 +8940,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       ? // Strip the backslash prefix from a non-hex escape sequence
                         nonHex
                       : // Replace a hexadecimal escape sequence with the encoded Unicode code point
-                        // Support: IE <=11+
-                        // For values outside the Basic Multilingual Plane (BMP), manually construct a
-                        // surrogate pair
-                        high < 0
-                        ? String.fromCharCode(high + 0x10000)
-                        : String.fromCharCode(
-                            (high >> 10) | 0xd800,
-                            (high & 0x3ff) | 0xdc00
-                          );
+                      // Support: IE <=11+
+                      // For values outside the Basic Multilingual Plane (BMP), manually construct a
+                      // surrogate pair
+                      high < 0
+                      ? String.fromCharCode(high + 0x10000)
+                      : String.fromCharCode(
+                          (high >> 10) | 0xd800,
+                          (high & 0x3ff) | 0xdc00
+                        );
                   },
                   // CSS string/identifier serialization
                   // https://drafts.csswg.org/cssom/#common-serializing-idioms
@@ -9918,16 +9923,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           return a == document
                             ? -1
                             : b == document
-                              ? 1
-                              : /* eslint-enable eqeqeq */
-                                aup
-                                ? -1
-                                : bup
-                                  ? 1
-                                  : sortInput
-                                    ? indexOf(sortInput, a) -
-                                      indexOf(sortInput, b)
-                                    : 0;
+                            ? 1
+                            : /* eslint-enable eqeqeq */
+                            aup
+                            ? -1
+                            : bup
+                            ? 1
+                            : sortInput
+                            ? indexOf(sortInput, a) - indexOf(sortInput, b)
+                            : 0;
 
                           // If the nodes are siblings, we can do a quick check
                         } else if (aup === bup) {
@@ -9953,16 +9957,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           ? // Do a sibling check if the nodes have a common ancestor
                             siblingCheck(ap[i], bp[i])
                           : // Otherwise nodes in our document sort first
-                            // Support: IE 11+, Edge 17 - 18+
-                            // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                            // two documents; shallow comparisons work.
-                            /* eslint-disable eqeqeq */
-                            ap[i] == preferredDoc
-                            ? -1
-                            : bp[i] == preferredDoc
-                              ? 1
-                              : /* eslint-enable eqeqeq */
-                                0;
+                          // Support: IE 11+, Edge 17 - 18+
+                          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+                          // two documents; shallow comparisons work.
+                          /* eslint-disable eqeqeq */
+                          ap[i] == preferredDoc
+                          ? -1
+                          : bp[i] == preferredDoc
+                          ? 1
+                          : /* eslint-enable eqeqeq */
+                            0;
                       };
 
                   return document;
@@ -10035,10 +10039,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return val !== undefined
                     ? val
                     : support.attributes || !documentIsHTML
-                      ? elem.getAttribute(name)
-                      : (val = elem.getAttributeNode(name)) && val.specified
-                        ? val.value
-                        : null;
+                    ? elem.getAttribute(name)
+                    : (val = elem.getAttributeNode(name)) && val.specified
+                    ? val.value
+                    : null;
                 };
 
                 Sizzle.escape = function (sel) {
@@ -10294,25 +10298,23 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         return operator === '='
                           ? result === check
                           : operator === '!='
-                            ? result !== check
-                            : operator === '^='
-                              ? check && result.indexOf(check) === 0
-                              : operator === '*='
-                                ? check && result.indexOf(check) > -1
-                                : operator === '$='
-                                  ? check &&
-                                    result.slice(-check.length) === check
-                                  : operator === '~='
-                                    ? (
-                                        ' ' +
-                                        result.replace(rwhitespace, ' ') +
-                                        ' '
-                                      ).indexOf(check) > -1
-                                    : operator === '|='
-                                      ? result === check ||
-                                        result.slice(0, check.length + 1) ===
-                                          check + '-'
-                                      : false;
+                          ? result !== check
+                          : operator === '^='
+                          ? check && result.indexOf(check) === 0
+                          : operator === '*='
+                          ? check && result.indexOf(check) > -1
+                          : operator === '$='
+                          ? check && result.slice(-check.length) === check
+                          : operator === '~='
+                          ? (
+                              ' ' +
+                              result.replace(rwhitespace, ' ') +
+                              ' '
+                            ).indexOf(check) > -1
+                          : operator === '|='
+                          ? result === check ||
+                            result.slice(0, check.length + 1) === check + '-'
+                          : false;
                         /* eslint-enable max-len */
                       };
                     },
@@ -10741,8 +10743,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           argument < 0
                             ? argument + length
                             : argument > length
-                              ? length
-                              : argument;
+                            ? length
+                            : argument;
                         for (; --i >= 0; ) {
                           matchIndexes.push(i);
                         }
@@ -10852,9 +10854,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return parseOnly
                     ? soFar.length
                     : soFar
-                      ? Sizzle.error(selector)
-                      : // Cache the tokens
-                        tokenCache(selector, groups).slice(0);
+                    ? Sizzle.error(selector)
+                    : // Cache the tokens
+                      tokenCache(selector, groups).slice(0);
                 };
 
                 function toSelector(tokens) {
@@ -11158,11 +11160,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           i > 1 &&
                             toSelector(
                               // If the preceding token was a descendant combinator, insert an implicit any-element `*`
-                              tokens
-                                .slice(0, i - 1)
-                                .concat({
-                                  value: tokens[i - 2].type === ' ' ? '*' : ''
-                                })
+                              tokens.slice(0, i - 1).concat({
+                                value: tokens[i - 2].type === ' ' ? '*' : ''
+                              })
                             ).replace(rtrim, '$1'),
                           matcher,
                           i < j && matcherFromTokens(tokens.slice(i, j)),
@@ -11530,8 +11530,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       return elem[name] === true
                         ? name.toLowerCase()
                         : (val = elem.getAttributeNode(name)) && val.specified
-                          ? val.value
-                          : null;
+                        ? val.value
+                        : null;
                     }
                   });
                 }

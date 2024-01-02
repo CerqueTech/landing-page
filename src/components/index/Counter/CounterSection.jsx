@@ -1,5 +1,5 @@
-import CounterItem from "./CounterItem";
-import Decos from "./Decos";
+import CounterItem from './CounterItem';
+import Decos from './Decos';
 const CounterSection = () => {
   return (
     <>

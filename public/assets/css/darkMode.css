@@ -1,82 +1,80 @@
 body.dark {
-    background: #121212 !important;
+  background: #121212 !important;
+  color: #f1f1f1 !important;
+
+  .calltoaction_section,
+  .footer_widget_area,
+  .footer_bottom,
+  .calltoaction_section.style_5,
+  .site_footer,
+  .team_item,
+  .backtotop {
+    background-color: #252628 !important;
+  }
+
+  .footer_widget_title,
+  .widget_title,
+  .list_item_text,
+  .copyright_widget,
+  u,
+  .fab.fa-youtube,
+  .fab.fa-twitter,
+  .fab.fa-facebook-f,
+  .fab.fa-linkedin-in,
+  #check,
+  .review_content,
+  h3.admin_name {
     color: #f1f1f1 !important;
+  }
 
-    .calltoaction_section,
-    .footer_widget_area,
-    .footer_bottom,
-    .calltoaction_section.style_5,
-    .site_footer,
-    .team_item,
-    .backtotop {
-        background-color: #252628 !important;
-    }
+  .odometer-inside,
+  .item_title.m-0,
+  .heading_subtitle.text-uppercase,
+  .heading_title,
+  .btn_text,
+  .icon_wrap,
+  .item_title,
+  .item_description {
+    color: #ffffff !important;
+  }
 
-    .footer_widget_title,
-    .widget_title,
-    .list_item_text,
-    .copyright_widget,
-    u,
-    .fab.fa-youtube,
-    .fab.fa-twitter,
-    .fab.fa-facebook-f,
-    .fab.fa-linkedin-in,
-    #check,
-    .review_content,
-    h3.admin_name {
-        color: #f1f1f1 !important;
-    }
+  .icon_wrap,
+  .client_logo_boxed {
+    border: 1px solid #ffffff;
+  }
 
-    .odometer-inside,
-    .item_title.m-0,
-    .heading_subtitle.text-uppercase,
-    .heading_title,
-    .btn_text,
-    .icon_wrap,
-    .item_title,
-    .item_description
-    {
-        color: #FFFFFF !important;
+  .counter_title {
+    color: #a1a8af;
+  }
 
-    }
+  ul.admin_social.unordered_list {
+    border-color: #414141 !important;
+  }
 
-    .icon_wrap,
-    .client_logo_boxed {
-        border: 1px solid #FFFFFF;
-    }
+  #email,
+  .review_item,
+  .item_image,
+  .slick-active buttom,
+  .service_item {
+    background-color: #121212 !important;
+  }
 
-    .counter_title {
-        color: #A1A8AF;
-    }
+  li button {
+    color: #121212 !important;
+  }
 
-    ul.admin_social.unordered_list {
-        border-color: #414141 !important;
-    }
+  .counter_item {
+    background-color: #262631 !important;
+  }
 
-    #email,
-    .review_item,
-    .item_image,
-    .slick-active buttom,
-    .service_item {
-        background-color: #121212 !important;
-    }
+  .content_wrap {
+    background-color: #24242c;
+  }
 
-    li button {
-        color: #121212 !important;
-    }
-
-    .counter_item {
-        background-color: #262631 !important;
-    }
-
-    .content_wrap {
-        background-color: #24242C;
-    }
-
-    .starter_steps_section {
-        background-color: #131312 !important;
-    }
-    .service_section_2{
-        background-color: #000000 !important;
-    }
+  .starter_steps_section {
+    background-color: #131312 !important;
+  }
+  .service_section_2 {
+    background-color: #000000 !important;
+  }
 }

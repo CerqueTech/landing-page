@@ -41,7 +41,7 @@ export default function Header(props) {
                 <img
                   src={
                     'assets/images/logo/' +
-                    (props.menu == '' ? 'white.png' : 'dark.png')
+                    (props.menu == '' ? 'white.png' : 'dark_one_line.png')
                   }
                 />
               </a>

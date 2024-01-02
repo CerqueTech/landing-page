@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from 'react-scroll';
 
-import "./BackToTop.css";
+import './BackToTop.css';
 
 export default function BackToTop() {
   const [showButton, setShowButton] = useState(false);
@@ -12,7 +12,7 @@ export default function BackToTop() {
       duration: 200,
       delay: 50,
       smooth: true,
-      offset: -10,
+      offset: -10
     });
   };
 
@@ -25,16 +25,16 @@ export default function BackToTop() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <div
-      className={`backtotop position-fixed ${showButton ? "" : "hidden"}`}
+      className={`backtotop position-fixed ${showButton ? '' : 'hidden'}`}
       onClick={scrollToTop}
     >
       <a className="scroll">

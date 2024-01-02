@@ -3526,8 +3526,7 @@ textarea.form-control {
 
 .site_link {
   display: inline-block;
-  width: 240px;
-  height: 125px;
+  width: 320px;
 }
 
 .site_link img {
@@ -8415,5 +8414,3 @@ textarea.form-control {
     display: none;
   }
 }
-
-/* Contact Template - End
