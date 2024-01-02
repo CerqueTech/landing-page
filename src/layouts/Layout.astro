@@ -1,10 +1,12 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { injectSpeedInsights } from "@vercel/speed-insights"
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+injectSpeedInsights()
 ---
 
 <!doctype html>
@@ -67,12 +69,10 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
-    <!--
     <ViewTransitions/>
-     -->
     <script src="/assets/js/jquery.min.js" is:inline></script> 
     <script src="/assets/js/cursor.js" is:inline></script>
-  </script>
+
     <style is:global>
       a,
       small {
