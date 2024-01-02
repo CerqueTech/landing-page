@@ -3520,7 +3520,8 @@ textarea.form-control {
 
 @media (max-width:450px) {
   .site_logo a {
-    max-width: 150px;
+    max-width: 250px;
+    max-height: 90px;
   }
 }
 
