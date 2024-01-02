@@ -17,7 +17,7 @@ export default function Offcanvas(props) {
                 <div className="offcanvas__logo">
                   <a href="index.html">
                     <img
-                      src="assets/images/logo/site_logo_white.svg"
+                      src="assets/images/logo/white.png"
                       alt="logo not found"
                     />
                   </a>

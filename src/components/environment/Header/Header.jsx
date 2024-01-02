@@ -40,8 +40,8 @@ export default function Header(props) {
               <a className="site_link" href="index.html">
                 <img
                   src={
-                    'assets/images/logo/site_logo_' +
-                    (props.menu == '' ? 'dark.svg' : 'white_2.svg')
+                    'assets/images/logo/' +
+                    (props.menu == '' ? 'white.png' : 'dark.png')
                   }
                 />
               </a>
