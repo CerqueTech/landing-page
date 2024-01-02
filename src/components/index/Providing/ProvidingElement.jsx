@@ -1,7 +1,7 @@
 export default function ProvidingElement(props) {
   return (
     <div className="col">
-      <div className="service_item style_4 bg-white">
+      <div className="service_item style_4">
         <div
           className="item_icon"
           style={{ backgroundImage: `url(${props.shape})` }}
