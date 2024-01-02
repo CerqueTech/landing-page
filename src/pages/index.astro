@@ -31,10 +31,10 @@ import TeamSection from "../components/index/Team/TeamSection.astro";
         <StepSection />
       </section>
       <section class="counter_section section_space_lg decoration_wrap">
-        <CounterSection client:visible transition:persist/>
+        <CounterSection client:visible />
       </section>
       <section class="portfolio_section section_space_lg bg_primary">
-        <PortafolioSection client:only="react" transition:persist/>
+        <PortafolioSection client:only="react" />
       </section>
       <section class="team_section section_space_lg bg_half_top_light">
         <TeamSection />
