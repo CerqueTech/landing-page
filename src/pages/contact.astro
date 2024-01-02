@@ -1,17 +1,17 @@
 ---
-import BackToTop from "../components/environment/Scroll/BackTotop.jsx";
 import BannerSection from "../components/environment/BannerSection.astro";
 import ContactForm from "../components/contact/ContactForm.astro";
 import FaqSection from "../components/contact/FaqSection.astro";
 import Footer from "../components/environment/Footer.astro";
-import Header from "../components/environment/Header/Header.jsx";;
+import Header from "../components/environment/Header/Header.jsx";
+import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton.jsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contact">
   <div class="page_wrapper">
-    <BackToTop client:load />
     <Header menu="" client:visible/>
+    <WhatsAppButton client:only="react" />
     <main class="page_content">
       <section class="page_banner text-center">
         <BannerSection
