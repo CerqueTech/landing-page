@@ -5728,7 +5728,7 @@ textarea.form-control {
   padding: 120px 0 220px;
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-color: rgba(83, 85, 223, 0.08);
+  /*background-color: rgba(83, 85, 223, 0.08);*/
   position: relative;
   z-index: 5;
 }
@@ -5743,7 +5743,6 @@ textarea.form-control {
   height: 100%;
   width: 100%;
   top: 0px;
-  background: linear-gradient(90deg, #F1F1FC 0%, rgba(241, 241, 252, 0) 100%);
   z-index: -1;
 }
 .service_section_2 + section, .service_section_2 + div {
