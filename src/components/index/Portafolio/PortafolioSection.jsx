@@ -17,14 +17,14 @@ export default function PortafolioSection() {
   return (
     <div className="container">
       <div className="section_heading text-white text-center">
-        <h2 className="heading_subtitle text-uppercase">
+        <h2 className="heading_subtitle text-uppercase" style={{ color: '#000' }}>
           <span className="double_icon">
             <i className="fas fa-sharp fa-square-full"></i>
             <i className="fas fa-sharp fa-square-full"></i>
           </span>
           <span>Nuestro trabajo</span>
         </h2>
-        <h3 className="heading_title mb-0">Nuestro último trabajo</h3>
+        <h3 className="heading_title mb-0" style={{ color: '#000' }}>Nuestro último trabajo</h3>
       </div>
       <div className="portfolio_carousel">
         <div className="common_carousel_centered"></div>
