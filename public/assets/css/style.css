@@ -3527,6 +3527,7 @@ textarea.form-control {
 .site_link {
   display: inline-block;
   width: 320px;
+  height: 110px;
 }
 
 .site_link img {

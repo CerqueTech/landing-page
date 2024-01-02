@@ -50,10 +50,10 @@ export default function Header(props) {
               <div className={'main-menu ' + props.menu}>
                 <nav id="mobile-menu">
                   <ul>
-                    <li className="has-dropdown">
+                    <li>
                       <a href="index.html">Inicio</a>
                     </li>
-                    <li className="has-dropdown">
+                    <li>
                       <a href="service.html">Servicios</a>
                     </li>
                     <li>
