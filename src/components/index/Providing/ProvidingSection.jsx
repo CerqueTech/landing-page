@@ -53,69 +53,64 @@ export default function ProdivingSection() {
       }
     ]
   };
+  
   return (
     <div className="container">
       <div className="section_heading style_4 text-center">
         <h2 className="heading_subtitle text-uppercase">
-          <span>Our Service</span>
+          <span>Nuestros Servicios</span>
         </h2>
-        <h3 className="heading_title mb-0">Providing solutions</h3>
+        <h3 className="heading_title mb-0">Las soluciones</h3>
       </div>
       <div className="common_carousel_4col row">
         <Slider {...settings}>
           <ProvidingElement
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
-            title="Development"
-            description="We are help generate positive the cash flow"
+            title="Desarrollo Web"
+            description="Creando aplicaciones web modernas y escalables con Angular, React y Svelte."
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_2.svg"
             iconImage="assets/images/icons/icon_house_2.svg"
-            title="UX/UI Design"
-            description="We are help generate positive the cash flow"
+            title="Desarrollo de Aplicaciones Móviles"
+            description="Construyendo aplicaciones móviles multiplataforma con Swift y NativeScript."
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_3.svg"
             iconImage="assets/images/icons/icon_grid_2.svg"
-            title="Application"
-            description="We are help generate positive the cash flow"
+            title="Soluciones en la Nube"
+            description="Implementando servicios en la nube y estrategias de migración con AWS, Azure y Heroku."
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_4.svg"
             iconImage="/assets/images/icons/icon_speaker.svg"
-            title="Marketing"
-            description="We are help generate positive the cash flow"
+            title="DevOps y Automatización"
+            description="Mejorando procesos de CI/CD utilizando Docker, Kubernetes y Jenkins."
           />
           <ProvidingElement
             shape="/assets/images/shapes/shape_color_5.svg"
             iconImage="/assets/images/icons/icon_camera_2.svg"
-            title="Video Editing"
-            description="We are help generate positive the cash flow"
+            title="Arquitectura de Microservicios"
+            description="Diseñando e implementando microservicios para sistemas eficientes y escalables."
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_6.svg"
             iconImage="assets/images/icons/icon_code_4.svg"
-            title="Programming"
-            description="We are help generate positive the cash flow"
+            title="Consultoría en Ciberseguridad"
+            description="Ofreciendo auditorías de seguridad y consultoría de cumplimiento de primera categoría."
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_7.svg"
             iconImage="assets/images/icons/icon_idea_3.svg"
-            title="Business"
-            description="We are help generate positive the cash flow"
+            title="Análisis de Datos"
+            description="Transformando datos en conocimientos con herramientas modernas de análisis y reportes."
           />
           <ProvidingElement
             shape="assets/images/shapes/shape_color_8.svg"
             iconImage="assets/images/icons/icon_cog.svg"
-            title="Tech Support"
-            description="We are help generate positive the cash flow"
-          />
-          <ProvidingElement
-            shape="assets/images/shapes/shape_color_5.svg"
-            iconImage="assets/images/icons/icon_camera_2.svg"
-            title="Video Editing"
-            description=" We are help generate positive the cash flow"
+            title="IA y Aprendizaje Automático"
+            description="Desarrollando soluciones impulsadas por IA para mejorar las operaciones empresariales."
           />
         </Slider>
       </div>
