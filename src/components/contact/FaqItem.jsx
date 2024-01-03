@@ -29,7 +29,7 @@ export default function FaqItem(props) {
         aria-labelledby={'heading_' + props.id}
       >
         <div className="accordion_body">
-          <p className="m-0">{props.txtBody}</p>
+          <p className="textFaqBody m-0">{props.txtBody}</p>
         </div>
       </div>
     </div>

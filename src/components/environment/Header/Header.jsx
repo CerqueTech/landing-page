@@ -51,13 +51,13 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a href="index.html">Inicio</a>
+                      <a className="a_inicio" href="index.html">Inicio</a>
                     </li>
                     <li>
-                      <a href="service.html">Servicios</a>
+                      <a className='a_servicios' href="service.html">Servicios</a>
                     </li>
                     <li>
-                      <a href="contact.html">Contactanos</a>
+                      <a className='a_contacto' href="contact.html">Contactanos</a>
                     </li>
                   </ul>
                 </nav>
