@@ -89,8 +89,8 @@ export default function Header(props) {
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Cotizaciones</span>
-                          <span className="bd-button-text">Cotizaciones</span>
+                          <span className="bd-button-text">Cotizar</span>
+                          <span className="bd-button-text">Cotizar</span>
                         </span>
                       </span>
                     </span>
