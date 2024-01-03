@@ -25,49 +25,43 @@ import FaqItem from "./FaqItem";
     <div class="col-lg-8 col-md-6">
       <div class="accordion_wrap" id="faq_accordion">
         <FaqItem
-          id="one"
-          txtHeader="¿Cuánto cuesta un nuevo sitio web?"
-          txtBody={`El mantenimiento regular es esencial para que un sitio web estabilice su
-            flexibilidad y confiabilidad. Un mantenimiento adecuado ayudaría a
-            garantizando la seguridad de su sitio web, invite a nuevos
-            visitantes, aumentar el tráfico y más. Por supuesto que podemos ayudarte.
-            con un mantenimiento adecuado y profesional del sitio web además de
-            desarrollo ya que apoya`}
+          id="cost"
+          txtHeader="¿Cómo se determina el costo de un proyecto?"
+          txtBody="El costo de un proyecto depende de varios factores, como la complejidad del diseño, las funcionalidades requeridas, y el tiempo de desarrollo. Siempre proporcionamos una cotización detallada después de entender completamente tus necesidades específicas."
           expanded={true}
           client:visible
         />
         <FaqItem
-          id="two"
-          txtHeader="¿Mantendrás mi sitio por mí?"
-          txtBody={`El mantenimiento regular es esencial para que un sitio web estabilice su
-            flexibilidad y confiabilidad. Un mantenimiento adecuado ayudaría a
-            garantizando la seguridad de su sitio web, invite a nuevos
-            visitantes, aumentar el tráfico y más. Por supuesto que podemos ayudarte.
-            con un mantenimiento adecuado y profesional del sitio web además de
-            desarrollo ya que apoya`}
+          id="maintenance"
+          txtHeader="¿Ofrecen mantenimiento continuo para proyectos desarrollados?"
+          txtBody="Sí, ofrecemos servicios de mantenimiento y soporte para todos los proyectos que desarrollamos. Esto incluye actualizaciones de seguridad, mejoras de rendimiento y asistencia técnica."
           client:visible
         />
         <FaqItem
-          id="three"
-          txtHeader="¿Mi sitio web será compatible con dispositivos móviles?"
-          txtBody={`El mantenimiento regular es esencial para que un sitio web estabilice su
-            flexibilidad y confiabilidad. Un mantenimiento adecuado ayudaría a
-            garantizando la seguridad de su sitio web, invite a nuevos
-            visitantes, aumentar el tráfico y más. Por supuesto que podemos ayudarte.
-            con un mantenimiento adecuado y profesional del sitio web además de
-            desarrollo ya que apoya`}
+          id="mobile_compatibility"
+          txtHeader="¿Cómo aseguran la compatibilidad con dispositivos móviles?"
+          txtBody="Nos enfocamos en el diseño responsivo para asegurar que todas nuestras aplicaciones y sitios web funcionen sin problemas en una variedad de dispositivos móviles, optimizando la experiencia del usuario en todas las plataformas."
           expanded={false}
           client:visible
         />
         <FaqItem
-          id="four"
-          txtHeader="¿Qué pasa si necesito ayuda en mi sitio en el futuro?"
-          txtBody={`El mantenimiento regular es esencial para que un sitio web estabilice su
-            flexibilidad y confiabilidad. Un mantenimiento adecuado ayudaría a
-            garantizando la seguridad de su sitio web, invite a nuevos
-            visitantes, aumentar el tráfico y más. Por supuesto que podemos ayudarte.
-            con un mantenimiento adecuado y profesional del sitio web además de
-            desarrollo ya que apoya`}
+          id="future_support"
+          txtHeader="¿Qué tipo de soporte ofrecen después del lanzamiento de un sitio web o aplicación?"
+          txtBody="Tras el lanzamiento, ofrecemos un período de soporte técnico para abordar cualquier problema o duda que puedas tener. Además, estamos disponibles para colaboraciones futuras, ya sean mejoras, actualizaciones o el desarrollo de nuevas funcionalidades."
+          expanded={false}
+          client:visible
+        />
+        <FaqItem
+          id="tech_stack"
+          txtHeader="¿Qué tecnologías utilizan para el desarrollo de proyectos?"
+          txtBody="Utilizamos una variedad de tecnologías modernas y eficientes, incluyendo JavaScript, TypeScript, Angular, React, Node.js, entre otras. Nuestra selección de tecnología depende de los requisitos específicos del proyecto y de la mejor solución para tus necesidades."
+          expanded={false}
+          client:visible
+        />
+        <FaqItem
+          id="custom_solution"
+          txtHeader="¿Pueden desarrollar soluciones personalizadas para necesidades específicas de negocio?"
+          txtBody="Absolutamente. Nos especializamos en desarrollar soluciones personalizadas que se adaptan específicamente a las necesidades únicas de tu negocio, asegurando que el producto final cumpla con tus expectativas y objetivos."
           expanded={false}
           client:visible
         />
