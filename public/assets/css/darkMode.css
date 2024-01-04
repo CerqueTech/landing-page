@@ -33,7 +33,8 @@ body.dark {
   .bd-button-text {
     color: #f1f1f1 !important;
   }
-  .fa-light.fa-arrow-right-long{
+
+  .fa-light.fa-arrow-right-long {
     color: #f1f1f1;
   }
 
@@ -48,12 +49,15 @@ body.dark {
   .accordion_button {
     color: #ffffff !important;
   }
-  .accordion_button::before{
-    background-color:#24242C;
+
+  .accordion_button::before {
+    background-color: #24242C;
   }
-  #heading_one{
+
+  #heading_one {
     color: #ffffff !important;
   }
+
   .icon_wrap,
   .client_logo_boxed {
     border: 1px solid #ffffff;
@@ -71,14 +75,16 @@ body.dark {
   .review_item,
   .item_image,
   .slick-active buttom,
-  .form-control{
+  .form-control {
     background-color: #121212 !important;
   }
-  .form-control{
-    border:1px solid #40415F;
+
+  .form-control {
+    border: 1px solid #40415F;
     color: #f1f1f1;
   }
-  .form-control::placeholder{
+
+  .form-control::placeholder {
     color: #f1f1f1;
   }
 
@@ -89,28 +95,59 @@ body.dark {
   .counter_item {
     background-color: #262631 !important;
   }
-  .content_wrap,.service_item{
+
+  .content_wrap,
+  .service_item {
     background-color: #24242c !important;
   }
+
   .slick-dots li button {
     border: 1px solid #4C4C4C;
   }
-  .slick-dots li button::before{
+
+  .slick-dots li button::before {
     background-color: #4C4C4C;
   }
 
   .starter_steps_section {
     background-color: #131312 !important;
   }
+
   .service_section_2 {
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
   }
+
   .bg_half_top_light {
     background-image: linear-gradient(0deg, transparent 41%, #232B35 0%);
   }
-  
+
   .calltoaction_section.style_5 {
     background-image: linear-gradient(0deg, #252628 50%, transparent 0%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-moz-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #333 !important;
+  }
+
+  ::-moz-scrollbar-thumb {
+    background-color: #333 !important;
+  }
+
+
+  ::-webkit-scrollbar-track {
+    background-color: #424242 !important;
+  }
+
+  ::-moz-scrollbar-track {
+    background-color: #424242 !important;
   }
 
 }

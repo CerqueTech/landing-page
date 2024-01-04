@@ -1,3 +1,4 @@
+import './Providing.css';
 export default function ProvidingElement(props) {
   return (
     <div className="col">
