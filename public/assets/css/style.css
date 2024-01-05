@@ -3549,6 +3549,7 @@ textarea.form-control {
 
 .site_header_3 {
   transition: unset;
+  font-family: "Manrope", sans-serif;
 }
 .site_header_3 .select_option .nice-select .current,
 .site_header_3 .select_option .nice-select::after {

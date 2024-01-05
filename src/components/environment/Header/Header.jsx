@@ -40,8 +40,7 @@ export default function Header(props) {
               <a className="site_link" href="index.html">
                 <img
                   src={
-                    'assets/images/logo/' +
-                    (props.menu == '' ? 'white_one_line.png' : 'dark_one_line.png')
+                    'assets/images/logo/dark.png'
                   }
                 />
               </a>
