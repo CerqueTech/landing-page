@@ -3365,7 +3365,7 @@ textarea.form-control {
 .bar-icon span {
   width: 100%;
   height: 2px;
-  background: #0F0E0E;
+  background: #fff;
   display: inline-block;
 }
 .bar-icon span:nth-child(2) {
@@ -3529,7 +3529,7 @@ textarea.form-control {
 .site_link {
   display: inline-block;
   width: 320px;
-  height: 110px;
+  height: 80px;
 }
 
 .site_link img {
