@@ -5,18 +5,23 @@ const CounterSection = () => {
     <>
       <div className="container">
         <div className="row">
-          <CounterItem
-            count={2400}
-            title="Cliente feliz en todo el mundo"
+        <CounterItem
+            count={7}
+            title="Clientes satisfechos en todo el mundo"
             supText="+"
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
-          <CounterItem count={1690} title="Proyecto completado" supText="+" />
           <CounterItem
-            count={100}
-            title="Satisfacción del cliente"
-            supText="%"
+            count={4}
+            title="Proyectos exitosos"
+            supText="+"
+          />
+
+          <CounterItem
+            count={5} 
+            title="Profesionales talentosos"
+            supText="+"
             dataParallax='{"y" : -30, "smoothness": 10}'
           />
         </div>
