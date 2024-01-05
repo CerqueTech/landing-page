@@ -56,6 +56,9 @@ export default function Header(props) {
                       <a className='a_servicios' href="service.html">Servicios</a>
                     </li>
                     <li>
+                      <a className='a_servicios' href="about-us.html">Nosotros</a>
+                    </li>
+                    <li>
                       <a className='a_contacto' href="contact.html">Contactanos</a>
                     </li>
                   </ul>
