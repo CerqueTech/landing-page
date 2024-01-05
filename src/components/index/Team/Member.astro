@@ -3,8 +3,9 @@ export interface Props {
   name: string;
   designation: string;
   image: string;
+  linkedin: string;
 }
-const { name, designation, image } = Astro.props;
+const { name, designation, image, linkedin } = Astro.props;
 ---
 
 <div class="col col-xl-3 col-lg-6 col-md-6">
@@ -18,9 +19,7 @@ const { name, designation, image } = Astro.props;
       <h3 class="admin_name">{name}</h3>
       <p class="admin_designation mb-0">{designation}</p>
       <ul class="admin_social unordered_list">
-        <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="#!"><i class="fab fa-linkedin-in"></i></a></li>
+        <li><a href={linkedin}><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
     </div>
   </div>
