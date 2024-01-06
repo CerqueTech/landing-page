@@ -1,0 +1,45 @@
+---
+import DetailElement from './DetailElement.astro';
+import DetailSection from './DetailElement.astro';
+interface Props {
+  headTitle: string;
+  bttnTxt: string;
+  rigthTxt: string;
+  item1Txt: string;
+  item2Txt: string;
+  item3Txt: string;
+}
+const { headTitle, bttnTxt, rigthTxt, item1Txt, item2Txt, item3Txt } =
+  Astro.props;
+---
+
+<div class="row">
+  <div class="col col-lg-6">
+    <DetailElement bttnTxt={bttnTxt} headTxt={headTitle}/>
+  </div>
+  <div class="col col-lg-6">
+    <p>
+      {rigthTxt}
+    </p>
+    <ul class="icon_list unordered_list_block">
+      <li>
+        <span class="list_item_icon">
+          <i class="fas fa-check"></i>
+        </span>
+        <span class="list_item_text">{item1Txt}</span>
+      </li>
+      <li>
+        <span class="list_item_icon">
+          <i class="fas fa-check"></i>
+        </span>
+        <span class="list_item_text">{item2Txt}</span>
+      </li>
+      <li>
+        <span class="list_item_icon">
+          <i class="fas fa-check"></i>
+        </span>
+        <span class="list_item_text">{item3Txt}</span>
+      </li>
+    </ul>
+  </div>
+</div>

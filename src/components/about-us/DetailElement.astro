@@ -1,0 +1,28 @@
+---
+interface Props {
+  headTxt: string;
+  bttnTxt: string;
+}
+const { headTxt, bttnTxt } = Astro.props;
+---
+
+<div class="details_sectio_content mb-4 mb-lg-0">
+  <div class="section_heading">
+    <h2 class="heading_title mb-0">
+      {headTxt}
+    </h2>
+  </div>
+  <a href="pricing.html" class="bd-btn-link btn_primary">
+    <span class="bd-button-content-wrapper">
+      <span class="bd-button-icon">
+        <i class="fa-light fa-arrow-right-long"></i>
+      </span>
+      <span class="pd-animation-flip">
+        <span class="bd-btn-anim-wrapp">
+          <span class="bd-button-text">{bttnTxt}</span>
+          <span class="bd-button-text">{bttnTxt}</span>
+        </span>
+      </span>
+    </span>
+  </a>
+</div>

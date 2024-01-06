@@ -1,0 +1,22 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  txt: string;
+}
+const { icon, title, txt } = Astro.props;
+---
+
+<div class="col col-md-6">
+  <div class="iconbox_item bg-white">
+    <div class="item_icon">
+      <img src={icon} alt="Icon Eye White" />
+    </div>
+    <div class="item_content">
+      <h3 class="item_title">{title}</h3>
+      <p class="mb-0">
+        {txt}
+      </p>
+    </div>
+  </div>
+</div>
