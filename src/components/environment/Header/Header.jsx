@@ -40,7 +40,7 @@ export default function Header(props) {
               <a className="site_link" href="index.html">
                 <img
                   src={
-                    'assets/images/logo/dark.png'
+                    'assets/images/logo/dark_without_icon.png'
                   }
                 />
               </a>
