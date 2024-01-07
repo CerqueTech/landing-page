@@ -2,34 +2,22 @@
 import BannerSection from "../components/environment/BannerSection.astro";
 import ContactForm from "../components/contact/ContactForm.astro";
 import FaqSection from "../components/contact/FaqSection.astro";
-import Footer from "../components/environment/Footer.astro";
-import Header from "../components/environment/Header/Header.jsx";
-import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton.jsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Contact">
-  <div class="page_wrapper">
-    <Header menu="" client:visible/>
-    <WhatsAppButton client:only="react" />
-    <main class="page_content">
-      <section class="page_banner text-center">
-        <BannerSection
-          title="Contactanos"
-          aHref="index.html"
-          aText="Inicio"
-          liText="Contacto"
-        />
-      </section>
-      <section class="contact-section">
-        <ContactForm />
-      </section>
-      <section class="faq_section section_space_lg">
-        <FaqSection/>
-      </section>
-    </main>
-    <footer class="site_footer style_4">
-      <Footer/>
-    </footer>
-  </div>
+<Layout transition:persist title="Contact" menu="">
+  <section class="page_banner text-center">
+    <BannerSection
+      title="Contactanos"
+      aHref="index.html"
+      aText="Inicio"
+      liText="Contacto"
+    />
+  </section>
+  <section class="contact-section">
+    <ContactForm />
+  </section>
+  <section class="faq_section section_space_lg">
+    <FaqSection />
+  </section>
 </Layout>

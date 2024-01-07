@@ -1,5 +1,5 @@
-import './Providing.css';
-export default function ProvidingElement(props) {
+import "./Providing.css";
+const ProvidingElement = (props) => {
   return (
     <div className="col">
       <div className="service_item style_4">
@@ -24,4 +24,5 @@ export default function ProvidingElement(props) {
       </div>
     </div>
   );
-}
+};
+export default ProvidingElement;

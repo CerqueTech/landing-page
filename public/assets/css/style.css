@@ -5292,6 +5292,92 @@ textarea.form-control {
   max-width: 22px;
 }
 
+.service_item.style_3 {
+  padding: 40px;
+  background-color: #F1F1FC;
+  border-radius: 12px;
+}
+@media (max-width: 575px), only screen and (min-width: 992px) and (max-width: 1199px) {
+  .service_item.style_3 {
+    padding: 30px;
+  }
+}
+.service_item.style_3:hover .item_icon {
+  transform: scaleX(-1);
+}
+.service_item.style_3 .item_icon {
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #5355DF;
+  transition: 0.3s cubic-bezier(0.5, 1, 0.89, 1);
+  border-radius: 12px;
+  background-color: rgba(83, 85, 223, 0.2);
+}
+.service_item.style_3:hover .item_icon {
+  color: #ffffff;
+  background-color: #5355DF;
+}
+.service_item.style_3:hover .item_icon svg path,
+.service_item.style_3:hover .item_icon svg rect {
+  stroke: #ffffff;
+}
+.service_item.style_3 .item_title {
+  margin-bottom: 20px;
+}
+.service_item.style_3 .item_description {
+  margin-bottom: 40px;
+}
+.service_item.style_3 .btn-link {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #0F0E0E;
+}
+.service_item.style_3 .btn-link:hover {
+  color: #5355DF;
+}
+
+.service_item.style_3.text-white {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+}
+.service_item.style_3.text-white:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.service_item.style_3.text-white .item_title {
+  color: #ffffff;
+}
+.service_item.style_3.text-white .item_description {
+  color: #AFAFAF;
+}
+.service_item.style_3.text-white .btn-link {
+  color: #ffffff;
+}
+.service_item.style_3.text-white .btn-link .btn_text:before {
+  background-color: #ffffff;
+}
+.service_item.style_3.text-white .btn-link:hover {
+  color: #FF7F50;
+}
+
+.service_item.style_3.color_danger .item_icon {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background-color: transparent;
+}
+.service_item.style_3.color_danger .btn-link {
+  color: #FF7F50;
+}
+.service_item.style_3.color_danger .btn-link .btn_text:before {
+  background-color: #FF7F50;
+}
+.service_item.style_3.color_danger .btn-link:hover {
+  color: #FF7F50;
+}
+
 .service_items_grouped {
   margin: 0;
 }

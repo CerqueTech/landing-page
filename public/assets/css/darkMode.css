@@ -75,12 +75,15 @@ body.dark {
   .review_item,
   .item_image,
   .slick-active buttom,
-  .form-control,.iconbox_item {
+  .form-control,
+  .iconbox_item {
     background-color: #121212 !important;
   }
-  .iconbox_item.bg-white::before{
+
+  .iconbox_item.bg-white::before {
     background-color: #24242C !important;
   }
+
   .iconbox_item.bg-white:hover {
     border: 1px solid #40415F;
     background-color: #24242C !important;
@@ -139,7 +142,7 @@ body.dark {
   ::-moz-scrollbar {
     width: 12px;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background-color: #333 !important;
   }

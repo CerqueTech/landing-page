@@ -15,7 +15,7 @@
     /******/ var module = (installedModules[moduleId] = {
       /******/ i: moduleId,
       /******/ l: false,
-      /******/ exports: {}
+      /******/ exports: {},
       /******/
     });
     /******/
@@ -46,9 +46,9 @@
   /******/ __webpack_require__.d = function (exports, name, getter) {
     /******/ if (!__webpack_require__.o(exports, name)) {
       /******/ Object.defineProperty(exports, name, {
-        enumerable: true,
-        get: getter
-      });
+    enumerable: true,
+    get: getter,
+  });
       /******/
     }
     /******/
@@ -56,13 +56,13 @@
   /******/
   /******/ // define __esModule on exports
   /******/ __webpack_require__.r = function (exports) {
-    /******/ if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+    /******/ if (typeof Symbol !== "undefined" && Symbol.toStringTag) {
       /******/ Object.defineProperty(exports, Symbol.toStringTag, {
-        value: 'Module'
-      });
+    value: "Module",
+  });
       /******/
     }
-    /******/ Object.defineProperty(exports, '__esModule', { value: true });
+    /******/ Object.defineProperty(exports, "__esModule", { value: true });
     /******/
   };
   /******/
@@ -76,18 +76,18 @@
     /******/ if (mode & 8) return value;
     /******/ if (
       mode & 4 &&
-      typeof value === 'object' &&
+      typeof value === "object" &&
       value &&
       value.__esModule
     )
       return value;
     /******/ var ns = Object.create(null);
     /******/ __webpack_require__.r(ns);
-    /******/ Object.defineProperty(ns, 'default', {
-      enumerable: true,
-      value: value
-    });
-    /******/ if (mode & 2 && typeof value != 'string')
+    /******/ Object.defineProperty(ns, "default", {
+        enumerable: true,
+        value: value,
+      });
+    /******/ if (mode & 2 && typeof value != "string")
       for (var key in value)
         __webpack_require__.d(
           ns,
@@ -105,12 +105,12 @@
     /******/ var getter =
       module && module.__esModule
         ? /******/ function getDefault() {
-            return module['default'];
-          }
+          return module["default"];
+        }
         : /******/ function getModuleExports() {
-            return module;
-          };
-    /******/ __webpack_require__.d(getter, 'a', getter);
+          return module;
+        };
+    /******/ __webpack_require__.d(getter, "a", getter);
     /******/ return getter;
     /******/
   };
@@ -121,63 +121,63 @@
   };
   /******/
   /******/ // __webpack_public_path__
-  /******/ __webpack_require__.p = '/assets/js/';
+  /******/ __webpack_require__.p = "/assets/js/";
   /******/
   /******/
   /******/ // Load entry module and return exports
   /******/ return __webpack_require__(
-    (__webpack_require__.s = './src/js/index.js')
+    (__webpack_require__.s = "./src/js/index.js")
   );
   /******/
 })(
   /************************************************************************/
   /******/ {
-    /***/ './node_modules/gsap/CSSPlugin.js':
+    /***/ "./node_modules/gsap/CSSPlugin.js":
       /*!****************************************!*\
   !*** ./node_modules/gsap/CSSPlugin.js ***!
   \****************************************/
       /*! exports provided: CSSPlugin, default, _getBBox, _createElement, checkPrefix */
       /***/ function (module, __webpack_exports__, __webpack_require__) {
-        'use strict';
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'CSSPlugin',
+          "CSSPlugin",
           function () {
             return CSSPlugin;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'default',
+          "default",
           function () {
             return CSSPlugin;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_getBBox',
+          "_getBBox",
           function () {
             return _getBBox;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_createElement',
+          "_createElement",
           function () {
             return _createElement;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'checkPrefix',
+          "checkPrefix",
           function () {
             return _checkPropPrefix;
           }
         );
         /* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            /*! ./gsap-core.js */ './node_modules/gsap/gsap-core.js'
+            /*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js"
           );
         /*** IMPORTS FROM imports-loader ***/
         var define = false;
@@ -202,7 +202,7 @@
           _tempDivStyler,
           _recentSetterPlugin,
           _windowExists = function _windowExists() {
-            return typeof window !== 'undefined';
+            return typeof window !== "undefined";
           },
           _transformProps = {},
           _RAD2DEG = 180 / Math.PI,
@@ -213,9 +213,9 @@
           _horizontalExp = /(?:left|right|width|margin|padding|x)/i,
           _complexExp = /[\s,\(]\S/,
           _propertyAliases = {
-            autoAlpha: 'opacity,visibility',
-            scale: 'scaleX,scaleY',
-            alpha: 'opacity'
+            autoAlpha: "opacity,visibility",
+            scale: "scaleX,scaleY",
+            alpha: "opacity",
           },
           _renderCSSProp = function _renderCSSProp(ratio, data) {
             return data.set(
@@ -232,7 +232,7 @@
               ratio === 1
                 ? data.e
                 : Math.round((data.s + data.c * ratio) * 10000) / 10000 +
-                    data.u,
+                data.u,
               data
             );
           },
@@ -312,18 +312,18 @@
             cache[property] = value;
             cache.renderTransform(ratio, cache);
           },
-          _transformProp = 'transform',
-          _transformOriginProp = _transformProp + 'Origin',
+          _transformProp = "transform",
+          _transformOriginProp = _transformProp + "Origin",
           _supports3D,
           _createElement = function _createElement(type, ns) {
             var e = _doc.createElementNS
               ? _doc.createElementNS(
-                  (ns || 'http://www.w3.org/1999/xhtml').replace(
-                    /^https/,
-                    'http'
-                  ),
-                  type
-                )
+                (ns || "http://www.w3.org/1999/xhtml").replace(
+                  /^https/,
+                  "http"
+                ),
+                type
+              )
               : _doc.createElement(type); //some servers swap in https for http in the namespace which can break things, making "style" inaccessible.
 
             return e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://greensock.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
@@ -337,7 +337,7 @@
             return (
               cs[property] ||
               cs.getPropertyValue(
-                property.replace(_capsExp, '-$1').toLowerCase()
+                property.replace(_capsExp, "-$1").toLowerCase()
               ) ||
               cs.getPropertyValue(property) ||
               (!skipPrefixFallback &&
@@ -346,10 +346,10 @@
                   _checkPropPrefix(property) || property,
                   1
                 )) ||
-              ''
+              ""
             ); //css variables may not need caps swapped out for dashes and lowercase.
           },
-          _prefixes = 'O,Moz,ms,Ms,Webkit'.split(','),
+          _prefixes = "O,Moz,ms,Ms,Webkit".split(","),
           _checkPropPrefix = function _checkPropPrefix(
             property,
             element,
@@ -365,38 +365,38 @@
 
             property = property.charAt(0).toUpperCase() + property.substr(1);
 
-            while (i-- && !(_prefixes[i] + property in s)) {}
+            while (i-- && !(_prefixes[i] + property in s)) { }
 
             return i < 0
               ? null
-              : (i === 3 ? 'ms' : i >= 0 ? _prefixes[i] : '') + property;
+              : (i === 3 ? "ms" : i >= 0 ? _prefixes[i] : "") + property;
           },
           _initCore = function _initCore() {
             if (_windowExists() && window.document) {
               _win = window;
               _doc = _win.document;
               _docElement = _doc.documentElement;
-              _tempDiv = _createElement('div') || {
-                style: {}
+              _tempDiv = _createElement("div") || {
+                style: {},
               };
-              _tempDivStyler = _createElement('div');
+              _tempDivStyler = _createElement("div");
               _transformProp = _checkPropPrefix(_transformProp);
-              _transformOriginProp = _transformProp + 'Origin';
+              _transformOriginProp = _transformProp + "Origin";
               _tempDiv.style.cssText =
-                'border-width:0;line-height:0;position:absolute;padding:0'; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
+                "border-width:0;line-height:0;position:absolute;padding:0"; //make sure to override certain properties that may contaminate measurements, in case the user has overreaching style sheets.
 
-              _supports3D = !!_checkPropPrefix('perspective');
+              _supports3D = !!_checkPropPrefix("perspective");
               _pluginInitted = 1;
             }
           },
           _getBBoxHack = function _getBBoxHack(swapIfPossible) {
             //works around issues in some browsers (like Firefox) that don't correctly report getBBox() on SVG elements inside a <defs> element and/or <mask>. We try creating an SVG, adding it to the documentElement and toss the element in there so that it's definitely part of the rendering tree, then grab the bbox and if it works, we actually swap out the original getBBox() method for our own that does these extra steps whenever getBBox is needed. This helps ensure that performance is optimal (only do all these extra steps when absolutely necessary...most elements don't need it).
             var svg = _createElement(
-                'svg',
-                (this.ownerSVGElement &&
-                  this.ownerSVGElement.getAttribute('xmlns')) ||
-                  'http://www.w3.org/2000/svg'
-              ),
+              "svg",
+              (this.ownerSVGElement &&
+                this.ownerSVGElement.getAttribute("xmlns")) ||
+              "http://www.w3.org/2000/svg"
+            ),
               oldParent = this.parentNode,
               oldSibling = this.nextSibling,
               oldCSS = this.style.cssText,
@@ -405,7 +405,7 @@
             _docElement.appendChild(svg);
 
             svg.appendChild(this);
-            this.style.display = 'block';
+            this.style.display = "block";
 
             if (swapIfPossible) {
               try {
@@ -413,7 +413,7 @@
                 this._gsapBBox = this.getBBox; //store the original
 
                 this.getBBox = _getBBoxHack;
-              } catch (e) {}
+              } catch (e) { }
             } else if (this._gsapBBox) {
               bbox = this._gsapBBox();
             }
@@ -458,11 +458,11 @@
 
             return bounds && !bounds.width && !bounds.x && !bounds.y
               ? {
-                  x: +_getAttributeFallbacks(target, ['x', 'cx', 'x1']) || 0,
-                  y: +_getAttributeFallbacks(target, ['y', 'cy', 'y1']) || 0,
-                  width: 0,
-                  height: 0
-                }
+                x: +_getAttributeFallbacks(target, ["x", "cx", "x1"]) || 0,
+                y: +_getAttributeFallbacks(target, ["y", "cy", "y1"]) || 0,
+                width: 0,
+                height: 0,
+              }
               : bounds;
           },
           _isSVG = function _isSVG(e) {
@@ -486,15 +486,15 @@
 
               if (style.removeProperty) {
                 if (
-                  property.substr(0, 2) === 'ms' ||
-                  property.substr(0, 6) === 'webkit'
+                  property.substr(0, 2) === "ms" ||
+                  property.substr(0, 6) === "webkit"
                 ) {
                   //Microsoft and some Webkit browsers don't conform to the standard of capitalizing the first prefix character, so we adjust so that when we prefix the caps with a dash, it's correct (otherwise it'd be "ms-transform" instead of "-ms-transform" for IE9, for example)
-                  property = '-' + property;
+                  property = "-" + property;
                 }
 
                 style.removeProperty(
-                  property.replace(_capsExp, '-$1').toLowerCase()
+                  property.replace(_capsExp, "-$1").toLowerCase()
                 );
               } else {
                 //note: old versions of IE use "removeAttribute()" instead of "removeProperty()"
@@ -511,7 +511,7 @@
             onlySetAtEnd
           ) {
             var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-              'PropTween'
+              "PropTween"
             ](
               plugin._pt,
               target,
@@ -533,7 +533,7 @@
           _nonConvertibleUnits = {
             deg: 1,
             rad: 1,
-            turn: 1
+            turn: 1,
           },
           //takes a single value like 20px and converts it to the unit specified, like "%", returning only the numeric amount.
           _convertToUnit = function _convertToUnit(
@@ -544,17 +544,17 @@
           ) {
             var curValue = parseFloat(value) || 0,
               curUnit =
-                (value + '').trim().substr((curValue + '').length) || 'px',
+                (value + "").trim().substr((curValue + "").length) || "px",
               // some browsers leave extra whitespace at the beginning of CSS variables, hence the need to trim()
               style = _tempDiv.style,
               horizontal = _horizontalExp.test(property),
-              isRootSVG = target.tagName.toLowerCase() === 'svg',
+              isRootSVG = target.tagName.toLowerCase() === "svg",
               measureProperty =
-                (isRootSVG ? 'client' : 'offset') +
-                (horizontal ? 'Width' : 'Height'),
+                (isRootSVG ? "client" : "offset") +
+                (horizontal ? "Width" : "Height"),
               amount = 100,
-              toPixels = unit === 'px',
-              toPercent = unit === '%',
+              toPixels = unit === "px",
+              toPercent = unit === "%",
               px,
               parent,
               cache,
@@ -569,28 +569,28 @@
               return curValue;
             }
 
-            curUnit !== 'px' &&
+            curUnit !== "px" &&
               !toPixels &&
-              (curValue = _convertToUnit(target, property, value, 'px'));
+              (curValue = _convertToUnit(target, property, value, "px"));
             isSVG = target.getCTM && _isSVG(target);
 
             if (
-              (toPercent || curUnit === '%') &&
-              (_transformProps[property] || ~property.indexOf('adius'))
+              (toPercent || curUnit === "%") &&
+              (_transformProps[property] || ~property.indexOf("adius"))
             ) {
               px = isSVG
-                ? target.getBBox()[horizontal ? 'width' : 'height']
+                ? target.getBBox()[horizontal ? "width" : "height"]
                 : target[measureProperty];
               return Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
               )(toPercent ? (curValue / px) * amount : (curValue / 100) * px);
             }
 
-            style[horizontal ? 'width' : 'height'] =
+            style[horizontal ? "width" : "height"] =
               amount + (toPixels ? curUnit : unit);
             parent =
-              ~property.indexOf('adius') ||
-              (unit === 'em' && target.appendChild && !isRootSVG)
+              ~property.indexOf("adius") ||
+                (unit === "em" && target.appendChild && !isRootSVG)
                 ? target
                 : target.parentNode;
 
@@ -610,83 +610,83 @@
               cache.width &&
               horizontal &&
               cache.time ===
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_ticker'].time
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_ticker"].time
             ) {
               return Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
               )((curValue / cache.width) * amount);
             } else {
-              (toPercent || curUnit === '%') &&
-                (style.position = _getComputedProperty(target, 'position'));
-              parent === target && (style.position = 'static'); // like for borderRadius, if it's a % we must have it relative to the target itself but that may not have position: relative or position: absolute in which case it'd go up the chain until it finds its offsetParent (bad). position: static protects against that.
+              (toPercent || curUnit === "%") &&
+                (style.position = _getComputedProperty(target, "position"));
+              parent === target && (style.position = "static"); // like for borderRadius, if it's a % we must have it relative to the target itself but that may not have position: relative or position: absolute in which case it'd go up the chain until it finds its offsetParent (bad). position: static protects against that.
 
               parent.appendChild(_tempDiv);
               px = _tempDiv[measureProperty];
               parent.removeChild(_tempDiv);
-              style.position = 'absolute';
+              style.position = "absolute";
 
               if (horizontal && toPercent) {
                 cache = Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_getCache']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_getCache"]
                 )(parent);
                 cache.time =
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_ticker'].time;
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_ticker"].time;
                 cache.width = parent[measureProperty];
               }
             }
 
-            return Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+            return Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
               toPixels
                 ? (px * curValue) / amount
                 : px && curValue
-                ? (amount / px) * curValue
-                : 0
+                  ? (amount / px) * curValue
+                  : 0
             );
           },
           _get = function _get(target, property, unit, uncache) {
             var value;
             _pluginInitted || _initCore();
 
-            if (property in _propertyAliases && property !== 'transform') {
+            if (property in _propertyAliases && property !== "transform") {
               property = _propertyAliases[property];
 
-              if (~property.indexOf(',')) {
-                property = property.split(',')[0];
+              if (~property.indexOf(",")) {
+                property = property.split(",")[0];
               }
             }
 
-            if (_transformProps[property] && property !== 'transform') {
+            if (_transformProps[property] && property !== "transform") {
               value = _parseTransform(target, uncache);
               value =
-                property !== 'transformOrigin'
+                property !== "transformOrigin"
                   ? value[property]
                   : _firstTwoOnly(
-                      _getComputedProperty(target, _transformOriginProp)
-                    ) +
-                    ' ' +
-                    value.zOrigin +
-                    'px';
+                    _getComputedProperty(target, _transformOriginProp)
+                  ) +
+                  " " +
+                  value.zOrigin +
+                  "px";
             } else {
               value = target.style[property];
 
               if (
                 !value ||
-                value === 'auto' ||
+                value === "auto" ||
                 uncache ||
-                ~(value + '').indexOf('calc(')
+                ~(value + "").indexOf("calc(")
               ) {
                 value =
                   (_specialProps[property] &&
                     _specialProps[property](target, property, unit)) ||
                   _getComputedProperty(target, property) ||
                   Object(
-                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_getProperty']
+                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_getProperty"]
                   )(target, property) ||
-                  (property === 'opacity' ? 1 : 0); // note: some browsers, like Firefox, don't report borderRadius correctly! Instead, it only reports every corner like  borderTopLeftRadius
+                  (property === "opacity" ? 1 : 0); // note: some browsers, like Firefox, don't report borderRadius correctly! Instead, it only reports every corner like  borderTopLeftRadius
               }
             }
 
-            return unit && !~(value + '').trim().indexOf(' ')
+            return unit && !~(value + "").trim().indexOf(" ")
               ? _convertToUnit(target, property, value, unit) + unit
               : value;
           },
@@ -697,7 +697,7 @@
             end
           ) {
             //note: we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
-            if (!start || start === 'none') {
+            if (!start || start === "none") {
               // some browsers like Safari actually PREFER the prefixed property and mis-report the unprefixed value like clipPath (BUG). In other words, even though clipPath exists in the style ("clipPath" in target.style) and it's set in the CSS properly (along with -webkit-clip-path), Safari reports clipPath as "none" whereas WebkitClipPath reports accurately like "ellipse(100% 0% at 50% 0%)", so in this case we must SWITCH to using the prefixed property instead. See https://greensock.com/forums/topic/18310-clippath-doesnt-work-on-ios/
               var p = _checkPropPrefix(prop, target, 1),
                 s = p && _getComputedProperty(target, p, 1);
@@ -705,23 +705,23 @@
               if (s && s !== start) {
                 prop = p;
                 start = s;
-              } else if (prop === 'borderColor') {
-                start = _getComputedProperty(target, 'borderTopColor'); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://greensock.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
+              } else if (prop === "borderColor") {
+                start = _getComputedProperty(target, "borderTopColor"); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://greensock.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
               }
             }
 
             var pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                'PropTween'
-              ](
-                this._pt,
-                target.style,
-                prop,
-                0,
-                1,
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                  '_renderComplexString'
-                ]
-              ),
+              "PropTween"
+            ](
+              this._pt,
+              target.style,
+              prop,
+              0,
+              1,
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
+              "_renderComplexString"
+              ]
+            ),
               index = 0,
               matchIndex = 0,
               a,
@@ -739,11 +739,11 @@
               endValues;
             pt.b = start;
             pt.e = end;
-            start += ''; //ensure values are strings
+            start += ""; //ensure values are strings
 
-            end += '';
+            end += "";
 
-            if (end === 'auto') {
+            if (end === "auto") {
               target.style[prop] = end;
               end = _getComputedProperty(target, prop) || end;
               target.style[prop] = start;
@@ -752,25 +752,25 @@
             a = [start, end];
 
             Object(
-              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_colorStringFilter']
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_colorStringFilter"]
             )(a); //pass an array with the starting and ending values and let the filter do whatever it needs to the values. If colors are found, it returns true and then we must match where the color shows up order-wise because for things like boxShadow, sometimes the browser provides the computed values with the color FIRST, but the user provides it with the color LAST, so flip them if necessary. Same for drop-shadow().
 
             start = a[0];
             end = a[1];
             startValues =
               start.match(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_numWithUnitExp']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_numWithUnitExp"]
               ) || [];
             endValues =
               end.match(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_numWithUnitExp']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_numWithUnitExp"]
               ) || [];
 
             if (endValues.length) {
               while (
                 (result =
                   _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                    '_numWithUnitExp'
+                    "_numWithUnitExp"
                   ].exec(end))
               ) {
                 endValue = result[0];
@@ -779,20 +779,20 @@
                 if (color) {
                   color = (color + 1) % 5;
                 } else if (
-                  chunk.substr(-5) === 'rgba(' ||
-                  chunk.substr(-5) === 'hsla('
+                  chunk.substr(-5) === "rgba(" ||
+                  chunk.substr(-5) === "hsla("
                 ) {
                   color = 1;
                 }
 
                 if (
-                  endValue !== (startValue = startValues[matchIndex++] || '')
+                  endValue !== (startValue = startValues[matchIndex++] || "")
                 ) {
                   startNum = parseFloat(startValue) || 0;
-                  startUnit = startValue.substr((startNum + '').length);
+                  startUnit = startValue.substr((startNum + "").length);
                   relative =
-                    endValue.charAt(1) === '='
-                      ? +(endValue.charAt(0) + '1')
+                    endValue.charAt(1) === "="
+                      ? +(endValue.charAt(0) + "1")
                       : 0;
 
                   if (relative) {
@@ -800,17 +800,17 @@
                   }
 
                   endNum = parseFloat(endValue);
-                  endUnit = endValue.substr((endNum + '').length);
+                  endUnit = endValue.substr((endNum + "").length);
                   index =
                     _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                      '_numWithUnitExp'
+                      "_numWithUnitExp"
                     ].lastIndex - endUnit.length;
 
                   if (!endUnit) {
                     //if something like "perspective:300" is passed in and we must add a unit to the end
                     endUnit =
                       endUnit ||
-                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config']
+                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"]
                         .units[prop] ||
                       startUnit;
 
@@ -827,25 +827,27 @@
 
                   pt._pt = {
                     _next: pt._pt,
-                    p: chunk || matchIndex === 1 ? chunk : ',',
+                    p: chunk || matchIndex === 1 ? chunk : ",",
                     //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
                     s: startNum,
                     c: relative ? relative * endNum : endNum - startNum,
                     m:
-                      (color && color < 4) || prop === 'zIndex' ? Math.round : 0
+                      (color && color < 4) || prop === "zIndex"
+                        ? Math.round
+                        : 0,
                   };
                 }
               }
 
-              pt.c = index < end.length ? end.substring(index, end.length) : ''; //we use the "c" of the PropTween to store the final part of the string (after the last number)
+              pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
             } else {
               pt.r =
-                prop === 'display' && end === 'none'
+                prop === "display" && end === "none"
                   ? _renderNonTweeningValueOnlyAtEnd
                   : _renderNonTweeningValue;
             }
 
-            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_relExp'].test(end) &&
+            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_relExp"].test(end) &&
               (pt.e = 0); //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
 
             this._pt = pt; //start the linked list with this new PropTween. Remember, we call _tweenComplexCSSString.call(pluginInstance...) to ensure that it's scoped properly. We may call it from within another plugin too, thus "this" would refer to the plugin.
@@ -853,23 +855,23 @@
             return pt;
           },
           _keywordToPercent = {
-            top: '0%',
-            bottom: '100%',
-            left: '0%',
-            right: '100%',
-            center: '50%'
+            top: "0%",
+            bottom: "100%",
+            left: "0%",
+            right: "100%",
+            center: "50%",
           },
           _convertKeywordsToPercentages =
             function _convertKeywordsToPercentages(value) {
-              var split = value.split(' '),
+              var split = value.split(" "),
                 x = split[0],
-                y = split[1] || '50%';
+                y = split[1] || "50%";
 
               if (
-                x === 'top' ||
-                x === 'bottom' ||
-                y === 'left' ||
-                y === 'right'
+                x === "top" ||
+                x === "bottom" ||
+                y === "left" ||
+                y === "right"
               ) {
                 //the user provided them in the wrong order, so flip them
                 value = x;
@@ -879,7 +881,7 @@
 
               split[0] = _keywordToPercent[x] || x;
               split[1] = _keywordToPercent[y] || y;
-              return split.join(' ');
+              return split.join(" ");
             },
           _renderClearProps = function _renderClearProps(ratio, data) {
             if (data.tween && data.tween._time === data.tween._dur) {
@@ -891,11 +893,11 @@
                 clearTransforms,
                 i;
 
-              if (props === 'all' || props === true) {
-                style.cssText = '';
+              if (props === "all" || props === true) {
+                style.cssText = "";
                 clearTransforms = 1;
               } else {
-                props = props.split(',');
+                props = props.split(",");
                 i = props.length;
 
                 while (--i > -1) {
@@ -904,7 +906,7 @@
                   if (_transformProps[prop]) {
                     clearTransforms = 1;
                     prop =
-                      prop === 'transformOrigin'
+                      prop === "transformOrigin"
                         ? _transformOriginProp
                         : _transformProp;
                   }
@@ -917,7 +919,7 @@
                 _removeProperty(target, _transformProp);
 
                 if (cache) {
-                  cache.svg && target.removeAttribute('transform');
+                  cache.svg && target.removeAttribute("transform");
 
                   _parseTransform(target, 1); // force all the cached values back to "normal"/identity, otherwise if there's another tween that's already set to render transforms on this element, it could display the wrong values.
 
@@ -935,9 +937,9 @@
               endValue,
               tween
             ) {
-              if (tween.data !== 'isFromStart') {
+              if (tween.data !== "isFromStart") {
                 var pt = (plugin._pt =
-                  new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['PropTween'](
+                  new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["PropTween"](
                     plugin._pt,
                     target,
                     property,
@@ -953,7 +955,7 @@
 
                 return 1;
               }
-            }
+            },
             /* className feature (about 0.4kb gzipped).
   , className(plugin, target, property, endValue, tween) {
     let _renderClassName = (ratio, data) => {
@@ -1027,7 +1029,7 @@
           _rotationalProperties = {},
           _isNullTransform = function _isNullTransform(value) {
             return (
-              value === 'matrix(1, 0, 0, 1, 0, 0)' || value === 'none' || !value
+              value === "matrix(1, 0, 0, 1, 0, 0)" || value === "none" || !value
             );
           },
           _getComputedTransformMatrixAsArray =
@@ -1037,18 +1039,18 @@
               return _isNullTransform(matrixString)
                 ? _identity2DMatrix
                 : matrixString
-                    .substr(7)
-                    .match(
-                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_numExp']
-                    )
-                    .map(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']);
+                  .substr(7)
+                  .match(
+                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_numExp"]
+                  )
+                  .map(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]);
             },
           _getMatrix = function _getMatrix(target, force2D) {
             var cache =
-                target._gsap ||
-                Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_getCache'])(
-                  target
-                ),
+              target._gsap ||
+              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_getCache"])(
+                target
+              ),
               style = target.style,
               matrix = _getComputedTransformMatrixAsArray(target),
               parent,
@@ -1056,11 +1058,11 @@
               temp,
               addedToDOM;
 
-            if (cache.svg && target.getAttribute('transform')) {
+            if (cache.svg && target.getAttribute("transform")) {
               temp = target.transform.baseVal.consolidate().matrix; //ensures that even complex values like "translate(50,60) rotate(135,0,0)" are parsed because it mashes it into a matrix.
 
               matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
-              return matrix.join(',') === '1,0,0,1,0,0'
+              return matrix.join(",") === "1,0,0,1,0,0"
                 ? _identity2DMatrix
                 : matrix;
             } else if (
@@ -1072,7 +1074,7 @@
               //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
               //browsers don't report transforms accurately unless the element is in the DOM and has a display value that's not "none". Firefox and Microsoft browsers have a partial bug where they'll report transforms even if display:none BUT not any percentage-based values like translate(-50%, 8px) will be reported as if it's translate(0, 8px).
               temp = style.display;
-              style.display = 'block';
+              style.display = "block";
               parent = target.parentNode;
 
               if (!parent || !target.offsetParent) {
@@ -1087,26 +1089,26 @@
               matrix = _getComputedTransformMatrixAsArray(target);
               temp
                 ? (style.display = temp)
-                : _removeProperty(target, 'display');
+                : _removeProperty(target, "display");
 
               if (addedToDOM) {
                 nextSibling
                   ? parent.insertBefore(target, nextSibling)
                   : parent
-                  ? parent.appendChild(target)
-                  : _docElement.removeChild(target);
+                    ? parent.appendChild(target)
+                    : _docElement.removeChild(target);
               }
             }
 
             return force2D && matrix.length > 6
               ? [
-                  matrix[0],
-                  matrix[1],
-                  matrix[4],
-                  matrix[5],
-                  matrix[12],
-                  matrix[13]
-                ]
+                matrix[0],
+                matrix[1],
+                matrix[4],
+                matrix[5],
+                matrix[12],
+                matrix[13],
+              ]
               : matrix;
           },
           _applySVGOrigin = function _applySVGOrigin(
@@ -1129,7 +1131,7 @@
               d = matrix[3],
               tx = matrix[4],
               ty = matrix[5],
-              originSplit = origin.split(' '),
+              originSplit = origin.split(" "),
               xOrigin = parseFloat(originSplit[0]) || 0,
               yOrigin = parseFloat(originSplit[1]) || 0,
               bounds,
@@ -1141,12 +1143,12 @@
               bounds = _getBBox(target);
               xOrigin =
                 bounds.x +
-                (~originSplit[0].indexOf('%')
+                (~originSplit[0].indexOf("%")
                   ? (xOrigin / 100) * bounds.width
                   : xOrigin);
               yOrigin =
                 bounds.y +
-                (~(originSplit[1] || originSplit[0]).indexOf('%')
+                (~(originSplit[1] || originSplit[0]).indexOf("%")
                   ? (yOrigin / 100) * bounds.height
                   : yOrigin);
             } else if (
@@ -1180,13 +1182,13 @@
             cache.smooth = !!smooth;
             cache.origin = origin;
             cache.originIsAbsolute = !!originIsAbsolute;
-            target.style[_transformOriginProp] = '0px 0px'; //otherwise, if someone sets  an origin via CSS, it will likely interfere with the SVG transform attribute ones (because remember, we're baking the origin into the matrix() value).
+            target.style[_transformOriginProp] = "0px 0px"; //otherwise, if someone sets  an origin via CSS, it will likely interfere with the SVG transform attribute ones (because remember, we're baking the origin into the matrix() value).
 
             if (pluginToAddPropTweensTo) {
               _addNonTweeningPT(
                 pluginToAddPropTweensTo,
                 cache,
-                'xOrigin',
+                "xOrigin",
                 xOriginOld,
                 xOrigin
               );
@@ -1194,7 +1196,7 @@
               _addNonTweeningPT(
                 pluginToAddPropTweensTo,
                 cache,
-                'yOrigin',
+                "yOrigin",
                 yOriginOld,
                 yOrigin
               );
@@ -1202,7 +1204,7 @@
               _addNonTweeningPT(
                 pluginToAddPropTweensTo,
                 cache,
-                'xOffset',
+                "xOffset",
                 xOffsetOld,
                 cache.xOffset
               );
@@ -1210,29 +1212,29 @@
               _addNonTweeningPT(
                 pluginToAddPropTweensTo,
                 cache,
-                'yOffset',
+                "yOffset",
                 yOffsetOld,
                 cache.yOffset
               );
             }
 
-            target.setAttribute('data-svg-origin', xOrigin + ' ' + yOrigin);
+            target.setAttribute("data-svg-origin", xOrigin + " " + yOrigin);
           },
           _parseTransform = function _parseTransform(target, uncache) {
             var cache =
               target._gsap ||
-              new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['GSCache'](target);
+              new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["GSCache"](target);
 
-            if ('x' in cache && !uncache && !cache.uncache) {
+            if ("x" in cache && !uncache && !cache.uncache) {
               return cache;
             }
 
             var style = target.style,
               invertedScaleX = cache.scaleX < 0,
-              px = 'px',
-              deg = 'deg',
+              px = "px",
+              deg = "deg",
               origin =
-                _getComputedProperty(target, _transformOriginProp) || '0',
+                _getComputedProperty(target, _transformOriginProp) || "0",
               x,
               y,
               z,
@@ -1274,7 +1276,7 @@
               skewX =
               skewY =
               perspective =
-                0;
+              0;
             scaleX = scaleY = 1;
             cache.svg = !!(target.getCTM && _isSVG(target));
             matrix = _getMatrix(target, cache.svg);
@@ -1283,7 +1285,7 @@
               t1 =
                 !cache.uncache &&
                 !uncache &&
-                target.getAttribute('data-svg-origin');
+                target.getAttribute("data-svg-origin");
 
               _applySVGOrigin(
                 target,
@@ -1388,10 +1390,10 @@
                 }
 
                 scaleX = Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
                 )(Math.sqrt(a * a + b * b + c * c));
                 scaleY = Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
                 )(Math.sqrt(a22 * a22 + a32 * a32));
                 angle = _atan2(a12, a22);
                 skewX = Math.abs(angle) > 0.0002 ? angle * _RAD2DEG : 0;
@@ -1400,13 +1402,13 @@
 
               if (cache.svg) {
                 //sense if there are CSS transforms applied on an SVG element in which case we must overwrite them when rendering. The transform attribute is more reliable cross-browser, but we can't just remove the CSS ones because they may be applied in a CSS rule somewhere (not just inline).
-                t1 = target.getAttribute('transform');
+                t1 = target.getAttribute("transform");
                 cache.forceCSS =
-                  target.setAttribute('transform', '') ||
+                  target.setAttribute("transform", "") ||
                   !_isNullTransform(
                     _getComputedProperty(target, _transformProp)
                   );
-                t1 && target.setAttribute('transform', t1);
+                t1 && target.setAttribute("transform", t1);
               }
             }
 
@@ -1445,54 +1447,54 @@
               px;
             cache.z = z + px;
             cache.scaleX = Object(
-              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
             )(scaleX);
             cache.scaleY = Object(
-              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
             )(scaleY);
             cache.rotation =
-              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 rotation
               ) + deg;
             cache.rotationX =
-              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 rotationX
               ) + deg;
             cache.rotationY =
-              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 rotationY
               ) + deg;
             cache.skewX = skewX + deg;
             cache.skewY = skewY + deg;
             cache.transformPerspective = perspective + px;
 
-            if ((cache.zOrigin = parseFloat(origin.split(' ')[2]) || 0)) {
+            if ((cache.zOrigin = parseFloat(origin.split(" ")[2]) || 0)) {
               style[_transformOriginProp] = _firstTwoOnly(origin);
             }
 
             cache.xOffset = cache.yOffset = 0;
             cache.force3D =
-              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config'].force3D;
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"].force3D;
             cache.renderTransform = cache.svg
               ? _renderSVGTransforms
               : _supports3D
-              ? _renderCSSTransforms
-              : _renderNon3DTransforms;
+                ? _renderCSSTransforms
+                : _renderNon3DTransforms;
             cache.uncache = 0;
             return cache;
           },
           _firstTwoOnly = function _firstTwoOnly(value) {
-            return (value = value.split(' '))[0] + ' ' + value[1];
+            return (value = value.split(" "))[0] + " " + value[1];
           },
           //for handling transformOrigin values, stripping out the 3rd dimension
           _addPxTranslate = function _addPxTranslate(target, start, value) {
             var unit = Object(
-              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
             )(start);
             return (
-              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 parseFloat(start) +
-                  parseFloat(_convertToUnit(target, 'x', value + 'px', unit))
+                parseFloat(_convertToUnit(target, "x", value + "px", unit))
               ) + unit
             );
           },
@@ -1500,15 +1502,15 @@
             ratio,
             cache
           ) {
-            cache.z = '0px';
-            cache.rotationY = cache.rotationX = '0deg';
+            cache.z = "0px";
+            cache.rotationY = cache.rotationX = "0deg";
             cache.force3D = 0;
 
             _renderCSSTransforms(ratio, cache);
           },
-          _zeroDeg = '0deg',
-          _zeroPx = '0px',
-          _endParenthesis = ') ',
+          _zeroDeg = "0deg",
+          _zeroPx = "0px",
+          _endParenthesis = ") ",
           _renderCSSTransforms = function _renderCSSTransforms(ratio, cache) {
             var _ref = cache || this,
               xPercent = _ref.xPercent,
@@ -1527,9 +1529,9 @@
               force3D = _ref.force3D,
               target = _ref.target,
               zOrigin = _ref.zOrigin,
-              transforms = '',
+              transforms = "",
               use3D =
-                (force3D === 'auto' && ratio && ratio !== 1) ||
+                (force3D === "auto" && ratio && ratio !== 1) ||
                 force3D === true; // Safari has a bug that causes it not to render 3D transform-origin values properly, so we force the z origin to 0, record it in the cache, and then do the math here to offset the translate values accordingly (basically do the 3D transform-origin part manually)
 
             if (zOrigin && (rotationX !== _zeroDeg || rotationY !== _zeroDeg)) {
@@ -1547,41 +1549,41 @@
 
             if (transformPerspective !== _zeroPx) {
               transforms +=
-                'perspective(' + transformPerspective + _endParenthesis;
+                "perspective(" + transformPerspective + _endParenthesis;
             }
 
             if (xPercent || yPercent) {
-              transforms += 'translate(' + xPercent + '%, ' + yPercent + '%) ';
+              transforms += "translate(" + xPercent + "%, " + yPercent + "%) ";
             }
 
             if (use3D || x !== _zeroPx || y !== _zeroPx || z !== _zeroPx) {
               transforms +=
                 z !== _zeroPx || use3D
-                  ? 'translate3d(' + x + ', ' + y + ', ' + z + ') '
-                  : 'translate(' + x + ', ' + y + _endParenthesis;
+                  ? "translate3d(" + x + ", " + y + ", " + z + ") "
+                  : "translate(" + x + ", " + y + _endParenthesis;
             }
 
             if (rotation !== _zeroDeg) {
-              transforms += 'rotate(' + rotation + _endParenthesis;
+              transforms += "rotate(" + rotation + _endParenthesis;
             }
 
             if (rotationY !== _zeroDeg) {
-              transforms += 'rotateY(' + rotationY + _endParenthesis;
+              transforms += "rotateY(" + rotationY + _endParenthesis;
             }
 
             if (rotationX !== _zeroDeg) {
-              transforms += 'rotateX(' + rotationX + _endParenthesis;
+              transforms += "rotateX(" + rotationX + _endParenthesis;
             }
 
             if (skewX !== _zeroDeg || skewY !== _zeroDeg) {
-              transforms += 'skew(' + skewX + ', ' + skewY + _endParenthesis;
+              transforms += "skew(" + skewX + ", " + skewY + _endParenthesis;
             }
 
             if (scaleX !== 1 || scaleY !== 1) {
-              transforms += 'scale(' + scaleX + ', ' + scaleY + _endParenthesis;
+              transforms += "scale(" + scaleX + ", " + scaleY + _endParenthesis;
             }
 
-            target.style[_transformProp] = transforms || 'translate(0, 0)';
+            target.style[_transformProp] = transforms || "translate(0, 0)";
           },
           _renderSVGTransforms = function _renderSVGTransforms(ratio, cache) {
             var _ref2 = cache || this,
@@ -1643,16 +1645,16 @@
               }
 
               a11 = Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
               )(a11);
               a21 = Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
               )(a21);
               a12 = Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
               )(a12);
               a22 = Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"]
               )(a22);
             } else {
               a11 = scaleX;
@@ -1661,18 +1663,18 @@
             }
 
             if (
-              (tx && !~(x + '').indexOf('px')) ||
-              (ty && !~(y + '').indexOf('px'))
+              (tx && !~(x + "").indexOf("px")) ||
+              (ty && !~(y + "").indexOf("px"))
             ) {
-              tx = _convertToUnit(target, 'x', x, 'px');
-              ty = _convertToUnit(target, 'y', y, 'px');
+              tx = _convertToUnit(target, "x", x, "px");
+              ty = _convertToUnit(target, "y", y, "px");
             }
 
             if (xOrigin || yOrigin || xOffset || yOffset) {
-              tx = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              tx = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 tx + xOrigin - (xOrigin * a11 + yOrigin * a12) + xOffset
               );
-              ty = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              ty = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 ty + yOrigin - (xOrigin * a21 + yOrigin * a22) + yOffset
               );
             }
@@ -1680,29 +1682,29 @@
             if (xPercent || yPercent) {
               //The SVG spec doesn't support percentage-based translation in the "transform" attribute, so we merge it into the translation to simulate it.
               temp = target.getBBox();
-              tx = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              tx = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 tx + (xPercent / 100) * temp.width
               );
-              ty = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_round'])(
+              ty = Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_round"])(
                 ty + (yPercent / 100) * temp.height
               );
             }
 
             temp =
-              'matrix(' +
+              "matrix(" +
               a11 +
-              ',' +
+              "," +
               a21 +
-              ',' +
+              "," +
               a12 +
-              ',' +
+              "," +
               a22 +
-              ',' +
+              "," +
               tx +
-              ',' +
+              "," +
               ty +
-              ')';
-            target.setAttribute('transform', temp);
+              ")";
+            target.setAttribute("transform", temp);
             forceCSS && (target.style[_transformProp] = temp); //some browsers prioritize CSS transforms over the transform attribute. When we sense that the user has CSS transforms applied, we must overwrite them this way (otherwise some browser simply won't render the  transform attribute changes!)
           },
           _addRotationalPropTween = function _addRotationalPropTween(
@@ -1715,20 +1717,20 @@
           ) {
             var cap = 360,
               isString = Object(
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_isString']
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_isString"]
               )(endValue),
               endNum =
                 parseFloat(endValue) *
-                (isString && ~endValue.indexOf('rad') ? _RAD2DEG : 1),
+                (isString && ~endValue.indexOf("rad") ? _RAD2DEG : 1),
               change = relative ? endNum * relative : endNum - startNum,
-              finalValue = startNum + change + 'deg',
+              finalValue = startNum + change + "deg",
               direction,
               pt;
 
             if (isString) {
-              direction = endValue.split('_')[1];
+              direction = endValue.split("_")[1];
 
-              if (direction === 'short') {
+              if (direction === "short") {
                 change %= cap;
 
                 if (change !== change % (cap / 2)) {
@@ -1736,17 +1738,17 @@
                 }
               }
 
-              if (direction === 'cw' && change < 0) {
+              if (direction === "cw" && change < 0) {
                 change =
                   ((change + cap * _bigNum) % cap) - ~~(change / cap) * cap;
-              } else if (direction === 'ccw' && change > 0) {
+              } else if (direction === "ccw" && change > 0) {
                 change =
                   ((change - cap * _bigNum) % cap) - ~~(change / cap) * cap;
               }
             }
 
             plugin._pt = pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-              'PropTween'
+              "PropTween"
             ](
               plugin._pt,
               target,
@@ -1756,7 +1758,7 @@
               _renderPropWithEnd
             );
             pt.e = finalValue;
-            pt.u = 'deg';
+            pt.u = "deg";
 
             plugin._props.push(property);
 
@@ -1777,7 +1779,7 @@
           ) {
             //for handling cases where someone passes in a whole transform string, like transform: "scale(2, 3) rotate(20deg) translateY(30em)"
             var startCache = _assign({}, target._gsap),
-              exclude = 'perspective,force3D,transformOrigin,svgOrigin',
+              exclude = "perspective,force3D,transformOrigin,svgOrigin",
               style = target.style,
               endCache,
               p,
@@ -1789,14 +1791,14 @@
               endUnit;
 
             if (startCache.svg) {
-              startValue = target.getAttribute('transform');
-              target.setAttribute('transform', '');
+              startValue = target.getAttribute("transform");
+              target.setAttribute("transform", "");
               style[_transformProp] = transforms;
               endCache = _parseTransform(target, 1);
 
               _removeProperty(target, _transformProp);
 
-              target.setAttribute('transform', startValue);
+              target.setAttribute("transform", startValue);
             } else {
               startValue = getComputedStyle(target)[_transformProp];
               style[_transformProp] = transforms;
@@ -1811,10 +1813,10 @@
               if (startValue !== endValue && exclude.indexOf(p) < 0) {
                 //tweening to no perspective gives very unintuitive results - just keep the same perspective in that case.
                 startUnit = Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
                 )(startValue);
                 endUnit = Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
                 )(endValue);
                 startNum =
                   startUnit !== endUnit
@@ -1822,7 +1824,7 @@
                     : parseFloat(startValue);
                 endNum = parseFloat(endValue);
                 plugin._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                  'PropTween'
+                  "PropTween"
                 ](
                   plugin._pt,
                   endCache,
@@ -1840,20 +1842,20 @@
             _assign(endCache, startCache);
           }; // handle splitting apart padding, margin, borderWidth, and borderRadius into their 4 components. Firefox, for example, won't report borderRadius correctly - it will only do borderTopLeftRadius and the other corners. We also want to handle paddingTop, marginLeft, borderRightWidth, etc.
 
-        Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_forEachName'])(
-          'padding,margin,Width,Radius',
+        Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_forEachName"])(
+          "padding,margin,Width,Radius",
           function (name, index) {
-            var t = 'Top',
-              r = 'Right',
-              b = 'Bottom',
-              l = 'Left',
+            var t = "Top",
+              r = "Right",
+              b = "Bottom",
+              l = "Left",
               props = (
                 index < 3 ? [t, r, b, l] : [t + l, t + r, b + r, b + l]
               ).map(function (side) {
-                return index < 2 ? name + side : 'border' + side + name;
+                return index < 2 ? name + side : "border" + side + name;
               });
 
-            _specialProps[index > 1 ? 'border' + name : name] = function (
+            _specialProps[index > 1 ? "border" + name : name] = function (
               plugin,
               target,
               property,
@@ -1867,11 +1869,11 @@
                 a = props.map(function (prop) {
                   return _get(plugin, prop, property);
                 });
-                vars = a.join(' ');
+                vars = a.join(" ");
                 return vars.split(a[0]).length === 5 ? a[0] : vars;
               }
 
-              a = (endValue + '').split(' ');
+              a = (endValue + "").split(" ");
               vars = {};
               props.forEach(function (prop, i) {
                 return (vars[prop] = a[i] = a[i] || a[((i - 1) / 2) | 0]);
@@ -1882,7 +1884,7 @@
         );
 
         var CSSPlugin = {
-          name: 'css',
+          name: "css",
           register: _initCore,
           targetTest: function targetTest(target) {
             return target.style && target.nodeType;
@@ -1909,16 +1911,16 @@
             _pluginInitted || _initCore();
 
             for (p in vars) {
-              if (p === 'autoRound') {
+              if (p === "autoRound") {
                 continue;
               }
 
               endValue = vars[p];
 
               if (
-                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_plugins'][p] &&
+                _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_plugins"][p] &&
                 Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_checkPlugin']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_checkPlugin"]
                 )(p, vars, tween, index, target, targets)
               ) {
                 // plugins
@@ -1928,52 +1930,52 @@
               type = typeof endValue;
               specialProp = _specialProps[p];
 
-              if (type === 'function') {
+              if (type === "function") {
                 endValue = endValue.call(tween, index, target, targets);
                 type = typeof endValue;
               }
 
-              if (type === 'string' && ~endValue.indexOf('random(')) {
+              if (type === "string" && ~endValue.indexOf("random(")) {
                 endValue = Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_replaceRandom']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_replaceRandom"]
                 )(endValue);
               }
 
               if (specialProp) {
                 specialProp(this, target, p, endValue, tween) &&
                   (hasPriority = 1);
-              } else if (p.substr(0, 2) === '--') {
+              } else if (p.substr(0, 2) === "--") {
                 //CSS variable
                 startValue = (
-                  getComputedStyle(target).getPropertyValue(p) + ''
+                  getComputedStyle(target).getPropertyValue(p) + ""
                 ).trim();
-                endValue += '';
+                endValue += "";
                 _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                  '_colorExp'
+                  "_colorExp"
                 ].lastIndex = 0;
 
                 if (
-                  !_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_colorExp'].test(
+                  !_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_colorExp"].test(
                     startValue
                   )
                 ) {
                   // colors don't have units
                   startUnit = Object(
-                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
                   )(startValue);
                   endUnit = Object(
-                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
                   )(endValue);
                 }
 
                 endUnit
                   ? startUnit !== endUnit &&
-                    (startValue =
-                      _convertToUnit(target, p, startValue, endUnit) + endUnit)
+                  (startValue =
+                    _convertToUnit(target, p, startValue, endUnit) + endUnit)
                   : startUnit && (endValue += startUnit);
                 this.add(
                   style,
-                  'setProperty',
+                  "setProperty",
                   startValue,
                   endValue,
                   index,
@@ -1982,24 +1984,24 @@
                   0,
                   p
                 );
-              } else if (type !== 'undefined') {
+              } else if (type !== "undefined") {
                 if (startAt && p in startAt) {
                   // in case someone hard-codes a complex value as the start, like top: "calc(2vh / 2)". Without this, it'd use the computed value (always in px)
                   startValue =
-                    typeof startAt[p] === 'function'
+                    typeof startAt[p] === "function"
                       ? startAt[p].call(tween, index, target, targets)
                       : startAt[p];
                   p in
-                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config']
+                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"]
                       .units &&
                     !Object(
-                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
                     )(startValue) &&
                     (startValue +=
-                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config']
+                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"]
                         .units[p]); // for cases when someone passes in a unitless value like {x: 100}; if we try setting translate(100, 0px) it won't work.
 
-                  (startValue + '').charAt(1) === '=' &&
+                  (startValue + "").charAt(1) === "=" &&
                     (startValue = _get(target, p)); // can't work with relative values
                 } else {
                   startValue = _get(target, p);
@@ -2007,18 +2009,18 @@
 
                 startNum = parseFloat(startValue);
                 relative =
-                  type === 'string' && endValue.charAt(1) === '='
-                    ? +(endValue.charAt(0) + '1')
+                  type === "string" && endValue.charAt(1) === "="
+                    ? +(endValue.charAt(0) + "1")
                     : 0;
                 relative && (endValue = endValue.substr(2));
                 endNum = parseFloat(endValue);
 
                 if (p in _propertyAliases) {
-                  if (p === 'autoAlpha') {
+                  if (p === "autoAlpha") {
                     //special case where we control the visibility along with opacity. We still allow the opacity value to pass through and get tweened.
                     if (
                       startNum === 1 &&
-                      _get(target, 'visibility') === 'hidden' &&
+                      _get(target, "visibility") === "hidden" &&
                       endNum
                     ) {
                       //if visibility is initially set to "hidden", we should interpret that as intent to make opacity 0 (a convenience)
@@ -2028,16 +2030,16 @@
                     _addNonTweeningPT(
                       this,
                       style,
-                      'visibility',
-                      startNum ? 'inherit' : 'hidden',
-                      endNum ? 'inherit' : 'hidden',
+                      "visibility",
+                      startNum ? "inherit" : "hidden",
+                      endNum ? "inherit" : "hidden",
                       !endNum
                     );
                   }
 
-                  if (p !== 'scale' && p !== 'transform') {
+                  if (p !== "scale" && p !== "transform") {
                     p = _propertyAliases[p];
-                    ~p.indexOf(',') && (p = p.split(',')[0]);
+                    ~p.indexOf(",") && (p = p.split(",")[0]);
                   }
                 }
 
@@ -2052,7 +2054,7 @@
                     smooth = vars.smoothOrigin !== false && cache.smooth;
                     transformPropTween = this._pt =
                       new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                        'PropTween'
+                        "PropTween"
                       ](
                         this._pt,
                         style,
@@ -2068,31 +2070,31 @@
                     transformPropTween.dep = 1; //flag it as dependent so that if things get killed/overwritten and this is the only PropTween left, we can safely kill the whole tween.
                   }
 
-                  if (p === 'scale') {
+                  if (p === "scale") {
                     this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                      'PropTween'
+                      "PropTween"
                     ](
                       this._pt,
                       cache,
-                      'scaleY',
+                      "scaleY",
                       cache.scaleY,
                       relative ? relative * endNum : endNum - cache.scaleY
                     );
-                    props.push('scaleY', p);
-                    p += 'X';
-                  } else if (p === 'transformOrigin') {
+                    props.push("scaleY", p);
+                    p += "X";
+                  } else if (p === "transformOrigin") {
                     endValue = _convertKeywordsToPercentages(endValue); //in case something like "left top" or "bottom right" is passed in. Convert to percentages.
 
                     if (cache.svg) {
                       _applySVGOrigin(target, endValue, 0, smooth, 0, this);
                     } else {
-                      endUnit = parseFloat(endValue.split(' ')[2]) || 0; //handle the zOrigin separately!
+                      endUnit = parseFloat(endValue.split(" ")[2]) || 0; //handle the zOrigin separately!
 
                       endUnit !== cache.zOrigin &&
                         _addNonTweeningPT(
                           this,
                           cache,
-                          'zOrigin',
+                          "zOrigin",
                           cache.zOrigin,
                           endUnit
                         );
@@ -2107,7 +2109,7 @@
                     }
 
                     continue;
-                  } else if (p === 'svgOrigin') {
+                  } else if (p === "svgOrigin") {
                     _applySVGOrigin(target, endValue, 1, smooth, 0, this);
 
                     continue;
@@ -2122,20 +2124,20 @@
                     );
 
                     continue;
-                  } else if (p === 'smoothOrigin') {
+                  } else if (p === "smoothOrigin") {
                     _addNonTweeningPT(
                       this,
                       cache,
-                      'smooth',
+                      "smooth",
                       cache.smooth,
                       endValue
                     );
 
                     continue;
-                  } else if (p === 'force3D') {
+                  } else if (p === "force3D") {
                     cache[p] = endValue;
                     continue;
-                  } else if (p === 'transform') {
+                  } else if (p === "transform") {
                     _addRawTransformPTs(this, endValue, target);
 
                     continue;
@@ -2151,22 +2153,22 @@
                     !_complexExp.test(endValue) &&
                     p in style)
                 ) {
-                  startUnit = (startValue + '').substr((startNum + '').length);
+                  startUnit = (startValue + "").substr((startNum + "").length);
                   endNum || (endNum = 0); // protect against NaN
 
                   endUnit =
                     Object(
-                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['getUnit']
+                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["getUnit"]
                     )(endValue) ||
                     (p in
-                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config'].units
-                      ? _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config']
-                          .units[p]
+                      _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"].units
+                      ? _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"]
+                        .units[p]
                       : startUnit);
                   startUnit !== endUnit &&
                     (startNum = _convertToUnit(target, p, startValue, endUnit));
                   this._pt = new _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                    'PropTween'
+                    "PropTween"
                   ](
                     this._pt,
                     isTransformRelated ? cache : style,
@@ -2174,8 +2176,8 @@
                     startNum,
                     relative ? relative * endNum : endNum - startNum,
                     !isTransformRelated &&
-                    (endUnit === 'px' || p === 'zIndex') &&
-                    vars.autoRound !== false
+                      (endUnit === "px" || p === "zIndex") &&
+                      vars.autoRound !== false
                       ? _renderRoundedCSSProp
                       : _renderCSSProp
                   );
@@ -2193,7 +2195,7 @@
                   } else {
                     Object(
                       _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                        '_missingPlugin'
+                      "_missingPlugin"
                       ]
                     )(p, endValue);
 
@@ -2216,7 +2218,7 @@
             hasPriority &&
               Object(
                 _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__[
-                  '_sortPropTweensByPriority'
+                "_sortPropTweensByPriority"
                 ]
               )(this);
           },
@@ -2225,558 +2227,558 @@
           getSetter: function getSetter(target, property, plugin) {
             //returns a setter function that accepts target, property, value and applies it accordingly. Remember, properties like "x" aren't as simple as target.style.property = value because they've got to be applied to a proxy object and then merged into a transform string in a renderer.
             var p = _propertyAliases[property];
-            p && p.indexOf(',') < 0 && (property = p);
+            p && p.indexOf(",") < 0 && (property = p);
             return property in _transformProps &&
               property !== _transformOriginProp &&
-              (target._gsap.x || _get(target, 'x'))
+              (target._gsap.x || _get(target, "x"))
               ? plugin && _recentSetterPlugin === plugin
-                ? property === 'scale'
+                ? property === "scale"
                   ? _setterScale
                   : _setterTransform
                 : (_recentSetterPlugin = plugin || {}) &&
-                  (property === 'scale'
-                    ? _setterScaleWithRender
-                    : _setterTransformWithRender)
+                (property === "scale"
+                  ? _setterScaleWithRender
+                  : _setterTransformWithRender)
               : target.style &&
                 !Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_isUndefined']
+                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_isUndefined"]
                 )(target.style[property])
-              ? _setterCSSStyle
-              : ~property.indexOf('-')
-              ? _setterCSSProp
-              : Object(
-                  _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_getSetter']
-                )(target, property);
+                ? _setterCSSStyle
+                : ~property.indexOf("-")
+                  ? _setterCSSProp
+                  : Object(
+                    _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_getSetter"]
+                  )(target, property);
           },
           core: {
             _removeProperty: _removeProperty,
-            _getMatrix: _getMatrix
-          }
+            _getMatrix: _getMatrix,
+          },
         };
-        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['gsap'].utils.checkPrefix =
+        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["gsap"].utils.checkPrefix =
           _checkPropPrefix;
 
         (function (positionAndScale, rotation, others, aliases) {
           var all = Object(
-            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_forEachName']
-          )(positionAndScale + ',' + rotation + ',' + others, function (name) {
+            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_forEachName"]
+          )(positionAndScale + "," + rotation + "," + others, function (name) {
             _transformProps[name] = 1;
           });
 
-          Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_forEachName'])(
+          Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_forEachName"])(
             rotation,
             function (name) {
-              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config'].units[
+              _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"].units[
                 name
-              ] = 'deg';
+              ] = "deg";
               _rotationalProperties[name] = 1;
             }
           );
 
-          _propertyAliases[all[13]] = positionAndScale + ',' + rotation;
+          _propertyAliases[all[13]] = positionAndScale + "," + rotation;
 
-          Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_forEachName'])(
+          Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_forEachName"])(
             aliases,
             function (name) {
-              var split = name.split(':');
+              var split = name.split(":");
               _propertyAliases[split[1]] = all[split[0]];
             }
           );
         })(
-          'x,y,z,scale,scaleX,scaleY,xPercent,yPercent',
-          'rotation,rotationX,rotationY,skewX,skewY',
-          'transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective',
-          '0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY'
+          "x,y,z,scale,scaleX,scaleY,xPercent,yPercent",
+          "rotation,rotationX,rotationY,skewX,skewY",
+          "transform,transformOrigin,svgOrigin,force3D,smoothOrigin,transformPerspective",
+          "0:translateX,1:translateY,2:translateZ,8:rotate,8:rotationZ,8:rotateZ,9:rotateX,10:rotateY"
         );
 
-        Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_forEachName'])(
-          'x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective',
+        Object(_gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_forEachName"])(
+          "x,y,z,top,right,bottom,left,width,height,fontSize,padding,margin,perspective",
           function (name) {
-            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['_config'].units[name] =
-              'px';
+            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["_config"].units[name] =
+              "px";
           }
         );
 
-        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['gsap'].registerPlugin(
+        _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(
           CSSPlugin
         );
 
         /***/
       },
 
-    /***/ './node_modules/gsap/gsap-core.js':
+    /***/ "./node_modules/gsap/gsap-core.js":
       /*!****************************************!*\
   !*** ./node_modules/gsap/gsap-core.js ***!
   \****************************************/
       /*! exports provided: GSCache, Animation, Timeline, Tween, PropTween, gsap, Power0, Power1, Power2, Power3, Power4, Linear, Quad, Cubic, Quart, Quint, Strong, Elastic, Back, SteppedEase, Bounce, Sine, Expo, Circ, TweenMax, TweenLite, TimelineMax, TimelineLite, default, wrap, wrapYoyo, distribute, random, snap, normalize, getUnit, clamp, splitColor, toArray, mapRange, pipe, unitize, interpolate, shuffle, _getProperty, _numExp, _numWithUnitExp, _isString, _isUndefined, _renderComplexString, _relExp, _setDefaults, _removeLinkedListItem, _forEachName, _sortPropTweensByPriority, _colorStringFilter, _replaceRandom, _checkPlugin, _plugins, _ticker, _config, _roundModifier, _round, _missingPlugin, _getSetter, _getCache, _colorExp */
       /***/ function (module, __webpack_exports__, __webpack_require__) {
-        'use strict';
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'GSCache',
+          "GSCache",
           function () {
             return GSCache;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Animation',
+          "Animation",
           function () {
             return Animation;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Timeline',
+          "Timeline",
           function () {
             return Timeline;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Tween',
+          "Tween",
           function () {
             return Tween;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'PropTween',
+          "PropTween",
           function () {
             return PropTween;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'gsap',
+          "gsap",
           function () {
             return gsap;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Power0',
+          "Power0",
           function () {
             return Power0;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Power1',
+          "Power1",
           function () {
             return Power1;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Power2',
+          "Power2",
           function () {
             return Power2;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Power3',
+          "Power3",
           function () {
             return Power3;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Power4',
+          "Power4",
           function () {
             return Power4;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Linear',
+          "Linear",
           function () {
             return Linear;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Quad',
+          "Quad",
           function () {
             return Quad;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Cubic',
+          "Cubic",
           function () {
             return Cubic;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Quart',
+          "Quart",
           function () {
             return Quart;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Quint',
+          "Quint",
           function () {
             return Quint;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Strong',
+          "Strong",
           function () {
             return Strong;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Elastic',
+          "Elastic",
           function () {
             return Elastic;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Back',
+          "Back",
           function () {
             return Back;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'SteppedEase',
+          "SteppedEase",
           function () {
             return SteppedEase;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Bounce',
+          "Bounce",
           function () {
             return Bounce;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Sine',
+          "Sine",
           function () {
             return Sine;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Expo',
+          "Expo",
           function () {
             return Expo;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'Circ',
+          "Circ",
           function () {
             return Circ;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'TweenMax',
+          "TweenMax",
           function () {
             return Tween;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'TweenLite',
+          "TweenLite",
           function () {
             return Tween;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'TimelineMax',
+          "TimelineMax",
           function () {
             return Timeline;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'TimelineLite',
+          "TimelineLite",
           function () {
             return Timeline;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'default',
+          "default",
           function () {
             return gsap;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'wrap',
+          "wrap",
           function () {
             return wrap;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'wrapYoyo',
+          "wrapYoyo",
           function () {
             return wrapYoyo;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'distribute',
+          "distribute",
           function () {
             return distribute;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'random',
+          "random",
           function () {
             return random;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'snap',
+          "snap",
           function () {
             return snap;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'normalize',
+          "normalize",
           function () {
             return normalize;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'getUnit',
+          "getUnit",
           function () {
             return getUnit;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'clamp',
+          "clamp",
           function () {
             return clamp;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'splitColor',
+          "splitColor",
           function () {
             return splitColor;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'toArray',
+          "toArray",
           function () {
             return toArray;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'mapRange',
+          "mapRange",
           function () {
             return mapRange;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'pipe',
+          "pipe",
           function () {
             return pipe;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'unitize',
+          "unitize",
           function () {
             return unitize;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'interpolate',
+          "interpolate",
           function () {
             return interpolate;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'shuffle',
+          "shuffle",
           function () {
             return shuffle;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_getProperty',
+          "_getProperty",
           function () {
             return _getProperty;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_numExp',
+          "_numExp",
           function () {
             return _numExp;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_numWithUnitExp',
+          "_numWithUnitExp",
           function () {
             return _numWithUnitExp;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_isString',
+          "_isString",
           function () {
             return _isString;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_isUndefined',
+          "_isUndefined",
           function () {
             return _isUndefined;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_renderComplexString',
+          "_renderComplexString",
           function () {
             return _renderComplexString;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_relExp',
+          "_relExp",
           function () {
             return _relExp;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_setDefaults',
+          "_setDefaults",
           function () {
             return _setDefaults;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_removeLinkedListItem',
+          "_removeLinkedListItem",
           function () {
             return _removeLinkedListItem;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_forEachName',
+          "_forEachName",
           function () {
             return _forEachName;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_sortPropTweensByPriority',
+          "_sortPropTweensByPriority",
           function () {
             return _sortPropTweensByPriority;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_colorStringFilter',
+          "_colorStringFilter",
           function () {
             return _colorStringFilter;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_replaceRandom',
+          "_replaceRandom",
           function () {
             return _replaceRandom;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_checkPlugin',
+          "_checkPlugin",
           function () {
             return _checkPlugin;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_plugins',
+          "_plugins",
           function () {
             return _plugins;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_ticker',
+          "_ticker",
           function () {
             return _ticker;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_config',
+          "_config",
           function () {
             return _config;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_roundModifier',
+          "_roundModifier",
           function () {
             return _roundModifier;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_round',
+          "_round",
           function () {
             return _round;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_missingPlugin',
+          "_missingPlugin",
           function () {
             return _missingPlugin;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_getSetter',
+          "_getSetter",
           function () {
             return _getSetter;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_getCache',
+          "_getCache",
           function () {
             return _getCache;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          '_colorExp',
+          "_colorExp",
           function () {
             return _colorExp;
           }
@@ -2811,17 +2813,17 @@
 
         /* eslint-disable */
         var _config = {
-            autoSleep: 120,
-            force3D: 'auto',
-            nullTargetWarn: 1,
-            units: {
-              lineHeight: ''
-            }
+          autoSleep: 120,
+          force3D: "auto",
+          nullTargetWarn: 1,
+          units: {
+            lineHeight: "",
           },
+        },
           _defaults = {
             duration: 0.5,
             overwrite: false,
-            delay: 0
+            delay: 0,
           },
           _suppressOverwrites,
           _bigNum = 1e8,
@@ -2833,32 +2835,32 @@
           _cos = Math.cos,
           _sin = Math.sin,
           _isString = function _isString(value) {
-            return typeof value === 'string';
+            return typeof value === "string";
           },
           _isFunction = function _isFunction(value) {
-            return typeof value === 'function';
+            return typeof value === "function";
           },
           _isNumber = function _isNumber(value) {
-            return typeof value === 'number';
+            return typeof value === "number";
           },
           _isUndefined = function _isUndefined(value) {
-            return typeof value === 'undefined';
+            return typeof value === "undefined";
           },
           _isObject = function _isObject(value) {
-            return typeof value === 'object';
+            return typeof value === "object";
           },
           _isNotFalse = function _isNotFalse(value) {
             return value !== false;
           },
           _windowExists = function _windowExists() {
-            return typeof window !== 'undefined';
+            return typeof window !== "undefined";
           },
           _isFuncOrString = function _isFuncOrString(value) {
             return _isFunction(value) || _isString(value);
           },
           _isTypedArray =
-            (typeof ArrayBuffer === 'function' && ArrayBuffer.isView) ||
-            function () {},
+            (typeof ArrayBuffer === "function" && ArrayBuffer.isView) ||
+            function () { },
           // note: IE10 has ArrayBuffer, but NOT ArrayBuffer.isView().
           _isArray = Array.isArray,
           _strictNumExp = /(?:-?\.?\d|\.)+/gi,
@@ -2883,11 +2885,11 @@
           },
           _missingPlugin = function _missingPlugin(property, value) {
             return console.warn(
-              'Invalid property',
+              "Invalid property",
               property,
-              'set to',
+              "set to",
               value,
-              'Missing plugin? gsap.registerPlugin()'
+              "Missing plugin? gsap.registerPlugin()"
             );
           },
           _warn = function _warn(message, suppress) {
@@ -2913,7 +2915,7 @@
           _effects = {},
           _nextGCFrame = 30,
           _harnessPlugins = [],
-          _callbackNames = '',
+          _callbackNames = "",
           _harness = function _harness(targets) {
             var target = targets[0],
               harnessPlugin,
@@ -2924,7 +2926,7 @@
               // find the first target with a harness. We assume targets passed into an animation will be of similar type, meaning the same kind of harness can be used for them all (performance optimization)
               i = _harnessPlugins.length;
 
-              while (i-- && !_harnessPlugins[i].targetTest(target)) {}
+              while (i-- && !_harnessPlugins[i].targetTest(target)) { }
 
               harnessPlugin = _harnessPlugins[i];
             }
@@ -2950,12 +2952,12 @@
             return (v = target[property]) && _isFunction(v)
               ? target[property]()
               : (_isUndefined(v) &&
-                  target.getAttribute &&
-                  target.getAttribute(property)) ||
-                  v;
+                target.getAttribute &&
+                target.getAttribute(property)) ||
+              v;
           },
           _forEachName = function _forEachName(names, func) {
-            return (names = names.split(',')).forEach(func) || names;
+            return (names = names.split(",")).forEach(func) || names;
           },
           //split a comma-delimited list of names into an array, then run a forEach() function and return the split array (this is just a way to consolidate/shorten some code).
           _round = function _round(value) {
@@ -2966,7 +2968,7 @@
             var l = toFind.length,
               i = 0;
 
-            for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l; ) {}
+            for (; toSearch.indexOf(toFind[i]) < 0 && ++i < l;) { }
 
             return i < l;
           },
@@ -2983,7 +2985,7 @@
             if (type) {
               irVars = vars;
 
-              while (parent && !('immediateRender' in irVars)) {
+              while (parent && !("immediateRender" in irVars)) {
                 // inheritance hasn't happened yet, but someone may have set a default in an ancestor timeline. We could do vars.immediateRender = _isNotFalse(_inheritDefaults(vars).immediateRender) but that'd exact a slight performance penalty because _inheritDefaults() also runs in the Tween constructor. We're paying a small kb price here to gain speed.
                 irVars = parent.vars.defaults || {};
                 parent = _isNotFalse(parent.vars.inherit) && parent.parent;
@@ -3026,11 +3028,11 @@
           _numericIfPossible = function _numericIfPossible(value) {
             var n = parseFloat(value);
             return (n || n === 0) &&
-              (value + '').match(_delimitedValueExp).length < 2
+              (value + "").match(_delimitedValueExp).length < 2
               ? n
               : _isString(value)
-              ? value.trim()
-              : value;
+                ? value.trim()
+                : value;
           },
           _passThrough = function _passThrough(p) {
             return p;
@@ -3045,8 +3047,8 @@
           _setKeyframeDefaults = function _setKeyframeDefaults(obj, defaults) {
             for (var p in defaults) {
               p in obj ||
-                p === 'duration' ||
-                p === 'ease' ||
+                p === "duration" ||
+                p === "ease" ||
                 (obj[p] = defaults[p]);
             }
           },
@@ -3059,9 +3061,9 @@
           },
           _mergeDeep = function _mergeDeep(base, toMerge) {
             for (var p in toMerge) {
-              p !== '__proto__' &&
-                p !== 'constructor' &&
-                p !== 'prototype' &&
+              p !== "__proto__" &&
+                p !== "constructor" &&
+                p !== "prototype" &&
                 (base[p] = _isObject(toMerge[p])
                   ? _mergeDeep(base[p] || (base[p] = {}), toMerge[p])
                   : toMerge[p]);
@@ -3096,7 +3098,7 @@
             var i = a1.length,
               match = i === a2.length;
 
-            while (match && i-- && a1[i] === a2[i]) {}
+            while (match && i-- && a1[i] === a2[i]) { }
 
             return i < 0;
           },
@@ -3108,11 +3110,11 @@
             sortBy
           ) {
             if (firstProp === void 0) {
-              firstProp = '_first';
+              firstProp = "_first";
             }
 
             if (lastProp === void 0) {
-              lastProp = '_last';
+              lastProp = "_last";
             }
 
             var prev = parent[lastProp],
@@ -3151,11 +3153,11 @@
             lastProp
           ) {
             if (firstProp === void 0) {
-              firstProp = '_first';
+              firstProp = "_first";
             }
 
             if (lastProp === void 0) {
-              lastProp = '_last';
+              lastProp = "_last";
             }
 
             var prev = child._prev,
@@ -3221,9 +3223,9 @@
           _elapsedCycleDuration = function _elapsedCycleDuration(animation) {
             return animation._repeat
               ? _animationCycle(
-                  animation._tTime,
-                  (animation = animation.duration() + animation._rDelay)
-                ) * animation
+                animation._tTime,
+                (animation = animation.duration() + animation._rDelay)
+              ) * animation
               : 0;
           },
           // feed in the totalTime and cycleDuration and it'll return the cycle (iteration minus 1) and if the playhead is exactly at the very END, it will NOT bump up to the next cycle.
@@ -3240,15 +3242,15 @@
               (child._ts >= 0
                 ? 0
                 : child._dirty
-                ? child.totalDuration()
-                : child._tDur)
+                  ? child.totalDuration()
+                  : child._tDur)
             );
           },
           _setEnd = function _setEnd(animation) {
             return (animation._end = _round(
               animation._start +
-                (animation._tDur /
-                  Math.abs(animation._ts || animation._rts || _tinyNum) || 0)
+              (animation._tDur /
+                Math.abs(animation._ts || animation._rts || _tinyNum) || 0)
             ));
           },
           _alignPlayhead = function _alignPlayhead(animation, totalTime) {
@@ -3258,13 +3260,13 @@
             if (parent && parent.smoothChildTiming && animation._ts) {
               animation._start = _round(
                 parent._time -
-                  (animation._ts > 0
-                    ? totalTime / animation._ts
-                    : ((animation._dirty
-                        ? animation.totalDuration()
-                        : animation._tDur) -
-                        totalTime) /
-                      -animation._ts)
+                (animation._ts > 0
+                  ? totalTime / animation._ts
+                  : ((animation._dirty
+                    ? animation.totalDuration()
+                    : animation._tDur) -
+                    totalTime) /
+                  -animation._ts)
               );
 
               _setEnd(animation);
@@ -3329,15 +3331,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             child._start = _round(position + child._delay);
             child._end = _round(
               child._start +
-                (child.totalDuration() / Math.abs(child.timeScale()) || 0)
+              (child.totalDuration() / Math.abs(child.timeScale()) || 0)
             );
 
             _addLinkedListItem(
               timeline,
               child,
-              '_first',
-              '_last',
-              timeline._sort ? '_start' : 0
+              "_first",
+              "_last",
+              timeline._sort ? "_start" : 0
             );
 
             timeline._recent = child;
@@ -3347,7 +3349,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           _scrollTrigger = function _scrollTrigger(animation, trigger) {
             return (
               (_globals.ScrollTrigger ||
-                _missingPlugin('scrollTrigger', trigger)) &&
+                _missingPlugin("scrollTrigger", trigger)) &&
               _globals.ScrollTrigger.create(trigger, animation)
             );
           },
@@ -3398,11 +3400,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             var prevRatio = tween.ratio,
               ratio =
                 totalTime < 0 ||
-                (!totalTime &&
-                  ((!tween._start && _parentPlayheadIsBeforeStart(tween)) ||
-                    ((tween._ts < 0 || tween._dp._ts < 0) &&
-                      tween.data !== 'isFromStart' &&
-                      tween.data !== 'isStart')))
+                  (!totalTime &&
+                    ((!tween._start && _parentPlayheadIsBeforeStart(tween)) ||
+                      ((tween._ts < 0 || tween._dp._ts < 0) &&
+                        tween.data !== "isFromStart" &&
+                        tween.data !== "isStart")))
                   ? 0
                   : 1,
               // if the tween or its parent is reversed and the totalTime is 0, we should go to a ratio of 0.
@@ -3462,12 +3464,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 tween._startAt.render(totalTime, true, true);
               tween._onUpdate &&
                 !suppressEvents &&
-                _callback(tween, 'onUpdate');
+                _callback(tween, "onUpdate");
               tTime &&
                 tween._repeat &&
                 !suppressEvents &&
                 tween.parent &&
-                _callback(tween, 'onRepeat');
+                _callback(tween, "onRepeat");
 
               if (
                 (totalTime >= tween._tDur || totalTime < 0) &&
@@ -3478,7 +3480,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (!suppressEvents) {
                   _callback(
                     tween,
-                    ratio ? 'onComplete' : 'onReverseComplete',
+                    ratio ? "onComplete" : "onReverseComplete",
                     true
                   );
 
@@ -3502,7 +3504,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               while (child && child._start <= time) {
                 if (
                   !child._dur &&
-                  child.data === 'isPause' &&
+                  child.data === "isPause" &&
                   child._start > prevTime
                 ) {
                   return child;
@@ -3516,7 +3518,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               while (child && child._start >= time) {
                 if (
                   !child._dur &&
-                  child.data === 'isPause' &&
+                  child.data === "isPause" &&
                   child._start < prevTime
                 ) {
                   return child;
@@ -3542,13 +3544,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             animation._tDur = !repeat
               ? dur
               : repeat < 0
-              ? 1e10
-              : _round(dur * (repeat + 1) + animation._rDelay * repeat);
+                ? 1e10
+                : _round(dur * (repeat + 1) + animation._rDelay * repeat);
             totalProgress && !leavePlayhead
               ? _alignPlayhead(
-                  animation,
-                  (animation._tTime = animation._tDur * totalProgress)
-                )
+                animation,
+                (animation._tTime = animation._tDur * totalProgress)
+              )
               : animation.parent && _setEnd(animation);
             skipUncache || _uncache(animation.parent, animation);
             return animation;
@@ -3560,7 +3562,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           },
           _zeroPosition = {
             _start: 0,
-            endTime: _emptyFunc
+            endTime: _emptyFunc,
           },
           _parsePosition = function _parsePosition(animation, position) {
             var labels = animation.labels,
@@ -3580,16 +3582,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               //if the string is a number like "1", check to see if there's a label with that name, otherwise interpret it as a number (absolute value).
               i = position.charAt(0);
 
-              if (i === '<' || i === '>') {
+              if (i === "<" || i === ">") {
                 return (
-                  (i === '<'
+                  (i === "<"
                     ? recent._start
                     : recent.endTime(recent._repeat >= 0)) +
                   (parseFloat(position.substr(1)) || 0)
                 );
               }
 
-              i = position.indexOf('=');
+              i = position.indexOf("=");
 
               if (i < 0) {
                 position in labels || (labels[position] = clippedDuration);
@@ -3611,13 +3613,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return value < min ? min : value > max ? max : value;
           },
           getUnit = function getUnit(value) {
-            if (typeof value !== 'string') {
-              return '';
+            if (typeof value !== "string") {
+              return "";
             }
 
             var v = _unitExp.exec(value);
 
-            return v ? value.substr(v.index + v[0].length) : '';
+            return v ? value.substr(v.index + v[0].length) : "";
           },
           // note: protect against padded numbers as strings, like "100.100". That shouldn't return "00" as the unit. If it's numeric, return no unit.
           clamp = function clamp(min, max, value) {
@@ -3630,7 +3632,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return (
               value &&
               _isObject(value) &&
-              'length' in value &&
+              "length" in value &&
               ((!nonEmpty && !value.length) ||
                 (value.length - 1 in value && _isObject(value[0]))) &&
               !value.nodeType &&
@@ -3649,9 +3651,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return (_isString(value) && !leaveStrings) ||
                   _isArrayLike(value, 1)
                   ? (_accumulator = accumulator).push.apply(
-                      _accumulator,
-                      toArray(value)
-                    )
+                    _accumulator,
+                    toArray(value)
+                  )
                   : accumulator.push(value);
               }) || accumulator
             );
@@ -3663,12 +3665,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               (_coreInitted || !_wake())
               ? _slice.call(_doc.querySelectorAll(value), 0)
               : _isArray(value)
-              ? _flatten(value, leaveStrings)
-              : _isArrayLike(value)
-              ? _slice.call(value, 0)
-              : value
-              ? [value]
-              : [];
+                ? _flatten(value, leaveStrings)
+                : _isArrayLike(value)
+                  ? _slice.call(value, 0)
+                  : value
+                    ? [value]
+                    : [];
           },
           shuffle = function shuffle(a) {
             return a.sort(function () {
@@ -3683,10 +3685,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             }
 
             var vars = _isObject(v)
-                ? v
-                : {
-                    each: v
-                  },
+              ? v
+              : {
+                each: v,
+              },
               //n:1 is just to indicate v was a number; we leverage that later to set v according to the length we get. If a number is passed in, we treat it like the old stagger value where 0.1, for example, would mean that things would be distributed with 0.1 between each element in the array rather than a total "amount" that's chunked out among them all.
               ease = _parseEase(vars.ease),
               from = vars.from || 0,
@@ -3703,7 +3705,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 {
                   center: 0.5,
                   edges: 0.5,
-                  end: 1
+                  end: 1,
                 }[from] || 0;
             } else if (!isDecimal && ratios) {
               ratioX = from[0];
@@ -3725,7 +3727,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               if (!distances) {
                 wrapAt =
-                  vars.grid === 'auto' ? 0 : (vars.grid || [1, _bigNum])[1];
+                  vars.grid === "auto" ? 0 : (vars.grid || [1, _bigNum])[1];
 
                 if (!wrapAt) {
                   max = -_bigNum;
@@ -3733,7 +3735,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   while (
                     max < (max = a[wrapAt++].getBoundingClientRect().left) &&
                     wrapAt < l
-                  ) {}
+                  ) { }
 
                   wrapAt--;
                 }
@@ -3753,25 +3755,25 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   y = originY - ((j / wrapAt) | 0);
                   distances[j] = d = !axis
                     ? _sqrt(x * x + y * y)
-                    : Math.abs(axis === 'y' ? y : x);
+                    : Math.abs(axis === "y" ? y : x);
                   d > max && (max = d);
                   d < min && (min = d);
                 }
 
-                from === 'random' && shuffle(distances);
+                from === "random" && shuffle(distances);
                 distances.max = max - min;
                 distances.min = min;
                 distances.v = l =
                   (parseFloat(vars.amount) ||
                     parseFloat(vars.each) *
-                      (wrapAt > l
-                        ? l - 1
-                        : !axis
+                    (wrapAt > l
+                      ? l - 1
+                      : !axis
                         ? Math.max(wrapAt, l / wrapAt)
-                        : axis === 'y'
-                        ? l / wrapAt
-                        : wrapAt) ||
-                    0) * (from === 'edges' ? -1 : 1);
+                        : axis === "y"
+                          ? l / wrapAt
+                          : wrapAt) ||
+                    0) * (from === "edges" ? -1 : 1);
                 distances.b = l < 0 ? base - l : base;
                 distances.u = getUnit(vars.amount || vars.each) || 0; //unit
 
@@ -3787,7 +3789,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           },
           _roundModifier = function _roundModifier(v) {
             //pass in 0.1 get a function that'll round to the nearest tenth, or 5 to round to the closest 5, or 0.001 to the closest 1000th, etc.
-            var p = v < 1 ? Math.pow(10, (v + '').length - 2) : 1; //to avoid floating point math errors (like 24 * 0.1 == 2.4000000000000004), we chop off at a specific number of decimal places (much faster than toFixed()
+            var p = v < 1 ? Math.pow(10, (v + "").length - 2) : 1; //to avoid floating point math errors (like 24 * 0.1 == 2.4000000000000004), we chop off at a specific number of decimal places (much faster than toFixed()
 
             return function (raw) {
               var n = Math.round(parseFloat(raw) / v) * v * p;
@@ -3818,11 +3820,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               !isArray
                 ? _roundModifier(snapTo)
                 : _isFunction(snapTo)
-                ? function (raw) {
+                  ? function (raw) {
                     is2D = snapTo(raw);
                     return Math.abs(is2D - raw) <= radius ? is2D : raw;
                   }
-                : function (raw) {
+                  : function (raw) {
                     var x = parseFloat(is2D ? raw.x : raw),
                       y = parseFloat(is2D ? raw.y : 0),
                       min = _bigNum,
@@ -3846,7 +3848,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       }
                     }
 
-                    closest = !radius || min <= radius ? snapTo[closest] : raw;
+                    closest =
+                      !radius || min <= radius ? snapTo[closest] : raw;
                     return is2D || closest === raw || _isNumber(raw)
                       ? closest
                       : closest + getUnit(raw);
@@ -3863,35 +3866,35 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               _isArray(min)
                 ? !max
                 : roundingIncrement === true
-                ? !!(roundingIncrement = 0)
-                : !returnFunction,
+                  ? !!(roundingIncrement = 0)
+                  : !returnFunction,
               function () {
                 return _isArray(min)
                   ? min[~~(Math.random() * min.length)]
                   : (roundingIncrement = roundingIncrement || 1e-5) &&
-                      (returnFunction =
-                        roundingIncrement < 1
-                          ? Math.pow(10, (roundingIncrement + '').length - 2)
-                          : 1) &&
-                      Math.floor(
-                        Math.round(
-                          (min -
-                            roundingIncrement / 2 +
-                            Math.random() *
-                              (max - min + roundingIncrement * 0.99)) /
-                            roundingIncrement
-                        ) *
-                          roundingIncrement *
-                          returnFunction
-                      ) / returnFunction;
+                  (returnFunction =
+                    roundingIncrement < 1
+                      ? Math.pow(10, (roundingIncrement + "").length - 2)
+                      : 1) &&
+                  Math.floor(
+                    Math.round(
+                      (min -
+                        roundingIncrement / 2 +
+                        Math.random() *
+                        (max - min + roundingIncrement * 0.99)) /
+                      roundingIncrement
+                    ) *
+                    roundingIncrement *
+                    returnFunction
+                  ) / returnFunction;
               }
             );
           },
           pipe = function pipe() {
             for (
               var _len = arguments.length,
-                functions = new Array(_len),
-                _key = 0;
+              functions = new Array(_len),
+              _key = 0;
               _key < _len;
               _key++
             ) {
@@ -3923,8 +3926,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return _isArray(min)
               ? _wrapArray(min, wrap(0, min.length), max)
               : _conditionalReturn(value, function (value) {
-                  return ((range + ((value - min) % range)) % range) + min;
-                });
+                return ((range + ((value - min) % range)) % range) + min;
+              });
           },
           wrapYoyo = function wrapYoyo(min, max, value) {
             var range = max - min,
@@ -3932,22 +3935,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return _isArray(min)
               ? _wrapArray(min, wrapYoyo(0, min.length - 1), max)
               : _conditionalReturn(value, function (value) {
-                  value = (total + ((value - min) % total)) % total || 0;
-                  return min + (value > range ? total - value : value);
-                });
+                value = (total + ((value - min) % total)) % total || 0;
+                return min + (value > range ? total - value : value);
+              });
           },
           _replaceRandom = function _replaceRandom(value) {
             //replaces all occurrences of random(...) in a string with the calculated random value. can be a range like random(-100, 100, 5) or an array like random([0, 100, 500])
             var prev = 0,
-              s = '',
+              s = "",
               i,
               nums,
               end,
               isArray;
 
-            while (~(i = value.indexOf('random(', prev))) {
-              end = value.indexOf(')', i);
-              isArray = value.charAt(i + 7) === '[';
+            while (~(i = value.indexOf("random(", prev))) {
+              end = value.indexOf(")", i);
+              isArray = value.charAt(i + 7) === "[";
               nums = value
                 .substr(i + 7, end - i - 7)
                 .match(isArray ? _delimitedValueExp : _strictNumExp);
@@ -3974,8 +3977,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             var func = isNaN(start + end)
               ? 0
               : function (p) {
-                  return (1 - p) * start + p * end;
-                };
+                return (1 - p) * start + p * end;
+              };
 
             if (!func) {
               var isString = _isString(start),
@@ -3990,10 +3993,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               if (isString) {
                 start = {
-                  p: start
+                  p: start,
                 };
                 end = {
-                  p: end
+                  p: end,
                 };
               } else if (_isArray(start) && !_isArray(end)) {
                 interpolators = [];
@@ -4019,7 +4022,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               if (!interpolators) {
                 for (p in end) {
-                  _addPropTween.call(master, start, p, 'get', end[p]);
+                  _addPropTween.call(master, start, p, "get", end[p]);
                 }
 
                 func = function func(p) {
@@ -4069,7 +4072,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               return;
             }
 
-            params = v[type + 'Params'];
+            params = v[type + "Params"];
             scope = v.callbackScope || animation;
             executeLazyFirst && _lazyTweens.length && _lazyRender(); //in case rendering caused any tweens to lazy-init, we should render them because typically when a timeline finishes, users expect things to have rendered fully. Imagine an onUpdate on a timeline that reports/checks tweened values.
 
@@ -4081,20 +4084,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             _removeFromParent(animation);
 
             animation.scrollTrigger && animation.scrollTrigger.kill(false);
-            animation.progress() < 1 && _callback(animation, 'onInterrupt');
+            animation.progress() < 1 && _callback(animation, "onInterrupt");
             return animation;
           },
           _quickTween,
           _createPlugin = function _createPlugin(config) {
-            config = (!config.name && config['default']) || config; //UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
+            config = (!config.name && config["default"]) || config; //UMD packaging wraps things oddly, so for example MotionPathHelper becomes {MotionPathHelper:MotionPathHelper, default:MotionPathHelper}.
 
             var name = config.name,
               isFunc = _isFunction(config),
               Plugin =
                 name && !isFunc && config.init
                   ? function () {
-                      this._props = [];
-                    }
+                    this._props = [];
+                  }
                   : config,
               //in case someone passes in an object that's not a plugin, like CustomEase
               instanceDefaults = {
@@ -4103,14 +4106,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 add: _addPropTween,
                 kill: _killPropTweensOf,
                 modifier: _addPluginModifier,
-                rawVars: 0
+                rawVars: 0,
               },
               statics = {
                 targetTest: 0,
                 get: 0,
                 getSetter: _getSetter,
                 aliases: {},
-                register: 0
+                register: 0,
               };
 
             _wake();
@@ -4139,9 +4142,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               }
 
               name =
-                (name === 'css'
-                  ? 'CSS'
-                  : name.charAt(0).toUpperCase() + name.substr(1)) + 'Plugin'; //for the global name. "motionPath" should become MotionPathPlugin
+                (name === "css"
+                  ? "CSS"
+                  : name.charAt(0).toUpperCase() + name.substr(1)) + "Plugin"; //for the global name. "motionPath" should become MotionPathPlugin
             }
 
             _addGlobal(name, Plugin);
@@ -4173,7 +4176,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             red: [_255, 0, 0],
             pink: [_255, 192, 203],
             cyan: [0, _255, _255],
-            transparent: [_255, _255, _255, 0]
+            transparent: [_255, _255, _255, 0],
           },
           _hue = function _hue(h, m1, m2) {
             h = h < 0 ? h + 1 : h > 1 ? h - 1 : h;
@@ -4181,10 +4184,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               ((h * 6 < 1
                 ? m1 + (m2 - m1) * h * 6
                 : h < 0.5
-                ? m2
-                : h * 3 < 2
-                ? m1 + (m2 - m1) * (2 / 3 - h) * 6
-                : m1) *
+                  ? m2
+                  : h * 3 < 2
+                    ? m1 + (m2 - m1) * (2 / 3 - h) * 6
+                    : m1) *
                 _255 +
                 0.5) |
               0
@@ -4192,8 +4195,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           },
           splitColor = function splitColor(v, toHSL, forceAlpha) {
             var a = !v
-                ? _colorLookup.black
-                : _isNumber(v)
+              ? _colorLookup.black
+              : _isNumber(v)
                 ? [v >> 16, (v >> 8) & _255, v & _255]
                 : 0,
               r,
@@ -4208,28 +4211,28 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               wasHSL;
 
             if (!a) {
-              if (v.substr(-1) === ',') {
+              if (v.substr(-1) === ",") {
                 //sometimes a trailing comma is included and we should chop it off (typically from a comma-delimited list of values like a textShadow:"2px 2px 2px blue, 5px 5px 5px rgb(255,0,0)" - in this example "blue," has a trailing comma. We could strip it out inside parseComplex() but we'd need to do it to the beginning and ending values plus it wouldn't provide protection from other potential scenarios like if the user passes in a similar value.
                 v = v.substr(0, v.length - 1);
               }
 
               if (_colorLookup[v]) {
                 a = _colorLookup[v];
-              } else if (v.charAt(0) === '#') {
+              } else if (v.charAt(0) === "#") {
                 if (v.length < 6) {
                   //for shorthand like #9F0 or #9F0F (could have alpha)
                   r = v.charAt(1);
                   g = v.charAt(2);
                   b = v.charAt(3);
                   v =
-                    '#' +
+                    "#" +
                     r +
                     r +
                     g +
                     g +
                     b +
                     b +
-                    (v.length === 5 ? v.charAt(4) + v.charAt(4) : '');
+                    (v.length === 5 ? v.charAt(4) + v.charAt(4) : "");
                 }
 
                 if (v.length === 9) {
@@ -4239,13 +4242,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     a >> 16,
                     (a >> 8) & _255,
                     a & _255,
-                    parseInt(v.substr(7), 16) / 255
+                    parseInt(v.substr(7), 16) / 255,
                   ];
                 }
 
                 v = parseInt(v.substr(1), 16);
                 a = [v >> 16, (v >> 8) & _255, v & _255];
-              } else if (v.substr(0, 3) === 'hsl') {
+              } else if (v.substr(0, 3) === "hsl") {
                 a = wasHSL = v.match(_strictNumExp);
 
                 if (!toHSL) {
@@ -4259,7 +4262,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   a[0] = _hue(h + 1 / 3, r, g);
                   a[1] = _hue(h, r, g);
                   a[2] = _hue(h - 1 / 3, r, g);
-                } else if (~v.indexOf('=')) {
+                } else if (~v.indexOf("=")) {
                   //if relative values are found, just return the raw strings with the relative prefixes in place.
                   a = v.match(_numExp);
                   forceAlpha && a.length < 4 && (a[3] = 1);
@@ -4289,8 +4292,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   max === r
                     ? (g - b) / d + (g < b ? 6 : 0)
                     : max === g
-                    ? (b - r) / d + 2
-                    : (r - g) / d + 4;
+                      ? (b - r) / d + 2
+                      : (r - g) / d + 4;
                 h *= 60;
               }
 
@@ -4316,9 +4319,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return values;
           },
           _formatColors = function _formatColors(s, toHSL, orderMatchData) {
-            var result = '',
+            var result = "",
               colors = (s + result).match(_colorExp),
-              type = toHSL ? 'hsla(' : 'rgba(',
+              type = toHSL ? "hsla(" : "rgba(",
               i = 0,
               c,
               shell,
@@ -4333,16 +4336,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               return (
                 (color = splitColor(color, toHSL, 1)) &&
                 type +
-                  (toHSL
-                    ? color[0] +
-                      ',' +
-                      color[1] +
-                      '%,' +
-                      color[2] +
-                      '%,' +
-                      color[3]
-                    : color.join(',')) +
-                  ')'
+                (toHSL
+                  ? color[0] +
+                  "," +
+                  color[1] +
+                  "%," +
+                  color[2] +
+                  "%," +
+                  color[3]
+                  : color.join(",")) +
+                ")"
               );
             });
 
@@ -4351,20 +4354,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               c = orderMatchData.c;
 
               if (c.join(result) !== d.c.join(result)) {
-                shell = s.replace(_colorExp, '1').split(_numWithUnitExp);
+                shell = s.replace(_colorExp, "1").split(_numWithUnitExp);
                 l = shell.length - 1;
 
                 for (; i < l; i++) {
                   result +=
                     shell[i] +
                     (~c.indexOf(i)
-                      ? colors.shift() || type + '0,0,0,0)'
+                      ? colors.shift() || type + "0,0,0,0)"
                       : (d.length
-                          ? d
-                          : colors.length
+                        ? d
+                        : colors.length
                           ? colors
                           : orderMatchData
-                        ).shift());
+                      ).shift());
                 }
               }
             }
@@ -4382,19 +4385,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           },
           _colorExp = (function () {
             var s =
-                '(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b',
+              "(?:\\b(?:(?:rgb|rgba|hsl|hsla)\\(.+?\\))|\\B#(?:[0-9a-f]{3,4}){1,2}\\b",
               //we'll dynamically build this Regular Expression to conserve file size. After building it, it will be able to find rgb(), rgba(), # (hexadecimal), and named color values like red, blue, purple, etc.,
               p;
 
             for (p in _colorLookup) {
-              s += '|' + p + '\\b';
+              s += "|" + p + "\\b";
             }
 
-            return new RegExp(s + ')', 'gi');
+            return new RegExp(s + ")", "gi");
           })(),
           _hslExp = /hsl[a]?\(/,
           _colorStringFilter = function _colorStringFilter(a) {
-            var combined = a.join(' '),
+            var combined = a.join(" "),
               toHSL;
             _colorExp.lastIndex = 0;
 
@@ -4480,9 +4483,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                     _install(
                       _installScope ||
-                        _win.GreenSockGlobals ||
-                        (!_win.gsap && _win) ||
-                        {}
+                      _win.GreenSockGlobals ||
+                      (!_win.gsap && _win) ||
+                      {}
                     );
 
                     _raf = _win.requestAnimationFrame;
@@ -4530,7 +4533,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   _i >= i &&
                   _i--;
               },
-              _listeners: _listeners
+              _listeners: _listeners,
             };
             return _self;
           })(),
@@ -4550,7 +4553,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           _parseObjectInString = function _parseObjectInString(value) {
             //takes a string like "{wiggles:10, type:anticipate})" and turns it into a real object. Notice it ends in ")" and includes the {} wrappers. This is because we only use this function for parsing ease configs and prioritized optimization rather than reusability.
             var obj = {},
-              split = value.substr(1, value.length - 3).split(':'),
+              split = value.substr(1, value.length - 3).split(":"),
               key = split[0],
               i = 1,
               l = split.length,
@@ -4560,10 +4563,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             for (; i < l; i++) {
               val = split[i];
-              index = i !== l - 1 ? val.lastIndexOf(',') : val.length;
+              index = i !== l - 1 ? val.lastIndexOf(",") : val.length;
               parsedVal = val.substr(0, index);
               obj[key] = isNaN(parsedVal)
-                ? parsedVal.replace(_quotesExp, '').trim()
+                ? parsedVal.replace(_quotesExp, "").trim()
                 : +parsedVal;
               key = val.substr(index + 1).trim();
             }
@@ -4571,30 +4574,30 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return obj;
           },
           _valueInParentheses = function _valueInParentheses(value) {
-            var open = value.indexOf('(') + 1,
-              close = value.indexOf(')'),
-              nested = value.indexOf('(', open);
+            var open = value.indexOf("(") + 1,
+              close = value.indexOf(")"),
+              nested = value.indexOf("(", open);
             return value.substring(
               open,
-              ~nested && nested < close ? value.indexOf(')', close + 1) : close
+              ~nested && nested < close ? value.indexOf(")", close + 1) : close
             );
           },
           _configEaseFromString = function _configEaseFromString(name) {
             //name can be a string like "elastic.out(1,0.5)", and pass in _easeMap as obj and it'll parse it out and call the actual function like _easeMap.Elastic.easeOut.config(1,0.5). It will also parse custom ease strings as long as CustomEase is loaded and registered (internally as _easeMap._CE).
-            var split = (name + '').split('('),
+            var split = (name + "").split("("),
               ease = _easeMap[split[0]];
             return ease && split.length > 1 && ease.config
               ? ease.config.apply(
-                  null,
-                  ~name.indexOf('{')
-                    ? [_parseObjectInString(split[1])]
-                    : _valueInParentheses(name)
-                        .split(',')
-                        .map(_numericIfPossible)
-                )
+                null,
+                ~name.indexOf("{")
+                  ? [_parseObjectInString(split[1])]
+                  : _valueInParentheses(name)
+                    .split(",")
+                    .map(_numericIfPossible)
+              )
               : _easeMap._CE && _customEaseExp.test(name)
-              ? _easeMap._CE('', name)
-              : ease;
+                ? _easeMap._CE("", name)
+                : ease;
           },
           _invertEase = function _invertEase(ease) {
             return function (p) {
@@ -4631,9 +4634,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return !ease
               ? defaultEase
               : (_isFunction(ease)
-                  ? ease
-                  : _easeMap[ease] || _configEaseFromString(ease)) ||
-                  defaultEase;
+                ? ease
+                : _easeMap[ease] || _configEaseFromString(ease)) ||
+              defaultEase;
           },
           _insertEase = function _insertEase(
             names,
@@ -4656,10 +4659,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             }
 
             var ease = {
-                easeIn: easeIn,
-                easeOut: easeOut,
-                easeInOut: easeInOut
-              },
+              easeIn: easeIn,
+              easeOut: easeOut,
+              easeInOut: easeInOut,
+            },
               lowercaseName;
 
             _forEachName(names, function (name) {
@@ -4669,12 +4672,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               for (var p in ease) {
                 _easeMap[
                   lowercaseName +
-                    (p === 'easeIn'
-                      ? '.in'
-                      : p === 'easeOut'
-                      ? '.out'
-                      : '.inOut')
-                ] = _easeMap[name + '.' + p] = ease[p];
+                  (p === "easeIn"
+                    ? ".in"
+                    : p === "easeOut"
+                      ? ".out"
+                      : ".inOut")
+                ] = _easeMap[name + "." + p] = ease[p];
               }
             });
 
@@ -4700,13 +4703,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   : p1 * Math.pow(2, -10 * p) * _sin((p - p3) * p2) + 1;
               },
               ease =
-                type === 'out'
+                type === "out"
                   ? easeOut
-                  : type === 'in'
-                  ? function (p) {
+                  : type === "in"
+                    ? function (p) {
                       return 1 - easeOut(1 - p);
                     }
-                  : _easeInOutFromOut(easeOut);
+                    : _easeInOutFromOut(easeOut);
 
             p2 = _2PI / p2; //precalculate to optimize
 
@@ -4722,16 +4725,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             }
 
             var easeOut = function easeOut(p) {
-                return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
-              },
+              return p ? --p * p * ((overshoot + 1) * p + overshoot) + 1 : 0;
+            },
               ease =
-                type === 'out'
+                type === "out"
                   ? easeOut
-                  : type === 'in'
-                  ? function (p) {
+                  : type === "in"
+                    ? function (p) {
                       return 1 - easeOut(1 - p);
                     }
-                  : _easeInOutFromOut(easeOut);
+                    : _easeInOutFromOut(easeOut);
 
             ease.config = function (overshoot) {
               return _configBack(type, overshoot);
@@ -4753,19 +4756,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         // };
 
         _forEachName(
-          'Linear,Quad,Cubic,Quart,Quint,Strong',
+          "Linear,Quad,Cubic,Quart,Quint,Strong",
           function (name, i) {
             var power = i < 5 ? i + 1 : i;
 
             _insertEase(
-              name + ',Power' + (power - 1),
+              name + ",Power" + (power - 1),
               i
                 ? function (p) {
-                    return Math.pow(p, power);
-                  }
+                  return Math.pow(p, power);
+                }
                 : function (p) {
-                    return p;
-                  },
+                  return p;
+                },
               function (p) {
                 return 1 - Math.pow(1 - p, power);
               },
@@ -4781,9 +4784,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         _easeMap.Linear.easeNone = _easeMap.none = _easeMap.Linear.easeIn;
 
         _insertEase(
-          'Elastic',
-          _configElastic('in'),
-          _configElastic('out'),
+          "Elastic",
+          _configElastic("in"),
+          _configElastic("out"),
           _configElastic()
         );
 
@@ -4795,14 +4798,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               return p < n1
                 ? n * p * p
                 : p < n2
-                ? n * Math.pow(p - 1.5 / c, 2) + 0.75
-                : p < n3
-                ? n * (p -= 2.25 / c) * p + 0.9375
-                : n * Math.pow(p - 2.625 / c, 2) + 0.984375;
+                  ? n * Math.pow(p - 1.5 / c, 2) + 0.75
+                  : p < n3
+                    ? n * (p -= 2.25 / c) * p + 0.9375
+                    : n * Math.pow(p - 2.625 / c, 2) + 0.984375;
             };
 
           _insertEase(
-            'Bounce',
+            "Bounce",
             function (p) {
               return 1 - easeOut(1 - p);
             },
@@ -4810,49 +4813,49 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           );
         })(7.5625, 2.75);
 
-        _insertEase('Expo', function (p) {
+        _insertEase("Expo", function (p) {
           return p ? Math.pow(2, 10 * (p - 1)) : 0;
         });
 
-        _insertEase('Circ', function (p) {
+        _insertEase("Circ", function (p) {
           return -(_sqrt(1 - p * p) - 1);
         });
 
-        _insertEase('Sine', function (p) {
+        _insertEase("Sine", function (p) {
           return p === 1 ? 1 : -_cos(p * _HALF_PI) + 1;
         });
 
         _insertEase(
-          'Back',
-          _configBack('in'),
-          _configBack('out'),
+          "Back",
+          _configBack("in"),
+          _configBack("out"),
           _configBack()
         );
 
         _easeMap.SteppedEase =
           _easeMap.steps =
           _globals.SteppedEase =
-            {
-              config: function config(steps, immediateStart) {
-                if (steps === void 0) {
-                  steps = 1;
-                }
-
-                var p1 = 1 / steps,
-                  p2 = steps + (immediateStart ? 0 : 1),
-                  p3 = immediateStart ? 1 : 0,
-                  max = 1 - _tinyNum;
-                return function (p) {
-                  return (((p2 * _clamp(0, max, p)) | 0) + p3) * p1;
-                };
+          {
+            config: function config(steps, immediateStart) {
+              if (steps === void 0) {
+                steps = 1;
               }
-            };
-        _defaults.ease = _easeMap['quad.out'];
+
+              var p1 = 1 / steps,
+                p2 = steps + (immediateStart ? 0 : 1),
+                p3 = immediateStart ? 1 : 0,
+                max = 1 - _tinyNum;
+              return function (p) {
+                return (((p2 * _clamp(0, max, p)) | 0) + p3) * p1;
+              };
+            },
+          };
+        _defaults.ease = _easeMap["quad.out"];
 
         _forEachName(
-          'onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt',
+          "onComplete,onUpdate,onStart,onRepeat,onReverseComplete,onInterrupt",
           function (name) {
-            return (_callbackNames += name + ',' + name + 'Params,');
+            return (_callbackNames += name + "," + name + "Params,");
           }
         );
         /*
@@ -4923,10 +4926,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           _proto.duration = function duration(value) {
             return arguments.length
               ? this.totalDuration(
-                  this._repeat > 0
-                    ? value + (value + this._rDelay) * this._repeat
-                    : value
-                )
+                this._repeat > 0
+                  ? value + (value + this._rDelay) * this._repeat
+                  : value
+              )
               : this.totalDuration() && this._dur;
           };
 
@@ -4963,9 +4966,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (
                   parent.parent._time !==
                   parent._start +
-                    (parent._ts >= 0
-                      ? parent._tTime / parent._ts
-                      : (parent.totalDuration() - parent._tTime) / -parent._ts)
+                  (parent._ts >= 0
+                    ? parent._tTime / parent._ts
+                    : (parent.totalDuration() - parent._tTime) / -parent._ts)
                 ) {
                   parent.totalTime(parent._tTime, true);
                 }
@@ -5006,12 +5009,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           _proto.time = function time(value, suppressEvents) {
             return arguments.length
               ? this.totalTime(
-                  Math.min(
-                    this.totalDuration(),
-                    value + _elapsedCycleDuration(this)
-                  ) % this._dur || (value ? this._dur : 0),
-                  suppressEvents
-                )
+                Math.min(
+                  this.totalDuration(),
+                  value + _elapsedCycleDuration(this)
+                ) % this._dur || (value ? this._dur : 0),
+                suppressEvents
+              )
               : this._time; // note: if the modulus results in 0, the playhead could be exactly at the end or the beginning, and we always defer to the END with a non-zero value, otherwise if you set the time() to the very end (duration()), it would render at the START!
           };
 
@@ -5019,23 +5022,23 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return arguments.length
               ? this.totalTime(this.totalDuration() * value, suppressEvents)
               : this.totalDuration()
-              ? Math.min(1, this._tTime / this._tDur)
-              : this.ratio;
+                ? Math.min(1, this._tTime / this._tDur)
+                : this.ratio;
           };
 
           _proto.progress = function progress(value, suppressEvents) {
             return arguments.length
               ? this.totalTime(
-                  this.duration() *
-                    (this._yoyo && !(this.iteration() & 1)
-                      ? 1 - value
-                      : value) +
-                    _elapsedCycleDuration(this),
-                  suppressEvents
-                )
+                this.duration() *
+                (this._yoyo && !(this.iteration() & 1)
+                  ? 1 - value
+                  : value) +
+                _elapsedCycleDuration(this),
+                suppressEvents
+              )
               : this.duration()
-              ? Math.min(1, this._time / this._dur)
-              : this.ratio;
+                ? Math.min(1, this._time / this._dur)
+                : this.ratio;
           };
 
           _proto.iteration = function iteration(value, suppressEvents) {
@@ -5043,12 +5046,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             return arguments.length
               ? this.totalTime(
-                  this._time + (value - 1) * cycleDuration,
-                  suppressEvents
-                )
+                this._time + (value - 1) * cycleDuration,
+                suppressEvents
+              )
               : this._repeat
-              ? _animationCycle(this._tTime, cycleDuration) + 1
-              : 1;
+                ? _animationCycle(this._tTime, cycleDuration) + 1
+                : 1;
           }; // potential future addition:
           // isPlayingBackwards() {
           //    let animation = this,
@@ -5106,8 +5109,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     ? this.rawTime()
                     : this._tTime || this._pTime,
                   this.progress() === 1 &&
-                    (this._tTime -= _tinyNum) &&
-                    Math.abs(this._zTime) !== _tinyNum
+                  (this._tTime -= _tinyNum) &&
+                  Math.abs(this._zTime) !== _tinyNum
                 ); // edge case: animation.progress(1).pause().play() wouldn't render again because the playhead is already at the end, but the call to totalTime() below will add it back to its parent...and not remove it again (since removing only happens upon rendering at a new time). Offsetting the _tTime slightly is done simply to cause the final render in totalTime() that'll pop it off its timeline (if autoRemoveChildren is true, of course). Check to make sure _zTime isn't -_tinyNum to avoid an edge case where the playhead is pushed to the end but INSIDE a tween/callback, the timeline itself is paused thus halting rendering and leaving a few unrendered. When resuming, it wouldn't render those otherwise.
               }
             }
@@ -5134,7 +5137,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               (_isNotFalse(includeRepeats)
                 ? this.totalDuration()
                 : this.duration()) /
-                Math.abs(this._ts)
+              Math.abs(this._ts)
             );
           };
 
@@ -5146,10 +5149,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               : wrapRepeats &&
                 (!this._ts ||
                   (this._repeat && this._time && this.totalProgress() < 1))
-              ? this._tTime % (this._dur + this._rDelay)
-              : !this._ts
-              ? this._tTime
-              : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
+                ? this._tTime % (this._dur + this._rDelay)
+                : !this._ts
+                  ? this._tTime
+                  : _parentToChildTotalTime(parent.rawTime(wrapRepeats), this);
           };
 
           _proto.globalTime = function globalTime(rawTime) {
@@ -5268,8 +5271,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 delete vars[type];
               } else {
                 vars[type] = callback;
-                params && (vars[type + 'Params'] = params);
-                type === 'onUpdate' && (this._onUpdate = callback);
+                params && (vars[type + "Params"] = params);
+                type === "onUpdate" && (this._onUpdate = callback);
               }
 
               return this;
@@ -5332,7 +5335,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           _zTime: -_tinyNum,
           _prom: 0,
           _ps: false,
-          _rts: 1
+          _rts: 1,
         });
         /*
          * -------------------------------------------------
@@ -5489,12 +5492,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               dur = this._dur,
               tTime =
                 this !== _globalTimeline &&
-                totalTime > tDur - _tinyNum &&
-                totalTime >= 0
+                  totalTime > tDur - _tinyNum &&
+                  totalTime >= 0
                   ? tDur
                   : totalTime < _tinyNum
-                  ? 0
-                  : totalTime,
+                    ? 0
+                    : totalTime,
               crossingStart =
                 this._zTime < 0 !== totalTime < 0 && (this._initted || !dur),
               time,
@@ -5585,11 +5588,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   this._lock = 1;
                   this.render(
                     prevTime ||
-                      (isYoyo ? 0 : _round(iteration * cycleDuration)),
+                    (isYoyo ? 0 : _round(iteration * cycleDuration)),
                     suppressEvents,
                     !dur
                   )._lock = 0;
-                  !suppressEvents && this.parent && _callback(this, 'onRepeat');
+                  !suppressEvents && this.parent && _callback(this, "onRepeat");
                   this.vars.repeatRefresh &&
                     !isYoyo &&
                     (this.invalidate()._lock = 1);
@@ -5649,7 +5652,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               !prevTime &&
                 time &&
                 !suppressEvents &&
-                _callback(this, 'onStart');
+                _callback(this, "onStart");
 
               if (time >= prevTime && totalTime >= 0) {
                 child = this._first;
@@ -5671,7 +5674,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       child._ts > 0
                         ? (time - child._start) * child._ts
                         : (child._dirty ? child.totalDuration() : child._tDur) +
-                            (time - child._start) * child._ts,
+                        (time - child._start) * child._ts,
                       suppressEvents,
                       force
                     );
@@ -5708,7 +5711,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       child._ts > 0
                         ? (adjustedTime - child._start) * child._ts
                         : (child._dirty ? child.totalDuration() : child._tDur) +
-                            (adjustedTime - child._start) * child._ts,
+                        (adjustedTime - child._start) * child._ts,
                       suppressEvents,
                       force
                     );
@@ -5745,7 +5748,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               this._onUpdate &&
                 !suppressEvents &&
-                _callback(this, 'onUpdate', true);
+                _callback(this, "onUpdate", true);
               if (
                 (tTime === tDur && tDur >= this.totalDuration()) ||
                 (!tTime && prevTime)
@@ -5767,7 +5770,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     ) {
                       _callback(
                         this,
-                        tTime === tDur ? 'onComplete' : 'onReverseComplete',
+                        tTime === tDur ? "onComplete" : "onReverseComplete",
                         true
                       );
 
@@ -5892,9 +5895,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               //special case for the global timeline (or any other that has no parent or detached parent).
               this._start = _round(
                 _ticker.time -
-                  (this._ts > 0
-                    ? _totalTime2 / this._ts
-                    : (this.totalDuration() - _totalTime2) / -this._ts)
+                (this._ts > 0
+                  ? _totalTime2 / this._ts
+                  : (this.totalDuration() - _totalTime2) / -this._ts)
               );
             }
 
@@ -5920,7 +5923,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
           _proto2.addPause = function addPause(position, callback, params) {
             var t = Tween.delayedCall(0, callback || _emptyFunc, params);
-            t.data = 'isPause';
+            t.data = "isPause";
             this._hasPause = 1;
             return _addToTimeline(this, t, _parsePosition(this, position));
           };
@@ -5930,7 +5933,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             position = _parsePosition(this, position);
 
             while (child) {
-              if (child._start === position && child.data === 'isPause') {
+              if (child._start === position && child.data === "isPause") {
                 _removeFromParent(child);
               }
 
@@ -5967,8 +5970,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   _arrayContainsAny(child._targets, parsedTargets) &&
                   (isGlobalTime
                     ? (!_overwritingTween || (child._initted && child._ts)) &&
-                      child.globalTime(0) <= onlyActive &&
-                      child.globalTime(child.totalDuration()) > onlyActive
+                    child.globalTime(0) <= onlyActive &&
+                    child.globalTime(child.totalDuration()) > onlyActive
                     : !onlyActive || child.isActive())
                 ) {
                   // note: if this is for overwriting, it should only be for tweens that aren't paused and are initted.
@@ -6005,19 +6008,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 tl,
                 _setDefaults(
                   {
-                    ease: vars.ease || 'none',
+                    ease: vars.ease || "none",
                     lazy: false,
                     immediateRender: false,
                     time: endTime,
-                    overwrite: 'auto',
+                    overwrite: "auto",
                     duration:
                       vars.duration ||
                       Math.abs(
                         (endTime -
-                          (startAt && 'time' in startAt
+                          (startAt && "time" in startAt
                             ? startAt.time
                             : tl._time)) /
-                          tl.timeScale()
+                        tl.timeScale()
                       ) ||
                       _tinyNum,
                     onStart: function onStart() {
@@ -6032,7 +6035,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           true
                         );
                       _onStart && _onStart.apply(tween, onStartParams || []); //in case the user had an onStart in the vars - we don't want to overwrite it.
-                    }
+                    },
                   },
                   vars
                 )
@@ -6051,8 +6054,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               _setDefaults(
                 {
                   startAt: {
-                    time: _parsePosition(this, fromPosition)
-                  }
+                    time: _parsePosition(this, fromPosition),
+                  },
                 },
                 vars
               )
@@ -6165,7 +6168,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             if (arguments.length) {
               return self.timeScale(
                 (self._repeat < 0 ? self.duration() : self.totalDuration()) /
-                  (self.reversed() ? -value : value)
+                (self.reversed() ? -value : value)
               );
             }
 
@@ -6188,12 +6191,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   //in case one of the tweens shifted out of order, it needs to be re-inserted into the correct position in the sequence
                   self._lock = 1; //prevent endless recursive calls - there are methods that get triggered that check duration/totalDuration when we add().
 
-                  _addToTimeline(
-                    self,
-                    child,
-                    start - child._delay,
-                    1
-                  )._lock = 0;
+                  _addToTimeline(self, child, start - child._delay, 1)._lock =
+                    0;
                 } else {
                   prevStart = start;
                 }
@@ -6262,100 +6261,100 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         _setDefaults(Timeline.prototype, {
           _lock: 0,
           _hasPause: 0,
-          _forcing: 0
+          _forcing: 0,
         });
 
         var _addComplexStringPropTween = function _addComplexStringPropTween(
+          target,
+          prop,
+          start,
+          end,
+          setter,
+          stringFilter,
+          funcParam
+        ) {
+          //note: we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
+          var pt = new PropTween(
+            this._pt,
             target,
             prop,
-            start,
-            end,
-            setter,
-            stringFilter,
-            funcParam
-          ) {
-            //note: we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
-            var pt = new PropTween(
-                this._pt,
-                target,
-                prop,
-                0,
-                1,
-                _renderComplexString,
-                null,
-                setter
-              ),
-              index = 0,
-              matchIndex = 0,
-              result,
-              startNums,
-              color,
-              endNum,
-              chunk,
-              startNum,
-              hasRandom,
-              a;
-            pt.b = start;
-            pt.e = end;
-            start += ''; //ensure values are strings
+            0,
+            1,
+            _renderComplexString,
+            null,
+            setter
+          ),
+            index = 0,
+            matchIndex = 0,
+            result,
+            startNums,
+            color,
+            endNum,
+            chunk,
+            startNum,
+            hasRandom,
+            a;
+          pt.b = start;
+          pt.e = end;
+          start += ""; //ensure values are strings
 
-            end += '';
+          end += "";
 
-            if ((hasRandom = ~end.indexOf('random('))) {
-              end = _replaceRandom(end);
+          if ((hasRandom = ~end.indexOf("random("))) {
+            end = _replaceRandom(end);
+          }
+
+          if (stringFilter) {
+            a = [start, end];
+            stringFilter(a, target, prop); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+
+            start = a[0];
+            end = a[1];
+          }
+
+          startNums = start.match(_complexStringNumExp) || [];
+
+          while ((result = _complexStringNumExp.exec(end))) {
+            endNum = result[0];
+            chunk = end.substring(index, result.index);
+
+            if (color) {
+              color = (color + 1) % 5;
+            } else if (chunk.substr(-5) === "rgba(") {
+              color = 1;
             }
 
-            if (stringFilter) {
-              a = [start, end];
-              stringFilter(a, target, prop); //pass an array with the starting and ending values and let the filter do whatever it needs to the values.
+            if (endNum !== startNums[matchIndex++]) {
+              startNum = parseFloat(startNums[matchIndex - 1]) || 0; //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
 
-              start = a[0];
-              end = a[1];
+              pt._pt = {
+                _next: pt._pt,
+                p: chunk || matchIndex === 1 ? chunk : ",",
+                //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
+                s: startNum,
+                c:
+                  endNum.charAt(1) === "="
+                    ? parseFloat(endNum.substr(2)) *
+                    (endNum.charAt(0) === "-" ? -1 : 1)
+                    : parseFloat(endNum) - startNum,
+                m: color && color < 4 ? Math.round : 0,
+              };
+              index = _complexStringNumExp.lastIndex;
             }
+          }
 
-            startNums = start.match(_complexStringNumExp) || [];
+          pt.c = index < end.length ? end.substring(index, end.length) : ""; //we use the "c" of the PropTween to store the final part of the string (after the last number)
 
-            while ((result = _complexStringNumExp.exec(end))) {
-              endNum = result[0];
-              chunk = end.substring(index, result.index);
+          pt.fp = funcParam;
 
-              if (color) {
-                color = (color + 1) % 5;
-              } else if (chunk.substr(-5) === 'rgba(') {
-                color = 1;
-              }
+          if (_relExp.test(end) || hasRandom) {
+            pt.e = 0; //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
+          }
 
-              if (endNum !== startNums[matchIndex++]) {
-                startNum = parseFloat(startNums[matchIndex - 1]) || 0; //these nested PropTweens are handled in a special way - we'll never actually call a render or setter method on them. We'll just loop through them in the parent complex string PropTween's render method.
+          this._pt = pt; //start the linked list with this new PropTween. Remember, we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
 
-                pt._pt = {
-                  _next: pt._pt,
-                  p: chunk || matchIndex === 1 ? chunk : ',',
-                  //note: SVG spec allows omission of comma/space when a negative sign is wedged between two numbers, like 2.5-5.3 instead of 2.5,-5.3 but when tweening, the negative value may switch to positive, so we insert the comma just in case.
-                  s: startNum,
-                  c:
-                    endNum.charAt(1) === '='
-                      ? parseFloat(endNum.substr(2)) *
-                        (endNum.charAt(0) === '-' ? -1 : 1)
-                      : parseFloat(endNum) - startNum,
-                  m: color && color < 4 ? Math.round : 0
-                };
-                index = _complexStringNumExp.lastIndex;
-              }
-            }
-
-            pt.c = index < end.length ? end.substring(index, end.length) : ''; //we use the "c" of the PropTween to store the final part of the string (after the last number)
-
-            pt.fp = funcParam;
-
-            if (_relExp.test(end) || hasRandom) {
-              pt.e = 0; //if the end string contains relative values or dynamic random(...) values, delete the end it so that on the final render we don't actually set it to the string with += or -= characters (forces it to use the calculated value).
-            }
-
-            this._pt = pt; //start the linked list with this new PropTween. Remember, we call _addComplexStringPropTween.call(tweenInstance...) to ensure that it's scoped properly. We may call it from within a plugin too, thus "this" would refer to the plugin.
-
-            return pt;
-          },
+          return pt;
+        },
           _addPropTween = function _addPropTween(
             target,
             prop,
@@ -6370,34 +6369,34 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             _isFunction(end) && (end = end(index || 0, target, targets));
             var currentValue = target[prop],
               parsedStart =
-                start !== 'get'
+                start !== "get"
                   ? start
                   : !_isFunction(currentValue)
-                  ? currentValue
-                  : funcParam
-                  ? target[
-                      prop.indexOf('set') ||
-                      !_isFunction(target['get' + prop.substr(3)])
-                        ? prop
-                        : 'get' + prop.substr(3)
-                    ](funcParam)
-                  : target[prop](),
+                    ? currentValue
+                    : funcParam
+                      ? target[
+                        prop.indexOf("set") ||
+                          !_isFunction(target["get" + prop.substr(3)])
+                          ? prop
+                          : "get" + prop.substr(3)
+                      ](funcParam)
+                      : target[prop](),
               setter = !_isFunction(currentValue)
                 ? _setterPlain
                 : funcParam
-                ? _setterFuncWithParam
-                : _setterFunc,
+                  ? _setterFuncWithParam
+                  : _setterFunc,
               pt;
 
             if (_isString(end)) {
-              if (~end.indexOf('random(')) {
+              if (~end.indexOf("random(")) {
                 end = _replaceRandom(end);
               }
 
-              if (end.charAt(1) === '=') {
+              if (end.charAt(1) === "=") {
                 end =
                   parseFloat(parsedStart) +
-                  parseFloat(end.substr(2)) * (end.charAt(0) === '-' ? -1 : 1) +
+                  parseFloat(end.substr(2)) * (end.charAt(0) === "-" ? -1 : 1) +
                   (getUnit(parsedStart) || 0);
               }
             }
@@ -6410,7 +6409,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   prop,
                   +parsedStart || 0,
                   end - (parsedStart || 0),
-                  typeof currentValue === 'boolean'
+                  typeof currentValue === "boolean"
                     ? _renderBoolean
                     : _renderPlain,
                   0,
@@ -6538,11 +6537,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               targets = tween._targets,
               parent = tween.parent,
               fullTargets =
-                parent && parent.data === 'nested'
+                parent && parent.data === "nested"
                   ? parent.parent._targets
                   : targets,
               autoOverwrite =
-                tween._overwrite === 'auto' && !_suppressOverwrites,
+                tween._overwrite === "auto" && !_suppressOverwrites,
               tl = tween.timeline,
               cleanVars,
               i,
@@ -6557,15 +6556,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               index,
               harnessVars,
               overwritten;
-            tl && (!keyframes || !ease) && (ease = 'none');
+            tl && (!keyframes || !ease) && (ease = "none");
             tween._ease = _parseEase(ease, _defaults.ease);
             tween._yEase = yoyoEase
               ? _invertEase(
-                  _parseEase(
-                    yoyoEase === true ? ease : yoyoEase,
-                    _defaults.ease
-                  )
+                _parseEase(
+                  yoyoEase === true ? ease : yoyoEase,
+                  _defaults.ease
                 )
+              )
               : 0;
 
             if (yoyoEase && tween._yoyo && !tween._repeat) {
@@ -6589,7 +6588,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     targets,
                     _setDefaults(
                       {
-                        data: 'isStart',
+                        data: "isStart",
                         overwrite: false,
                         parent: parent,
                         immediateRender: true,
@@ -6599,7 +6598,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         onUpdate: onUpdate,
                         onUpdateParams: onUpdateParams,
                         callbackScope: callbackScope,
-                        stagger: 0
+                        stagger: 0,
                       },
                       startAt
                     )
@@ -6626,13 +6625,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   p = _setDefaults(
                     {
                       overwrite: false,
-                      data: 'isFromStart',
+                      data: "isFromStart",
                       //we tag the tween with as "isFromStart" so that if [inside a plugin] we need to only do something at the very END of a tween, we have a way of identifying this tween as merely the one that's setting the beginning values for a "from()" tween. For example, clearProps in CSSPlugin should only get applied at the very END of a tween and without this tag, from(...{height:100, clearProps:"height", delay:1}) would wipe the height at the beginning of the tween and after 1 second, it'd kick back in.
                       lazy: immediateRender && _isNotFalse(lazy),
                       immediateRender: immediateRender,
                       //zero-duration tweens render immediately by default, but if we're not specifically instructed to render this tween immediately, we should skip this and merely _init() to record the starting values (rendering them immediately would push them to completion which is wasteful in that case - we'd have to render(-1) immediately after)
                       stagger: 0,
-                      parent: parent //ensures that nested tweens that had a stagger are handled properly, like gsap.from(".class", {y:gsap.utils.wrap([-100,100])})
+                      parent: parent, //ensures that nested tweens that had a stagger are handled properly, like gsap.from(".class", {y:gsap.utils.wrap([-100,100])})
                     },
                     cleanVars
                   );
@@ -6708,7 +6707,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         tween,
                         target,
                         p,
-                        'get',
+                        "get",
                         cleanVars[p],
                         index,
                         fullTargets,
@@ -6762,7 +6761,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             for (p in propertyAliases) {
               if (p in copy) {
-                aliases = propertyAliases[p].split(',');
+                aliases = propertyAliases[p].split(",");
                 i = aliases.length;
 
                 while (i--) {
@@ -6782,16 +6781,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           ) {
             return _isFunction(value)
               ? value.call(tween, i, target, targets)
-              : _isString(value) && ~value.indexOf('random(')
-              ? _replaceRandom(value)
-              : value;
+              : _isString(value) && ~value.indexOf("random(")
+                ? _replaceRandom(value)
+                : value;
           },
           _staggerTweenProps =
-            _callbackNames + 'repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase',
+            _callbackNames + "repeat,repeatDelay,yoyo,repeatRefresh,yoyoEase",
           _staggerPropsToSkip = (
             _staggerTweenProps +
-            ',id,stagger,delay,duration,paused,scrollTrigger'
-          ).split(',');
+            ",id,stagger,delay,duration,paused,scrollTrigger"
+          ).split(",");
         /*
          * --------------------------------------------------------------------------------------
          * TWEEN
@@ -6804,7 +6803,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           function Tween(targets, vars, time, skipInherit) {
             var _this3;
 
-            if (typeof vars === 'number') {
+            if (typeof vars === "number") {
               time.duration = vars;
               vars = time;
               time = null;
@@ -6830,7 +6829,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               parsedTargets = (
                 _isArray(targets) || _isTypedArray(targets)
                   ? _isNumber(targets[0])
-                  : 'length' in vars
+                  : "length" in vars
               )
                 ? [targets]
                 : toArray(targets),
@@ -6845,11 +6844,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             _this3._targets = parsedTargets.length
               ? _harness(parsedTargets)
               : _warn(
-                  'GSAP target ' +
-                    targets +
-                    ' not found. https://greensock.com',
-                  !_config.nullTargetWarn
-                ) || [];
+                "GSAP target " +
+                targets +
+                " not found. https://greensock.com",
+                !_config.nullTargetWarn
+              ) || [];
             _this3._ptLookup = []; //PropTween lookup. An array containing an object for each target, having keys for each tweening property
 
             _this3._overwrite = overwrite;
@@ -6862,8 +6861,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             ) {
               vars = _this3.vars;
               tl = _this3.timeline = new Timeline({
-                data: 'nested',
-                defaults: defaults || {}
+                data: "nested",
+                defaults: defaults || {},
               });
               tl.kill();
               tl.parent = tl._dp = _assertThisInitialized(_this3);
@@ -6871,11 +6870,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               if (keyframes) {
                 _setDefaults(tl.vars.defaults, {
-                  ease: 'none'
+                  ease: "none",
                 });
 
                 keyframes.forEach(function (frame) {
-                  return tl.to(parsedTargets, frame, '>');
+                  return tl.to(parsedTargets, frame, ">");
                 });
               } else {
                 l = parsedTargets.length;
@@ -6960,7 +6959,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 _this3._start === _round(parent._time) &&
                 _isNotFalse(immediateRender) &&
                 _hasNoPausedAncestors(_assertThisInitialized(_this3)) &&
-                parent.data !== 'nested')
+                parent.data !== "nested")
             ) {
               _this3._tTime = -_tinyNum; //forces a render without having to set the render() "force" parameter to true because we want to allow lazying by default (using the "force" parameter always forces an immediate full render)
 
@@ -6982,8 +6981,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 totalTime > tDur - _tinyNum && totalTime >= 0
                   ? tDur
                   : totalTime < _tinyNum
-                  ? 0
-                  : totalTime,
+                    ? 0
+                    : totalTime,
               time,
               pt,
               iteration,
@@ -7104,7 +7103,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               time &&
                 !prevTime &&
                 !suppressEvents &&
-                _callback(this, 'onStart');
+                _callback(this, "onStart");
               pt = this._pt;
 
               while (pt) {
@@ -7117,8 +7116,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   totalTime < 0
                     ? totalTime
                     : !time && isYoyo
-                    ? -_tinyNum
-                    : timeline._dur * ratio,
+                      ? -_tinyNum
+                      : timeline._dur * ratio,
                   suppressEvents,
                   force
                 )) ||
@@ -7129,7 +7128,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   this._startAt &&
                   this._startAt.render(totalTime, true, force); //note: for performance reasons, we tuck this conditional logic inside less traveled areas (most tweens don't have an onUpdate). We'd just have it at the end before the onComplete, but the values should be updated before any onUpdate is called, so we ALSO put it here and then if it's not called, we do so later near the onComplete.
 
-                _callback(this, 'onUpdate');
+                _callback(this, "onUpdate");
               }
 
               this._repeat &&
@@ -7137,7 +7136,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 this.vars.onRepeat &&
                 !suppressEvents &&
                 this.parent &&
-                _callback(this, 'onRepeat');
+                _callback(this, "onRepeat");
 
               if ((tTime === this._tDur || !tTime) && this._tTime === tTime) {
                 totalTime < 0 &&
@@ -7157,7 +7156,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // if prevTime and tTime are zero, we shouldn't fire the onReverseComplete. This could happen if you gsap.to(... {paused:true}).play();
                   _callback(
                     this,
-                    tTime === tDur ? 'onComplete' : 'onReverseComplete',
+                    tTime === tDur ? "onComplete" : "onReverseComplete",
                     true
                   );
 
@@ -7182,7 +7181,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               this._onUpdate =
               this._lazy =
               this.ratio =
-                0;
+              0;
             this._ptLookup = [];
             this.timeline && this.timeline.invalidate();
             return _Animation2.prototype.invalidate.call(this);
@@ -7190,10 +7189,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
           _proto3.kill = function kill(targets, vars) {
             if (vars === void 0) {
-              vars = 'all';
+              vars = "all";
             }
 
-            if (!targets && (!vars || vars === 'all')) {
+            if (!targets && (!vars || vars === "all")) {
               this._lazy = this._pt = 0;
               return this.parent ? _interrupt(this) : this;
             }
@@ -7231,16 +7230,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               i;
 
             if (
-              (!vars || vars === 'all') &&
+              (!vars || vars === "all") &&
               _arraysMatch(parsedTargets, killingTargets)
             ) {
-              vars === 'all' && (this._pt = 0);
+              vars === "all" && (this._pt = 0);
               return _interrupt(this);
             }
 
             overwrittenProps = this._op = this._op || [];
 
-            if (vars !== 'all') {
+            if (vars !== "all") {
               //so people can pass in a comma-delimited list of property names
               if (_isString(vars)) {
                 p = {};
@@ -7261,7 +7260,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               if (~killingTargets.indexOf(parsedTargets[i])) {
                 curLookup = propTweenLookup[i];
 
-                if (vars === 'all') {
+                if (vars === "all") {
                   overwrittenProps[i] = vars;
                   props = curLookup;
                   curOverwriteProps = {};
@@ -7275,14 +7274,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   pt = curLookup && curLookup[p];
 
                   if (pt) {
-                    if (!('kill' in pt.d) || pt.d.kill(p) === true) {
-                      _removeLinkedListItem(this, pt, '_pt');
+                    if (!("kill" in pt.d) || pt.d.kill(p) === true) {
+                      _removeLinkedListItem(this, pt, "_pt");
                     }
 
                     delete curLookup[p];
                   }
 
-                  if (curOverwriteProps !== 'all') {
+                  if (curOverwriteProps !== "all") {
                     curOverwriteProps[p] = 1;
                   }
                 }
@@ -7317,7 +7316,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               onReverseComplete: callback,
               onCompleteParams: params,
               onReverseCompleteParams: params,
-              callbackScope: scope
+              callbackScope: scope,
             });
           };
 
@@ -7347,7 +7346,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           _lazy: 0,
           _startAt: 0,
           _op: 0,
-          _onInit: 0
+          _onInit: 0,
         }); //add the pertinent timeline methods to Tween instances so that users can chain conveniently and create a timeline automatically. (removed due to concerns that it'd ultimately add to more confusion especially for beginners)
         // _forEachName("to,from,fromTo,set,call,add,addLabel,addPause", name => {
         //  Tween.prototype[name] = function() {
@@ -7357,12 +7356,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         // });
         //for backward compatibility. Leverage the timeline calls.
 
-        _forEachName('staggerTo,staggerFrom,staggerFromTo', function (name) {
+        _forEachName("staggerTo,staggerFrom,staggerFromTo", function (name) {
           Tween[name] = function () {
             var tl = new Timeline(),
               params = _slice.call(arguments, 0);
 
-            params.splice(name === 'staggerFromTo' ? 5 : 4, 0, 0);
+            params.splice(name === "staggerFromTo" ? 5 : 4, 0, 0);
             return tl[name].apply(tl, params);
           };
         });
@@ -7373,8 +7372,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
          */
 
         var _setterPlain = function _setterPlain(target, property, value) {
-            return (target[property] = value);
-          },
+          return (target[property] = value);
+        },
           _setterFunc = function _setterFunc(target, property, value) {
             return target[property](value);
           },
@@ -7397,8 +7396,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             return _isFunction(target[property])
               ? _setterFunc
               : _isUndefined(target[property]) && target.setAttribute
-              ? _setterAttribute
-              : _setterPlain;
+                ? _setterAttribute
+                : _setterPlain;
           },
           _renderPlain = function _renderPlain(ratio, data) {
             return data.set(
@@ -7413,7 +7412,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           },
           _renderComplexString = function _renderComplexString(ratio, data) {
             var pt = data._pt,
-              s = '';
+              s = "";
 
             if (!ratio && data.b) {
               //b = beginning string
@@ -7470,7 +7469,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               next = pt._next;
 
               if ((pt.p === property && !pt.op) || pt.op === property) {
-                _removeLinkedListItem(this, pt, '_pt');
+                _removeLinkedListItem(this, pt, "_pt");
               } else if (!pt.dep) {
                 hasNonDependentRemaining = 1;
               }
@@ -7572,7 +7571,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
         _forEachName(
           _callbackNames +
-            'parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger',
+          "parent,duration,ease,delay,overwrite,runBackwards,startAt,yoyo,immediateRender,repeat,repeatDelay,data,paused,reversed,lazy,callbackScope,stringFilter,id,yoyoEase,stagger,inherit,repeatRefresh,keyframes,autoRevert,scrollTrigger",
           function (name) {
             return (_reservedProps[name] = 1);
           }
@@ -7584,8 +7583,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           sortChildren: false,
           defaults: _defaults,
           autoRemoveChildren: true,
-          id: 'root',
-          smoothChildTiming: true
+          id: "root",
+          smoothChildTiming: true,
         });
         _config.stringFilter = _colorStringFilter;
         /*
@@ -7620,21 +7619,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             var getter = _getCache(target || {}).get,
               format = unit ? _passThrough : _numericIfPossible;
 
-            unit === 'native' && (unit = '');
+            unit === "native" && (unit = "");
             return !target
               ? target
               : !property
-              ? function (property, unit, uncache) {
+                ? function (property, unit, uncache) {
                   return format(
-                    ((_plugins[property] && _plugins[property].get) || getter)(
-                      target,
-                      property,
-                      unit,
-                      uncache
-                    )
+                    (
+                      (_plugins[property] && _plugins[property].get) ||
+                      getter
+                    )(target, property, unit, uncache)
                   );
                 }
-              : format(
+                : format(
                   ((_plugins[property] && _plugins[property].get) || getter)(
                     target,
                     property,
@@ -7648,8 +7645,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             if (target.length > 1) {
               var setters = target.map(function (t) {
-                  return gsap.quickSetter(t, property, unit);
-                }),
+                return gsap.quickSetter(t, property, unit);
+              }),
                 l = setters.length;
               return function (value) {
                 var i = l;
@@ -7670,31 +7667,31 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // in case it's an alias, like "rotate" for "rotation".
               setter = Plugin
                 ? function (value) {
-                    var p = new Plugin();
-                    _quickTween._pt = 0;
-                    p.init(
-                      target,
-                      unit ? value + unit : value,
-                      _quickTween,
-                      0,
-                      [target]
-                    );
-                    p.render(1, p);
-                    _quickTween._pt && _renderPropTweens(1, _quickTween);
-                  }
+                  var p = new Plugin();
+                  _quickTween._pt = 0;
+                  p.init(
+                    target,
+                    unit ? value + unit : value,
+                    _quickTween,
+                    0,
+                    [target]
+                  );
+                  p.render(1, p);
+                  _quickTween._pt && _renderPropTweens(1, _quickTween);
+                }
                 : cache.set(target, p);
 
             return Plugin
               ? setter
               : function (value) {
-                  return setter(
-                    target,
-                    p,
-                    unit ? value + unit : value,
-                    cache,
-                    1
-                  );
-                };
+                return setter(
+                  target,
+                  p,
+                  unit ? value + unit : value,
+                  cache,
+                  1
+                );
+              };
           },
           isTweening: function isTweening(targets) {
             return _globalTimeline.getTweensOf(targets, true).length > 0;
@@ -7714,12 +7711,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               plugins = _ref2.plugins,
               defaults = _ref2.defaults,
               extendTimeline = _ref2.extendTimeline;
-            (plugins || '').split(',').forEach(function (pluginName) {
+            (plugins || "").split(",").forEach(function (pluginName) {
               return (
                 pluginName &&
                 !_plugins[pluginName] &&
                 !_globals[pluginName] &&
-                _warn(name + ' effect requires ' + pluginName + ' plugin.')
+                _warn(name + " effect requires " + pluginName + " plugin.")
               );
             });
 
@@ -7806,7 +7803,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             pipe: pipe,
             unitize: unitize,
             interpolate: interpolate,
-            shuffle: shuffle
+            shuffle: shuffle,
           },
           install: _install,
           effects: _effects,
@@ -7824,12 +7821,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             _removeLinkedListItem: _removeLinkedListItem,
             suppressOverwrites: function suppressOverwrites(value) {
               return (_suppressOverwrites = value);
-            }
-          }
+            },
+          },
         };
 
         _forEachName(
-          'to,from,fromTo,delayedCall,set,killTweensOf',
+          "to,from,fromTo,delayedCall,set,killTweensOf",
           function (name) {
             return (_gsap[name] = Tween[name]);
           }
@@ -7840,19 +7837,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         _quickTween = _gsap.to(
           {},
           {
-            duration: 0
+            duration: 0,
           }
         ); // ---- EXTRA PLUGINS --------------------------------------------------------
 
         var _getPluginPropTween = function _getPluginPropTween(plugin, prop) {
-            var pt = plugin._pt;
+          var pt = plugin._pt;
 
-            while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
-              pt = pt._next;
-            }
+          while (pt && pt.p !== prop && pt.op !== prop && pt.fp !== prop) {
+            pt = pt._next;
+          }
 
-            return pt;
-          },
+          return pt;
+        },
           _addModifiers = function _addModifiers(tween, modifiers) {
             var targets = tween._targets,
               p,
@@ -7909,22 +7906,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   _addModifiers(tween, vars);
                 };
-              }
+              },
             };
           }; //register core plugins
 
         var gsap =
           _gsap.registerPlugin(
             {
-              name: 'attr',
+              name: "attr",
               init: function init(target, vars, tween, index, targets) {
                 var p, pt;
 
                 for (p in vars) {
                   pt = this.add(
                     target,
-                    'setAttribute',
-                    (target.getAttribute(p) || 0) + '',
+                    "setAttribute",
+                    (target.getAttribute(p) || 0) + "",
                     vars[p],
                     index,
                     targets,
@@ -7936,24 +7933,24 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   this._props.push(p);
                 }
-              }
+              },
             },
             {
-              name: 'endArray',
+              name: "endArray",
               init: function init(target, value) {
                 var i = value.length;
 
                 while (i--) {
                   this.add(target, i, target[i] || 0, value[i]);
                 }
-              }
+              },
             },
-            _buildModifierPlugin('roundProps', _roundModifier),
-            _buildModifierPlugin('modifiers'),
-            _buildModifierPlugin('snap', snap)
+            _buildModifierPlugin("roundProps", _roundModifier),
+            _buildModifierPlugin("modifiers"),
+            _buildModifierPlugin("snap", snap)
           ) || _gsap; //to prevent the core plugins from being dropped via aggressive tree shaking, we must include them in the variable declaration in this way.
 
-        Tween.version = Timeline.version = gsap.version = '3.6.1';
+        Tween.version = Timeline.version = gsap.version = "3.6.1";
         _coreReady = 1;
 
         if (_windowExists()) {
@@ -7984,233 +7981,233 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         /***/
       },
 
-    /***/ './node_modules/gsap/index.js':
+    /***/ "./node_modules/gsap/index.js":
       /*!************************************!*\
   !*** ./node_modules/gsap/index.js ***!
   \************************************/
       /*! exports provided: gsap, default, CSSPlugin, TweenMax, TweenLite, TimelineMax, TimelineLite, Power0, Power1, Power2, Power3, Power4, Linear, Quad, Cubic, Quart, Quint, Strong, Elastic, Back, SteppedEase, Bounce, Sine, Expo, Circ */
       /***/ function (module, __webpack_exports__, __webpack_require__) {
-        'use strict';
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'gsap',
+          "gsap",
           function () {
             return gsapWithCSS;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'default',
+          "default",
           function () {
             return gsapWithCSS;
           }
         );
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'TweenMax',
+          "TweenMax",
           function () {
             return TweenMaxWithCSS;
           }
         );
         /* harmony import */ var _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            /*! ./gsap-core.js */ './node_modules/gsap/gsap-core.js'
+            /*! ./gsap-core.js */ "./node_modules/gsap/gsap-core.js"
           );
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'TweenLite',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['TweenLite'];
-          }
-        );
+            __webpack_exports__,
+            "TweenLite",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["TweenLite"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'TimelineMax',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['TimelineMax'];
-          }
-        );
+            __webpack_exports__,
+            "TimelineMax",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["TimelineMax"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'TimelineLite',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['TimelineLite'];
-          }
-        );
+            __webpack_exports__,
+            "TimelineLite",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["TimelineLite"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Power0',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Power0'];
-          }
-        );
+            __webpack_exports__,
+            "Power0",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Power0"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Power1',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Power1'];
-          }
-        );
+            __webpack_exports__,
+            "Power1",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Power1"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Power2',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Power2'];
-          }
-        );
+            __webpack_exports__,
+            "Power2",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Power2"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Power3',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Power3'];
-          }
-        );
+            __webpack_exports__,
+            "Power3",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Power3"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Power4',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Power4'];
-          }
-        );
+            __webpack_exports__,
+            "Power4",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Power4"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Linear',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Linear'];
-          }
-        );
+            __webpack_exports__,
+            "Linear",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Linear"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Quad',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Quad'];
-          }
-        );
+            __webpack_exports__,
+            "Quad",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Quad"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Cubic',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Cubic'];
-          }
-        );
+            __webpack_exports__,
+            "Cubic",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Cubic"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Quart',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Quart'];
-          }
-        );
+            __webpack_exports__,
+            "Quart",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Quart"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Quint',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Quint'];
-          }
-        );
+            __webpack_exports__,
+            "Quint",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Quint"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Strong',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Strong'];
-          }
-        );
+            __webpack_exports__,
+            "Strong",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Strong"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Elastic',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Elastic'];
-          }
-        );
+            __webpack_exports__,
+            "Elastic",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Elastic"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Back',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Back'];
-          }
-        );
+            __webpack_exports__,
+            "Back",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Back"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'SteppedEase',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['SteppedEase'];
-          }
-        );
+            __webpack_exports__,
+            "SteppedEase",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["SteppedEase"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Bounce',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Bounce'];
-          }
-        );
+            __webpack_exports__,
+            "Bounce",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Bounce"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Sine',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Sine'];
-          }
-        );
+            __webpack_exports__,
+            "Sine",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Sine"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Expo',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Expo'];
-          }
-        );
+            __webpack_exports__,
+            "Expo",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Expo"];
+            }
+          );
 
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'Circ',
-          function () {
-            return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['Circ'];
-          }
-        );
+            __webpack_exports__,
+            "Circ",
+            function () {
+              return _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["Circ"];
+            }
+          );
 
         /* harmony import */ var _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
-            /*! ./CSSPlugin.js */ './node_modules/gsap/CSSPlugin.js'
+            /*! ./CSSPlugin.js */ "./node_modules/gsap/CSSPlugin.js"
           );
         /* harmony reexport (safe) */ __webpack_require__.d(
-          __webpack_exports__,
-          'CSSPlugin',
-          function () {
-            return _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__['CSSPlugin'];
-          }
-        );
+            __webpack_exports__,
+            "CSSPlugin",
+            function () {
+              return _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__["CSSPlugin"];
+            }
+          );
 
         /*** IMPORTS FROM imports-loader ***/
         var define = false;
 
         var gsapWithCSS =
-            _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['gsap'].registerPlugin(
-              _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__['CSSPlugin']
-            ) || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__['gsap'],
+          _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["gsap"].registerPlugin(
+            _CSSPlugin_js__WEBPACK_IMPORTED_MODULE_1__["CSSPlugin"]
+          ) || _gsap_core_js__WEBPACK_IMPORTED_MODULE_0__["gsap"],
           // to protect from tree shaking
           TweenMaxWithCSS = gsapWithCSS.core.Tween;
 
         /***/
       },
 
-    /***/ './node_modules/jquery/dist/jquery.js':
+    /***/ "./node_modules/jquery/dist/jquery.js":
       /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
   \********************************************/
@@ -8233,9 +8230,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
          * Date: 2021-03-02T17:08Z
          */
         (function (global, factory) {
-          'use strict';
+          "use strict";
 
-          if (true && typeof module.exports === 'object') {
+          if (true && typeof module.exports === "object") {
             // For CommonJS and CommonJS-like environments where a proper `window`
             // is present, execute the factory and get jQuery.
             // For environments that do not have a `window` with a `document`
@@ -8246,24 +8243,24 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             module.exports = global.document
               ? factory(global, true)
               : function (w) {
-                  if (!w.document) {
-                    throw new Error('jQuery requires a window with a document');
-                  }
-                  return factory(w);
-                };
+                if (!w.document) {
+                  throw new Error("jQuery requires a window with a document");
+                }
+                return factory(w);
+              };
           } else {
             factory(global);
           }
 
           // Pass this if window is not defined yet
         })(
-          typeof window !== 'undefined' ? window : this,
+          typeof window !== "undefined" ? window : this,
           function (window, noGlobal) {
             // Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
             // throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
             // arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
             // enough that all such attempts are guarded in a try block.
-            'use strict';
+            "use strict";
 
             var arr = [];
 
@@ -8273,11 +8270,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             var flat = arr.flat
               ? function (array) {
-                  return arr.flat.call(array);
-                }
+                return arr.flat.call(array);
+              }
               : function (array) {
-                  return arr.concat.apply([], array);
-                };
+                return arr.concat.apply([], array);
+              };
 
             var push = arr.push;
 
@@ -8304,9 +8301,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // Plus for old WebKit, typeof returns "function" for HTML collections
               // (e.g., `typeof document.getElementsByTagName("div") === "function"`). (gh-4756)
               return (
-                typeof obj === 'function' &&
-                typeof obj.nodeType !== 'number' &&
-                typeof obj.item !== 'function'
+                typeof obj === "function" &&
+                typeof obj.nodeType !== "number" &&
+                typeof obj.item !== "function"
               );
             };
 
@@ -8320,7 +8317,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               type: true,
               src: true,
               nonce: true,
-              noModule: true
+              noModule: true,
             };
 
             function DOMEval(code, node, doc) {
@@ -8328,7 +8325,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               var i,
                 val,
-                script = doc.createElement('script');
+                script = doc.createElement("script");
 
               script.text = code;
               if (node) {
@@ -8354,19 +8351,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             function toType(obj) {
               if (obj == null) {
-                return obj + '';
+                return obj + "";
               }
 
               // Support: Android <=2.3 only (functionish RegExp)
-              return typeof obj === 'object' || typeof obj === 'function'
-                ? class2type[toString.call(obj)] || 'object'
+              return typeof obj === "object" || typeof obj === "function"
+                ? class2type[toString.call(obj)] || "object"
                 : typeof obj;
             }
             /* global Symbol */
             // Defining this global in .eslintrc.json would create a danger of using the global
             // unguarded in another place, it seems safer to define global only for this module
 
-            var version = '3.6.0',
+            var version = "3.6.0",
               // Define a local copy of jQuery
               jQuery = function (selector, context) {
                 // The jQuery object is actually just the init constructor 'enhanced'
@@ -8467,7 +8464,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // Behaves like an Array's method, not like a jQuery method.
               push: push,
               sort: arr.sort,
-              splice: arr.splice
+              splice: arr.splice,
             };
 
             jQuery.extend = jQuery.fn.extend = function () {
@@ -8483,7 +8480,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 deep = false;
 
               // Handle a deep copy situation
-              if (typeof target === 'boolean') {
+              if (typeof target === "boolean") {
                 deep = target;
 
                 // Skip the boolean and the target
@@ -8492,7 +8489,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               }
 
               // Handle case when target is a string or something (possible in deep copy)
-              if (typeof target !== 'object' && !isFunction(target)) {
+              if (typeof target !== "object" && !isFunction(target)) {
                 target = {};
               }
 
@@ -8511,7 +8508,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                     // Prevent Object.prototype pollution
                     // Prevent never-ending loop
-                    if (name === '__proto__' || target === copy) {
+                    if (name === "__proto__" || target === copy) {
                       continue;
                     }
 
@@ -8551,7 +8548,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             jQuery.extend({
               // Unique for each copy of jQuery on the page
-              expando: 'jQuery' + (version + Math.random()).replace(/\D/g, ''),
+              expando: "jQuery" + (version + Math.random()).replace(/\D/g, ""),
 
               // Assume jQuery is ready without the ready module
               isReady: true,
@@ -8560,14 +8557,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 throw new Error(msg);
               },
 
-              noop: function () {},
+              noop: function () { },
 
               isPlainObject: function (obj) {
                 var proto, Ctor;
 
                 // Detect obvious negatives
                 // Use toString instead of jQuery.type to catch host objects
-                if (!obj || toString.call(obj) !== '[object Object]') {
+                if (!obj || toString.call(obj) !== "[object Object]") {
                   return false;
                 }
 
@@ -8579,9 +8576,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Objects with prototype are plain iff they were constructed by a global Object function
-                Ctor = hasOwn.call(proto, 'constructor') && proto.constructor;
+                Ctor = hasOwn.call(proto, "constructor") && proto.constructor;
                 return (
-                  typeof Ctor === 'function' &&
+                  typeof Ctor === "function" &&
                   fnToString.call(Ctor) === ObjectFunctionString
                 );
               },
@@ -8629,7 +8626,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 if (arr != null) {
                   if (isArrayLike(Object(arr))) {
-                    jQuery.merge(ret, typeof arr === 'string' ? [arr] : arr);
+                    jQuery.merge(ret, typeof arr === "string" ? [arr] : arr);
                   } else {
                     push.call(ret, arr);
                   }
@@ -8715,20 +8712,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // jQuery.support is not used in Core but other projects attach their
               // properties to it so it needs to exist.
-              support: support
+              support: support,
             });
 
-            if (typeof Symbol === 'function') {
+            if (typeof Symbol === "function") {
               jQuery.fn[Symbol.iterator] = arr[Symbol.iterator];
             }
 
             // Populate the class2type map
             jQuery.each(
-              'Boolean Number String Function Array Date RegExp Object Error Symbol'.split(
-                ' '
+              "Boolean Number String Function Array Date RegExp Object Error Symbol".split(
+                " "
               ),
               function (_i, name) {
-                class2type['[object ' + name + ']'] = name.toLowerCase();
+                class2type["[object " + name + "]"] = name.toLowerCase();
               }
             );
 
@@ -8737,7 +8734,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // `in` check used to prevent JIT error (gh-2145)
               // hasOwn isn't used here due to false negatives
               // regarding Nodelist length in IE
-              var length = !!obj && 'length' in obj && obj.length,
+              var length = !!obj && "length" in obj && obj.length,
                 type = toType(obj);
 
               if (isFunction(obj) || isWindow(obj)) {
@@ -8745,9 +8742,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               }
 
               return (
-                type === 'array' ||
+                type === "array" ||
                 length === 0 ||
-                (typeof length === 'number' && length > 0 && length - 1 in obj)
+                (typeof length === "number" && length > 0 && length - 1 in obj)
               );
             }
             var Sizzle =
@@ -8783,7 +8780,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   matches,
                   contains,
                   // Instance-specific data
-                  expando = 'sizzle' + 1 * new Date(),
+                  expando = "sizzle" + 1 * new Date(),
                   preferredDoc = window.document,
                   dirruns = 0,
                   done = 0,
@@ -8817,106 +8814,106 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     return -1;
                   },
                   booleans =
-                    'checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|' +
-                    'ismap|loop|multiple|open|readonly|required|scoped',
+                    "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|" +
+                    "ismap|loop|multiple|open|readonly|required|scoped",
                   // Regular expressions
 
                   // http://www.w3.org/TR/css3-selectors/#whitespace
-                  whitespace = '[\\x20\\t\\r\\n\\f]',
+                  whitespace = "[\\x20\\t\\r\\n\\f]",
                   // https://www.w3.org/TR/css-syntax-3/#ident-token-diagram
                   identifier =
-                    '(?:\\\\[\\da-fA-F]{1,6}' +
+                    "(?:\\\\[\\da-fA-F]{1,6}" +
                     whitespace +
-                    '?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+',
+                    "?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
                   // Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
                   attributes =
-                    '\\[' +
+                    "\\[" +
                     whitespace +
-                    '*(' +
+                    "*(" +
                     identifier +
-                    ')(?:' +
+                    ")(?:" +
                     whitespace +
                     // Operator (capture 2)
-                    '*([*^$|!~]?=)' +
+                    "*([*^$|!~]?=)" +
                     whitespace +
                     // "Attribute values must be CSS identifiers [capture 5]
                     // or strings [capture 3 or capture 4]"
-                    '*(?:\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)"|(' +
+                    "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" +
                     identifier +
-                    '))|)' +
+                    "))|)" +
                     whitespace +
-                    '*\\]',
+                    "*\\]",
                   pseudos =
-                    ':(' +
+                    ":(" +
                     identifier +
-                    ')(?:\\((' +
+                    ")(?:\\((" +
                     // To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
                     // 1. quoted (capture 3; capture 4 or capture 5)
-                    '(\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)")|' +
+                    "('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
                     // 2. simple (capture 6)
-                    '((?:\\\\.|[^\\\\()[\\]]|' +
+                    "((?:\\\\.|[^\\\\()[\\]]|" +
                     attributes +
-                    ')*)|' +
+                    ")*)|" +
                     // 3. anything else (capture 2)
-                    '.*' +
-                    ')\\)|)',
+                    ".*" +
+                    ")\\)|)",
                   // Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
-                  rwhitespace = new RegExp(whitespace + '+', 'g'),
+                  rwhitespace = new RegExp(whitespace + "+", "g"),
                   rtrim = new RegExp(
-                    '^' +
-                      whitespace +
-                      '+|((?:^|[^\\\\])(?:\\\\.)*)' +
-                      whitespace +
-                      '+$',
-                    'g'
+                    "^" +
+                    whitespace +
+                    "+|((?:^|[^\\\\])(?:\\\\.)*)" +
+                    whitespace +
+                    "+$",
+                    "g"
                   ),
                   rcomma = new RegExp(
-                    '^' + whitespace + '*,' + whitespace + '*'
+                    "^" + whitespace + "*," + whitespace + "*"
                   ),
                   rcombinators = new RegExp(
-                    '^' +
-                      whitespace +
-                      '*([>+~]|' +
-                      whitespace +
-                      ')' +
-                      whitespace +
-                      '*'
+                    "^" +
+                    whitespace +
+                    "*([>+~]|" +
+                    whitespace +
+                    ")" +
+                    whitespace +
+                    "*"
                   ),
-                  rdescend = new RegExp(whitespace + '|>'),
+                  rdescend = new RegExp(whitespace + "|>"),
                   rpseudo = new RegExp(pseudos),
-                  ridentifier = new RegExp('^' + identifier + '$'),
+                  ridentifier = new RegExp("^" + identifier + "$"),
                   matchExpr = {
-                    ID: new RegExp('^#(' + identifier + ')'),
-                    CLASS: new RegExp('^\\.(' + identifier + ')'),
-                    TAG: new RegExp('^(' + identifier + '|[*])'),
-                    ATTR: new RegExp('^' + attributes),
-                    PSEUDO: new RegExp('^' + pseudos),
+                    ID: new RegExp("^#(" + identifier + ")"),
+                    CLASS: new RegExp("^\\.(" + identifier + ")"),
+                    TAG: new RegExp("^(" + identifier + "|[*])"),
+                    ATTR: new RegExp("^" + attributes),
+                    PSEUDO: new RegExp("^" + pseudos),
                     CHILD: new RegExp(
-                      '^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(' +
-                        whitespace +
-                        '*(even|odd|(([+-]|)(\\d*)n|)' +
-                        whitespace +
-                        '*(?:([+-]|)' +
-                        whitespace +
-                        '*(\\d+)|))' +
-                        whitespace +
-                        '*\\)|)',
-                      'i'
+                      "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" +
+                      whitespace +
+                      "*(even|odd|(([+-]|)(\\d*)n|)" +
+                      whitespace +
+                      "*(?:([+-]|)" +
+                      whitespace +
+                      "*(\\d+)|))" +
+                      whitespace +
+                      "*\\)|)",
+                      "i"
                     ),
-                    bool: new RegExp('^(?:' + booleans + ')$', 'i'),
+                    bool: new RegExp("^(?:" + booleans + ")$", "i"),
 
                     // For use in libraries implementing .is()
                     // We use this for POS matching in `select`
                     needsContext: new RegExp(
-                      '^' +
-                        whitespace +
-                        '*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(' +
-                        whitespace +
-                        '*((?:-\\d)?\\d*)' +
-                        whitespace +
-                        '*\\)|)(?=[^-]|$)',
-                      'i'
-                    )
+                      "^" +
+                      whitespace +
+                      "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
+                      whitespace +
+                      "*((?:-\\d)?\\d*)" +
+                      whitespace +
+                      "*\\)|)(?=[^-]|$)",
+                      "i"
+                    ),
                   },
                   rhtml = /HTML$/i,
                   rinputs = /^(?:input|select|textarea|button)$/i,
@@ -8928,24 +8925,24 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // CSS escapes
                   // http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
                   runescape = new RegExp(
-                    '\\\\[\\da-fA-F]{1,6}' +
-                      whitespace +
-                      '?|\\\\([^\\r\\n\\f])',
-                    'g'
+                    "\\\\[\\da-fA-F]{1,6}" +
+                    whitespace +
+                    "?|\\\\([^\\r\\n\\f])",
+                    "g"
                   ),
                   funescape = function (escape, nonHex) {
-                    var high = '0x' + escape.slice(1) - 0x10000;
+                    var high = "0x" + escape.slice(1) - 0x10000;
 
                     return nonHex
                       ? // Strip the backslash prefix from a non-hex escape sequence
-                        nonHex
+                      nonHex
                       : // Replace a hexadecimal escape sequence with the encoded Unicode code point
                       // Support: IE <=11+
                       // For values outside the Basic Multilingual Plane (BMP), manually construct a
                       // surrogate pair
                       high < 0
-                      ? String.fromCharCode(high + 0x10000)
-                      : String.fromCharCode(
+                        ? String.fromCharCode(high + 0x10000)
+                        : String.fromCharCode(
                           (high >> 10) | 0xd800,
                           (high & 0x3ff) | 0xdc00
                         );
@@ -8957,21 +8954,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   fcssescape = function (ch, asCodePoint) {
                     if (asCodePoint) {
                       // U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
-                      if (ch === '\0') {
-                        return '\uFFFD';
+                      if (ch === "\0") {
+                        return "\uFFFD";
                       }
 
                       // Control characters and (dependent upon position) numbers get escaped as code points
                       return (
                         ch.slice(0, -1) +
-                        '\\' +
+                        "\\" +
                         ch.charCodeAt(ch.length - 1).toString(16) +
-                        ' '
+                        " "
                       );
                     }
 
                     // Other potentially-special ASCII characters get backslash-escaped
-                    return '\\' + ch;
+                    return "\\" + ch;
                   },
                   // Used for iframes
                   // See setDocument()
@@ -8984,10 +8981,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     function (elem) {
                       return (
                         elem.disabled === true &&
-                        elem.nodeName.toLowerCase() === 'fieldset'
+                        elem.nodeName.toLowerCase() === "fieldset"
                       );
                     },
-                    { dir: 'parentNode', next: 'legend' }
+                    { dir: "parentNode", next: "legend" }
                   );
 
                 // Optimize for push.apply( _, NodeList )
@@ -9005,19 +9002,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   push = {
                     apply: arr.length
                       ? // Leverage slice if possible
-                        function (target, els) {
-                          pushNative.apply(target, slice.call(els));
-                        }
+                      function (target, els) {
+                        pushNative.apply(target, slice.call(els));
+                      }
                       : // Support: IE<9
-                        // Otherwise append directly
-                        function (target, els) {
-                          var j = target.length,
-                            i = 0;
+                      // Otherwise append directly
+                      function (target, els) {
+                        var j = target.length,
+                          i = 0;
 
-                          // Can't trust NodeList.length
-                          while ((target[j++] = els[i++])) {}
-                          target.length = j - 1;
-                        }
+                        // Can't trust NodeList.length
+                        while ((target[j++] = els[i++])) { }
+                        target.length = j - 1;
+                      },
                   };
                 }
 
@@ -9037,7 +9034,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Return early from calls with invalid selector or context
                   if (
-                    typeof selector !== 'string' ||
+                    typeof selector !== "string" ||
                     !selector ||
                     (nodeType !== 1 && nodeType !== 9 && nodeType !== 11)
                   ) {
@@ -9113,12 +9110,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // Take advantage of querySelectorAll
                       if (
                         support.qsa &&
-                        !nonnativeSelectorCache[selector + ' '] &&
+                        !nonnativeSelectorCache[selector + " "] &&
                         (!rbuggyQSA || !rbuggyQSA.test(selector)) &&
                         // Support: IE 8 only
                         // Exclude object elements
                         (nodeType !== 1 ||
-                          context.nodeName.toLowerCase() !== 'object')
+                          context.nodeName.toLowerCase() !== "object")
                       ) {
                         newSelector = selector;
                         newContext = context;
@@ -9145,10 +9142,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           // supports it & if we're not changing the context.
                           if (newContext !== context || !support.scope) {
                             // Capture the context ID, setting it first if necessary
-                            if ((nid = context.getAttribute('id'))) {
+                            if ((nid = context.getAttribute("id"))) {
                               nid = nid.replace(rcssescape, fcssescape);
                             } else {
-                              context.setAttribute('id', (nid = expando));
+                              context.setAttribute("id", (nid = expando));
                             }
                           }
 
@@ -9157,11 +9154,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           i = groups.length;
                           while (i--) {
                             groups[i] =
-                              (nid ? '#' + nid : ':scope') +
-                              ' ' +
+                              (nid ? "#" + nid : ":scope") +
+                              " " +
                               toSelector(groups[i]);
                           }
-                          newSelector = groups.join(',');
+                          newSelector = groups.join(",");
                         }
 
                         try {
@@ -9174,7 +9171,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           nonnativeSelectorCache(selector, true);
                         } finally {
                           if (nid === expando) {
-                            context.removeAttribute('id');
+                            context.removeAttribute("id");
                           }
                         }
                       }
@@ -9183,7 +9180,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // All others
                   return select(
-                    selector.replace(rtrim, '$1'),
+                    selector.replace(rtrim, "$1"),
                     context,
                     results,
                     seed
@@ -9201,11 +9198,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   function cache(key, value) {
                     // Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
-                    if (keys.push(key + ' ') > Expr.cacheLength) {
+                    if (keys.push(key + " ") > Expr.cacheLength) {
                       // Only keep the most recent entries
                       delete cache[keys.shift()];
                     }
-                    return (cache[key + ' '] = value);
+                    return (cache[key + " "] = value);
                   }
                   return cache;
                 }
@@ -9224,7 +9221,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                  * @param {Function} fn Passed the created element and returns a boolean result
                  */
                 function assert(fn) {
-                  var el = document.createElement('fieldset');
+                  var el = document.createElement("fieldset");
 
                   try {
                     return !!fn(el);
@@ -9247,7 +9244,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                  * @param {Function} handler The method that will be applied
                  */
                 function addHandle(attrs, handler) {
-                  var arr = attrs.split('|'),
+                  var arr = attrs.split("|"),
                     i = arr.length;
 
                   while (i--) {
@@ -9293,7 +9290,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 function createInputPseudo(type) {
                   return function (elem) {
                     var name = elem.nodeName.toLowerCase();
-                    return name === 'input' && elem.type === type;
+                    return name === "input" && elem.type === type;
                   };
                 }
 
@@ -9305,7 +9302,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return function (elem) {
                     var name = elem.nodeName.toLowerCase();
                     return (
-                      (name === 'input' || name === 'button') &&
+                      (name === "input" || name === "button") &&
                       elem.type === type
                     );
                   };
@@ -9321,7 +9318,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Only certain elements can match :enabled or :disabled
                     // https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled
                     // https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled
-                    if ('form' in elem) {
+                    if ("form" in elem) {
                       // Check for inherited disabledness on relevant non-disabled elements:
                       // * listed form-associated elements in a disabled fieldset
                       //   https://html.spec.whatwg.org/multipage/forms.html#category-listed
@@ -9331,8 +9328,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // All such elements have a "form" property.
                       if (elem.parentNode && elem.disabled === false) {
                         // Option elements defer to a parent optgroup if present
-                        if ('label' in elem) {
-                          if ('label' in elem.parentNode) {
+                        if ("label" in elem) {
+                          if ("label" in elem.parentNode) {
                             return elem.parentNode.disabled === disabled;
                           } else {
                             return elem.disabled === disabled;
@@ -9355,7 +9352,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // Try to winnow out elements that can't be disabled before trusting the disabled property.
                       // Some victims get caught in our net (label, legend, menu, track), but it shouldn't
                       // even exist on them, let alone have a boolean value.
-                    } else if ('label' in elem) {
+                    } else if ("label" in elem) {
                       return elem.disabled === disabled;
                     }
 
@@ -9394,7 +9391,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 function testContext(context) {
                   return (
                     context &&
-                    typeof context.getElementsByTagName !== 'undefined' &&
+                    typeof context.getElementsByTagName !== "undefined" &&
                     context
                   );
                 }
@@ -9416,7 +9413,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
                   // https://bugs.jquery.com/ticket/4833
                   return !rhtml.test(
-                    namespace || (docElem && docElem.nodeName) || 'HTML'
+                    namespace || (docElem && docElem.nodeName) || "HTML"
                   );
                 };
 
@@ -9462,14 +9459,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Support: IE 11, Edge
                     if (subWindow.addEventListener) {
                       subWindow.addEventListener(
-                        'unload',
+                        "unload",
                         unloadHandler,
                         false
                       );
 
                       // Support: IE 9 - 10 only
                     } else if (subWindow.attachEvent) {
-                      subWindow.attachEvent('onunload', unloadHandler);
+                      subWindow.attachEvent("onunload", unloadHandler);
                     }
                   }
 
@@ -9481,10 +9478,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   support.scope = assert(function (el) {
                     docElem
                       .appendChild(el)
-                      .appendChild(document.createElement('div'));
+                      .appendChild(document.createElement("div"));
                     return (
-                      typeof el.querySelectorAll !== 'undefined' &&
-                      !el.querySelectorAll(':scope fieldset div').length
+                      typeof el.querySelectorAll !== "undefined" &&
+                      !el.querySelectorAll(":scope fieldset div").length
                     );
                   });
 
@@ -9495,8 +9492,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Verify that getAttribute really returns attributes and not properties
                   // (excepting IE8 booleans)
                   support.attributes = assert(function (el) {
-                    el.className = 'i';
-                    return !el.getAttribute('className');
+                    el.className = "i";
+                    return !el.getAttribute("className");
                   });
 
                   /* getElement(s)By*
@@ -9504,8 +9501,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Check if getElementsByTagName("*") returns only elements
                   support.getElementsByTagName = assert(function (el) {
-                    el.appendChild(document.createComment(''));
-                    return !el.getElementsByTagName('*').length;
+                    el.appendChild(document.createComment(""));
+                    return !el.getElementsByTagName("*").length;
                   });
 
                   // Support: IE<9
@@ -9527,15 +9524,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // ID filter and find
                   if (support.getById) {
-                    Expr.filter['ID'] = function (id) {
+                    Expr.filter["ID"] = function (id) {
                       var attrId = id.replace(runescape, funescape);
                       return function (elem) {
-                        return elem.getAttribute('id') === attrId;
+                        return elem.getAttribute("id") === attrId;
                       };
                     };
-                    Expr.find['ID'] = function (id, context) {
+                    Expr.find["ID"] = function (id, context) {
                       if (
-                        typeof context.getElementById !== 'undefined' &&
+                        typeof context.getElementById !== "undefined" &&
                         documentIsHTML
                       ) {
                         var elem = context.getElementById(id);
@@ -9543,21 +9540,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       }
                     };
                   } else {
-                    Expr.filter['ID'] = function (id) {
+                    Expr.filter["ID"] = function (id) {
                       var attrId = id.replace(runescape, funescape);
                       return function (elem) {
                         var node =
-                          typeof elem.getAttributeNode !== 'undefined' &&
-                          elem.getAttributeNode('id');
+                          typeof elem.getAttributeNode !== "undefined" &&
+                          elem.getAttributeNode("id");
                         return node && node.value === attrId;
                       };
                     };
 
                     // Support: IE 6 - 7 only
                     // getElementById is not reliable as a find shortcut
-                    Expr.find['ID'] = function (id, context) {
+                    Expr.find["ID"] = function (id, context) {
                       if (
-                        typeof context.getElementById !== 'undefined' &&
+                        typeof context.getElementById !== "undefined" &&
                         documentIsHTML
                       ) {
                         var node,
@@ -9567,7 +9564,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                         if (elem) {
                           // Verify the id attribute
-                          node = elem.getAttributeNode('id');
+                          node = elem.getAttributeNode("id");
                           if (node && node.value === id) {
                             return [elem];
                           }
@@ -9576,7 +9573,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           elems = context.getElementsByName(id);
                           i = 0;
                           while ((elem = elems[i++])) {
-                            node = elem.getAttributeNode('id');
+                            node = elem.getAttributeNode("id");
                             if (node && node.value === id) {
                               return [elem];
                             }
@@ -9589,44 +9586,44 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   }
 
                   // Tag
-                  Expr.find['TAG'] = support.getElementsByTagName
+                  Expr.find["TAG"] = support.getElementsByTagName
                     ? function (tag, context) {
-                        if (
-                          typeof context.getElementsByTagName !== 'undefined'
-                        ) {
-                          return context.getElementsByTagName(tag);
+                      if (
+                        typeof context.getElementsByTagName !== "undefined"
+                      ) {
+                        return context.getElementsByTagName(tag);
 
-                          // DocumentFragment nodes don't have gEBTN
-                        } else if (support.qsa) {
-                          return context.querySelectorAll(tag);
-                        }
+                        // DocumentFragment nodes don't have gEBTN
+                      } else if (support.qsa) {
+                        return context.querySelectorAll(tag);
                       }
+                    }
                     : function (tag, context) {
-                        var elem,
-                          tmp = [],
-                          i = 0,
-                          // By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
-                          results = context.getElementsByTagName(tag);
+                      var elem,
+                        tmp = [],
+                        i = 0,
+                        // By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
+                        results = context.getElementsByTagName(tag);
 
-                        // Filter out possible comments
-                        if (tag === '*') {
-                          while ((elem = results[i++])) {
-                            if (elem.nodeType === 1) {
-                              tmp.push(elem);
-                            }
+                      // Filter out possible comments
+                      if (tag === "*") {
+                        while ((elem = results[i++])) {
+                          if (elem.nodeType === 1) {
+                            tmp.push(elem);
                           }
-
-                          return tmp;
                         }
-                        return results;
-                      };
+
+                        return tmp;
+                      }
+                      return results;
+                    };
 
                   // Class
-                  Expr.find['CLASS'] =
+                  Expr.find["CLASS"] =
                     support.getElementsByClassName &&
                     function (className, context) {
                       if (
-                        typeof context.getElementsByClassName !== 'undefined' &&
+                        typeof context.getElementsByClassName !== "undefined" &&
                         documentIsHTML
                       ) {
                         return context.getElementsByClassName(className);
@@ -9673,22 +9670,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // The test attribute must be unknown in Opera but "safe" for WinRT
                       // https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
                       if (el.querySelectorAll("[msallowcapture^='']").length) {
-                        rbuggyQSA.push('[*^$]=' + whitespace + '*(?:\'\'|"")');
+                        rbuggyQSA.push("[*^$]=" + whitespace + "*(?:''|\"\")");
                       }
 
                       // Support: IE8
                       // Boolean attributes and "value" are not treated correctly
-                      if (!el.querySelectorAll('[selected]').length) {
+                      if (!el.querySelectorAll("[selected]").length) {
                         rbuggyQSA.push(
-                          '\\[' + whitespace + '*(?:value|' + booleans + ')'
+                          "\\[" + whitespace + "*(?:value|" + booleans + ")"
                         );
                       }
 
                       // Support: Chrome<29, Android<4.4, Safari<7.0+, iOS<7.0+, PhantomJS<1.9.8+
                       if (
-                        !el.querySelectorAll('[id~=' + expando + '-]').length
+                        !el.querySelectorAll("[id~=" + expando + "-]").length
                       ) {
-                        rbuggyQSA.push('~=');
+                        rbuggyQSA.push("~=");
                       }
 
                       // Support: IE 11+, Edge 15 - 18+
@@ -9696,39 +9693,39 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // Adding a temporary attribute to the document before the selection works
                       // around the issue.
                       // Interestingly, IE 10 & older don't seem to have the issue.
-                      input = document.createElement('input');
-                      input.setAttribute('name', '');
+                      input = document.createElement("input");
+                      input.setAttribute("name", "");
                       el.appendChild(input);
                       if (!el.querySelectorAll("[name='']").length) {
                         rbuggyQSA.push(
-                          '\\[' +
-                            whitespace +
-                            '*name' +
-                            whitespace +
-                            '*=' +
-                            whitespace +
-                            '*(?:\'\'|"")'
+                          "\\[" +
+                          whitespace +
+                          "*name" +
+                          whitespace +
+                          "*=" +
+                          whitespace +
+                          "*(?:''|\"\")"
                         );
                       }
 
                       // Webkit/Opera - :checked should return selected option elements
                       // http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
                       // IE8 throws error here and will not see later tests
-                      if (!el.querySelectorAll(':checked').length) {
-                        rbuggyQSA.push(':checked');
+                      if (!el.querySelectorAll(":checked").length) {
+                        rbuggyQSA.push(":checked");
                       }
 
                       // Support: Safari 8+, iOS 8+
                       // https://bugs.webkit.org/show_bug.cgi?id=136851
                       // In-page `selector#id sibling-combinator selector` fails
-                      if (!el.querySelectorAll('a#' + expando + '+*').length) {
-                        rbuggyQSA.push('.#.+[+~]');
+                      if (!el.querySelectorAll("a#" + expando + "+*").length) {
+                        rbuggyQSA.push(".#.+[+~]");
                       }
 
                       // Support: Firefox <=3.6 - 5 only
                       // Old Firefox doesn't throw on a badly-escaped identifier.
-                      el.querySelectorAll('\\\f');
-                      rbuggyQSA.push('[\\r\\n\\f]');
+                      el.querySelectorAll("\\\f");
+                      rbuggyQSA.push("[\\r\\n\\f]");
                     });
 
                     assert(function (el) {
@@ -9738,33 +9735,33 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                       // Support: Windows 8 Native Apps
                       // The type and name attributes are restricted during .innerHTML assignment
-                      var input = document.createElement('input');
-                      input.setAttribute('type', 'hidden');
-                      el.appendChild(input).setAttribute('name', 'D');
+                      var input = document.createElement("input");
+                      input.setAttribute("type", "hidden");
+                      el.appendChild(input).setAttribute("name", "D");
 
                       // Support: IE8
                       // Enforce case-sensitivity of name attribute
-                      if (el.querySelectorAll('[name=d]').length) {
-                        rbuggyQSA.push('name' + whitespace + '*[*^$|!~]?=');
+                      if (el.querySelectorAll("[name=d]").length) {
+                        rbuggyQSA.push("name" + whitespace + "*[*^$|!~]?=");
                       }
 
                       // FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
                       // IE8 throws error here and will not see later tests
-                      if (el.querySelectorAll(':enabled').length !== 2) {
-                        rbuggyQSA.push(':enabled', ':disabled');
+                      if (el.querySelectorAll(":enabled").length !== 2) {
+                        rbuggyQSA.push(":enabled", ":disabled");
                       }
 
                       // Support: IE9-11+
                       // IE's :disabled selector does not pick up the children of disabled fieldsets
                       docElem.appendChild(el).disabled = true;
-                      if (el.querySelectorAll(':disabled').length !== 2) {
-                        rbuggyQSA.push(':enabled', ':disabled');
+                      if (el.querySelectorAll(":disabled").length !== 2) {
+                        rbuggyQSA.push(":enabled", ":disabled");
                       }
 
                       // Support: Opera 10 - 11 only
                       // Opera 10-11 does not throw on post-comma invalid pseudos
-                      el.querySelectorAll('*,:x');
-                      rbuggyQSA.push(',.*:');
+                      el.querySelectorAll("*,:x");
+                      rbuggyQSA.push(",.*:");
                     });
                   }
 
@@ -9781,19 +9778,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     assert(function (el) {
                       // Check to see if it's possible to do matchesSelector
                       // on a disconnected node (IE 9)
-                      support.disconnectedMatch = matches.call(el, '*');
+                      support.disconnectedMatch = matches.call(el, "*");
 
                       // This should fail with an exception
                       // Gecko does not error, returns false instead
                       matches.call(el, "[s!='']:x");
-                      rbuggyMatches.push('!=', pseudos);
+                      rbuggyMatches.push("!=", pseudos);
                     });
                   }
 
                   rbuggyQSA =
-                    rbuggyQSA.length && new RegExp(rbuggyQSA.join('|'));
+                    rbuggyQSA.length && new RegExp(rbuggyQSA.join("|"));
                   rbuggyMatches =
-                    rbuggyMatches.length && new RegExp(rbuggyMatches.join('|'));
+                    rbuggyMatches.length && new RegExp(rbuggyMatches.join("|"));
 
                   /* Contains
     ---------------------------------------------------------------------- */
@@ -9805,30 +9802,30 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   contains =
                     hasCompare || rnative.test(docElem.contains)
                       ? function (a, b) {
-                          var adown = a.nodeType === 9 ? a.documentElement : a,
-                            bup = b && b.parentNode;
-                          return (
-                            a === bup ||
-                            !!(
-                              bup &&
-                              bup.nodeType === 1 &&
-                              (adown.contains
-                                ? adown.contains(bup)
-                                : a.compareDocumentPosition &&
-                                  a.compareDocumentPosition(bup) & 16)
-                            )
-                          );
-                        }
+                        var adown = a.nodeType === 9 ? a.documentElement : a,
+                          bup = b && b.parentNode;
+                        return (
+                          a === bup ||
+                          !!(
+                            bup &&
+                            bup.nodeType === 1 &&
+                            (adown.contains
+                              ? adown.contains(bup)
+                              : a.compareDocumentPosition &&
+                              a.compareDocumentPosition(bup) & 16)
+                          )
+                        );
+                      }
                       : function (a, b) {
-                          if (b) {
-                            while ((b = b.parentNode)) {
-                              if (b === a) {
-                                return true;
-                              }
+                        if (b) {
+                          while ((b = b.parentNode)) {
+                            if (b === a) {
+                              return true;
                             }
                           }
-                          return false;
-                        };
+                        }
+                        return false;
+                      };
 
                   /* Sorting
     ---------------------------------------------------------------------- */
@@ -9836,138 +9833,139 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Document order sorting
                   sortOrder = hasCompare
                     ? function (a, b) {
-                        // Flag for duplicate removal
-                        if (a === b) {
-                          hasDuplicate = true;
-                          return 0;
-                        }
+                      // Flag for duplicate removal
+                      if (a === b) {
+                        hasDuplicate = true;
+                        return 0;
+                      }
 
-                        // Sort on method existence if only one input has compareDocumentPosition
-                        var compare =
-                          !a.compareDocumentPosition -
-                          !b.compareDocumentPosition;
-                        if (compare) {
-                          return compare;
-                        }
+                      // Sort on method existence if only one input has compareDocumentPosition
+                      var compare =
+                        !a.compareDocumentPosition -
+                        !b.compareDocumentPosition;
+                      if (compare) {
+                        return compare;
+                      }
 
-                        // Calculate position if both inputs belong to the same document
+                      // Calculate position if both inputs belong to the same document
+                      // Support: IE 11+, Edge 17 - 18+
+                      // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+                      // two documents; shallow comparisons work.
+                      // eslint-disable-next-line eqeqeq
+                      compare =
+                        (a.ownerDocument || a) == (b.ownerDocument || b)
+                          ? a.compareDocumentPosition(b)
+                          : // Otherwise we know they are disconnected
+                          1;
+
+                      // Disconnected nodes
+                      if (
+                        compare & 1 ||
+                        (!support.sortDetached &&
+                          b.compareDocumentPosition(a) === compare)
+                      ) {
+                        // Choose the first element that is related to our preferred document
                         // Support: IE 11+, Edge 17 - 18+
                         // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
                         // two documents; shallow comparisons work.
                         // eslint-disable-next-line eqeqeq
-                        compare =
-                          (a.ownerDocument || a) == (b.ownerDocument || b)
-                            ? a.compareDocumentPosition(b)
-                            : // Otherwise we know they are disconnected
-                              1;
-
-                        // Disconnected nodes
                         if (
-                          compare & 1 ||
-                          (!support.sortDetached &&
-                            b.compareDocumentPosition(a) === compare)
+                          a == document ||
+                          (a.ownerDocument == preferredDoc &&
+                            contains(preferredDoc, a))
                         ) {
-                          // Choose the first element that is related to our preferred document
-                          // Support: IE 11+, Edge 17 - 18+
-                          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                          // two documents; shallow comparisons work.
-                          // eslint-disable-next-line eqeqeq
-                          if (
-                            a == document ||
-                            (a.ownerDocument == preferredDoc &&
-                              contains(preferredDoc, a))
-                          ) {
-                            return -1;
-                          }
-
-                          // Support: IE 11+, Edge 17 - 18+
-                          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                          // two documents; shallow comparisons work.
-                          // eslint-disable-next-line eqeqeq
-                          if (
-                            b == document ||
-                            (b.ownerDocument == preferredDoc &&
-                              contains(preferredDoc, b))
-                          ) {
-                            return 1;
-                          }
-
-                          // Maintain original order
-                          return sortInput
-                            ? indexOf(sortInput, a) - indexOf(sortInput, b)
-                            : 0;
+                          return -1;
                         }
 
-                        return compare & 4 ? -1 : 1;
+                        // Support: IE 11+, Edge 17 - 18+
+                        // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+                        // two documents; shallow comparisons work.
+                        // eslint-disable-next-line eqeqeq
+                        if (
+                          b == document ||
+                          (b.ownerDocument == preferredDoc &&
+                            contains(preferredDoc, b))
+                        ) {
+                          return 1;
+                        }
+
+                        // Maintain original order
+                        return sortInput
+                          ? indexOf(sortInput, a) - indexOf(sortInput, b)
+                          : 0;
                       }
+
+                      return compare & 4 ? -1 : 1;
+                    }
                     : function (a, b) {
-                        // Exit early if the nodes are identical
-                        if (a === b) {
-                          hasDuplicate = true;
-                          return 0;
-                        }
+                      // Exit early if the nodes are identical
+                      if (a === b) {
+                        hasDuplicate = true;
+                        return 0;
+                      }
 
-                        var cur,
-                          i = 0,
-                          aup = a.parentNode,
-                          bup = b.parentNode,
-                          ap = [a],
-                          bp = [b];
+                      var cur,
+                        i = 0,
+                        aup = a.parentNode,
+                        bup = b.parentNode,
+                        ap = [a],
+                        bp = [b];
 
-                        // Parentless nodes are either documents or disconnected
-                        if (!aup || !bup) {
-                          // Support: IE 11+, Edge 17 - 18+
-                          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                          // two documents; shallow comparisons work.
-                          /* eslint-disable eqeqeq */
-                          return a == document
-                            ? -1
-                            : b == document
+                      // Parentless nodes are either documents or disconnected
+                      if (!aup || !bup) {
+                        // Support: IE 11+, Edge 17 - 18+
+                        // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+                        // two documents; shallow comparisons work.
+                        /* eslint-disable eqeqeq */
+                        return a == document
+                          ? -1
+                          : b == document
                             ? 1
                             : /* eslint-enable eqeqeq */
                             aup
-                            ? -1
-                            : bup
-                            ? 1
-                            : sortInput
-                            ? indexOf(sortInput, a) - indexOf(sortInput, b)
-                            : 0;
+                              ? -1
+                              : bup
+                                ? 1
+                                : sortInput
+                                  ? indexOf(sortInput, a) -
+                                  indexOf(sortInput, b)
+                                  : 0;
 
-                          // If the nodes are siblings, we can do a quick check
-                        } else if (aup === bup) {
-                          return siblingCheck(a, b);
-                        }
+                        // If the nodes are siblings, we can do a quick check
+                      } else if (aup === bup) {
+                        return siblingCheck(a, b);
+                      }
 
-                        // Otherwise we need full lists of their ancestors for comparison
-                        cur = a;
-                        while ((cur = cur.parentNode)) {
-                          ap.unshift(cur);
-                        }
-                        cur = b;
-                        while ((cur = cur.parentNode)) {
-                          bp.unshift(cur);
-                        }
+                      // Otherwise we need full lists of their ancestors for comparison
+                      cur = a;
+                      while ((cur = cur.parentNode)) {
+                        ap.unshift(cur);
+                      }
+                      cur = b;
+                      while ((cur = cur.parentNode)) {
+                        bp.unshift(cur);
+                      }
 
-                        // Walk down the tree looking for a discrepancy
-                        while (ap[i] === bp[i]) {
-                          i++;
-                        }
+                      // Walk down the tree looking for a discrepancy
+                      while (ap[i] === bp[i]) {
+                        i++;
+                      }
 
-                        return i
-                          ? // Do a sibling check if the nodes have a common ancestor
-                            siblingCheck(ap[i], bp[i])
-                          : // Otherwise nodes in our document sort first
-                          // Support: IE 11+, Edge 17 - 18+
-                          // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                          // two documents; shallow comparisons work.
-                          /* eslint-disable eqeqeq */
-                          ap[i] == preferredDoc
+                      return i
+                        ? // Do a sibling check if the nodes have a common ancestor
+                        siblingCheck(ap[i], bp[i])
+                        : // Otherwise nodes in our document sort first
+                        // Support: IE 11+, Edge 17 - 18+
+                        // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+                        // two documents; shallow comparisons work.
+                        /* eslint-disable eqeqeq */
+                        ap[i] == preferredDoc
                           ? -1
                           : bp[i] == preferredDoc
-                          ? 1
-                          : /* eslint-enable eqeqeq */
+                            ? 1
+                            : /* eslint-enable eqeqeq */
                             0;
-                      };
+                    };
 
                   return document;
                 };
@@ -9982,7 +9980,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   if (
                     support.matchesSelector &&
                     documentIsHTML &&
-                    !nonnativeSelectorCache[expr + ' '] &&
+                    !nonnativeSelectorCache[expr + " "] &&
                     (!rbuggyMatches || !rbuggyMatches.test(expr)) &&
                     (!rbuggyQSA || !rbuggyQSA.test(expr))
                   ) {
@@ -10039,19 +10037,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return val !== undefined
                     ? val
                     : support.attributes || !documentIsHTML
-                    ? elem.getAttribute(name)
-                    : (val = elem.getAttributeNode(name)) && val.specified
-                    ? val.value
-                    : null;
+                      ? elem.getAttribute(name)
+                      : (val = elem.getAttributeNode(name)) && val.specified
+                        ? val.value
+                        : null;
                 };
 
                 Sizzle.escape = function (sel) {
-                  return (sel + '').replace(rcssescape, fcssescape);
+                  return (sel + "").replace(rcssescape, fcssescape);
                 };
 
                 Sizzle.error = function (msg) {
                   throw new Error(
-                    'Syntax error, unrecognized expression: ' + msg
+                    "Syntax error, unrecognized expression: " + msg
                   );
                 };
 
@@ -10094,7 +10092,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                  */
                 getText = Sizzle.getText = function (elem) {
                   var node,
-                    ret = '',
+                    ret = "",
                     i = 0,
                     nodeType = elem.nodeType;
 
@@ -10111,7 +10109,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   ) {
                     // Use textContent for elements
                     // innerText usage removed for consistency of new lines (jQuery #11153)
-                    if (typeof elem.textContent === 'string') {
+                    if (typeof elem.textContent === "string") {
                       return elem.textContent;
                     } else {
                       // Traverse its children
@@ -10145,10 +10143,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   find: {},
 
                   relative: {
-                    '>': { dir: 'parentNode', first: true },
-                    ' ': { dir: 'parentNode' },
-                    '+': { dir: 'previousSibling', first: true },
-                    '~': { dir: 'previousSibling' }
+                    ">": { dir: "parentNode", first: true },
+                    " ": { dir: "parentNode" },
+                    "+": { dir: "previousSibling", first: true },
+                    "~": { dir: "previousSibling" },
                   },
 
                   preFilter: {
@@ -10160,11 +10158,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         match[3] ||
                         match[4] ||
                         match[5] ||
-                        ''
+                        ""
                       ).replace(runescape, funescape);
 
-                      if (match[2] === '~=') {
-                        match[3] = ' ' + match[3] + ' ';
+                      if (match[2] === "~=") {
+                        match[3] = " " + match[3] + " ";
                       }
 
                       return match.slice(0, 4);
@@ -10183,7 +10181,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             */
                       match[1] = match[1].toLowerCase();
 
-                      if (match[1].slice(0, 3) === 'nth') {
+                      if (match[1].slice(0, 3) === "nth") {
                         // nth-* requires argument
                         if (!match[3]) {
                           Sizzle.error(match[0]);
@@ -10193,8 +10191,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         // remember that false/true cast respectively to 0/1
                         match[4] = +(match[4]
                           ? match[5] + (match[6] || 1)
-                          : 2 * (match[3] === 'even' || match[3] === 'odd'));
-                        match[5] = +(match[7] + match[8] || match[3] === 'odd');
+                          : 2 * (match[3] === "even" || match[3] === "odd"));
+                        match[5] = +(match[7] + match[8] || match[3] === "odd");
 
                         // other types prohibit arguments
                       } else if (match[3]) {
@@ -10208,13 +10206,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       var excess,
                         unquoted = !match[6] && match[2];
 
-                      if (matchExpr['CHILD'].test(match[0])) {
+                      if (matchExpr["CHILD"].test(match[0])) {
                         return null;
                       }
 
                       // Accept quoted arguments as-is
                       if (match[3]) {
-                        match[2] = match[4] || match[5] || '';
+                        match[2] = match[4] || match[5] || "";
 
                         // Strip excess characters from unquoted arguments
                       } else if (
@@ -10224,7 +10222,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         (excess = tokenize(unquoted, true)) &&
                         // advance to the next closing parenthesis
                         (excess =
-                          unquoted.indexOf(')', unquoted.length - excess) -
+                          unquoted.indexOf(")", unquoted.length - excess) -
                           unquoted.length)
                       ) {
                         // excess is a negative index
@@ -10234,7 +10232,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                       // Return only captures needed by the pseudo filter method (type and argument)
                       return match.slice(0, 3);
-                    }
+                    },
                   },
 
                   filter: {
@@ -10242,39 +10240,39 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       var nodeName = nodeNameSelector
                         .replace(runescape, funescape)
                         .toLowerCase();
-                      return nodeNameSelector === '*'
+                      return nodeNameSelector === "*"
                         ? function () {
-                            return true;
-                          }
+                          return true;
+                        }
                         : function (elem) {
-                            return (
-                              elem.nodeName &&
-                              elem.nodeName.toLowerCase() === nodeName
-                            );
-                          };
+                          return (
+                            elem.nodeName &&
+                            elem.nodeName.toLowerCase() === nodeName
+                          );
+                        };
                     },
 
                     CLASS: function (className) {
-                      var pattern = classCache[className + ' '];
+                      var pattern = classCache[className + " "];
 
                       return (
                         pattern ||
                         ((pattern = new RegExp(
-                          '(^|' +
-                            whitespace +
-                            ')' +
-                            className +
-                            '(' +
-                            whitespace +
-                            '|$)'
+                          "(^|" +
+                          whitespace +
+                          ")" +
+                          className +
+                          "(" +
+                          whitespace +
+                          "|$)"
                         )) &&
                           classCache(className, function (elem) {
                             return pattern.test(
-                              (typeof elem.className === 'string' &&
+                              (typeof elem.className === "string" &&
                                 elem.className) ||
-                                (typeof elem.getAttribute !== 'undefined' &&
-                                  elem.getAttribute('class')) ||
-                                ''
+                              (typeof elem.getAttribute !== "undefined" &&
+                                elem.getAttribute("class")) ||
+                              ""
                             );
                           }))
                       );
@@ -10285,98 +10283,141 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         var result = Sizzle.attr(elem, name);
 
                         if (result == null) {
-                          return operator === '!=';
+                          return operator === "!=";
                         }
                         if (!operator) {
                           return true;
                         }
 
-                        result += '';
+                        result += "";
 
                         /* eslint-disable max-len */
 
-                        return operator === '='
+                        return operator === "="
                           ? result === check
-                          : operator === '!='
-                          ? result !== check
-                          : operator === '^='
-                          ? check && result.indexOf(check) === 0
-                          : operator === '*='
-                          ? check && result.indexOf(check) > -1
-                          : operator === '$='
-                          ? check && result.slice(-check.length) === check
-                          : operator === '~='
-                          ? (
-                              ' ' +
-                              result.replace(rwhitespace, ' ') +
-                              ' '
-                            ).indexOf(check) > -1
-                          : operator === '|='
-                          ? result === check ||
-                            result.slice(0, check.length + 1) === check + '-'
-                          : false;
+                          : operator === "!="
+                            ? result !== check
+                            : operator === "^="
+                              ? check && result.indexOf(check) === 0
+                              : operator === "*="
+                                ? check && result.indexOf(check) > -1
+                                : operator === "$="
+                                  ? check &&
+                                  result.slice(-check.length) === check
+                                  : operator === "~="
+                                    ? (
+                                      " " +
+                                      result.replace(rwhitespace, " ") +
+                                      " "
+                                    ).indexOf(check) > -1
+                                    : operator === "|="
+                                      ? result === check ||
+                                      result.slice(0, check.length + 1) ===
+                                      check + "-"
+                                      : false;
                         /* eslint-enable max-len */
                       };
                     },
 
                     CHILD: function (type, what, _argument, first, last) {
-                      var simple = type.slice(0, 3) !== 'nth',
-                        forward = type.slice(-4) !== 'last',
-                        ofType = what === 'of-type';
+                      var simple = type.slice(0, 3) !== "nth",
+                        forward = type.slice(-4) !== "last",
+                        ofType = what === "of-type";
 
                       return first === 1 && last === 0
                         ? // Shortcut for :nth-*(n)
-                          function (elem) {
-                            return !!elem.parentNode;
-                          }
+                        function (elem) {
+                          return !!elem.parentNode;
+                        }
                         : function (elem, _context, xml) {
-                            var cache,
-                              uniqueCache,
-                              outerCache,
-                              node,
-                              nodeIndex,
-                              start,
-                              dir =
-                                simple !== forward
-                                  ? 'nextSibling'
-                                  : 'previousSibling',
-                              parent = elem.parentNode,
-                              name = ofType && elem.nodeName.toLowerCase(),
-                              useCache = !xml && !ofType,
-                              diff = false;
+                          var cache,
+                            uniqueCache,
+                            outerCache,
+                            node,
+                            nodeIndex,
+                            start,
+                            dir =
+                              simple !== forward
+                                ? "nextSibling"
+                                : "previousSibling",
+                            parent = elem.parentNode,
+                            name = ofType && elem.nodeName.toLowerCase(),
+                            useCache = !xml && !ofType,
+                            diff = false;
 
-                            if (parent) {
-                              // :(first|last|only)-(child|of-type)
-                              if (simple) {
-                                while (dir) {
-                                  node = elem;
-                                  while ((node = node[dir])) {
-                                    if (
-                                      ofType
-                                        ? node.nodeName.toLowerCase() === name
-                                        : node.nodeType === 1
-                                    ) {
-                                      return false;
-                                    }
+                          if (parent) {
+                            // :(first|last|only)-(child|of-type)
+                            if (simple) {
+                              while (dir) {
+                                node = elem;
+                                while ((node = node[dir])) {
+                                  if (
+                                    ofType
+                                      ? node.nodeName.toLowerCase() === name
+                                      : node.nodeType === 1
+                                  ) {
+                                    return false;
                                   }
-
-                                  // Reverse direction for :only-* (if we haven't yet done so)
-                                  start = dir =
-                                    type === 'only' && !start && 'nextSibling';
                                 }
-                                return true;
+
+                                // Reverse direction for :only-* (if we haven't yet done so)
+                                start = dir =
+                                  type === "only" && !start && "nextSibling";
                               }
+                              return true;
+                            }
 
-                              start = [
-                                forward ? parent.firstChild : parent.lastChild
-                              ];
+                            start = [
+                              forward ? parent.firstChild : parent.lastChild,
+                            ];
 
-                              // non-xml :nth-child(...) stores cache data on `parent`
-                              if (forward && useCache) {
-                                // Seek `elem` from a previously-cached index
+                            // non-xml :nth-child(...) stores cache data on `parent`
+                            if (forward && useCache) {
+                              // Seek `elem` from a previously-cached index
 
+                              // ...in a gzip-friendly way
+                              node = parent;
+                              outerCache =
+                                node[expando] || (node[expando] = {});
+
+                              // Support: IE <9 only
+                              // Defend against cloned attroperties (jQuery gh-1709)
+                              uniqueCache =
+                                outerCache[node.uniqueID] ||
+                                (outerCache[node.uniqueID] = {});
+
+                              cache = uniqueCache[type] || [];
+                              nodeIndex = cache[0] === dirruns && cache[1];
+                              diff = nodeIndex && cache[2];
+                              node =
+                                nodeIndex && parent.childNodes[nodeIndex];
+
+                              while (
+                                (node =
+                                  (++nodeIndex && node && node[dir]) ||
+                                  // Fallback to seeking `elem` from the start
+                                  (diff = nodeIndex = 0) ||
+                                  start.pop())
+                              ) {
+                                // When found, cache indexes on `parent` and break
+                                if (
+                                  node.nodeType === 1 &&
+                                  ++diff &&
+                                  node === elem
+                                ) {
+                                  uniqueCache[type] = [
+                                    dirruns,
+                                    nodeIndex,
+                                    diff,
+                                  ];
+                                  break;
+                                }
+                              }
+                            } else {
+                              // Use previously-cached element index if available
+                              if (useCache) {
                                 // ...in a gzip-friendly way
-                                node = parent;
+                                node = elem;
                                 outerCache =
                                   node[expando] || (node[expando] = {});
 
@@ -10388,96 +10429,55 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                                 cache = uniqueCache[type] || [];
                                 nodeIndex = cache[0] === dirruns && cache[1];
-                                diff = nodeIndex && cache[2];
-                                node =
-                                  nodeIndex && parent.childNodes[nodeIndex];
+                                diff = nodeIndex;
+                              }
 
+                              // xml :nth-child(...)
+                              // or :nth-last-child(...) or :nth(-last)?-of-type(...)
+                              if (diff === false) {
+                                // Use the same loop as above to seek `elem` from the start
                                 while (
                                   (node =
                                     (++nodeIndex && node && node[dir]) ||
-                                    // Fallback to seeking `elem` from the start
                                     (diff = nodeIndex = 0) ||
                                     start.pop())
                                 ) {
-                                  // When found, cache indexes on `parent` and break
                                   if (
-                                    node.nodeType === 1 &&
-                                    ++diff &&
-                                    node === elem
+                                    (ofType
+                                      ? node.nodeName.toLowerCase() === name
+                                      : node.nodeType === 1) &&
+                                    ++diff
                                   ) {
-                                    uniqueCache[type] = [
-                                      dirruns,
-                                      nodeIndex,
-                                      diff
-                                    ];
-                                    break;
-                                  }
-                                }
-                              } else {
-                                // Use previously-cached element index if available
-                                if (useCache) {
-                                  // ...in a gzip-friendly way
-                                  node = elem;
-                                  outerCache =
-                                    node[expando] || (node[expando] = {});
+                                    // Cache the index of each encountered element
+                                    if (useCache) {
+                                      outerCache =
+                                        node[expando] || (node[expando] = {});
 
-                                  // Support: IE <9 only
-                                  // Defend against cloned attroperties (jQuery gh-1709)
-                                  uniqueCache =
-                                    outerCache[node.uniqueID] ||
-                                    (outerCache[node.uniqueID] = {});
+                                      // Support: IE <9 only
+                                      // Defend against cloned attroperties (jQuery gh-1709)
+                                      uniqueCache =
+                                        outerCache[node.uniqueID] ||
+                                        (outerCache[node.uniqueID] = {});
 
-                                  cache = uniqueCache[type] || [];
-                                  nodeIndex = cache[0] === dirruns && cache[1];
-                                  diff = nodeIndex;
-                                }
+                                      uniqueCache[type] = [dirruns, diff];
+                                    }
 
-                                // xml :nth-child(...)
-                                // or :nth-last-child(...) or :nth(-last)?-of-type(...)
-                                if (diff === false) {
-                                  // Use the same loop as above to seek `elem` from the start
-                                  while (
-                                    (node =
-                                      (++nodeIndex && node && node[dir]) ||
-                                      (diff = nodeIndex = 0) ||
-                                      start.pop())
-                                  ) {
-                                    if (
-                                      (ofType
-                                        ? node.nodeName.toLowerCase() === name
-                                        : node.nodeType === 1) &&
-                                      ++diff
-                                    ) {
-                                      // Cache the index of each encountered element
-                                      if (useCache) {
-                                        outerCache =
-                                          node[expando] || (node[expando] = {});
-
-                                        // Support: IE <9 only
-                                        // Defend against cloned attroperties (jQuery gh-1709)
-                                        uniqueCache =
-                                          outerCache[node.uniqueID] ||
-                                          (outerCache[node.uniqueID] = {});
-
-                                        uniqueCache[type] = [dirruns, diff];
-                                      }
-
-                                      if (node === elem) {
-                                        break;
-                                      }
+                                    if (node === elem) {
+                                      break;
                                     }
                                   }
                                 }
                               }
-
-                              // Incorporate the offset, then check against cycle size
-                              diff -= last;
-                              return (
-                                diff === first ||
-                                (diff % first === 0 && diff / first >= 0)
-                              );
                             }
-                          };
+
+                            // Incorporate the offset, then check against cycle size
+                            diff -= last;
+                            return (
+                              diff === first ||
+                              (diff % first === 0 && diff / first >= 0)
+                            );
+                          }
+                        };
                     },
 
                     PSEUDO: function (pseudo, argument) {
@@ -10489,7 +10489,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         fn =
                           Expr.pseudos[pseudo] ||
                           Expr.setFilters[pseudo.toLowerCase()] ||
-                          Sizzle.error('unsupported pseudo: ' + pseudo);
+                          Sizzle.error("unsupported pseudo: " + pseudo);
 
                       // The user may use createPseudo to indicate that
                       // arguments are needed to create the filter function
@@ -10500,26 +10500,26 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                       // But maintain support for old signatures
                       if (fn.length > 1) {
-                        args = [pseudo, pseudo, '', argument];
+                        args = [pseudo, pseudo, "", argument];
                         return Expr.setFilters.hasOwnProperty(
                           pseudo.toLowerCase()
                         )
                           ? markFunction(function (seed, matches) {
-                              var idx,
-                                matched = fn(seed, argument),
-                                i = matched.length;
-                              while (i--) {
-                                idx = indexOf(seed, matched[i]);
-                                seed[idx] = !(matches[idx] = matched[i]);
-                              }
-                            })
+                            var idx,
+                              matched = fn(seed, argument),
+                              i = matched.length;
+                            while (i--) {
+                              idx = indexOf(seed, matched[i]);
+                              seed[idx] = !(matches[idx] = matched[i]);
+                            }
+                          })
                           : function (elem) {
-                              return fn(elem, 0, args);
-                            };
+                            return fn(elem, 0, args);
+                          };
                       }
 
                       return fn;
-                    }
+                    },
                   },
 
                   pseudos: {
@@ -10530,29 +10530,29 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // spaces as combinators
                       var input = [],
                         results = [],
-                        matcher = compile(selector.replace(rtrim, '$1'));
+                        matcher = compile(selector.replace(rtrim, "$1"));
 
                       return matcher[expando]
                         ? markFunction(function (seed, matches, _context, xml) {
-                            var elem,
-                              unmatched = matcher(seed, null, xml, []),
-                              i = seed.length;
+                          var elem,
+                            unmatched = matcher(seed, null, xml, []),
+                            i = seed.length;
 
-                            // Match elements unmatched by `matcher`
-                            while (i--) {
-                              if ((elem = unmatched[i])) {
-                                seed[i] = !(matches[i] = elem);
-                              }
+                          // Match elements unmatched by `matcher`
+                          while (i--) {
+                            if ((elem = unmatched[i])) {
+                              seed[i] = !(matches[i] = elem);
                             }
-                          })
+                          }
+                        })
                         : function (elem, _context, xml) {
-                            input[0] = elem;
-                            matcher(input, null, xml, results);
+                          input[0] = elem;
+                          matcher(input, null, xml, results);
 
-                            // Don't keep the element (issue #299)
-                            input[0] = null;
-                            return !results.pop();
-                          };
+                          // Don't keep the element (issue #299)
+                          input[0] = null;
+                          return !results.pop();
+                        };
                     }),
 
                     has: markFunction(function (selector) {
@@ -10579,8 +10579,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // http://www.w3.org/TR/selectors/#lang-pseudo
                     lang: markFunction(function (lang) {
                       // lang value must be a valid identifier
-                      if (!ridentifier.test(lang || '')) {
-                        Sizzle.error('unsupported lang: ' + lang);
+                      if (!ridentifier.test(lang || "")) {
+                        Sizzle.error("unsupported lang: " + lang);
                       }
                       lang = lang.replace(runescape, funescape).toLowerCase();
                       return function (elem) {
@@ -10589,13 +10589,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           if (
                             (elemLang = documentIsHTML
                               ? elem.lang
-                              : elem.getAttribute('xml:lang') ||
-                                elem.getAttribute('lang'))
+                              : elem.getAttribute("xml:lang") ||
+                              elem.getAttribute("lang"))
                           ) {
                             elemLang = elemLang.toLowerCase();
                             return (
                               elemLang === lang ||
-                              elemLang.indexOf(lang + '-') === 0
+                              elemLang.indexOf(lang + "-") === 0
                             );
                           }
                         } while (
@@ -10633,8 +10633,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
                       var nodeName = elem.nodeName.toLowerCase();
                       return (
-                        (nodeName === 'input' && !!elem.checked) ||
-                        (nodeName === 'option' && !!elem.selected)
+                        (nodeName === "input" && !!elem.checked) ||
+                        (nodeName === "option" && !!elem.selected)
                       );
                     },
 
@@ -10668,7 +10668,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     },
 
                     parent: function (elem) {
-                      return !Expr.pseudos['empty'](elem);
+                      return !Expr.pseudos["empty"](elem);
                     },
 
                     // Element/input types
@@ -10683,20 +10683,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     button: function (elem) {
                       var name = elem.nodeName.toLowerCase();
                       return (
-                        (name === 'input' && elem.type === 'button') ||
-                        name === 'button'
+                        (name === "input" && elem.type === "button") ||
+                        name === "button"
                       );
                     },
 
                     text: function (elem) {
                       var attr;
                       return (
-                        elem.nodeName.toLowerCase() === 'input' &&
-                        elem.type === 'text' &&
+                        elem.nodeName.toLowerCase() === "input" &&
+                        elem.type === "text" &&
                         // Support: IE<8
                         // New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
-                        ((attr = elem.getAttribute('type')) == null ||
-                          attr.toLowerCase() === 'text')
+                        ((attr = elem.getAttribute("type")) == null ||
+                          attr.toLowerCase() === "text")
                       );
                     },
 
@@ -10743,9 +10743,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           argument < 0
                             ? argument + length
                             : argument > length
-                            ? length
-                            : argument;
-                        for (; --i >= 0; ) {
+                              ? length
+                              : argument;
+                        for (; --i >= 0;) {
                           matchIndexes.push(i);
                         }
                         return matchIndexes;
@@ -10755,16 +10755,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     gt: createPositionalPseudo(
                       function (matchIndexes, length, argument) {
                         var i = argument < 0 ? argument + length : argument;
-                        for (; ++i < length; ) {
+                        for (; ++i < length;) {
                           matchIndexes.push(i);
                         }
                         return matchIndexes;
                       }
-                    )
-                  }
+                    ),
+                  },
                 };
 
-                Expr.pseudos['nth'] = Expr.pseudos['eq'];
+                Expr.pseudos["nth"] = Expr.pseudos["eq"];
 
                 // Add button/input type pseudos
                 for (i in {
@@ -10772,7 +10772,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   checkbox: true,
                   file: true,
                   password: true,
-                  image: true
+                  image: true,
                 }) {
                   Expr.pseudos[i] = createInputPseudo(i);
                 }
@@ -10781,7 +10781,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Easy API for creating new setFilters
-                function setFilters() {}
+                function setFilters() { }
                 setFilters.prototype = Expr.filters = Expr.pseudos;
                 Expr.setFilters = new setFilters();
 
@@ -10793,7 +10793,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     soFar,
                     groups,
                     preFilters,
-                    cached = tokenCache[selector + ' '];
+                    cached = tokenCache[selector + " "];
 
                   if (cached) {
                     return parseOnly ? 0 : cached.slice(0);
@@ -10822,7 +10822,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         value: matched,
 
                         // Cast descendant combinators to space
-                        type: match[0].replace(rtrim, ' ')
+                        type: match[0].replace(rtrim, " "),
                       });
                       soFar = soFar.slice(matched.length);
                     }
@@ -10837,7 +10837,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         tokens.push({
                           value: matched,
                           type: type,
-                          matches: match
+                          matches: match,
                         });
                         soFar = soFar.slice(matched.length);
                       }
@@ -10854,15 +10854,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return parseOnly
                     ? soFar.length
                     : soFar
-                    ? Sizzle.error(selector)
-                    : // Cache the tokens
+                      ? Sizzle.error(selector)
+                      : // Cache the tokens
                       tokenCache(selector, groups).slice(0);
                 };
 
                 function toSelector(tokens) {
                   var i = 0,
                     len = tokens.length,
-                    selector = '';
+                    selector = "";
                   for (; i < len; i++) {
                     selector += tokens[i].value;
                   }
@@ -10873,88 +10873,88 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   var dir = combinator.dir,
                     skip = combinator.next,
                     key = skip || dir,
-                    checkNonElements = base && key === 'parentNode',
+                    checkNonElements = base && key === "parentNode",
                     doneName = done++;
 
                   return combinator.first
                     ? // Check against closest ancestor/preceding element
-                      function (elem, context, xml) {
+                    function (elem, context, xml) {
+                      while ((elem = elem[dir])) {
+                        if (elem.nodeType === 1 || checkNonElements) {
+                          return matcher(elem, context, xml);
+                        }
+                      }
+                      return false;
+                    }
+                    : // Check against all ancestor/preceding elements
+                    function (elem, context, xml) {
+                      var oldCache,
+                        uniqueCache,
+                        outerCache,
+                        newCache = [dirruns, doneName];
+
+                      // We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
+                      if (xml) {
                         while ((elem = elem[dir])) {
                           if (elem.nodeType === 1 || checkNonElements) {
-                            return matcher(elem, context, xml);
+                            if (matcher(elem, context, xml)) {
+                              return true;
+                            }
                           }
                         }
-                        return false;
-                      }
-                    : // Check against all ancestor/preceding elements
-                      function (elem, context, xml) {
-                        var oldCache,
-                          uniqueCache,
-                          outerCache,
-                          newCache = [dirruns, doneName];
+                      } else {
+                        while ((elem = elem[dir])) {
+                          if (elem.nodeType === 1 || checkNonElements) {
+                            outerCache =
+                              elem[expando] || (elem[expando] = {});
 
-                        // We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
-                        if (xml) {
-                          while ((elem = elem[dir])) {
-                            if (elem.nodeType === 1 || checkNonElements) {
-                              if (matcher(elem, context, xml)) {
+                            // Support: IE <9 only
+                            // Defend against cloned attroperties (jQuery gh-1709)
+                            uniqueCache =
+                              outerCache[elem.uniqueID] ||
+                              (outerCache[elem.uniqueID] = {});
+
+                            if (
+                              skip &&
+                              skip === elem.nodeName.toLowerCase()
+                            ) {
+                              elem = elem[dir] || elem;
+                            } else if (
+                              (oldCache = uniqueCache[key]) &&
+                              oldCache[0] === dirruns &&
+                              oldCache[1] === doneName
+                            ) {
+                              // Assign to newCache so results back-propagate to previous elements
+                              return (newCache[2] = oldCache[2]);
+                            } else {
+                              // Reuse newcache so results back-propagate to previous elements
+                              uniqueCache[key] = newCache;
+
+                              // A match means we're done; a fail means we have to keep checking
+                              if (
+                                (newCache[2] = matcher(elem, context, xml))
+                              ) {
                                 return true;
                               }
                             }
                           }
-                        } else {
-                          while ((elem = elem[dir])) {
-                            if (elem.nodeType === 1 || checkNonElements) {
-                              outerCache =
-                                elem[expando] || (elem[expando] = {});
-
-                              // Support: IE <9 only
-                              // Defend against cloned attroperties (jQuery gh-1709)
-                              uniqueCache =
-                                outerCache[elem.uniqueID] ||
-                                (outerCache[elem.uniqueID] = {});
-
-                              if (
-                                skip &&
-                                skip === elem.nodeName.toLowerCase()
-                              ) {
-                                elem = elem[dir] || elem;
-                              } else if (
-                                (oldCache = uniqueCache[key]) &&
-                                oldCache[0] === dirruns &&
-                                oldCache[1] === doneName
-                              ) {
-                                // Assign to newCache so results back-propagate to previous elements
-                                return (newCache[2] = oldCache[2]);
-                              } else {
-                                // Reuse newcache so results back-propagate to previous elements
-                                uniqueCache[key] = newCache;
-
-                                // A match means we're done; a fail means we have to keep checking
-                                if (
-                                  (newCache[2] = matcher(elem, context, xml))
-                                ) {
-                                  return true;
-                                }
-                              }
-                            }
-                          }
                         }
-                        return false;
-                      };
+                      }
+                      return false;
+                    };
                 }
 
                 function elementMatcher(matchers) {
                   return matchers.length > 1
                     ? function (elem, context, xml) {
-                        var i = matchers.length;
-                        while (i--) {
-                          if (!matchers[i](elem, context, xml)) {
-                            return false;
-                          }
+                      var i = matchers.length;
+                      while (i--) {
+                        if (!matchers[i](elem, context, xml)) {
+                          return false;
                         }
-                        return true;
                       }
+                      return true;
+                    }
                     : matchers[0];
                 }
 
@@ -11013,7 +11013,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       elems =
                         seed ||
                         multipleContexts(
-                          selector || '*',
+                          selector || "*",
                           context.nodeType ? [context] : context,
                           []
                         ),
@@ -11024,12 +11024,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           : elems,
                       matcherOut = matcher
                         ? // If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
-                          postFinder ||
+                        postFinder ||
                           (seed ? preFilter : preexisting || postFilter)
                           ? // ...intermediate processing is necessary
-                            []
+                          []
                           : // ...otherwise use results directly
-                            results
+                          results
                         : matcherIn;
 
                     // Find primary matches
@@ -11103,7 +11103,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     j,
                     len = tokens.length,
                     leadingRelative = Expr.relative[tokens[0].type],
-                    implicitRelative = leadingRelative || Expr.relative[' '],
+                    implicitRelative = leadingRelative || Expr.relative[" "],
                     i = leadingRelative ? 1 : 0,
                     // The foundational matcher ensures that elements are reachable from top-level context(s)
                     matchContext = addCombinator(
@@ -11132,13 +11132,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         // Avoid hanging onto element (issue #299)
                         checkContext = null;
                         return ret;
-                      }
+                      },
                     ];
 
                   for (; i < len; i++) {
                     if ((matcher = Expr.relative[tokens[i].type])) {
                       matchers = [
-                        addCombinator(elementMatcher(matchers), matcher)
+                        addCombinator(elementMatcher(matchers), matcher),
                       ];
                     } else {
                       matcher = Expr.filter[tokens[i].type].apply(
@@ -11158,16 +11158,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         return setMatcher(
                           i > 1 && elementMatcher(matchers),
                           i > 1 &&
-                            toSelector(
-                              // If the preceding token was a descendant combinator, insert an implicit any-element `*`
-                              tokens.slice(0, i - 1).concat({
-                                value: tokens[i - 2].type === ' ' ? '*' : ''
+                          toSelector(
+                            // If the preceding token was a descendant combinator, insert an implicit any-element `*`
+                            tokens
+                              .slice(0, i - 1)
+                              .concat({
+                                value: tokens[i - 2].type === " " ? "*" : "",
                               })
-                            ).replace(rtrim, '$1'),
+                          ).replace(rtrim, "$1"),
                           matcher,
                           i < j && matcherFromTokens(tokens.slice(i, j)),
                           j < len &&
-                            matcherFromTokens((tokens = tokens.slice(j))),
+                          matcherFromTokens((tokens = tokens.slice(j))),
                           j < len && toSelector(tokens)
                         );
                       }
@@ -11195,14 +11197,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         j,
                         matcher,
                         matchedCount = 0,
-                        i = '0',
+                        i = "0",
                         unmatched = seed && [],
                         setMatched = [],
                         contextBackup = outermostContext,
                         // We must always have either seed elements or outermost context
                         elems =
                           seed ||
-                          (byElement && Expr.find['TAG']('*', outermost)),
+                          (byElement && Expr.find["TAG"]("*", outermost)),
                         // Use integer dirruns iff this is the outermost matcher
                         dirrunsUnique = (dirruns +=
                           contextBackup == null ? 1 : Math.random() || 0.1),
@@ -11321,7 +11323,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   var i,
                     setMatchers = [],
                     elementMatchers = [],
-                    cached = compilerCache[selector + ' '];
+                    cached = compilerCache[selector + " "];
 
                   if (!cached) {
                     // Generate a function of recursive functions that can be used to check each element
@@ -11370,7 +11372,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     token,
                     type,
                     find,
-                    compiled = typeof selector === 'function' && selector,
+                    compiled = typeof selector === "function" && selector,
                     match =
                       !seed &&
                       tokenize((selector = compiled.selector || selector));
@@ -11384,12 +11386,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     tokens = match[0] = match[0].slice(0);
                     if (
                       tokens.length > 2 &&
-                      (token = tokens[0]).type === 'ID' &&
+                      (token = tokens[0]).type === "ID" &&
                       context.nodeType === 9 &&
                       documentIsHTML &&
                       Expr.relative[tokens[1].type]
                     ) {
-                      context = (Expr.find['ID'](
+                      context = (Expr.find["ID"](
                         token.matches[0].replace(runescape, funescape),
                         context
                       ) || [])[0];
@@ -11405,7 +11407,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
 
                     // Fetch a seed set for right-to-left matching
-                    i = matchExpr['needsContext'].test(selector)
+                    i = matchExpr["needsContext"].test(selector)
                       ? 0
                       : tokens.length;
                     while (i--) {
@@ -11422,7 +11424,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                             token.matches[0].replace(runescape, funescape),
                             (rsibling.test(tokens[0].type) &&
                               testContext(context.parentNode)) ||
-                              context
+                            context
                           ))
                         ) {
                           // If seed is empty or no tokens remain, we can return early
@@ -11447,9 +11449,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     !documentIsHTML,
                     results,
                     !context ||
-                      (rsibling.test(selector) &&
-                        testContext(context.parentNode)) ||
-                      context
+                    (rsibling.test(selector) &&
+                      testContext(context.parentNode)) ||
+                    context
                   );
                   return results;
                 };
@@ -11458,7 +11460,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // Sort stability
                 support.sortStable =
-                  expando.split('').sort(sortOrder).join('') === expando;
+                  expando.split("").sort(sortOrder).join("") === expando;
 
                 // Support: Chrome 14-35+
                 // Always assume duplicates if they aren't passed to the comparison function
@@ -11473,7 +11475,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Should return 1, but returns 4 (following)
                   return (
                     el.compareDocumentPosition(
-                      document.createElement('fieldset')
+                      document.createElement("fieldset")
                     ) & 1
                   );
                 });
@@ -11484,16 +11486,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (
                   !assert(function (el) {
                     el.innerHTML = "<a href='#'></a>";
-                    return el.firstChild.getAttribute('href') === '#';
+                    return el.firstChild.getAttribute("href") === "#";
                   })
                 ) {
                   addHandle(
-                    'type|href|height|width',
+                    "type|href|height|width",
                     function (elem, name, isXML) {
                       if (!isXML) {
                         return elem.getAttribute(
                           name,
-                          name.toLowerCase() === 'type' ? 1 : 2
+                          name.toLowerCase() === "type" ? 1 : 2
                         );
                       }
                     }
@@ -11505,13 +11507,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (
                   !support.attributes ||
                   !assert(function (el) {
-                    el.innerHTML = '<input/>';
-                    el.firstChild.setAttribute('value', '');
-                    return el.firstChild.getAttribute('value') === '';
+                    el.innerHTML = "<input/>";
+                    el.firstChild.setAttribute("value", "");
+                    return el.firstChild.getAttribute("value") === "";
                   })
                 ) {
-                  addHandle('value', function (elem, _name, isXML) {
-                    if (!isXML && elem.nodeName.toLowerCase() === 'input') {
+                  addHandle("value", function (elem, _name, isXML) {
+                    if (!isXML && elem.nodeName.toLowerCase() === "input") {
                       return elem.defaultValue;
                     }
                   });
@@ -11521,7 +11523,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Use getAttributeNode to fetch booleans when getAttribute lies
                 if (
                   !assert(function (el) {
-                    return el.getAttribute('disabled') == null;
+                    return el.getAttribute("disabled") == null;
                   })
                 ) {
                   addHandle(booleans, function (elem, name, isXML) {
@@ -11530,8 +11532,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       return elem[name] === true
                         ? name.toLowerCase()
                         : (val = elem.getAttributeNode(name)) && val.specified
-                        ? val.value
-                        : null;
+                          ? val.value
+                          : null;
                     }
                   });
                 }
@@ -11543,7 +11545,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             jQuery.expr = Sizzle.selectors;
 
             // Deprecated
-            jQuery.expr[':'] = jQuery.expr.pseudos;
+            jQuery.expr[":"] = jQuery.expr.pseudos;
             jQuery.uniqueSort = jQuery.unique = Sizzle.uniqueSort;
             jQuery.text = Sizzle.getText;
             jQuery.isXMLDoc = Sizzle.isXML;
@@ -11604,7 +11606,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               }
 
               // Arraylike of elements (jQuery, arguments, Array)
-              if (typeof qualifier !== 'string') {
+              if (typeof qualifier !== "string") {
                 return jQuery.grep(elements, function (elem) {
                   return indexOf.call(qualifier, elem) > -1 !== not;
                 });
@@ -11618,7 +11620,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               var elem = elems[0];
 
               if (not) {
-                expr = ':not(' + expr + ')';
+                expr = ":not(" + expr + ")";
               }
 
               if (elems.length === 1 && elem.nodeType === 1) {
@@ -11640,7 +11642,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   len = this.length,
                   self = this;
 
-                if (typeof selector !== 'string') {
+                if (typeof selector !== "string") {
                   return this.pushStack(
                     jQuery(selector).filter(function () {
                       for (i = 0; i < len; i++) {
@@ -11672,12 +11674,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // If this is a positional/relative selector, check membership in the returned set
                   // so $("p:first").is("p:last") won't return true for a doc with two "p".
-                  typeof selector === 'string' && rneedsContext.test(selector)
+                  typeof selector === "string" && rneedsContext.test(selector)
                     ? jQuery(selector)
                     : selector || [],
                   false
                 ).length;
-              }
+              },
             });
 
             // Initialize a jQuery object
@@ -11702,10 +11704,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 root = root || rootjQuery;
 
                 // Handle HTML strings
-                if (typeof selector === 'string') {
+                if (typeof selector === "string") {
                   if (
-                    selector[0] === '<' &&
-                    selector[selector.length - 1] === '>' &&
+                    selector[0] === "<" &&
+                    selector[selector.length - 1] === ">" &&
                     selector.length >= 3
                   ) {
                     // Assume that strings that start and end with <> are HTML and skip the regex check
@@ -11787,7 +11789,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return root.ready !== undefined
                     ? root.ready(selector)
                     : // Execute immediately if ready is not present
-                      selector(jQuery);
+                    selector(jQuery);
                 }
 
                 return jQuery.makeArray(selector, this);
@@ -11805,7 +11807,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 children: true,
                 contents: true,
                 next: true,
-                prev: true
+                prev: true,
               };
 
             jQuery.fn.extend({
@@ -11828,7 +11830,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   i = 0,
                   l = this.length,
                   matched = [],
-                  targets = typeof selectors !== 'string' && jQuery(selectors);
+                  targets = typeof selectors !== "string" && jQuery(selectors);
 
                 // Positional selectors never match, since there's no _selection_ context
                 if (!rneedsContext.test(selectors)) {
@@ -11844,8 +11846,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         (targets
                           ? targets.index(cur) > -1
                           : // Don't pass non-elements to Sizzle
-                            cur.nodeType === 1 &&
-                            jQuery.find.matchesSelector(cur, selectors))
+                          cur.nodeType === 1 &&
+                          jQuery.find.matchesSelector(cur, selectors))
                       ) {
                         matched.push(cur);
                         break;
@@ -11869,7 +11871,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Index in selector
-                if (typeof elem === 'string') {
+                if (typeof elem === "string") {
                   return indexOf.call(jQuery(elem), this[0]);
                 }
 
@@ -11896,11 +11898,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     ? this.prevObject
                     : this.prevObject.filter(selector)
                 );
-              }
+              },
             });
 
             function sibling(cur, dir) {
-              while ((cur = cur[dir]) && cur.nodeType !== 1) {}
+              while ((cur = cur[dir]) && cur.nodeType !== 1) { }
               return cur;
             }
 
@@ -11911,28 +11913,28 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return parent && parent.nodeType !== 11 ? parent : null;
                 },
                 parents: function (elem) {
-                  return dir(elem, 'parentNode');
+                  return dir(elem, "parentNode");
                 },
                 parentsUntil: function (elem, _i, until) {
-                  return dir(elem, 'parentNode', until);
+                  return dir(elem, "parentNode", until);
                 },
                 next: function (elem) {
-                  return sibling(elem, 'nextSibling');
+                  return sibling(elem, "nextSibling");
                 },
                 prev: function (elem) {
-                  return sibling(elem, 'previousSibling');
+                  return sibling(elem, "previousSibling");
                 },
                 nextAll: function (elem) {
-                  return dir(elem, 'nextSibling');
+                  return dir(elem, "nextSibling");
                 },
                 prevAll: function (elem) {
-                  return dir(elem, 'previousSibling');
+                  return dir(elem, "previousSibling");
                 },
                 nextUntil: function (elem, _i, until) {
-                  return dir(elem, 'nextSibling', until);
+                  return dir(elem, "nextSibling", until);
                 },
                 prevUntil: function (elem, _i, until) {
-                  return dir(elem, 'previousSibling', until);
+                  return dir(elem, "previousSibling", until);
                 },
                 siblings: function (elem) {
                   return siblings((elem.parentNode || {}).firstChild, elem);
@@ -11954,22 +11956,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
                   // Treat the template element as a regular one in browsers that
                   // don't support it.
-                  if (nodeName(elem, 'template')) {
+                  if (nodeName(elem, "template")) {
                     elem = elem.content || elem;
                   }
 
                   return jQuery.merge([], elem.childNodes);
-                }
+                },
               },
               function (name, fn) {
                 jQuery.fn[name] = function (until, selector) {
                   var matched = jQuery.map(this, fn, until);
 
-                  if (name.slice(-5) !== 'Until') {
+                  if (name.slice(-5) !== "Until") {
                     selector = until;
                   }
 
-                  if (selector && typeof selector === 'string') {
+                  if (selector && typeof selector === "string") {
                     matched = jQuery.filter(selector, matched);
                   }
 
@@ -12029,7 +12031,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // Convert options from String-formatted to Object-formatted if needed
               // (we check in cache first)
               options =
-                typeof options === 'string'
+                typeof options === "string"
                   ? createOptions(options)
                   : jQuery.extend({}, options);
 
@@ -12061,7 +12063,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       // Run callback and check for early termination
                       if (
                         list[firingIndex].apply(memory[0], memory[1]) ===
-                          false &&
+                        false &&
                         options.stopOnFalse
                       ) {
                         // Jump to end and forget the data so .add doesn't re-fire
@@ -12086,7 +12088,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                       // Otherwise, this object is spent
                     } else {
-                      list = '';
+                      list = "";
                     }
                   }
                 },
@@ -12110,7 +12112,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           } else if (
                             arg &&
                             arg.length &&
-                            toType(arg) !== 'string'
+                            toType(arg) !== "string"
                           ) {
                             // Inspect recursively
                             add(arg);
@@ -12160,7 +12162,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Clear all callbacks and values
                   disable: function () {
                     locked = queue = [];
-                    list = memory = '';
+                    list = memory = "";
                     return this;
                   },
                   disabled: function () {
@@ -12173,7 +12175,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   lock: function () {
                     locked = queue = [];
                     if (!memory && !firing) {
-                      list = memory = '';
+                      list = memory = "";
                     }
                     return this;
                   },
@@ -12203,7 +12205,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // To know if the callbacks have already been called at least once
                   fired: function () {
                     return !!fired;
-                  }
+                  },
                 };
 
               return self;
@@ -12249,33 +12251,33 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             jQuery.extend({
               Deferred: function (func) {
                 var tuples = [
-                    // action, add listener, callbacks,
-                    // ... .then handlers, argument index, [final state]
-                    [
-                      'notify',
-                      'progress',
-                      jQuery.Callbacks('memory'),
-                      jQuery.Callbacks('memory'),
-                      2
-                    ],
-                    [
-                      'resolve',
-                      'done',
-                      jQuery.Callbacks('once memory'),
-                      jQuery.Callbacks('once memory'),
-                      0,
-                      'resolved'
-                    ],
-                    [
-                      'reject',
-                      'fail',
-                      jQuery.Callbacks('once memory'),
-                      jQuery.Callbacks('once memory'),
-                      1,
-                      'rejected'
-                    ]
+                  // action, add listener, callbacks,
+                  // ... .then handlers, argument index, [final state]
+                  [
+                    "notify",
+                    "progress",
+                    jQuery.Callbacks("memory"),
+                    jQuery.Callbacks("memory"),
+                    2,
                   ],
-                  state = 'pending',
+                  [
+                    "resolve",
+                    "done",
+                    jQuery.Callbacks("once memory"),
+                    jQuery.Callbacks("once memory"),
+                    0,
+                    "resolved",
+                  ],
+                  [
+                    "reject",
+                    "fail",
+                    jQuery.Callbacks("once memory"),
+                    jQuery.Callbacks("once memory"),
+                    1,
+                    "rejected",
+                  ],
+                ],
+                  state = "pending",
                   promise = {
                     state: function () {
                       return state;
@@ -12310,7 +12312,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                                   .done(newDefer.resolve)
                                   .fail(newDefer.reject);
                               } else {
-                                newDefer[tuple[0] + 'With'](
+                                newDefer[tuple[0] + "With"](
                                   this,
                                   fn ? [returned] : arguments
                                 );
@@ -12342,7 +12344,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                               // Support: Promises/A+ section 2.3.1
                               // https://promisesaplus.com/#point-48
                               if (returned === deferred.promise()) {
-                                throw new TypeError('Thenable self-resolution');
+                                throw new TypeError("Thenable self-resolution");
                               }
 
                               // Support: Promises/A+ sections 2.3.3.1, 3.5
@@ -12354,8 +12356,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                                 // Support: Promises/A+ section 2.3.4
                                 // https://promisesaplus.com/#point-64
                                 // Only check objects and functions for thenability
-                                (typeof returned === 'object' ||
-                                  typeof returned === 'function') &&
+                                (typeof returned === "object" ||
+                                  typeof returned === "function") &&
                                 returned.then;
 
                               // Handle a returned thenable
@@ -12424,31 +12426,31 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                             process = special
                               ? mightThrow
                               : function () {
-                                  try {
-                                    mightThrow();
-                                  } catch (e) {
-                                    if (jQuery.Deferred.exceptionHook) {
-                                      jQuery.Deferred.exceptionHook(
-                                        e,
-                                        process.stackTrace
-                                      );
-                                    }
-
-                                    // Support: Promises/A+ section 2.3.3.3.4.1
-                                    // https://promisesaplus.com/#point-61
-                                    // Ignore post-resolution exceptions
-                                    if (depth + 1 >= maxDepth) {
-                                      // Only substitute handlers pass on context
-                                      // and multiple values (non-spec behavior)
-                                      if (handler !== Thrower) {
-                                        that = undefined;
-                                        args = [e];
-                                      }
-
-                                      deferred.rejectWith(that, args);
-                                    }
+                                try {
+                                  mightThrow();
+                                } catch (e) {
+                                  if (jQuery.Deferred.exceptionHook) {
+                                    jQuery.Deferred.exceptionHook(
+                                      e,
+                                      process.stackTrace
+                                    );
                                   }
-                                };
+
+                                  // Support: Promises/A+ section 2.3.3.3.4.1
+                                  // https://promisesaplus.com/#point-61
+                                  // Ignore post-resolution exceptions
+                                  if (depth + 1 >= maxDepth) {
+                                    // Only substitute handlers pass on context
+                                    // and multiple values (non-spec behavior)
+                                    if (handler !== Thrower) {
+                                      that = undefined;
+                                      args = [e];
+                                    }
+
+                                    deferred.rejectWith(that, args);
+                                  }
+                                }
+                              };
 
                           // Support: Promises/A+ section 2.3.3.3.1
                           // https://promisesaplus.com/#point-57
@@ -12507,7 +12509,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       return obj != null
                         ? jQuery.extend(obj, promise)
                         : promise;
-                    }
+                    },
                   },
                   deferred = {};
 
@@ -12555,7 +12557,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // deferred.resolve = function() { deferred.resolveWith(...) }
                   // deferred.reject = function() { deferred.rejectWith(...) }
                   deferred[tuple[0]] = function () {
-                    deferred[tuple[0] + 'With'](
+                    deferred[tuple[0] + "With"](
                       this === deferred ? undefined : this,
                       arguments
                     );
@@ -12565,7 +12567,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // deferred.notifyWith = list.fireWith
                   // deferred.resolveWith = list.fireWith
                   // deferred.rejectWith = list.fireWith
-                  deferred[tuple[0] + 'With'] = list.fireWith;
+                  deferred[tuple[0] + "With"] = list.fireWith;
                 });
 
                 // Make the deferred a promise
@@ -12614,7 +12616,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Use .then() to unwrap secondary thenables (cf. gh-3000)
                   if (
-                    primary.state() === 'pending' ||
+                    primary.state() === "pending" ||
                     isFunction(resolveValues[i] && resolveValues[i].then)
                   ) {
                     return primary.then();
@@ -12627,7 +12629,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 return primary.promise();
-              }
+              },
             });
 
             // These usually indicate a programmer mistake during development,
@@ -12645,7 +12647,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 rerrorNames.test(error.name)
               ) {
                 window.console.warn(
-                  'jQuery.Deferred exception: ' + error.message,
+                  "jQuery.Deferred exception: " + error.message,
                   error.stack,
                   stack
                 );
@@ -12700,15 +12702,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // If there are functions bound, to execute
                 readyList.resolveWith(document, [jQuery]);
-              }
+              },
             });
 
             jQuery.ready.then = readyList.then;
 
             // The ready event handler and self cleanup method
             function completed() {
-              document.removeEventListener('DOMContentLoaded', completed);
-              window.removeEventListener('load', completed);
+              document.removeEventListener("DOMContentLoaded", completed);
+              window.removeEventListener("load", completed);
               jQuery.ready();
             }
 
@@ -12717,18 +12719,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Support: IE <=9 - 10 only
             // Older IE sometimes signals "interactive" too soon
             if (
-              document.readyState === 'complete' ||
-              (document.readyState !== 'loading' &&
+              document.readyState === "complete" ||
+              (document.readyState !== "loading" &&
                 !document.documentElement.doScroll)
             ) {
               // Handle it asynchronously to allow scripts the opportunity to delay ready
               window.setTimeout(jQuery.ready);
             } else {
               // Use the handy event callback
-              document.addEventListener('DOMContentLoaded', completed);
+              document.addEventListener("DOMContentLoaded", completed);
 
               // A fallback to window.onload, that will always work
-              window.addEventListener('load', completed);
+              window.addEventListener("load", completed);
             }
 
             // Multifunctional method to get and set values of a collection
@@ -12747,7 +12749,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 bulk = key == null;
 
               // Sets many values
-              if (toType(key) === 'object') {
+              if (toType(key) === "object") {
                 chainable = true;
                 for (i in key) {
                   access(elems, fn, i, key[i], true, emptyGet, raw);
@@ -12813,7 +12815,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Microsoft forgot to hump their vendor prefix (#9572)
             function camelCase(string) {
               return string
-                .replace(rmsPrefix, 'ms-')
+                .replace(rmsPrefix, "ms-")
                 .replace(rdashAlpha, fcamelCase);
             }
             var acceptData = function (owner) {
@@ -12858,7 +12860,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     } else {
                       Object.defineProperty(owner, this.expando, {
                         value: value,
-                        configurable: true
+                        configurable: true,
                       });
                     }
                   }
@@ -12872,7 +12874,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // Handle: [ owner, key, value ] args
                 // Always use camelCase key (gh-2257)
-                if (typeof data === 'string') {
+                if (typeof data === "string") {
                   cache[camelCase(data)] = value;
 
                   // Handle: [ owner, { properties } ] args
@@ -12888,7 +12890,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return key === undefined
                   ? this.cache(owner)
                   : // Always use camelCase key (gh-2257)
-                    owner[this.expando] && owner[this.expando][camelCase(key)];
+                  owner[this.expando] && owner[this.expando][camelCase(key)];
               },
               access: function (owner, key, value) {
                 // In cases where either:
@@ -12904,7 +12906,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 //
                 if (
                   key === undefined ||
-                  (key && typeof key === 'string' && value === undefined)
+                  (key && typeof key === "string" && value === undefined)
                 ) {
                   return this.get(owner, key);
                 }
@@ -12966,7 +12968,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               hasData: function (owner) {
                 var cache = owner[this.expando];
                 return cache !== undefined && !jQuery.isEmptyObject(cache);
-              }
+              },
             };
             var dataPriv = new Data();
 
@@ -12986,20 +12988,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               rmultiDash = /[A-Z]/g;
 
             function getData(data) {
-              if (data === 'true') {
+              if (data === "true") {
                 return true;
               }
 
-              if (data === 'false') {
+              if (data === "false") {
                 return false;
               }
 
-              if (data === 'null') {
+              if (data === "null") {
                 return null;
               }
 
               // Only convert to a number if it doesn't change the string
-              if (data === +data + '') {
+              if (data === +data + "") {
                 return +data;
               }
 
@@ -13016,13 +13018,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // If nothing was found internally, try to fetch any
               // data from the HTML5 data-* attribute
               if (data === undefined && elem.nodeType === 1) {
-                name = 'data-' + key.replace(rmultiDash, '-$&').toLowerCase();
+                name = "data-" + key.replace(rmultiDash, "-$&").toLowerCase();
                 data = elem.getAttribute(name);
 
-                if (typeof data === 'string') {
+                if (typeof data === "string") {
                   try {
                     data = getData(data);
-                  } catch (e) {}
+                  } catch (e) { }
 
                   // Make sure we set the data so it isn't changed later
                   dataUser.set(elem, key, data);
@@ -13054,7 +13056,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               _removeData: function (elem, name) {
                 dataPriv.remove(elem, name);
-              }
+              },
             });
 
             jQuery.fn.extend({
@@ -13072,7 +13074,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                     if (
                       elem.nodeType === 1 &&
-                      !dataPriv.get(elem, 'hasDataAttrs')
+                      !dataPriv.get(elem, "hasDataAttrs")
                     ) {
                       i = attrs.length;
                       while (i--) {
@@ -13080,13 +13082,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         // The attrs elements can be null (#14894)
                         if (attrs[i]) {
                           name = attrs[i].name;
-                          if (name.indexOf('data-') === 0) {
+                          if (name.indexOf("data-") === 0) {
                             name = camelCase(name.slice(5));
                             dataAttr(elem, name, data[name]);
                           }
                         }
                       }
-                      dataPriv.set(elem, 'hasDataAttrs', true);
+                      dataPriv.set(elem, "hasDataAttrs", true);
                     }
                   }
 
@@ -13094,7 +13096,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Sets multiple values
-                if (typeof key === 'object') {
+                if (typeof key === "object") {
                   return this.each(function () {
                     dataUser.set(this, key);
                   });
@@ -13147,7 +13149,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return this.each(function () {
                   dataUser.remove(this, key);
                 });
-              }
+              },
             });
 
             jQuery.extend({
@@ -13155,7 +13157,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 var queue;
 
                 if (elem) {
-                  type = (type || 'fx') + 'queue';
+                  type = (type || "fx") + "queue";
                   queue = dataPriv.get(elem, type);
 
                   // Speed up dequeue by getting out quickly if this is just a lookup
@@ -13175,7 +13177,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               },
 
               dequeue: function (elem, type) {
-                type = type || 'fx';
+                type = type || "fx";
 
                 var queue = jQuery.queue(elem, type),
                   startLength = queue.length,
@@ -13186,7 +13188,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   };
 
                 // If the fx queue is dequeued, always remove the progress sentinel
-                if (fn === 'inprogress') {
+                if (fn === "inprogress") {
                   fn = queue.shift();
                   startLength--;
                 }
@@ -13194,8 +13196,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (fn) {
                   // Add a progress sentinel to prevent the fx queue from being
                   // automatically dequeued
-                  if (type === 'fx') {
-                    queue.unshift('inprogress');
+                  if (type === "fx") {
+                    queue.unshift("inprogress");
                   }
 
                   // Clear up the last queue stop function
@@ -13210,25 +13212,25 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // Not public - generate a queueHooks object, or return the current one
               _queueHooks: function (elem, type) {
-                var key = type + 'queueHooks';
+                var key = type + "queueHooks";
                 return (
                   dataPriv.get(elem, key) ||
                   dataPriv.access(elem, key, {
-                    empty: jQuery.Callbacks('once memory').add(function () {
-                      dataPriv.remove(elem, [type + 'queue', key]);
-                    })
+                    empty: jQuery.Callbacks("once memory").add(function () {
+                      dataPriv.remove(elem, [type + "queue", key]);
+                    }),
                   })
                 );
-              }
+              },
             });
 
             jQuery.fn.extend({
               queue: function (type, data) {
                 var setter = 2;
 
-                if (typeof type !== 'string') {
+                if (typeof type !== "string") {
                   data = type;
-                  type = 'fx';
+                  type = "fx";
                   setter--;
                 }
 
@@ -13239,15 +13241,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return data === undefined
                   ? this
                   : this.each(function () {
-                      var queue = jQuery.queue(this, type, data);
+                    var queue = jQuery.queue(this, type, data);
 
-                      // Ensure a hooks for this queue
-                      jQuery._queueHooks(this, type);
+                    // Ensure a hooks for this queue
+                    jQuery._queueHooks(this, type);
 
-                      if (type === 'fx' && queue[0] !== 'inprogress') {
-                        jQuery.dequeue(this, type);
-                      }
-                    });
+                    if (type === "fx" && queue[0] !== "inprogress") {
+                      jQuery.dequeue(this, type);
+                    }
+                  });
               },
               dequeue: function (type) {
                 return this.each(function () {
@@ -13255,7 +13257,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 });
               },
               clearQueue: function (type) {
-                return this.queue(type || 'fx', []);
+                return this.queue(type || "fx", []);
               },
 
               // Get a promise resolved when queues of a certain type
@@ -13272,14 +13274,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
                   };
 
-                if (typeof type !== 'string') {
+                if (typeof type !== "string") {
                   obj = type;
                   type = undefined;
                 }
-                type = type || 'fx';
+                type = type || "fx";
 
                 while (i--) {
-                  tmp = dataPriv.get(elements[i], type + 'queueHooks');
+                  tmp = dataPriv.get(elements[i], type + "queueHooks");
                   if (tmp && tmp.empty) {
                     count++;
                     tmp.empty.add(resolve);
@@ -13287,22 +13289,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
                 resolve();
                 return defer.promise(obj);
-              }
+              },
             });
             var pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source;
 
             var rcssNum = new RegExp(
-              '^(?:([+-])=|)(' + pnum + ')([a-z%]*)$',
-              'i'
+              "^(?:([+-])=|)(" + pnum + ")([a-z%]*)$",
+              "i"
             );
 
-            var cssExpand = ['Top', 'Right', 'Bottom', 'Left'];
+            var cssExpand = ["Top", "Right", "Bottom", "Left"];
 
             var documentElement = document.documentElement;
 
             var isAttached = function (elem) {
-                return jQuery.contains(elem.ownerDocument, elem);
-              },
+              return jQuery.contains(elem.ownerDocument, elem);
+            },
               composed = { composed: true };
 
             // Support: IE 9 - 11+, Edge 12 - 18+, iOS 10.0 - 10.2 only
@@ -13325,14 +13327,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // Inline style trumps all
               return (
-                elem.style.display === 'none' ||
-                (elem.style.display === '' &&
+                elem.style.display === "none" ||
+                (elem.style.display === "" &&
                   // Otherwise, check computed style
                   // Support: Firefox <=43 - 45
                   // Disconnected elements can have computed display: none, so first confirm that elem is
                   // in the document.
                   isAttached(elem) &&
-                  jQuery.css(elem, 'display') === 'none')
+                  jQuery.css(elem, "display") === "none")
               );
             };
 
@@ -13342,19 +13344,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 maxIterations = 20,
                 currentValue = tween
                   ? function () {
-                      return tween.cur();
-                    }
+                    return tween.cur();
+                  }
                   : function () {
-                      return jQuery.css(elem, prop, '');
-                    },
+                    return jQuery.css(elem, prop, "");
+                  },
                 initial = currentValue(),
                 unit =
                   (valueParts && valueParts[3]) ||
-                  (jQuery.cssNumber[prop] ? '' : 'px'),
+                  (jQuery.cssNumber[prop] ? "" : "px"),
                 // Starting value computation is required for potential unit mismatches
                 initialInUnit =
                   elem.nodeType &&
-                  (jQuery.cssNumber[prop] || (unit !== 'px' && +initial)) &&
+                  (jQuery.cssNumber[prop] || (unit !== "px" && +initial)) &&
                   rcssNum.exec(jQuery.css(elem, prop));
 
               if (initialInUnit && initialInUnit[3] !== unit) {
@@ -13374,7 +13376,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   jQuery.style(elem, prop, initialInUnit + unit);
                   if (
                     (1 - scale) *
-                      (1 - (scale = currentValue() / initial || 0.5)) <=
+                    (1 - (scale = currentValue() / initial || 0.5)) <=
                     0
                   ) {
                     maxIterations = 0;
@@ -13418,12 +13420,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               }
 
               temp = doc.body.appendChild(doc.createElement(nodeName));
-              display = jQuery.css(temp, 'display');
+              display = jQuery.css(temp, "display");
 
               temp.parentNode.removeChild(temp);
 
-              if (display === 'none') {
-                display = 'block';
+              if (display === "none") {
+                display = "block";
               }
               defaultDisplayMap[nodeName] = display;
 
@@ -13449,21 +13451,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Since we force visibility upon cascade-hidden elements, an immediate (and slow)
                   // check is required in this first loop unless we have a nonempty display value (either
                   // inline or about-to-be-restored)
-                  if (display === 'none') {
-                    values[index] = dataPriv.get(elem, 'display') || null;
+                  if (display === "none") {
+                    values[index] = dataPriv.get(elem, "display") || null;
                     if (!values[index]) {
-                      elem.style.display = '';
+                      elem.style.display = "";
                     }
                   }
-                  if (elem.style.display === '' && isHiddenWithinTree(elem)) {
+                  if (elem.style.display === "" && isHiddenWithinTree(elem)) {
                     values[index] = getDefaultDisplay(elem);
                   }
                 } else {
-                  if (display !== 'none') {
-                    values[index] = 'none';
+                  if (display !== "none") {
+                    values[index] = "none";
 
                     // Remember what we're overwriting
-                    dataPriv.set(elem, 'display', display);
+                    dataPriv.set(elem, "display", display);
                   }
                 }
               }
@@ -13486,7 +13488,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return showHide(this);
               },
               toggle: function (state) {
-                if (typeof state === 'boolean') {
+                if (typeof state === "boolean") {
                   return state ? this.show() : this.hide();
                 }
 
@@ -13497,7 +13499,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     jQuery(this).hide();
                   }
                 });
-              }
+              },
             });
             var rcheckableType = /^(?:checkbox|radio)$/i;
 
@@ -13507,16 +13509,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             (function () {
               var fragment = document.createDocumentFragment(),
-                div = fragment.appendChild(document.createElement('div')),
-                input = document.createElement('input');
+                div = fragment.appendChild(document.createElement("div")),
+                input = document.createElement("input");
 
               // Support: Android 4.0 - 4.3 only
               // Check state lost if the name is set (#11217)
               // Support: Windows Web Apps (WWA)
               // `name` and `type` must use .setAttribute for WWA (#14901)
-              input.setAttribute('type', 'radio');
-              input.setAttribute('checked', 'checked');
-              input.setAttribute('name', 't');
+              input.setAttribute("type", "radio");
+              input.setAttribute("checked", "checked");
+              input.setAttribute("name", "t");
 
               div.appendChild(input);
 
@@ -13528,14 +13530,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // Support: IE <=11 only
               // Make sure textarea (and checkbox) defaultValue is properly cloned
-              div.innerHTML = '<textarea>x</textarea>';
+              div.innerHTML = "<textarea>x</textarea>";
               support.noCloneChecked =
                 !!div.cloneNode(true).lastChild.defaultValue;
 
               // Support: IE <=9 only
               // IE <=9 replaces <option> tags with their contents when inserted outside of
               // the select element.
-              div.innerHTML = '<option></option>';
+              div.innerHTML = "<option></option>";
               support.option = !!div.lastChild;
             })();
 
@@ -13544,19 +13546,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // XHTML parsers do not magically insert elements in the
               // same way that tag soup parsers do. So we cannot shorten
               // this by omitting <tbody> or other required elements.
-              thead: [1, '<table>', '</table>'],
-              col: [2, '<table><colgroup>', '</colgroup></table>'],
-              tr: [2, '<table><tbody>', '</tbody></table>'],
-              td: [3, '<table><tbody><tr>', '</tr></tbody></table>'],
+              thead: [1, "<table>", "</table>"],
+              col: [2, "<table><colgroup>", "</colgroup></table>"],
+              tr: [2, "<table><tbody>", "</tbody></table>"],
+              td: [3, "<table><tbody><tr>", "</tr></tbody></table>"],
 
-              _default: [0, '', '']
+              _default: [0, "", ""],
             };
 
             wrapMap.tbody =
               wrapMap.tfoot =
               wrapMap.colgroup =
               wrapMap.caption =
-                wrapMap.thead;
+              wrapMap.thead;
             wrapMap.th = wrapMap.td;
 
             // Support: IE <=9 only
@@ -13564,7 +13566,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               wrapMap.optgroup = wrapMap.option = [
                 1,
                 "<select multiple='multiple'>",
-                '</select>'
+                "</select>",
               ];
             }
 
@@ -13573,10 +13575,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // Use typeof to avoid zero-argument method invocation on host objects (#15151)
               var ret;
 
-              if (typeof context.getElementsByTagName !== 'undefined') {
-                ret = context.getElementsByTagName(tag || '*');
-              } else if (typeof context.querySelectorAll !== 'undefined') {
-                ret = context.querySelectorAll(tag || '*');
+              if (typeof context.getElementsByTagName !== "undefined") {
+                ret = context.getElementsByTagName(tag || "*");
+              } else if (typeof context.querySelectorAll !== "undefined") {
+                ret = context.querySelectorAll(tag || "*");
               } else {
                 ret = [];
               }
@@ -13596,8 +13598,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               for (; i < l; i++) {
                 dataPriv.set(
                   elems[i],
-                  'globalEval',
-                  !refElements || dataPriv.get(refElements[i], 'globalEval')
+                  "globalEval",
+                  !refElements || dataPriv.get(refElements[i], "globalEval")
                 );
               }
             }
@@ -13627,7 +13629,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 if (elem || elem === 0) {
                   // Add nodes directly
-                  if (toType(elem) === 'object') {
+                  if (toType(elem) === "object") {
                     // Support: Android <=4.0 only, PhantomJS 1 only
                     // push.apply(_, arraylike) throws on ancient WebKit
                     jQuery.merge(nodes, elem.nodeType ? [elem] : elem);
@@ -13639,10 +13641,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Convert html into DOM nodes
                   } else {
                     tmp =
-                      tmp || fragment.appendChild(context.createElement('div'));
+                      tmp || fragment.appendChild(context.createElement("div"));
 
                     // Deserialize a standard representation
-                    tag = (rtagName.exec(elem) || ['', ''])[1].toLowerCase();
+                    tag = (rtagName.exec(elem) || ["", ""])[1].toLowerCase();
                     wrap = wrapMap[tag] || wrapMap._default;
                     tmp.innerHTML =
                       wrap[1] + jQuery.htmlPrefilter(elem) + wrap[2];
@@ -13661,13 +13663,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     tmp = fragment.firstChild;
 
                     // Ensure the created nodes are orphaned (#12392)
-                    tmp.textContent = '';
+                    tmp.textContent = "";
                   }
                 }
               }
 
               // Remove wrapper from fragment
-              fragment.textContent = '';
+              fragment.textContent = "";
 
               i = 0;
               while ((elem = nodes[i++])) {
@@ -13682,7 +13684,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 attached = isAttached(elem);
 
                 // Append to fragment
-                tmp = getAll(fragment.appendChild(elem), 'script');
+                tmp = getAll(fragment.appendChild(elem), "script");
 
                 // Preserve script evaluation history
                 if (attached) {
@@ -13693,7 +13695,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (scripts) {
                   j = 0;
                   while ((elem = tmp[j++])) {
-                    if (rscriptType.test(elem.type || '')) {
+                    if (rscriptType.test(elem.type || "")) {
                       scripts.push(elem);
                     }
                   }
@@ -13720,7 +13722,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // (focus and blur are always synchronous in other supported browsers,
             // this just defines when we can count on it).
             function expectSync(elem, type) {
-              return (elem === safeActiveElement()) === (type === 'focus');
+              return (elem === safeActiveElement()) === (type === "focus");
             }
 
             // Support: IE <=9 only
@@ -13729,16 +13731,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             function safeActiveElement() {
               try {
                 return document.activeElement;
-              } catch (err) {}
+              } catch (err) { }
             }
 
             function on(elem, types, selector, data, fn, one) {
               var origFn, type;
 
               // Types can be a map of types/handlers
-              if (typeof types === 'object') {
+              if (typeof types === "object") {
                 // ( types-Object, selector, data )
-                if (typeof selector !== 'string') {
+                if (typeof selector !== "string") {
                   // ( types-Object, data )
                   data = data || selector;
                   selector = undefined;
@@ -13754,7 +13756,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 fn = selector;
                 data = selector = undefined;
               } else if (fn == null) {
-                if (typeof selector === 'string') {
+                if (typeof selector === "string") {
                   // ( types, selector, fn )
                   fn = data;
                   data = undefined;
@@ -13839,7 +13841,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   eventHandle = elemData.handle = function (e) {
                     // Discard the second event of a jQuery.event.trigger() and
                     // when an event is called after a page has unloaded
-                    return typeof jQuery !== 'undefined' &&
+                    return typeof jQuery !== "undefined" &&
                       jQuery.event.triggered !== e.type
                       ? jQuery.event.dispatch.apply(elem, arguments)
                       : undefined;
@@ -13847,12 +13849,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Handle multiple events separated by a space
-                types = (types || '').match(rnothtmlwhite) || [''];
+                types = (types || "").match(rnothtmlwhite) || [""];
                 t = types.length;
                 while (t--) {
                   tmp = rtypenamespace.exec(types[t]) || [];
                   type = origType = tmp[1];
-                  namespaces = (tmp[2] || '').split('.').sort();
+                  namespaces = (tmp[2] || "").split(".").sort();
 
                   // There *must* be a type, no attaching namespace-only handlers
                   if (!type) {
@@ -13882,7 +13884,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       needsContext:
                         selector &&
                         jQuery.expr.match.needsContext.test(selector),
-                      namespace: namespaces.join('.')
+                      namespace: namespaces.join("."),
                     },
                     handleObjIn
                   );
@@ -13948,12 +13950,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Once for each type.namespace in types; type may be omitted
-                types = (types || '').match(rnothtmlwhite) || [''];
+                types = (types || "").match(rnothtmlwhite) || [""];
                 t = types.length;
                 while (t--) {
                   tmp = rtypenamespace.exec(types[t]) || [];
                   type = origType = tmp[1];
-                  namespaces = (tmp[2] || '').split('.').sort();
+                  namespaces = (tmp[2] || "").split(".").sort();
 
                   // Unbind all events (on this namespace, if provided) for the element
                   if (!type) {
@@ -13977,7 +13979,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   tmp =
                     tmp[2] &&
                     new RegExp(
-                      '(^|\\.)' + namespaces.join('\\.(?:.*\\.|)') + '(\\.|$)'
+                      "(^|\\.)" + namespaces.join("\\.(?:.*\\.|)") + "(\\.|$)"
                     );
 
                   // Remove matching events
@@ -13991,7 +13993,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       (!tmp || tmp.test(handleObj.namespace)) &&
                       (!selector ||
                         selector === handleObj.selector ||
-                        (selector === '**' && handleObj.selector))
+                        (selector === "**" && handleObj.selector))
                     ) {
                       handlers.splice(j, 1);
 
@@ -14024,7 +14026,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // Remove data and the expando if it's no longer used
                 if (jQuery.isEmptyObject(events)) {
-                  dataPriv.remove(elem, 'handle events');
+                  dataPriv.remove(elem, "handle events");
                 }
               },
 
@@ -14039,8 +14041,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Make a writable jQuery.Event from the native event object
                   event = jQuery.event.fix(nativeEvent),
                   handlers =
-                    (dataPriv.get(this, 'events') || Object.create(null))[
-                      event.type
+                    (dataPriv.get(this, "events") || Object.create(null))[
+                    event.type
                     ] || [],
                   special = jQuery.event.special[event.type] || {};
 
@@ -14135,14 +14137,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // https://www.w3.org/TR/DOM-Level-3-Events/#event-type-click
                   // Support: IE 11 only
                   // ...but not arrow key "clicks" of radio inputs, which can have `button` -1 (gh-2343)
-                  !(event.type === 'click' && event.button >= 1)
+                  !(event.type === "click" && event.button >= 1)
                 ) {
                   for (; cur !== this; cur = cur.parentNode || this) {
                     // Don't check non-elements (#13208)
                     // Don't process clicks on disabled elements (#6911, #8165, #11382, #11764)
                     if (
                       cur.nodeType === 1 &&
-                      !(event.type === 'click' && cur.disabled === true)
+                      !(event.type === "click" && cur.disabled === true)
                     ) {
                       matchedHandlers = [];
                       matchedSelectors = {};
@@ -14150,7 +14152,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         handleObj = handlers[i];
 
                         // Don't conflict with Object.prototype properties (#13203)
-                        sel = handleObj.selector + ' ';
+                        sel = handleObj.selector + " ";
 
                         if (matchedSelectors[sel] === undefined) {
                           matchedSelectors[sel] = handleObj.needsContext
@@ -14164,7 +14166,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       if (matchedHandlers.length) {
                         handlerQueue.push({
                           elem: cur,
-                          handlers: matchedHandlers
+                          handlers: matchedHandlers,
                         });
                       }
                     }
@@ -14176,7 +14178,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (delegateCount < handlers.length) {
                   handlerQueue.push({
                     elem: cur,
-                    handlers: handlers.slice(delegateCount)
+                    handlers: handlers.slice(delegateCount),
                   });
                 }
 
@@ -14190,24 +14192,24 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   get: isFunction(hook)
                     ? function () {
-                        if (this.originalEvent) {
-                          return hook(this.originalEvent);
-                        }
+                      if (this.originalEvent) {
+                        return hook(this.originalEvent);
                       }
+                    }
                     : function () {
-                        if (this.originalEvent) {
-                          return this.originalEvent[name];
-                        }
-                      },
+                      if (this.originalEvent) {
+                        return this.originalEvent[name];
+                      }
+                    },
 
                   set: function (value) {
                     Object.defineProperty(this, name, {
                       enumerable: true,
                       configurable: true,
                       writable: true,
-                      value: value
+                      value: value,
                     });
-                  }
+                  },
                 });
               },
 
@@ -14220,7 +14222,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               special: {
                 load: {
                   // Prevent triggered image.load events from bubbling to window.load
-                  noBubble: true
+                  noBubble: true,
                 },
                 click: {
                   // Utilize native event to ensure correct state for checkable inputs
@@ -14233,10 +14235,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (
                       rcheckableType.test(el.type) &&
                       el.click &&
-                      nodeName(el, 'input')
+                      nodeName(el, "input")
                     ) {
                       // dataPriv.set( el, "click", ... )
-                      leverageNative(el, 'click', returnTrue);
+                      leverageNative(el, "click", returnTrue);
                     }
 
                     // Return false to allow normal processing in the caller
@@ -14251,9 +14253,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (
                       rcheckableType.test(el.type) &&
                       el.click &&
-                      nodeName(el, 'input')
+                      nodeName(el, "input")
                     ) {
-                      leverageNative(el, 'click');
+                      leverageNative(el, "click");
                     }
 
                     // Return non-false to allow normal event-path propagation
@@ -14267,11 +14269,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     return (
                       (rcheckableType.test(target.type) &&
                         target.click &&
-                        nodeName(target, 'input') &&
-                        dataPriv.get(target, 'click')) ||
-                      nodeName(target, 'a')
+                        nodeName(target, "input") &&
+                        dataPriv.get(target, "click")) ||
+                      nodeName(target, "a")
                     );
-                  }
+                  },
                 },
 
                 beforeunload: {
@@ -14281,9 +14283,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (event.result !== undefined && event.originalEvent) {
                       event.originalEvent.returnValue = event.result;
                     }
-                  }
-                }
-              }
+                  },
+                },
+              },
             };
 
             // Ensure the presence of an event listener that handles manually-triggered
@@ -14366,13 +14368,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         jQuery.extend(saved[0], jQuery.Event.prototype),
                         saved.slice(1),
                         this
-                      )
+                      ),
                     });
 
                     // Abort handling of the native event
                     event.stopImmediatePropagation();
                   }
-                }
+                },
               });
             }
 
@@ -14398,9 +14400,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // by a handler lower down the tree; reflect the correct value.
                 this.isDefaultPrevented =
                   src.defaultPrevented ||
-                  (src.defaultPrevented === undefined &&
-                    // Support: Android <=2.3 only
-                    src.returnValue === false)
+                    (src.defaultPrevented === undefined &&
+                      // Support: Android <=2.3 only
+                      src.returnValue === false)
                     ? returnTrue
                     : returnFalse;
 
@@ -14469,7 +14471,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 this.stopPropagation();
-              }
+              },
             };
 
             // Includes all common event props including KeyEvent and MouseEvent specific props
@@ -14505,13 +14507,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 targetTouches: true,
                 toElement: true,
                 touches: true,
-                which: true
+                which: true,
               },
               jQuery.event.addProp
             );
 
             jQuery.each(
-              { focus: 'focusin', blur: 'focusout' },
+              { focus: "focusin", blur: "focusout" },
               function (type, delegateType) {
                 jQuery.event.special[type] = {
                   // Utilize native event if possible so blur/focus sequence is correct
@@ -14538,7 +14540,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     return true;
                   },
 
-                  delegateType: delegateType
+                  delegateType: delegateType,
                 };
               }
             );
@@ -14553,10 +14555,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // for the description of the bug (it existed in older Chrome versions as well).
             jQuery.each(
               {
-                mouseenter: 'mouseover',
-                mouseleave: 'mouseout',
-                pointerenter: 'pointerover',
-                pointerleave: 'pointerout'
+                mouseenter: "mouseover",
+                mouseleave: "mouseout",
+                pointerenter: "pointerover",
+                pointerleave: "pointerout",
               },
               function (orig, fix) {
                 jQuery.event.special[orig] = {
@@ -14580,7 +14582,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       event.type = fix;
                     }
                     return ret;
-                  }
+                  },
                 };
               }
             );
@@ -14599,21 +14601,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   handleObj = types.handleObj;
                   jQuery(types.delegateTarget).off(
                     handleObj.namespace
-                      ? handleObj.origType + '.' + handleObj.namespace
+                      ? handleObj.origType + "." + handleObj.namespace
                       : handleObj.origType,
                     handleObj.selector,
                     handleObj.handler
                   );
                   return this;
                 }
-                if (typeof types === 'object') {
+                if (typeof types === "object") {
                   // ( types-object [, selector] )
                   for (type in types) {
                     this.off(type, selector, types[type]);
                   }
                   return this;
                 }
-                if (selector === false || typeof selector === 'function') {
+                if (selector === false || typeof selector === "function") {
                   // ( types [, fn] )
                   fn = selector;
                   selector = undefined;
@@ -14624,7 +14626,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return this.each(function () {
                   jQuery.event.remove(this, types, fn, selector);
                 });
-              }
+              },
             });
 
             var // Support: IE <=10 - 11, Edge 12 - 13 only
@@ -14638,13 +14640,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Prefer a tbody over its parent table for containing new rows
             function manipulationTarget(elem, content) {
               if (
-                nodeName(elem, 'table') &&
+                nodeName(elem, "table") &&
                 nodeName(
                   content.nodeType !== 11 ? content : content.firstChild,
-                  'tr'
+                  "tr"
                 )
               ) {
-                return jQuery(elem).children('tbody')[0] || elem;
+                return jQuery(elem).children("tbody")[0] || elem;
               }
 
               return elem;
@@ -14653,14 +14655,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Replace/restore the type attribute of script elements for safe DOM manipulation
             function disableScript(elem) {
               elem.type =
-                (elem.getAttribute('type') !== null) + '/' + elem.type;
+                (elem.getAttribute("type") !== null) + "/" + elem.type;
               return elem;
             }
             function restoreScript(elem) {
-              if ((elem.type || '').slice(0, 5) === 'true/') {
+              if ((elem.type || "").slice(0, 5) === "true/") {
                 elem.type = elem.type.slice(5);
               } else {
-                elem.removeAttribute('type');
+                elem.removeAttribute("type");
               }
 
               return elem;
@@ -14679,7 +14681,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 events = pdataOld.events;
 
                 if (events) {
-                  dataPriv.remove(dest, 'handle events');
+                  dataPriv.remove(dest, "handle events");
 
                   for (type in events) {
                     for (i = 0, l = events[type].length; i < l; i++) {
@@ -14703,11 +14705,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               var nodeName = dest.nodeName.toLowerCase();
 
               // Fails to persist the checked state of a cloned checkbox or radio button.
-              if (nodeName === 'input' && rcheckableType.test(src.type)) {
+              if (nodeName === "input" && rcheckableType.test(src.type)) {
                 dest.checked = src.checked;
 
                 // Fails to return the selected option to the default selected state when cloning options
-              } else if (nodeName === 'input' || nodeName === 'textarea') {
+              } else if (nodeName === "input" || nodeName === "textarea") {
                 dest.defaultValue = src.defaultValue;
               }
             }
@@ -14732,7 +14734,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               if (
                 valueIsFunction ||
                 (l > 1 &&
-                  typeof value === 'string' &&
+                  typeof value === "string" &&
                   !support.checkClone &&
                   rchecked.test(value))
               ) {
@@ -14762,7 +14764,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Require either new content or an interest in ignored elements to invoke the callback
                 if (first || ignored) {
                   scripts = jQuery.map(
-                    getAll(fragment, 'script'),
+                    getAll(fragment, "script"),
                     disableScript
                   );
                   hasScripts = scripts.length;
@@ -14780,7 +14782,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       if (hasScripts) {
                         // Support: Android <=4.0 only, PhantomJS 1 only
                         // push.apply(_, arraylike) throws on ancient WebKit
-                        jQuery.merge(scripts, getAll(node, 'script'));
+                        jQuery.merge(scripts, getAll(node, "script"));
                       }
                     }
 
@@ -14797,27 +14799,27 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     for (i = 0; i < hasScripts; i++) {
                       node = scripts[i];
                       if (
-                        rscriptType.test(node.type || '') &&
-                        !dataPriv.access(node, 'globalEval') &&
+                        rscriptType.test(node.type || "") &&
+                        !dataPriv.access(node, "globalEval") &&
                         jQuery.contains(doc, node)
                       ) {
                         if (
                           node.src &&
-                          (node.type || '').toLowerCase() !== 'module'
+                          (node.type || "").toLowerCase() !== "module"
                         ) {
                           // Optional AJAX dependency, but won't run scripts if not present
                           if (jQuery._evalUrl && !node.noModule) {
                             jQuery._evalUrl(
                               node.src,
                               {
-                                nonce: node.nonce || node.getAttribute('nonce')
+                                nonce: node.nonce || node.getAttribute("nonce"),
                               },
                               doc
                             );
                           }
                         } else {
                           DOMEval(
-                            node.textContent.replace(rcleanScript, ''),
+                            node.textContent.replace(rcleanScript, ""),
                             node,
                             doc
                           );
@@ -14843,7 +14845,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 if (node.parentNode) {
                   if (keepData && isAttached(node)) {
-                    setGlobalEval(getAll(node, 'script'));
+                    setGlobalEval(getAll(node, "script"));
                   }
                   node.parentNode.removeChild(node);
                 }
@@ -14895,11 +14897,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Preserve script evaluation history
-                destElements = getAll(clone, 'script');
+                destElements = getAll(clone, "script");
                 if (destElements.length > 0) {
                   setGlobalEval(
                     destElements,
-                    !inPage && getAll(elem, 'script')
+                    !inPage && getAll(elem, "script")
                   );
                 }
 
@@ -14940,7 +14942,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
                   }
                 }
-              }
+              },
             });
 
             jQuery.fn.extend({
@@ -14959,14 +14961,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     return value === undefined
                       ? jQuery.text(this)
                       : this.empty().each(function () {
-                          if (
-                            this.nodeType === 1 ||
-                            this.nodeType === 11 ||
-                            this.nodeType === 9
-                          ) {
-                            this.textContent = value;
-                          }
-                        });
+                        if (
+                          this.nodeType === 1 ||
+                          this.nodeType === 11 ||
+                          this.nodeType === 9
+                        ) {
+                          this.textContent = value;
+                        }
+                      });
                   },
                   null,
                   value,
@@ -15026,7 +15028,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     jQuery.cleanData(getAll(elem, false));
 
                     // Remove any remaining nodes
-                    elem.textContent = '';
+                    elem.textContent = "";
                   }
                 }
 
@@ -15057,10 +15059,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                     // See if we can take a shortcut and just use innerHTML
                     if (
-                      typeof value === 'string' &&
+                      typeof value === "string" &&
                       !rnoInnerhtml.test(value) &&
                       !wrapMap[
-                        (rtagName.exec(value) || ['', ''])[1].toLowerCase()
+                      (rtagName.exec(value) || ["", ""])[1].toLowerCase()
                       ]
                     ) {
                       value = jQuery.htmlPrefilter(value);
@@ -15079,7 +15081,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         elem = 0;
 
                         // If using innerHTML throws an exception, use the fallback method
-                      } catch (e) {}
+                      } catch (e) { }
                     }
 
                     if (elem) {
@@ -15113,16 +15115,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   },
                   ignored
                 );
-              }
+              },
             });
 
             jQuery.each(
               {
-                appendTo: 'append',
-                prependTo: 'prepend',
-                insertBefore: 'before',
-                insertAfter: 'after',
-                replaceAll: 'replaceWith'
+                appendTo: "append",
+                prependTo: "prepend",
+                insertBefore: "before",
+                insertAfter: "after",
+                replaceAll: "replaceWith",
               },
               function (name, original) {
                 jQuery.fn[name] = function (selector) {
@@ -15145,7 +15147,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 };
               }
             );
-            var rnumnonpx = new RegExp('^(' + pnum + ')(?!px)[a-z%]+$', 'i');
+            var rnumnonpx = new RegExp("^(" + pnum + ")(?!px)[a-z%]+$", "i");
 
             var getStyles = function (elem) {
               // Support: IE <=11 only, Firefox <=30 (#15098, #14150)
@@ -15181,7 +15183,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               return ret;
             };
 
-            var rboxStyle = new RegExp(cssExpand.join('|'), 'i');
+            var rboxStyle = new RegExp(cssExpand.join("|"), "i");
 
             (function () {
               // Executing both pixelPosition & boxSizingReliable tests require only one layout
@@ -15193,16 +15195,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 container.style.cssText =
-                  'position:absolute;left:-11111px;width:60px;' +
-                  'margin-top:1px;padding:0;border:0';
+                  "position:absolute;left:-11111px;width:60px;" +
+                  "margin-top:1px;padding:0;border:0";
                 div.style.cssText =
-                  'position:relative;display:block;box-sizing:border-box;overflow:scroll;' +
-                  'margin:auto;border:1px;padding:1px;' +
-                  'width:60%;top:1%';
+                  "position:relative;display:block;box-sizing:border-box;overflow:scroll;" +
+                  "margin:auto;border:1px;padding:1px;" +
+                  "width:60%;top:1%";
                 documentElement.appendChild(container).appendChild(div);
 
                 var divStyle = window.getComputedStyle(div);
-                pixelPositionVal = divStyle.top !== '1%';
+                pixelPositionVal = divStyle.top !== "1%";
 
                 // Support: Android 4.0 - 4.3 only, Firefox <=3 - 44
                 reliableMarginLeftVal =
@@ -15210,7 +15212,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // Support: Android 4.0 - 4.3 only, Safari <=9.1 - 10.1, iOS <=7.0 - 9.3
                 // Some styles come back with percentage values, even though they shouldn't
-                div.style.right = '60%';
+                div.style.right = "60%";
                 pixelBoxStylesVal = roundPixelMeasures(divStyle.right) === 36;
 
                 // Support: IE 9 - 11 only
@@ -15222,7 +15224,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Detect overflow:scroll screwiness (gh-3699)
                 // Support: Chrome <=64
                 // Don't get tricked when zoom affects offsetWidth (gh-4029)
-                div.style.position = 'absolute';
+                div.style.position = "absolute";
                 scrollboxSizeVal =
                   roundPixelMeasures(div.offsetWidth / 3) === 12;
 
@@ -15243,8 +15245,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 pixelBoxStylesVal,
                 reliableTrDimensionsVal,
                 reliableMarginLeftVal,
-                container = document.createElement('div'),
-                div = document.createElement('div');
+                container = document.createElement("div"),
+                div = document.createElement("div");
 
               // Finish early in limited (non-browser) environments
               if (!div.style) {
@@ -15253,10 +15255,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // Support: IE <=9 - 11 only
               // Style of cloned element affects source element cloned (#8908)
-              div.style.backgroundClip = 'content-box';
-              div.cloneNode(true).style.backgroundClip = '';
+              div.style.backgroundClip = "content-box";
+              div.cloneNode(true).style.backgroundClip = "";
               support.clearCloneStyle =
-                div.style.backgroundClip === 'content-box';
+                div.style.backgroundClip === "content-box";
 
               jQuery.extend(support, {
                 boxSizingReliable: function () {
@@ -15292,19 +15294,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 reliableTrDimensions: function () {
                   var table, tr, trChild, trStyle;
                   if (reliableTrDimensionsVal == null) {
-                    table = document.createElement('table');
-                    tr = document.createElement('tr');
-                    trChild = document.createElement('div');
+                    table = document.createElement("table");
+                    tr = document.createElement("tr");
+                    trChild = document.createElement("div");
 
                     table.style.cssText =
-                      'position:absolute;left:-11111px;border-collapse:separate';
-                    tr.style.cssText = 'border:1px solid';
+                      "position:absolute;left:-11111px;border-collapse:separate";
+                    tr.style.cssText = "border:1px solid";
 
                     // Support: Chrome 86+
                     // Height set through cssText does not get applied.
                     // Computed height then comes back as 0.
-                    tr.style.height = '1px';
-                    trChild.style.height = '9px';
+                    tr.style.height = "1px";
+                    trChild.style.height = "9px";
 
                     // Support: Android 8 Chrome 86+
                     // In our bodyBackground.html iframe,
@@ -15312,7 +15314,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // which causes a problem only in Android 8 Chrome 86.
                     // Ensuring the div is display: block
                     // gets around this issue.
-                    trChild.style.display = 'block';
+                    trChild.style.display = "block";
 
                     documentElement
                       .appendChild(table)
@@ -15322,14 +15324,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     trStyle = window.getComputedStyle(tr);
                     reliableTrDimensionsVal =
                       parseInt(trStyle.height, 10) +
-                        parseInt(trStyle.borderTopWidth, 10) +
-                        parseInt(trStyle.borderBottomWidth, 10) ===
+                      parseInt(trStyle.borderTopWidth, 10) +
+                      parseInt(trStyle.borderBottomWidth, 10) ===
                       tr.offsetHeight;
 
                     documentElement.removeChild(table);
                   }
                   return reliableTrDimensionsVal;
-                }
+                },
               });
             })();
 
@@ -15352,7 +15354,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               if (computed) {
                 ret = computed.getPropertyValue(name) || computed[name];
 
-                if (ret === '' && !isAttached(elem)) {
+                if (ret === "" && !isAttached(elem)) {
                   ret = jQuery.style(elem, name);
                 }
 
@@ -15384,8 +15386,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               return ret !== undefined
                 ? // Support: IE <=9 - 11 only
-                  // IE returns zIndex value as an integer.
-                  ret + ''
+                // IE returns zIndex value as an integer.
+                ret + ""
                 : ret;
             }
 
@@ -15402,12 +15404,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Hook needed; redefine it so that the support test is not executed again.
                   return (this.get = hookFn).apply(this, arguments);
-                }
+                },
               };
             }
 
-            var cssPrefixes = ['Webkit', 'Moz', 'ms'],
-              emptyStyle = document.createElement('div').style,
+            var cssPrefixes = ["Webkit", "Moz", "ms"],
+              emptyStyle = document.createElement("div").style,
               vendorProps = {};
 
             // Return a vendor-prefixed property or undefined
@@ -15443,13 +15445,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               rdisplayswap = /^(none|table(?!-c[ea]).+)/,
               rcustomProp = /^--/,
               cssShow = {
-                position: 'absolute',
-                visibility: 'hidden',
-                display: 'block'
+                position: "absolute",
+                visibility: "hidden",
+                display: "block",
               },
               cssNormalTransform = {
-                letterSpacing: '0',
-                fontWeight: '400'
+                letterSpacing: "0",
+                fontWeight: "400",
               };
 
             function setPositiveNumber(_elem, value, subtract) {
@@ -15458,8 +15460,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               var matches = rcssNum.exec(value);
               return matches
                 ? // Guard against undefined "subtract", e.g., when used as in cssHooks
-                  Math.max(0, matches[2] - (subtract || 0)) +
-                    (matches[3] || 'px')
+                Math.max(0, matches[2] - (subtract || 0)) +
+                (matches[3] || "px")
                 : value;
             }
 
@@ -15471,18 +15473,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               styles,
               computedVal
             ) {
-              var i = dimension === 'width' ? 1 : 0,
+              var i = dimension === "width" ? 1 : 0,
                 extra = 0,
                 delta = 0;
 
               // Adjustment may not be necessary
-              if (box === (isBorderBox ? 'border' : 'content')) {
+              if (box === (isBorderBox ? "border" : "content")) {
                 return 0;
               }
 
               for (; i < 4; i += 2) {
                 // Both box models exclude margin
-                if (box === 'margin') {
+                if (box === "margin") {
                   delta += jQuery.css(elem, box + cssExpand[i], true, styles);
                 }
 
@@ -15491,16 +15493,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Add padding
                   delta += jQuery.css(
                     elem,
-                    'padding' + cssExpand[i],
+                    "padding" + cssExpand[i],
                     true,
                     styles
                   );
 
                   // For "border" or "margin", add border
-                  if (box !== 'padding') {
+                  if (box !== "padding") {
                     delta += jQuery.css(
                       elem,
-                      'border' + cssExpand[i] + 'Width',
+                      "border" + cssExpand[i] + "Width",
                       true,
                       styles
                     );
@@ -15509,7 +15511,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   } else {
                     extra += jQuery.css(
                       elem,
-                      'border' + cssExpand[i] + 'Width',
+                      "border" + cssExpand[i] + "Width",
                       true,
                       styles
                     );
@@ -15519,20 +15521,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // "padding" or "margin"
                 } else {
                   // For "content", subtract padding
-                  if (box === 'content') {
+                  if (box === "content") {
                     delta -= jQuery.css(
                       elem,
-                      'padding' + cssExpand[i],
+                      "padding" + cssExpand[i],
                       true,
                       styles
                     );
                   }
 
                   // For "content" or "padding", subtract border
-                  if (box !== 'margin') {
+                  if (box !== "margin") {
                     delta -= jQuery.css(
                       elem,
-                      'border' + cssExpand[i] + 'Width',
+                      "border" + cssExpand[i] + "Width",
                       true,
                       styles
                     );
@@ -15549,14 +15551,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     0,
                     Math.ceil(
                       elem[
-                        'offset' +
-                          dimension[0].toUpperCase() +
-                          dimension.slice(1)
+                      "offset" +
+                      dimension[0].toUpperCase() +
+                      dimension.slice(1)
                       ] -
-                        computedVal -
-                        delta -
-                        extra -
-                        0.5
+                      computedVal -
+                      delta -
+                      extra -
+                      0.5
 
                       // If offsetWidth/offsetHeight is unknown, then we can't determine content-box scroll gutter
                       // Use an explicit zero to avoid NaN (gh-3964)
@@ -15575,11 +15577,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 boxSizingNeeded = !support.boxSizingReliable() || extra,
                 isBorderBox =
                   boxSizingNeeded &&
-                  jQuery.css(elem, 'boxSizing', false, styles) === 'border-box',
+                  jQuery.css(elem, "boxSizing", false, styles) === "border-box",
                 valueIsBorderBox = isBorderBox,
                 val = curCSS(elem, dimension, styles),
                 offsetProp =
-                  'offset' + dimension[0].toUpperCase() + dimension.slice(1);
+                  "offset" + dimension[0].toUpperCase() + dimension.slice(1);
 
               // Support: Firefox <=54
               // Return a confounding non-pixel value or feign ignorance, as appropriate.
@@ -15587,7 +15589,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (!extra) {
                   return val;
                 }
-                val = 'auto';
+                val = "auto";
               }
 
               // Support: IE 9 - 11 only
@@ -15599,19 +15601,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // IE/Edge misreport `getComputedStyle` of table rows with width/height
                   // set in CSS while `offset*` properties report correct values.
                   // Interestingly, in some cases IE 9 doesn't suffer from this issue.
-                  (!support.reliableTrDimensions() && nodeName(elem, 'tr')) ||
+                  (!support.reliableTrDimensions() && nodeName(elem, "tr")) ||
                   // Fall back to offsetWidth/offsetHeight when value is "auto"
                   // This happens for inline elements with no explicit setting (gh-3571)
-                  val === 'auto' ||
+                  val === "auto" ||
                   // Support: Android <=4.1 - 4.3 only
                   // Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
                   (!parseFloat(val) &&
-                    jQuery.css(elem, 'display', false, styles) === 'inline')) &&
+                    jQuery.css(elem, "display", false, styles) === "inline")) &&
                 // Make sure the element is visible & connected
                 elem.getClientRects().length
               ) {
                 isBorderBox =
-                  jQuery.css(elem, 'boxSizing', false, styles) === 'border-box';
+                  jQuery.css(elem, "boxSizing", false, styles) === "border-box";
 
                 // Where available, offsetWidth/offsetHeight approximate border box dimensions.
                 // Where not available (e.g., SVG), assume unreliable box-sizing and interpret the
@@ -15631,14 +15633,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 boxModelAdjustment(
                   elem,
                   dimension,
-                  extra || (isBorderBox ? 'border' : 'content'),
+                  extra || (isBorderBox ? "border" : "content"),
                   valueIsBorderBox,
                   styles,
 
                   // Provide the current computed size to request scroll gutter calculation (gh-3589)
                   val
                 ) +
-                'px'
+                "px"
               );
             }
 
@@ -15650,11 +15652,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   get: function (elem, computed) {
                     if (computed) {
                       // We should always get a number back from opacity
-                      var ret = curCSS(elem, 'opacity');
-                      return ret === '' ? '1' : ret;
+                      var ret = curCSS(elem, "opacity");
+                      return ret === "" ? "1" : ret;
                     }
-                  }
-                }
+                  },
+                },
               },
 
               // Don't automatically add "px" to these possibly-unitless properties
@@ -15678,7 +15680,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 orphans: true,
                 widows: true,
                 zIndex: true,
-                zoom: true
+                zoom: true,
               },
 
               // Add in properties whose names you wish to fix before
@@ -15721,14 +15723,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Convert "+=" or "-=" to relative numbers (#7345)
                   if (
-                    type === 'string' &&
+                    type === "string" &&
                     (ret = rcssNum.exec(value)) &&
                     ret[1]
                   ) {
                     value = adjustCSS(elem, name, ret);
 
                     // Fixes bug #9237
-                    type = 'number';
+                    type = "number";
                   }
 
                   // Make sure that null and NaN values aren't set (#7116)
@@ -15739,25 +15741,25 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // If a number was passed in, add the unit (except for certain CSS properties)
                   // The isCustomProp check can be removed in jQuery 4.0 when we only auto-append
                   // "px" to a few hardcoded values.
-                  if (type === 'number' && !isCustomProp) {
+                  if (type === "number" && !isCustomProp) {
                     value +=
                       (ret && ret[3]) ||
-                      (jQuery.cssNumber[origName] ? '' : 'px');
+                      (jQuery.cssNumber[origName] ? "" : "px");
                   }
 
                   // background-* props affect original clone's values
                   if (
                     !support.clearCloneStyle &&
-                    value === '' &&
-                    name.indexOf('background') === 0
+                    value === "" &&
+                    name.indexOf("background") === 0
                   ) {
-                    style[name] = 'inherit';
+                    style[name] = "inherit";
                   }
 
                   // If a hook was provided, use that value, otherwise just set the specified value
                   if (
                     !hooks ||
-                    !('set' in hooks) ||
+                    !("set" in hooks) ||
                     (value = hooks.set(elem, value, extra)) !== undefined
                   ) {
                     if (isCustomProp) {
@@ -15770,7 +15772,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // If a hook was provided get the non-computed value from there
                   if (
                     hooks &&
-                    'get' in hooks &&
+                    "get" in hooks &&
                     (ret = hooks.get(elem, false, extra)) !== undefined
                   ) {
                     return ret;
@@ -15799,7 +15801,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 hooks = jQuery.cssHooks[name] || jQuery.cssHooks[origName];
 
                 // If a hook was provided get the computed value from there
-                if (hooks && 'get' in hooks) {
+                if (hooks && "get" in hooks) {
                   val = hooks.get(elem, true, extra);
                 }
 
@@ -15809,27 +15811,27 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Convert "normal" to computed value
-                if (val === 'normal' && name in cssNormalTransform) {
+                if (val === "normal" && name in cssNormalTransform) {
                   val = cssNormalTransform[name];
                 }
 
                 // Make numeric if forced or a qualifier was provided and val looks numeric
-                if (extra === '' || extra) {
+                if (extra === "" || extra) {
                   num = parseFloat(val);
                   return extra === true || isFinite(num) ? num || 0 : val;
                 }
 
                 return val;
-              }
+              },
             });
 
-            jQuery.each(['height', 'width'], function (_i, dimension) {
+            jQuery.each(["height", "width"], function (_i, dimension) {
               jQuery.cssHooks[dimension] = {
                 get: function (elem, computed, extra) {
                   if (computed) {
                     // Certain elements can have dimension info if we invisibly show them
                     // but it must have a current display style that would benefit
-                    return rdisplayswap.test(jQuery.css(elem, 'display')) &&
+                    return rdisplayswap.test(jQuery.css(elem, "display")) &&
                       // Support: Safari 8+
                       // Table columns in Safari have non-zero offsetWidth & zero
                       // getBoundingClientRect().width unless display is changed.
@@ -15839,8 +15841,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       (!elem.getClientRects().length ||
                         !elem.getBoundingClientRect().width)
                       ? swap(elem, cssShow, function () {
-                          return getWidthOrHeight(elem, dimension, extra);
-                        })
+                        return getWidthOrHeight(elem, dimension, extra);
+                      })
                       : getWidthOrHeight(elem, dimension, extra);
                   }
                 },
@@ -15852,21 +15854,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // to avoid forcing a reflow.
                     scrollboxSizeBuggy =
                       !support.scrollboxSize() &&
-                      styles.position === 'absolute',
+                      styles.position === "absolute",
                     // To avoid forcing a reflow, only fetch boxSizing if we need it (gh-3991)
                     boxSizingNeeded = scrollboxSizeBuggy || extra,
                     isBorderBox =
                       boxSizingNeeded &&
-                      jQuery.css(elem, 'boxSizing', false, styles) ===
-                        'border-box',
+                      jQuery.css(elem, "boxSizing", false, styles) ===
+                      "border-box",
                     subtract = extra
                       ? boxModelAdjustment(
-                          elem,
-                          dimension,
-                          extra,
-                          isBorderBox,
-                          styles
-                        )
+                        elem,
+                        dimension,
+                        extra,
+                        isBorderBox,
+                        styles
+                      )
                       : 0;
 
                   // Account for unreliable border-box dimensions by comparing offset* to computed and
@@ -15874,19 +15876,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   if (isBorderBox && scrollboxSizeBuggy) {
                     subtract -= Math.ceil(
                       elem[
-                        'offset' +
-                          dimension[0].toUpperCase() +
-                          dimension.slice(1)
+                      "offset" +
+                      dimension[0].toUpperCase() +
+                      dimension.slice(1)
                       ] -
-                        parseFloat(styles[dimension]) -
-                        boxModelAdjustment(
-                          elem,
-                          dimension,
-                          'border',
-                          false,
-                          styles
-                        ) -
-                        0.5
+                      parseFloat(styles[dimension]) -
+                      boxModelAdjustment(
+                        elem,
+                        dimension,
+                        "border",
+                        false,
+                        styles
+                      ) -
+                      0.5
                     );
                   }
 
@@ -15894,14 +15896,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   if (
                     subtract &&
                     (matches = rcssNum.exec(value)) &&
-                    (matches[3] || 'px') !== 'px'
+                    (matches[3] || "px") !== "px"
                   ) {
                     elem.style[dimension] = value;
                     value = jQuery.css(elem, dimension);
                   }
 
                   return setPositiveNumber(elem, value, subtract);
-                }
+                },
               };
             });
 
@@ -15910,11 +15912,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               function (elem, computed) {
                 if (computed) {
                   return (
-                    (parseFloat(curCSS(elem, 'marginLeft')) ||
+                    (parseFloat(curCSS(elem, "marginLeft")) ||
                       elem.getBoundingClientRect().left -
-                        swap(elem, { marginLeft: 0 }, function () {
-                          return elem.getBoundingClientRect().left;
-                        })) + 'px'
+                      swap(elem, { marginLeft: 0 }, function () {
+                        return elem.getBoundingClientRect().left;
+                      })) + "px"
                   );
                 }
               }
@@ -15923,9 +15925,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // These hooks are used by animate to expand properties
             jQuery.each(
               {
-                margin: '',
-                padding: '',
-                border: 'Width'
+                margin: "",
+                padding: "",
+                border: "Width",
               },
               function (prefix, suffix) {
                 jQuery.cssHooks[prefix + suffix] = {
@@ -15934,7 +15936,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       expanded = {},
                       // Assumes a single number if not a string
                       parts =
-                        typeof value === 'string' ? value.split(' ') : [value];
+                        typeof value === "string" ? value.split(" ") : [value];
 
                     for (; i < 4; i++) {
                       expanded[prefix + cssExpand[i] + suffix] =
@@ -15942,10 +15944,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
 
                     return expanded;
-                  }
+                  },
                 };
 
-                if (prefix !== 'margin') {
+                if (prefix !== "margin") {
                   jQuery.cssHooks[prefix + suffix].set = setPositiveNumber;
                 }
               }
@@ -15980,7 +15982,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   value,
                   arguments.length > 1
                 );
-              }
+              },
             });
 
             function Tween(elem, options, prop, end, easing) {
@@ -15997,7 +15999,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 this.options = options;
                 this.start = this.now = this.cur();
                 this.end = end;
-                this.unit = unit || (jQuery.cssNumber[prop] ? '' : 'px');
+                this.unit = unit || (jQuery.cssNumber[prop] ? "" : "px");
               },
               cur: function () {
                 var hooks = Tween.propHooks[this.prop];
@@ -16033,7 +16035,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   Tween.propHooks._default.set(this);
                 }
                 return this;
-              }
+              },
             };
 
             Tween.prototype.init.prototype = Tween.prototype;
@@ -16057,10 +16059,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // attempt a parseFloat and fallback to a string if the parse fails.
                   // Simple values such as "10px" are parsed to Float;
                   // complex values such as "rotate(1rad)" are returned as-is.
-                  result = jQuery.css(tween.elem, tween.prop, '');
+                  result = jQuery.css(tween.elem, tween.prop, "");
 
                   // Empty strings, null, undefined and "auto" are converted to 0.
-                  return !result || result === 'auto' ? 0 : result;
+                  return !result || result === "auto" ? 0 : result;
                 },
                 set: function (tween) {
                   // Use step hook for back compat.
@@ -16081,8 +16083,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   } else {
                     tween.elem[tween.prop] = tween.now;
                   }
-                }
-              }
+                },
+              },
             };
 
             // Support: IE <=9 only
@@ -16092,7 +16094,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (tween.elem.nodeType && tween.elem.parentNode) {
                   tween.elem[tween.prop] = tween.now;
                 }
-              }
+              },
             };
 
             jQuery.easing = {
@@ -16102,7 +16104,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               swing: function (p) {
                 return 0.5 - Math.cos(p * Math.PI) / 2;
               },
-              _default: 'swing'
+              _default: "swing",
             };
 
             jQuery.fx = Tween.prototype.init;
@@ -16146,7 +16148,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               includeWidth = includeWidth ? 1 : 0;
               for (; i < 4; i += 2 - includeWidth) {
                 which = cssExpand[i];
-                attrs['margin' + which] = attrs['padding' + which] = type;
+                attrs["margin" + which] = attrs["padding" + which] = type;
               }
 
               if (includeWidth) {
@@ -16159,7 +16161,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             function createTween(value, prop, animation) {
               var tween,
                 collection = (Animation.tweeners[prop] || []).concat(
-                  Animation.tweeners['*']
+                  Animation.tweeners["*"]
                 ),
                 index = 0,
                 length = collection.length;
@@ -16180,16 +16182,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 propTween,
                 restoreDisplay,
                 display,
-                isBox = 'width' in props || 'height' in props,
+                isBox = "width" in props || "height" in props,
                 anim = this,
                 orig = {},
                 style = elem.style,
                 hidden = elem.nodeType && isHiddenWithinTree(elem),
-                dataShow = dataPriv.get(elem, 'fxshow');
+                dataShow = dataPriv.get(elem, "fxshow");
 
               // Queue-skipping animations hijack the fx hooks
               if (!opts.queue) {
-                hooks = jQuery._queueHooks(elem, 'fx');
+                hooks = jQuery._queueHooks(elem, "fx");
                 if (hooks.unqueued == null) {
                   hooks.unqueued = 0;
                   oldfire = hooks.empty.fire;
@@ -16205,7 +16207,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Ensure the complete handler is called before this completes
                   anim.always(function () {
                     hooks.unqueued--;
-                    if (!jQuery.queue(elem, 'fx').length) {
+                    if (!jQuery.queue(elem, "fx").length) {
                       hooks.empty.fire();
                     }
                   });
@@ -16217,12 +16219,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 value = props[prop];
                 if (rfxtypes.test(value)) {
                   delete props[prop];
-                  toggle = toggle || value === 'toggle';
-                  if (value === (hidden ? 'hide' : 'show')) {
+                  toggle = toggle || value === "toggle";
+                  if (value === (hidden ? "hide" : "show")) {
                     // Pretend to be hidden if this is a "show" and
                     // there is still data from a stopped show/hide
                     if (
-                      value === 'show' &&
+                      value === "show" &&
                       dataShow &&
                       dataShow[prop] !== undefined
                     ) {
@@ -16253,33 +16255,33 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 opts.overflow = [
                   style.overflow,
                   style.overflowX,
-                  style.overflowY
+                  style.overflowY,
                 ];
 
                 // Identify a display type, preferring old show/hide data over the CSS cascade
                 restoreDisplay = dataShow && dataShow.display;
                 if (restoreDisplay == null) {
-                  restoreDisplay = dataPriv.get(elem, 'display');
+                  restoreDisplay = dataPriv.get(elem, "display");
                 }
-                display = jQuery.css(elem, 'display');
-                if (display === 'none') {
+                display = jQuery.css(elem, "display");
+                if (display === "none") {
                   if (restoreDisplay) {
                     display = restoreDisplay;
                   } else {
                     // Get nonempty value(s) by temporarily forcing visibility
                     showHide([elem], true);
                     restoreDisplay = elem.style.display || restoreDisplay;
-                    display = jQuery.css(elem, 'display');
+                    display = jQuery.css(elem, "display");
                     showHide([elem]);
                   }
                 }
 
                 // Animate inline elements as inline-block
                 if (
-                  display === 'inline' ||
-                  (display === 'inline-block' && restoreDisplay != null)
+                  display === "inline" ||
+                  (display === "inline-block" && restoreDisplay != null)
                 ) {
-                  if (jQuery.css(elem, 'float') === 'none') {
+                  if (jQuery.css(elem, "float") === "none") {
                     // Restore the original display value at the end of pure show/hide animations
                     if (!propTween) {
                       anim.done(function () {
@@ -16287,16 +16289,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       });
                       if (restoreDisplay == null) {
                         display = style.display;
-                        restoreDisplay = display === 'none' ? '' : display;
+                        restoreDisplay = display === "none" ? "" : display;
                       }
                     }
-                    style.display = 'inline-block';
+                    style.display = "inline-block";
                   }
                 }
               }
 
               if (opts.overflow) {
-                style.overflow = 'hidden';
+                style.overflow = "hidden";
                 anim.always(function () {
                   style.overflow = opts.overflow[0];
                   style.overflowX = opts.overflow[1];
@@ -16310,12 +16312,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // General show/hide setup for this element animation
                 if (!propTween) {
                   if (dataShow) {
-                    if ('hidden' in dataShow) {
+                    if ("hidden" in dataShow) {
                       hidden = dataShow.hidden;
                     }
                   } else {
-                    dataShow = dataPriv.access(elem, 'fxshow', {
-                      display: restoreDisplay
+                    dataShow = dataPriv.access(elem, "fxshow", {
+                      display: restoreDisplay,
                     });
                   }
 
@@ -16338,7 +16340,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (!hidden) {
                       showHide([elem]);
                     }
-                    dataPriv.remove(elem, 'fxshow');
+                    dataPriv.remove(elem, "fxshow");
                     for (prop in orig) {
                       jQuery.style(elem, prop, orig[prop]);
                     }
@@ -16380,7 +16382,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 hooks = jQuery.cssHooks[name];
-                if (hooks && 'expand' in hooks) {
+                if (hooks && "expand" in hooks) {
                   value = hooks.expand(value);
                   delete props[name];
 
@@ -16450,7 +16452,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     true,
                     {
                       specialEasing: {},
-                      easing: jQuery.easing._default
+                      easing: jQuery.easing._default,
                     },
                     options
                   ),
@@ -16466,7 +16468,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       prop,
                       end,
                       animation.opts.specialEasing[prop] ||
-                        animation.opts.easing
+                      animation.opts.easing
                     );
                     animation.tweens.push(tween);
                     return tween;
@@ -16492,7 +16494,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       deferred.rejectWith(elem, [animation, gotoEnd]);
                     }
                     return this;
-                  }
+                  },
                 }),
                 props = animation.props;
 
@@ -16533,7 +16535,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 jQuery.extend(tick, {
                   elem: elem,
                   anim: animation,
-                  queue: animation.opts.queue
+                  queue: animation.opts.queue,
                 })
               );
 
@@ -16542,19 +16544,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             jQuery.Animation = jQuery.extend(Animation, {
               tweeners: {
-                '*': [
+                "*": [
                   function (prop, value) {
                     var tween = this.createTween(prop, value);
                     adjustCSS(tween.elem, prop, rcssNum.exec(value), tween);
                     return tween;
-                  }
-                ]
+                  },
+                ],
               },
 
               tweener: function (props, callback) {
                 if (isFunction(props)) {
                   callback = props;
-                  props = ['*'];
+                  props = ["*"];
                 } else {
                   props = props.match(rnothtmlwhite);
                 }
@@ -16578,27 +16580,27 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 } else {
                   Animation.prefilters.push(callback);
                 }
-              }
+              },
             });
 
             jQuery.speed = function (speed, easing, fn) {
               var opt =
-                speed && typeof speed === 'object'
+                speed && typeof speed === "object"
                   ? jQuery.extend({}, speed)
                   : {
-                      complete:
-                        fn || (!fn && easing) || (isFunction(speed) && speed),
-                      duration: speed,
-                      easing:
-                        (fn && easing) ||
-                        (easing && !isFunction(easing) && easing)
-                    };
+                    complete:
+                      fn || (!fn && easing) || (isFunction(speed) && speed),
+                    duration: speed,
+                    easing:
+                      (fn && easing) ||
+                      (easing && !isFunction(easing) && easing),
+                  };
 
               // Go to the end state if fx are off
               if (jQuery.fx.off) {
                 opt.duration = 0;
               } else {
-                if (typeof opt.duration !== 'number') {
+                if (typeof opt.duration !== "number") {
                   if (opt.duration in jQuery.fx.speeds) {
                     opt.duration = jQuery.fx.speeds[opt.duration];
                   } else {
@@ -16609,7 +16611,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // Normalize opt.queue - true/undefined/null -> "fx"
               if (opt.queue == null || opt.queue === true) {
-                opt.queue = 'fx';
+                opt.queue = "fx";
               }
 
               // Queueing
@@ -16633,7 +16635,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Show any hidden elements after setting opacity to 0
                 return (
                   this.filter(isHiddenWithinTree)
-                    .css('opacity', 0)
+                    .css("opacity", 0)
                     .show()
 
                     // Animate to the value specified
@@ -16649,7 +16651,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     var anim = Animation(this, jQuery.extend({}, prop), optall);
 
                     // Empty animations, or finishing resolves immediately
-                    if (empty || dataPriv.get(this, 'finish')) {
+                    if (empty || dataPriv.get(this, "finish")) {
                       anim.stop(true);
                     }
                   };
@@ -16667,18 +16669,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   stop(gotoEnd);
                 };
 
-                if (typeof type !== 'string') {
+                if (typeof type !== "string") {
                   gotoEnd = clearQueue;
                   clearQueue = type;
                   type = undefined;
                 }
                 if (clearQueue) {
-                  this.queue(type || 'fx', []);
+                  this.queue(type || "fx", []);
                 }
 
                 return this.each(function () {
                   var dequeue = true,
-                    index = type != null && type + 'queueHooks',
+                    index = type != null && type + "queueHooks",
                     timers = jQuery.timers,
                     data = dataPriv.get(this);
 
@@ -16694,7 +16696,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
                   }
 
-                  for (index = timers.length; index--; ) {
+                  for (index = timers.length; index--;) {
                     if (
                       timers[index].elem === this &&
                       (type == null || timers[index].queue === type)
@@ -16715,13 +16717,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               },
               finish: function (type) {
                 if (type !== false) {
-                  type = type || 'fx';
+                  type = type || "fx";
                 }
                 return this.each(function () {
                   var index,
                     data = dataPriv.get(this),
-                    queue = data[type + 'queue'],
-                    hooks = data[type + 'queueHooks'],
+                    queue = data[type + "queue"],
+                    hooks = data[type + "queueHooks"],
                     timers = jQuery.timers,
                     length = queue ? queue.length : 0;
 
@@ -16736,7 +16738,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   }
 
                   // Look for any active animations, and finish them
-                  for (index = timers.length; index--; ) {
+                  for (index = timers.length; index--;) {
                     if (
                       timers[index].elem === this &&
                       timers[index].queue === type
@@ -16756,13 +16758,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Turn off finishing flag
                   delete data.finish;
                 });
-              }
+              },
             });
 
-            jQuery.each(['toggle', 'show', 'hide'], function (_i, name) {
+            jQuery.each(["toggle", "show", "hide"], function (_i, name) {
               var cssFn = jQuery.fn[name];
               jQuery.fn[name] = function (speed, easing, callback) {
-                return speed == null || typeof speed === 'boolean'
+                return speed == null || typeof speed === "boolean"
                   ? cssFn.apply(this, arguments)
                   : this.animate(genFx(name, true), speed, easing, callback);
               };
@@ -16771,12 +16773,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Generate shortcuts for custom animations
             jQuery.each(
               {
-                slideDown: genFx('show'),
-                slideUp: genFx('hide'),
-                slideToggle: genFx('toggle'),
-                fadeIn: { opacity: 'show' },
-                fadeOut: { opacity: 'hide' },
-                fadeToggle: { opacity: 'toggle' }
+                slideDown: genFx("show"),
+                slideUp: genFx("hide"),
+                slideToggle: genFx("toggle"),
+                fadeIn: { opacity: "show" },
+                fadeOut: { opacity: "hide" },
+                fadeToggle: { opacity: "toggle" },
               },
               function (name, props) {
                 jQuery.fn[name] = function (speed, easing, callback) {
@@ -16832,14 +16834,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               fast: 200,
 
               // Default speed
-              _default: 400
+              _default: 400,
             };
 
             // Based off of the plugin by Clint Helfers, with permission.
             // https://web.archive.org/web/20100324014747/http://blindsignals.com/index.php/2009/07/jquery-delay/
             jQuery.fn.delay = function (time, type) {
               time = jQuery.fx ? jQuery.fx.speeds[time] || time : time;
-              type = type || 'fx';
+              type = type || "fx";
 
               return this.queue(type, function (next, hooks) {
                 var timeout = window.setTimeout(next, time);
@@ -16850,15 +16852,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             };
 
             (function () {
-              var input = document.createElement('input'),
-                select = document.createElement('select'),
-                opt = select.appendChild(document.createElement('option'));
+              var input = document.createElement("input"),
+                select = document.createElement("select"),
+                opt = select.appendChild(document.createElement("option"));
 
-              input.type = 'checkbox';
+              input.type = "checkbox";
 
               // Support: Android <=4.3 only
               // Default value for a checkbox should be "on"
-              support.checkOn = input.value !== '';
+              support.checkOn = input.value !== "";
 
               // Support: IE <=11 only
               // Must access selectedIndex to make default options select
@@ -16866,10 +16868,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               // Support: IE <=11 only
               // An input loses its value after becoming a radio
-              input = document.createElement('input');
-              input.value = 't';
-              input.type = 'radio';
-              support.radioValue = input.value === 't';
+              input = document.createElement("input");
+              input.value = "t";
+              input.type = "radio";
+              support.radioValue = input.value === "t";
             })();
 
             var boolHook,
@@ -16890,7 +16892,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return this.each(function () {
                   jQuery.removeAttr(this, name);
                 });
-              }
+              },
             });
 
             jQuery.extend({
@@ -16905,7 +16907,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Fallback to prop when attributes are not supported
-                if (typeof elem.getAttribute === 'undefined') {
+                if (typeof elem.getAttribute === "undefined") {
                   return jQuery.prop(elem, name, value);
                 }
 
@@ -16925,19 +16927,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   if (
                     hooks &&
-                    'set' in hooks &&
+                    "set" in hooks &&
                     (ret = hooks.set(elem, value, name)) !== undefined
                   ) {
                     return ret;
                   }
 
-                  elem.setAttribute(name, value + '');
+                  elem.setAttribute(name, value + "");
                   return value;
                 }
 
                 if (
                   hooks &&
-                  'get' in hooks &&
+                  "get" in hooks &&
                   (ret = hooks.get(elem, name)) !== null
                 ) {
                   return ret;
@@ -16954,18 +16956,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   set: function (elem, value) {
                     if (
                       !support.radioValue &&
-                      value === 'radio' &&
-                      nodeName(elem, 'input')
+                      value === "radio" &&
+                      nodeName(elem, "input")
                     ) {
                       var val = elem.value;
-                      elem.setAttribute('type', value);
+                      elem.setAttribute("type", value);
                       if (val) {
                         elem.value = val;
                       }
                       return value;
                     }
-                  }
-                }
+                  },
+                },
               },
 
               removeAttr: function (elem, value) {
@@ -16980,7 +16982,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     elem.removeAttribute(name);
                   }
                 }
-              }
+              },
             });
 
             // Hooks for boolean attributes
@@ -16993,7 +16995,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   elem.setAttribute(name, name);
                 }
                 return name;
-              }
+              },
             };
 
             jQuery.each(
@@ -17037,7 +17039,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 return this.each(function () {
                   delete this[jQuery.propFix[name] || name];
                 });
-              }
+              },
             });
 
             jQuery.extend({
@@ -17060,7 +17062,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (value !== undefined) {
                   if (
                     hooks &&
-                    'set' in hooks &&
+                    "set" in hooks &&
                     (ret = hooks.set(elem, value, name)) !== undefined
                   ) {
                     return ret;
@@ -17071,7 +17073,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 if (
                   hooks &&
-                  'get' in hooks &&
+                  "get" in hooks &&
                   (ret = hooks.get(elem, name)) !== null
                 ) {
                   return ret;
@@ -17088,7 +17090,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // correct value when it hasn't been explicitly set
                     // https://web.archive.org/web/20141116233347/http://fluidproject.org/blog/2008/01/09/getting-setting-and-removing-tabindex-values-with-javascript/
                     // Use proper attribute retrieval(#12072)
-                    var tabindex = jQuery.find.attr(elem, 'tabindex');
+                    var tabindex = jQuery.find.attr(elem, "tabindex");
 
                     if (tabindex) {
                       return parseInt(tabindex, 10);
@@ -17102,14 +17104,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
 
                     return -1;
-                  }
-                }
+                  },
+                },
               },
 
               propFix: {
-                for: 'htmlFor',
-                class: 'className'
-              }
+                for: "htmlFor",
+                class: "className",
+              },
             });
 
             // Support: IE <=11 only
@@ -17142,22 +17144,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       parent.parentNode.selectedIndex;
                     }
                   }
-                }
+                },
               };
             }
 
             jQuery.each(
               [
-                'tabIndex',
-                'readOnly',
-                'maxLength',
-                'cellSpacing',
-                'cellPadding',
-                'rowSpan',
-                'colSpan',
-                'useMap',
-                'frameBorder',
-                'contentEditable'
+                "tabIndex",
+                "readOnly",
+                "maxLength",
+                "cellSpacing",
+                "cellPadding",
+                "rowSpan",
+                "colSpan",
+                "useMap",
+                "frameBorder",
+                "contentEditable",
               ],
               function () {
                 jQuery.propFix[this.toLowerCase()] = this;
@@ -17168,18 +17170,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // https://infra.spec.whatwg.org/#strip-and-collapse-ascii-whitespace
             function stripAndCollapse(value) {
               var tokens = value.match(rnothtmlwhite) || [];
-              return tokens.join(' ');
+              return tokens.join(" ");
             }
 
             function getClass(elem) {
-              return (elem.getAttribute && elem.getAttribute('class')) || '';
+              return (elem.getAttribute && elem.getAttribute("class")) || "";
             }
 
             function classesToArray(value) {
               if (Array.isArray(value)) {
                 return value;
               }
-              if (typeof value === 'string') {
+              if (typeof value === "string") {
                 return value.match(rnothtmlwhite) || [];
               }
               return [];
@@ -17209,20 +17211,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     curValue = getClass(elem);
                     cur =
                       elem.nodeType === 1 &&
-                      ' ' + stripAndCollapse(curValue) + ' ';
+                      " " + stripAndCollapse(curValue) + " ";
 
                     if (cur) {
                       j = 0;
                       while ((clazz = classes[j++])) {
-                        if (cur.indexOf(' ' + clazz + ' ') < 0) {
-                          cur += clazz + ' ';
+                        if (cur.indexOf(" " + clazz + " ") < 0) {
+                          cur += clazz + " ";
                         }
                       }
 
                       // Only assign if different to avoid unneeded rendering.
                       finalValue = stripAndCollapse(cur);
                       if (curValue !== finalValue) {
-                        elem.setAttribute('class', finalValue);
+                        elem.setAttribute("class", finalValue);
                       }
                     }
                   }
@@ -17250,7 +17252,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 if (!arguments.length) {
-                  return this.attr('class', '');
+                  return this.attr("class", "");
                 }
 
                 classes = classesToArray(value);
@@ -17262,21 +17264,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // This expression is here for better compressibility (see addClass)
                     cur =
                       elem.nodeType === 1 &&
-                      ' ' + stripAndCollapse(curValue) + ' ';
+                      " " + stripAndCollapse(curValue) + " ";
 
                     if (cur) {
                       j = 0;
                       while ((clazz = classes[j++])) {
                         // Remove *all* instances
-                        while (cur.indexOf(' ' + clazz + ' ') > -1) {
-                          cur = cur.replace(' ' + clazz + ' ', ' ');
+                        while (cur.indexOf(" " + clazz + " ") > -1) {
+                          cur = cur.replace(" " + clazz + " ", " ");
                         }
                       }
 
                       // Only assign if different to avoid unneeded rendering.
                       finalValue = stripAndCollapse(cur);
                       if (curValue !== finalValue) {
-                        elem.setAttribute('class', finalValue);
+                        elem.setAttribute("class", finalValue);
                       }
                     }
                   }
@@ -17287,9 +17289,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               toggleClass: function (value, stateVal) {
                 var type = typeof value,
-                  isValidValue = type === 'string' || Array.isArray(value);
+                  isValidValue = type === "string" || Array.isArray(value);
 
-                if (typeof stateVal === 'boolean' && isValidValue) {
+                if (typeof stateVal === "boolean" && isValidValue) {
                   return stateVal
                     ? this.addClass(value)
                     : this.removeClass(value);
@@ -17323,11 +17325,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
 
                     // Toggle whole class name
-                  } else if (value === undefined || type === 'boolean') {
+                  } else if (value === undefined || type === "boolean") {
                     className = getClass(this);
                     if (className) {
                       // Store className if set
-                      dataPriv.set(this, '__className__', className);
+                      dataPriv.set(this, "__className__", className);
                     }
 
                     // If the element has a class name or if we're passed `false`,
@@ -17336,10 +17338,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // falling back to the empty string if nothing was stored.
                     if (this.setAttribute) {
                       this.setAttribute(
-                        'class',
+                        "class",
                         className || value === false
-                          ? ''
-                          : dataPriv.get(this, '__className__') || ''
+                          ? ""
+                          : dataPriv.get(this, "__className__") || ""
                       );
                     }
                   }
@@ -17351,11 +17353,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   elem,
                   i = 0;
 
-                className = ' ' + selector + ' ';
+                className = " " + selector + " ";
                 while ((elem = this[i++])) {
                   if (
                     elem.nodeType === 1 &&
-                    (' ' + stripAndCollapse(getClass(elem)) + ' ').indexOf(
+                    (" " + stripAndCollapse(getClass(elem)) + " ").indexOf(
                       className
                     ) > -1
                   ) {
@@ -17364,7 +17366,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 return false;
-              }
+              },
             });
 
             var rreturn = /\r/g;
@@ -17384,8 +17386,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                     if (
                       hooks &&
-                      'get' in hooks &&
-                      (ret = hooks.get(elem, 'value')) !== undefined
+                      "get" in hooks &&
+                      (ret = hooks.get(elem, "value")) !== undefined
                     ) {
                       return ret;
                     }
@@ -17393,12 +17395,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     ret = elem.value;
 
                     // Handle most common string cases
-                    if (typeof ret === 'string') {
-                      return ret.replace(rreturn, '');
+                    if (typeof ret === "string") {
+                      return ret.replace(rreturn, "");
                     }
 
                     // Handle cases where value is null/undef or number
-                    return ret == null ? '' : ret;
+                    return ret == null ? "" : ret;
                   }
 
                   return;
@@ -17421,12 +17423,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Treat null/undefined as ""; convert numbers to string
                   if (val == null) {
-                    val = '';
-                  } else if (typeof val === 'number') {
-                    val += '';
+                    val = "";
+                  } else if (typeof val === "number") {
+                    val += "";
                   } else if (Array.isArray(val)) {
                     val = jQuery.map(val, function (value) {
-                      return value == null ? '' : value + '';
+                      return value == null ? "" : value + "";
                     });
                   }
 
@@ -17437,28 +17439,28 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // If set returns undefined, fall back to normal setting
                   if (
                     !hooks ||
-                    !('set' in hooks) ||
-                    hooks.set(this, val, 'value') === undefined
+                    !("set" in hooks) ||
+                    hooks.set(this, val, "value") === undefined
                   ) {
                     this.value = val;
                   }
                 });
-              }
+              },
             });
 
             jQuery.extend({
               valHooks: {
                 option: {
                   get: function (elem) {
-                    var val = jQuery.find.attr(elem, 'value');
+                    var val = jQuery.find.attr(elem, "value");
                     return val != null
                       ? val
                       : // Support: IE <=10 - 11 only
-                        // option.text throws exceptions (#14686, #14858)
-                        // Strip and collapse whitespace
-                        // https://html.spec.whatwg.org/#strip-and-collapse-whitespace
-                        stripAndCollapse(jQuery.text(elem));
-                  }
+                      // option.text throws exceptions (#14686, #14858)
+                      // Strip and collapse whitespace
+                      // https://html.spec.whatwg.org/#strip-and-collapse-whitespace
+                      stripAndCollapse(jQuery.text(elem));
+                  },
                 },
                 select: {
                   get: function (elem) {
@@ -17467,7 +17469,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       i,
                       options = elem.options,
                       index = elem.selectedIndex,
-                      one = elem.type === 'select-one',
+                      one = elem.type === "select-one",
                       values = one ? null : [],
                       max = one ? index + 1 : options.length;
 
@@ -17488,7 +17490,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                         // Don't return options that are disabled or in a disabled optgroup
                         !option.disabled &&
                         (!option.parentNode.disabled ||
-                          !nodeName(option.parentNode, 'optgroup'))
+                          !nodeName(option.parentNode, "optgroup"))
                       ) {
                         // Get the specific value for the option
                         value = jQuery(option).val();
@@ -17536,25 +17538,25 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       elem.selectedIndex = -1;
                     }
                     return values;
-                  }
-                }
-              }
+                  },
+                },
+              },
             });
 
             // Radios and checkboxes getter/setter
-            jQuery.each(['radio', 'checkbox'], function () {
+            jQuery.each(["radio", "checkbox"], function () {
               jQuery.valHooks[this] = {
                 set: function (elem, value) {
                   if (Array.isArray(value)) {
                     return (elem.checked =
                       jQuery.inArray(jQuery(elem).val(), value) > -1);
                   }
-                }
+                },
               };
               if (!support.checkOn) {
                 jQuery.valHooks[this].get = function (elem) {
-                  return elem.getAttribute('value') === null
-                    ? 'on'
+                  return elem.getAttribute("value") === null
+                    ? "on"
                     : elem.value;
                 };
               }
@@ -17562,7 +17564,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             // Return jQuery for attributes-only inclusion
 
-            support.focusin = 'onfocusin' in window;
+            support.focusin = "onfocusin" in window;
 
             var rfocusMorph = /^(?:focusinfocus|focusoutblur)$/,
               stopPropagationCallback = function (e) {
@@ -17580,9 +17582,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   special,
                   lastElement,
                   eventPath = [elem || document],
-                  type = hasOwn.call(event, 'type') ? event.type : event,
-                  namespaces = hasOwn.call(event, 'namespace')
-                    ? event.namespace.split('.')
+                  type = hasOwn.call(event, "type") ? event.type : event,
+                  namespaces = hasOwn.call(event, "namespace")
+                    ? event.namespace.split(".")
                     : [];
 
                 cur = lastElement = tmp = elem = elem || document;
@@ -17597,26 +17599,26 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return;
                 }
 
-                if (type.indexOf('.') > -1) {
+                if (type.indexOf(".") > -1) {
                   // Namespaced trigger; create a regexp to match event type in handle()
-                  namespaces = type.split('.');
+                  namespaces = type.split(".");
                   type = namespaces.shift();
                   namespaces.sort();
                 }
-                ontype = type.indexOf(':') < 0 && 'on' + type;
+                ontype = type.indexOf(":") < 0 && "on" + type;
 
                 // Caller can pass in a jQuery.Event object, Object, or just an event type string
                 event = event[jQuery.expando]
                   ? event
-                  : new jQuery.Event(type, typeof event === 'object' && event);
+                  : new jQuery.Event(type, typeof event === "object" && event);
 
                 // Trigger bitmask: & 1 for native handlers; & 2 for jQuery (always true)
                 event.isTrigger = onlyHandlers ? 2 : 3;
-                event.namespace = namespaces.join('.');
+                event.namespace = namespaces.join(".");
                 event.rnamespace = event.namespace
                   ? new RegExp(
-                      '(^|\\.)' + namespaces.join('\\.(?:.*\\.|)') + '(\\.|$)'
-                    )
+                    "(^|\\.)" + namespaces.join("\\.(?:.*\\.|)") + "(\\.|$)"
+                  )
                   : null;
 
                 // Clean up the event in case it is being reused
@@ -17669,9 +17671,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // jQuery handler
                   handle =
-                    (dataPriv.get(cur, 'events') || Object.create(null))[
-                      event.type
-                    ] && dataPriv.get(cur, 'handle');
+                    (dataPriv.get(cur, "events") || Object.create(null))[
+                    event.type
+                    ] && dataPriv.get(cur, "handle");
                   if (handle) {
                     handle.apply(cur, data);
                   }
@@ -17692,7 +17694,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   if (
                     (!special._default ||
                       special._default.apply(eventPath.pop(), data) ===
-                        false) &&
+                      false) &&
                     acceptData(elem)
                   ) {
                     // Call a native DOM method on the target with the same name as the event.
@@ -17741,11 +17743,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               simulate: function (type, elem, event) {
                 var e = jQuery.extend(new jQuery.Event(), event, {
                   type: type,
-                  isSimulated: true
+                  isSimulated: true,
                 });
 
                 jQuery.event.trigger(e, null, elem);
-              }
+              },
             });
 
             jQuery.fn.extend({
@@ -17759,7 +17761,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 if (elem) {
                   return jQuery.event.trigger(type, data, elem, true);
                 }
-              }
+              },
             });
 
             // Support: Firefox <=44
@@ -17772,7 +17774,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Related ticket - https://bugs.chromium.org/p/chromium/issues/detail?id=449857
             if (!support.focusin) {
               jQuery.each(
-                { focus: 'focusin', blur: 'focusout' },
+                { focus: "focusin", blur: "focusout" },
                 function (orig, fix) {
                   // Attach a single capturing handler on the document while someone wants focusin/focusout
                   var handler = function (event) {
@@ -17805,7 +17807,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       } else {
                         dataPriv.access(doc, fix, attaches);
                       }
-                    }
+                    },
                   };
                 }
               );
@@ -17819,28 +17821,28 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Cross-browser xml parsing
             jQuery.parseXML = function (data) {
               var xml, parserErrorElem;
-              if (!data || typeof data !== 'string') {
+              if (!data || typeof data !== "string") {
                 return null;
               }
 
               // Support: IE 9 - 11 only
               // IE throws on parseFromString with invalid input.
               try {
-                xml = new window.DOMParser().parseFromString(data, 'text/xml');
-              } catch (e) {}
+                xml = new window.DOMParser().parseFromString(data, "text/xml");
+              } catch (e) { }
 
               parserErrorElem =
-                xml && xml.getElementsByTagName('parsererror')[0];
+                xml && xml.getElementsByTagName("parsererror")[0];
               if (!xml || parserErrorElem) {
                 jQuery.error(
-                  'Invalid XML: ' +
-                    (parserErrorElem
-                      ? jQuery
-                          .map(parserErrorElem.childNodes, function (el) {
-                            return el.textContent;
-                          })
-                          .join('\n')
-                      : data)
+                  "Invalid XML: " +
+                  (parserErrorElem
+                    ? jQuery
+                      .map(parserErrorElem.childNodes, function (el) {
+                        return el.textContent;
+                      })
+                      .join("\n")
+                    : data)
                 );
               }
               return xml;
@@ -17864,20 +17866,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Item is non-scalar (array or object), encode its numeric index.
                     buildParams(
                       prefix +
-                        '[' +
-                        (typeof v === 'object' && v != null ? i : '') +
-                        ']',
+                      "[" +
+                      (typeof v === "object" && v != null ? i : "") +
+                      "]",
                       v,
                       traditional,
                       add
                     );
                   }
                 });
-              } else if (!traditional && toType(obj) === 'object') {
+              } else if (!traditional && toType(obj) === "object") {
                 // Serialize object item.
                 for (name in obj) {
                   buildParams(
-                    prefix + '[' + name + ']',
+                    prefix + "[" + name + "]",
                     obj[name],
                     traditional,
                     add
@@ -17902,12 +17904,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   s[s.length] =
                     encodeURIComponent(key) +
-                    '=' +
-                    encodeURIComponent(value == null ? '' : value);
+                    "=" +
+                    encodeURIComponent(value == null ? "" : value);
                 };
 
               if (a == null) {
-                return '';
+                return "";
               }
 
               // If an array was passed in, assume that it is an array of form elements.
@@ -17925,7 +17927,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               }
 
               // Return the resulting serialization
-              return s.join('&');
+              return s.join("&");
             };
 
             jQuery.fn.extend({
@@ -17935,7 +17937,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               serializeArray: function () {
                 return this.map(function () {
                   // Can add propHook for "elements" to filter or add form elements
-                  var elements = jQuery.prop(this, 'elements');
+                  var elements = jQuery.prop(this, "elements");
                   return elements ? jQuery.makeArray(elements) : this;
                 })
                   .filter(function () {
@@ -17944,7 +17946,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Use .is( ":disabled" ) so that fieldset[disabled] works
                     return (
                       this.name &&
-                      !jQuery(this).is(':disabled') &&
+                      !jQuery(this).is(":disabled") &&
                       rsubmittable.test(this.nodeName) &&
                       !rsubmitterTypes.test(type) &&
                       (this.checked || !rcheckableType.test(type))
@@ -17961,18 +17963,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       return jQuery.map(val, function (val) {
                         return {
                           name: elem.name,
-                          value: val.replace(rCRLF, '\r\n')
+                          value: val.replace(rCRLF, "\r\n"),
                         };
                       });
                     }
 
                     return {
                       name: elem.name,
-                      value: val.replace(rCRLF, '\r\n')
+                      value: val.replace(rCRLF, "\r\n"),
                     };
                   })
                   .get();
-              }
+              },
             });
 
             var r20 = /%20/g,
@@ -18001,9 +18003,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                */
               transports = {},
               // Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
-              allTypes = '*/'.concat('*'),
+              allTypes = "*/".concat("*"),
               // Anchor tag for parsing the document origin
-              originAnchor = document.createElement('a');
+              originAnchor = document.createElement("a");
 
             originAnchor.href = location.href;
 
@@ -18011,9 +18013,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             function addToPrefiltersOrTransports(structure) {
               // dataTypeExpression is optional and defaults to "*"
               return function (dataTypeExpression, func) {
-                if (typeof dataTypeExpression !== 'string') {
+                if (typeof dataTypeExpression !== "string") {
                   func = dataTypeExpression;
-                  dataTypeExpression = '*';
+                  dataTypeExpression = "*";
                 }
 
                 var dataType,
@@ -18025,8 +18027,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // For each dataType in the dataTypeExpression
                   while ((dataType = dataTypes[i++])) {
                     // Prepend if requested
-                    if (dataType[0] === '+') {
-                      dataType = dataType.slice(1) || '*';
+                    if (dataType[0] === "+") {
+                      dataType = dataType.slice(1) || "*";
                       (structure[dataType] = structure[dataType] || []).unshift(
                         func
                       );
@@ -18064,7 +18066,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       jqXHR
                     );
                     if (
-                      typeof dataTypeOrTransport === 'string' &&
+                      typeof dataTypeOrTransport === "string" &&
                       !seekingTransport &&
                       !inspected[dataTypeOrTransport]
                     ) {
@@ -18081,7 +18083,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               return (
                 inspect(options.dataTypes[0]) ||
-                (!inspected['*'] && inspect('*'))
+                (!inspected["*"] && inspect("*"))
               );
             }
 
@@ -18119,10 +18121,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 dataTypes = s.dataTypes;
 
               // Remove auto dataType and get content-type in the process
-              while (dataTypes[0] === '*') {
+              while (dataTypes[0] === "*") {
                 dataTypes.shift();
                 if (ct === undefined) {
-                  ct = s.mimeType || jqXHR.getResponseHeader('Content-Type');
+                  ct = s.mimeType || jqXHR.getResponseHeader("Content-Type");
                 }
               }
 
@@ -18144,7 +18146,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 for (type in responses) {
                   if (
                     !dataTypes[0] ||
-                    s.converters[type + ' ' + dataTypes[0]]
+                    s.converters[type + " " + dataTypes[0]]
                   ) {
                     finalDataType = type;
                     break;
@@ -18207,26 +18209,26 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 if (current) {
                   // There's only work to do if current dataType is non-auto
-                  if (current === '*') {
+                  if (current === "*") {
                     current = prev;
 
                     // Convert response if prev dataType is non-auto and differs from current
-                  } else if (prev !== '*' && prev !== current) {
+                  } else if (prev !== "*" && prev !== current) {
                     // Seek a direct converter
                     conv =
-                      converters[prev + ' ' + current] ||
-                      converters['* ' + current];
+                      converters[prev + " " + current] ||
+                      converters["* " + current];
 
                     // If none found, seek a pair
                     if (!conv) {
                       for (conv2 in converters) {
                         // If conv2 outputs current
-                        tmp = conv2.split(' ');
+                        tmp = conv2.split(" ");
                         if (tmp[1] === current) {
                           // If prev can be converted to accepted input
                           conv =
-                            converters[prev + ' ' + tmp[0]] ||
-                            converters['* ' + tmp[0]];
+                            converters[prev + " " + tmp[0]] ||
+                            converters["* " + tmp[0]];
                           if (conv) {
                             // Condense equivalence converters
                             if (conv === true) {
@@ -18253,10 +18255,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           response = conv(response);
                         } catch (e) {
                           return {
-                            state: 'parsererror',
+                            state: "parsererror",
                             error: conv
                               ? e
-                              : 'No conversion from ' + prev + ' to ' + current
+                              : "No conversion from " + prev + " to " + current,
                           };
                         }
                       }
@@ -18265,7 +18267,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
               }
 
-              return { state: 'success', data: response };
+              return { state: "success", data: response };
             }
 
             jQuery.extend({
@@ -18278,12 +18280,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               ajaxSettings: {
                 url: location.href,
-                type: 'GET',
+                type: "GET",
                 isLocal: rlocalProtocol.test(location.protocol),
                 global: true,
                 processData: true,
                 async: true,
-                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 
                 /*
         timeout: 0,
@@ -18298,39 +18300,39 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         */
 
                 accepts: {
-                  '*': allTypes,
-                  text: 'text/plain',
-                  html: 'text/html',
-                  xml: 'application/xml, text/xml',
-                  json: 'application/json, text/javascript'
+                  "*": allTypes,
+                  text: "text/plain",
+                  html: "text/html",
+                  xml: "application/xml, text/xml",
+                  json: "application/json, text/javascript",
                 },
 
                 contents: {
                   xml: /\bxml\b/,
                   html: /\bhtml/,
-                  json: /\bjson\b/
+                  json: /\bjson\b/,
                 },
 
                 responseFields: {
-                  xml: 'responseXML',
-                  text: 'responseText',
-                  json: 'responseJSON'
+                  xml: "responseXML",
+                  text: "responseText",
+                  json: "responseJSON",
                 },
 
                 // Data converters
                 // Keys separate source (or catchall "*") and destination types with a single space
                 converters: {
                   // Convert anything to text
-                  '* text': String,
+                  "* text": String,
 
                   // Text to html (true = no transformation)
-                  'text html': true,
+                  "text html": true,
 
                   // Evaluate text as a json expression
-                  'text json': JSON.parse,
+                  "text json": JSON.parse,
 
                   // Parse text as xml
-                  'text xml': jQuery.parseXML
+                  "text xml": jQuery.parseXML,
                 },
 
                 // For options that shouldn't be deep extended:
@@ -18339,8 +18341,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // deep extended (see ajaxExtend)
                 flatOptions: {
                   url: true,
-                  context: true
-                }
+                  context: true,
+                },
               },
 
               // Creates a full fledged settings object into target
@@ -18349,12 +18351,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               ajaxSetup: function (target, settings) {
                 return settings
                   ? // Building a settings object
-                    ajaxExtend(
-                      ajaxExtend(target, jQuery.ajaxSettings),
-                      settings
-                    )
+                  ajaxExtend(
+                    ajaxExtend(target, jQuery.ajaxSettings),
+                    settings
+                  )
                   : // Extending ajaxSettings
-                    ajaxExtend(jQuery.ajaxSettings, target);
+                  ajaxExtend(jQuery.ajaxSettings, target);
               },
 
               ajaxPrefilter: addToPrefiltersOrTransports(prefilters),
@@ -18363,7 +18365,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // Main method
               ajax: function (url, options) {
                 // If url is an object, simulate pre-1.5 signature
-                if (typeof url === 'object') {
+                if (typeof url === "object") {
                   options = url;
                   url = undefined;
                 }
@@ -18396,19 +18398,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Context for global events is callbackContext if it is a DOM node or jQuery collection
                   globalEventContext =
                     s.context &&
-                    (callbackContext.nodeType || callbackContext.jquery)
+                      (callbackContext.nodeType || callbackContext.jquery)
                       ? jQuery(callbackContext)
                       : jQuery.event,
                   // Deferreds
                   deferred = jQuery.Deferred(),
-                  completeDeferred = jQuery.Callbacks('once memory'),
+                  completeDeferred = jQuery.Callbacks("once memory"),
                   // Status-dependent callbacks
                   statusCode = s.statusCode || {},
                   // Headers (they are sent all at once)
                   requestHeaders = {},
                   requestHeadersNames = {},
                   // Default abort message
-                  strAbort = 'canceled',
+                  strAbort = "canceled",
                   // Fake xhr
                   jqXHR = {
                     readyState: 0,
@@ -18422,15 +18424,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                           while (
                             (match = rheaders.exec(responseHeadersString))
                           ) {
-                            responseHeaders[match[1].toLowerCase() + ' '] = (
-                              responseHeaders[match[1].toLowerCase() + ' '] ||
+                            responseHeaders[match[1].toLowerCase() + " "] = (
+                              responseHeaders[match[1].toLowerCase() + " "] ||
                               []
                             ).concat(match[2]);
                           }
                         }
-                        match = responseHeaders[key.toLowerCase() + ' '];
+                        match = responseHeaders[key.toLowerCase() + " "];
                       }
-                      return match == null ? null : match.join(', ');
+                      return match == null ? null : match.join(", ");
                     },
 
                     // Raw string
@@ -18481,7 +18483,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       }
                       done(0, finalText);
                       return this;
-                    }
+                    },
                   };
 
                 // Attach deferreds
@@ -18490,22 +18492,22 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Add protocol if not provided (prefilters might expect it)
                 // Handle falsy url in the settings object (#10093: consistency with old signature)
                 // We also use the url parameter if available
-                s.url = ((url || s.url || location.href) + '').replace(
+                s.url = ((url || s.url || location.href) + "").replace(
                   rprotocol,
-                  location.protocol + '//'
+                  location.protocol + "//"
                 );
 
                 // Alias method option to type as per ticket #12004
                 s.type = options.method || options.type || s.method || s.type;
 
                 // Extract dataTypes list
-                s.dataTypes = (s.dataType || '*')
+                s.dataTypes = (s.dataType || "*")
                   .toLowerCase()
-                  .match(rnothtmlwhite) || [''];
+                  .match(rnothtmlwhite) || [""];
 
                 // A cross-domain request is in order when the origin doesn't match the current origin.
                 if (s.crossDomain == null) {
-                  urlAnchor = document.createElement('a');
+                  urlAnchor = document.createElement("a");
 
                   // Support: IE <=8 - 11, Edge 12 - 15
                   // IE throws exception on accessing the href property if url is malformed,
@@ -18517,8 +18519,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Anchor's host property isn't correctly set when s.url is relative
                     urlAnchor.href = urlAnchor.href;
                     s.crossDomain =
-                      originAnchor.protocol + '//' + originAnchor.host !==
-                      urlAnchor.protocol + '//' + urlAnchor.host;
+                      originAnchor.protocol + "//" + originAnchor.host !==
+                      urlAnchor.protocol + "//" + urlAnchor.host;
                   } catch (e) {
                     // If there is an error parsing the URL, assume it is crossDomain,
                     // it can be rejected by the transport if it is invalid
@@ -18527,7 +18529,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Convert data if not already a string
-                if (s.data && s.processData && typeof s.data !== 'string') {
+                if (s.data && s.processData && typeof s.data !== "string") {
                   s.data = jQuery.param(s.data, s.traditional);
                 }
 
@@ -18545,7 +18547,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // Watch for a new set of requests
                 if (fireGlobals && jQuery.active++ === 0) {
-                  jQuery.event.trigger('ajaxStart');
+                  jQuery.event.trigger("ajaxStart");
                 }
 
                 // Uppercase the type
@@ -18557,7 +18559,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Save the URL in case we're toying with the If-Modified-Since
                 // and/or If-None-Match header later on
                 // Remove hash to simplify url manipulation
-                cacheURL = s.url.replace(rhash, '');
+                cacheURL = s.url.replace(rhash, "");
 
                 // More options handling for requests with no content
                 if (!s.hasContent) {
@@ -18565,8 +18567,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   uncached = s.url.slice(cacheURL.length);
 
                   // If data is available and should be processed, append data to url
-                  if (s.data && (s.processData || typeof s.data === 'string')) {
-                    cacheURL += (rquery.test(cacheURL) ? '&' : '?') + s.data;
+                  if (s.data && (s.processData || typeof s.data === "string")) {
+                    cacheURL += (rquery.test(cacheURL) ? "&" : "?") + s.data;
 
                     // #9682: remove data so that it's not used in an eventual retry
                     delete s.data;
@@ -18574,10 +18576,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Add or update anti-cache param if needed
                   if (s.cache === false) {
-                    cacheURL = cacheURL.replace(rantiCache, '$1');
+                    cacheURL = cacheURL.replace(rantiCache, "$1");
                     uncached =
-                      (rquery.test(cacheURL) ? '&' : '?') +
-                      '_=' +
+                      (rquery.test(cacheURL) ? "&" : "?") +
+                      "_=" +
                       nonce.guid++ +
                       uncached;
                   }
@@ -18589,24 +18591,24 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 } else if (
                   s.data &&
                   s.processData &&
-                  (s.contentType || '').indexOf(
-                    'application/x-www-form-urlencoded'
+                  (s.contentType || "").indexOf(
+                    "application/x-www-form-urlencoded"
                   ) === 0
                 ) {
-                  s.data = s.data.replace(r20, '+');
+                  s.data = s.data.replace(r20, "+");
                 }
 
                 // Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
                 if (s.ifModified) {
                   if (jQuery.lastModified[cacheURL]) {
                     jqXHR.setRequestHeader(
-                      'If-Modified-Since',
+                      "If-Modified-Since",
                       jQuery.lastModified[cacheURL]
                     );
                   }
                   if (jQuery.etag[cacheURL]) {
                     jqXHR.setRequestHeader(
-                      'If-None-Match',
+                      "If-None-Match",
                       jQuery.etag[cacheURL]
                     );
                   }
@@ -18617,18 +18619,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   (s.data && s.hasContent && s.contentType !== false) ||
                   options.contentType
                 ) {
-                  jqXHR.setRequestHeader('Content-Type', s.contentType);
+                  jqXHR.setRequestHeader("Content-Type", s.contentType);
                 }
 
                 // Set the Accepts header for the server, depending on the dataType
                 jqXHR.setRequestHeader(
-                  'Accept',
+                  "Accept",
                   s.dataTypes[0] && s.accepts[s.dataTypes[0]]
                     ? s.accepts[s.dataTypes[0]] +
-                        (s.dataTypes[0] !== '*'
-                          ? ', ' + allTypes + '; q=0.01'
-                          : '')
-                    : s.accepts['*']
+                    (s.dataTypes[0] !== "*"
+                      ? ", " + allTypes + "; q=0.01"
+                      : "")
+                    : s.accepts["*"]
                 );
 
                 // Check for headers option
@@ -18647,7 +18649,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 }
 
                 // Aborting is no longer a cancellation
-                strAbort = 'abort';
+                strAbort = "abort";
 
                 // Install callbacks on deferreds
                 completeDeferred.add(s.complete);
@@ -18664,13 +18666,13 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                 // If no transport, we auto-abort
                 if (!transport) {
-                  done(-1, 'No Transport');
+                  done(-1, "No Transport");
                 } else {
                   jqXHR.readyState = 1;
 
                   // Send global event
                   if (fireGlobals) {
-                    globalEventContext.trigger('ajaxSend', [jqXHR, s]);
+                    globalEventContext.trigger("ajaxSend", [jqXHR, s]);
                   }
 
                   // If request was aborted inside ajaxSend, stop there
@@ -18681,7 +18683,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Timeout
                   if (s.async && s.timeout > 0) {
                     timeoutTimer = window.setTimeout(function () {
-                      jqXHR.abort('timeout');
+                      jqXHR.abort("timeout");
                     }, s.timeout);
                   }
 
@@ -18725,7 +18727,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   transport = undefined;
 
                   // Cache response headers
-                  responseHeadersString = headers || '';
+                  responseHeadersString = headers || "";
 
                   // Set readyState
                   jqXHR.readyState = status > 0 ? 4 : 0;
@@ -18741,10 +18743,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Use a noop converter for missing script but not if jsonp
                   if (
                     !isSuccess &&
-                    jQuery.inArray('script', s.dataTypes) > -1 &&
-                    jQuery.inArray('json', s.dataTypes) < 0
+                    jQuery.inArray("script", s.dataTypes) > -1 &&
+                    jQuery.inArray("json", s.dataTypes) < 0
                   ) {
-                    s.converters['text script'] = function () {};
+                    s.converters["text script"] = function () { };
                   }
 
                   // Convert no matter what (that way responseXXX fields are always set)
@@ -18754,23 +18756,23 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   if (isSuccess) {
                     // Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
                     if (s.ifModified) {
-                      modified = jqXHR.getResponseHeader('Last-Modified');
+                      modified = jqXHR.getResponseHeader("Last-Modified");
                       if (modified) {
                         jQuery.lastModified[cacheURL] = modified;
                       }
-                      modified = jqXHR.getResponseHeader('etag');
+                      modified = jqXHR.getResponseHeader("etag");
                       if (modified) {
                         jQuery.etag[cacheURL] = modified;
                       }
                     }
 
                     // if no content
-                    if (status === 204 || s.type === 'HEAD') {
-                      statusText = 'nocontent';
+                    if (status === 204 || s.type === "HEAD") {
+                      statusText = "nocontent";
 
                       // if not modified
                     } else if (status === 304) {
-                      statusText = 'notmodified';
+                      statusText = "notmodified";
 
                       // If we have data, let's convert it
                     } else {
@@ -18783,7 +18785,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // Extract error from statusText and normalize for non-aborts
                     error = statusText;
                     if (status || !statusText) {
-                      statusText = 'error';
+                      statusText = "error";
                       if (status < 0) {
                         status = 0;
                       }
@@ -18792,20 +18794,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   // Set data for the fake xhr object
                   jqXHR.status = status;
-                  jqXHR.statusText = (nativeStatusText || statusText) + '';
+                  jqXHR.statusText = (nativeStatusText || statusText) + "";
 
                   // Success/Error
                   if (isSuccess) {
                     deferred.resolveWith(callbackContext, [
                       success,
                       statusText,
-                      jqXHR
+                      jqXHR,
                     ]);
                   } else {
                     deferred.rejectWith(callbackContext, [
                       jqXHR,
                       statusText,
-                      error
+                      error,
                     ]);
                   }
 
@@ -18815,7 +18817,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   if (fireGlobals) {
                     globalEventContext.trigger(
-                      isSuccess ? 'ajaxSuccess' : 'ajaxError',
+                      isSuccess ? "ajaxSuccess" : "ajaxError",
                       [jqXHR, s, isSuccess ? success : error]
                     );
                   }
@@ -18823,15 +18825,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   // Complete
                   completeDeferred.fireWith(callbackContext, [
                     jqXHR,
-                    statusText
+                    statusText,
                   ]);
 
                   if (fireGlobals) {
-                    globalEventContext.trigger('ajaxComplete', [jqXHR, s]);
+                    globalEventContext.trigger("ajaxComplete", [jqXHR, s]);
 
                     // Handle the global AJAX counter
                     if (!--jQuery.active) {
-                      jQuery.event.trigger('ajaxStop');
+                      jQuery.event.trigger("ajaxStop");
                     }
                   }
                 }
@@ -18840,15 +18842,15 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               },
 
               getJSON: function (url, data, callback) {
-                return jQuery.get(url, data, callback, 'json');
+                return jQuery.get(url, data, callback, "json");
               },
 
               getScript: function (url, callback) {
-                return jQuery.get(url, undefined, callback, 'script');
-              }
+                return jQuery.get(url, undefined, callback, "script");
+              },
             });
 
-            jQuery.each(['get', 'post'], function (_i, method) {
+            jQuery.each(["get", "post"], function (_i, method) {
               jQuery[method] = function (url, data, callback, type) {
                 // Shift arguments if data argument was omitted
                 if (isFunction(data)) {
@@ -18865,7 +18867,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                       type: method,
                       dataType: type,
                       data: data,
-                      success: callback
+                      success: callback,
                     },
                     jQuery.isPlainObject(url) && url
                   )
@@ -18876,8 +18878,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             jQuery.ajaxPrefilter(function (s) {
               var i;
               for (i in s.headers) {
-                if (i.toLowerCase() === 'content-type') {
-                  s.contentType = s.headers[i] || '';
+                if (i.toLowerCase() === "content-type") {
+                  s.contentType = s.headers[i] || "";
                 }
               }
             });
@@ -18887,8 +18889,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 url: url,
 
                 // Make this explicit, since user can override this through ajaxSetup (#11264)
-                type: 'GET',
-                dataType: 'script',
+                type: "GET",
+                dataType: "script",
                 cache: true,
                 async: false,
                 global: false,
@@ -18897,11 +18899,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // dataFilter is not invoked for failure responses, so using it instead
                 // of the default converter is kludgy but it works.
                 converters: {
-                  'text script': function () {}
+                  "text script": function () { },
                 },
                 dataFilter: function (response) {
                   jQuery.globalEval(response, options, doc);
-                }
+                },
               });
             };
 
@@ -18968,12 +18970,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
               unwrap: function (selector) {
                 this.parent(selector)
-                  .not('body')
+                  .not("body")
                   .each(function () {
                     jQuery(this).replaceWith(this.childNodes);
                   });
                 return this;
-              }
+              },
             });
 
             jQuery.expr.pseudos.hidden = function (elem) {
@@ -18990,20 +18992,20 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             jQuery.ajaxSettings.xhr = function () {
               try {
                 return new window.XMLHttpRequest();
-              } catch (e) {}
+              } catch (e) { }
             };
 
             var xhrSuccessStatus = {
-                // File protocol always yields status code 0, assume 200
-                0: 200,
+              // File protocol always yields status code 0, assume 200
+              0: 200,
 
-                // Support: IE <=9 only
-                // #1450: sometimes IE returns 1223 when it should be 204
-                1223: 204
-              },
+              // Support: IE <=9 only
+              // #1450: sometimes IE returns 1223 when it should be 204
+              1223: 204,
+            },
               xhrSupported = jQuery.ajaxSettings.xhr();
 
-            support.cors = !!xhrSupported && 'withCredentials' in xhrSupported;
+            support.cors = !!xhrSupported && "withCredentials" in xhrSupported;
             support.ajax = xhrSupported = !!xhrSupported;
 
             jQuery.ajaxTransport(function (options) {
@@ -19041,8 +19043,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // akin to a jigsaw puzzle, we simply never set it to be sure.
                     // (it can always be set on a per-request basis or even using ajaxSetup)
                     // For same-domain requests, won't change header if already provided.
-                    if (!options.crossDomain && !headers['X-Requested-With']) {
-                      headers['X-Requested-With'] = 'XMLHttpRequest';
+                    if (!options.crossDomain && !headers["X-Requested-With"]) {
+                      headers["X-Requested-With"] = "XMLHttpRequest";
                     }
 
                     // Set headers
@@ -19061,16 +19063,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                             xhr.onabort =
                             xhr.ontimeout =
                             xhr.onreadystatechange =
-                              null;
+                            null;
 
-                          if (type === 'abort') {
+                          if (type === "abort") {
                             xhr.abort();
-                          } else if (type === 'error') {
+                          } else if (type === "error") {
                             // Support: IE <=9 only
                             // On a manual native abort, IE9 throws
                             // errors on any property access that is not readyState
-                            if (typeof xhr.status !== 'number') {
-                              complete(0, 'error');
+                            if (typeof xhr.status !== "number") {
+                              complete(0, "error");
                             } else {
                               complete(
                                 // File: protocol always yields status 0; see #8605, #14207
@@ -19086,8 +19088,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                               // Support: IE <=9 only
                               // IE9 has no XHR2 but throws on binary (trac-11426)
                               // For XHR2 non-text, let the caller handle it (gh-2498)
-                              (xhr.responseType || 'text') !== 'text' ||
-                                typeof xhr.responseText !== 'string'
+                              (xhr.responseType || "text") !== "text" ||
+                                typeof xhr.responseText !== "string"
                                 ? { binary: xhr.response }
                                 : { text: xhr.responseText },
                               xhr.getAllResponseHeaders()
@@ -19102,7 +19104,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     errorCallback =
                       xhr.onerror =
                       xhr.ontimeout =
-                        callback('error');
+                      callback("error");
 
                     // Support: IE 9 only
                     // Use onreadystatechange to replace onabort
@@ -19127,7 +19129,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     }
 
                     // Create the abort callback
-                    callback = callback('abort');
+                    callback = callback("abort");
 
                     try {
                       // Do send the request (this may raise an exception)
@@ -19144,7 +19146,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (callback) {
                       callback();
                     }
-                  }
+                  },
                 };
               }
             });
@@ -19160,48 +19162,48 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             jQuery.ajaxSetup({
               accepts: {
                 script:
-                  'text/javascript, application/javascript, ' +
-                  'application/ecmascript, application/x-ecmascript'
+                  "text/javascript, application/javascript, " +
+                  "application/ecmascript, application/x-ecmascript",
               },
               contents: {
-                script: /\b(?:java|ecma)script\b/
+                script: /\b(?:java|ecma)script\b/,
               },
               converters: {
-                'text script': function (text) {
+                "text script": function (text) {
                   jQuery.globalEval(text);
                   return text;
-                }
-              }
+                },
+              },
             });
 
             // Handle cache's special case and crossDomain
-            jQuery.ajaxPrefilter('script', function (s) {
+            jQuery.ajaxPrefilter("script", function (s) {
               if (s.cache === undefined) {
                 s.cache = false;
               }
               if (s.crossDomain) {
-                s.type = 'GET';
+                s.type = "GET";
               }
             });
 
             // Bind script tag hack transport
-            jQuery.ajaxTransport('script', function (s) {
+            jQuery.ajaxTransport("script", function (s) {
               // This transport only deals with cross domain or forced-by-attrs requests
               if (s.crossDomain || s.scriptAttrs) {
                 var script, callback;
                 return {
                   send: function (_, complete) {
-                    script = jQuery('<script>')
+                    script = jQuery("<script>")
                       .attr(s.scriptAttrs || {})
                       .prop({ charset: s.scriptCharset, src: s.url })
                       .on(
-                        'load error',
+                        "load error",
                         (callback = function (evt) {
                           script.remove();
                           callback = null;
                           if (evt) {
                             complete(
-                              evt.type === 'error' ? 404 : 200,
+                              evt.type === "error" ? 404 : 200,
                               evt.type
                             );
                           }
@@ -19215,7 +19217,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     if (callback) {
                       callback();
                     }
-                  }
+                  },
                 };
               }
             });
@@ -19225,18 +19227,18 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             // Default jsonp settings
             jQuery.ajaxSetup({
-              jsonp: 'callback',
+              jsonp: "callback",
               jsonpCallback: function () {
                 var callback =
-                  oldCallbacks.pop() || jQuery.expando + '_' + nonce.guid++;
+                  oldCallbacks.pop() || jQuery.expando + "_" + nonce.guid++;
                 this[callback] = true;
                 return callback;
-              }
+              },
             });
 
             // Detect, normalize options and install callbacks for jsonp requests
             jQuery.ajaxPrefilter(
-              'json jsonp',
+              "json jsonp",
               function (s, originalSettings, jqXHR) {
                 var callbackName,
                   overwritten,
@@ -19244,16 +19246,16 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   jsonProp =
                     s.jsonp !== false &&
                     (rjsonp.test(s.url)
-                      ? 'url'
-                      : typeof s.data === 'string' &&
-                        (s.contentType || '').indexOf(
-                          'application/x-www-form-urlencoded'
-                        ) === 0 &&
-                        rjsonp.test(s.data) &&
-                        'data');
+                      ? "url"
+                      : typeof s.data === "string" &&
+                      (s.contentType || "").indexOf(
+                        "application/x-www-form-urlencoded"
+                      ) === 0 &&
+                      rjsonp.test(s.data) &&
+                      "data");
 
                 // Handle iff the expected data type is "jsonp" or we have a parameter to set
-                if (jsonProp || s.dataTypes[0] === 'jsonp') {
+                if (jsonProp || s.dataTypes[0] === "jsonp") {
                   // Get callback name, remembering preexisting value associated with it
                   callbackName = s.jsonpCallback = isFunction(s.jsonpCallback)
                     ? s.jsonpCallback()
@@ -19263,26 +19265,26 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   if (jsonProp) {
                     s[jsonProp] = s[jsonProp].replace(
                       rjsonp,
-                      '$1' + callbackName
+                      "$1" + callbackName
                     );
                   } else if (s.jsonp !== false) {
                     s.url +=
-                      (rquery.test(s.url) ? '&' : '?') +
+                      (rquery.test(s.url) ? "&" : "?") +
                       s.jsonp +
-                      '=' +
+                      "=" +
                       callbackName;
                   }
 
                   // Use data converter to retrieve json after script execution
-                  s.converters['script json'] = function () {
+                  s.converters["script json"] = function () {
                     if (!responseContainer) {
-                      jQuery.error(callbackName + ' was not called');
+                      jQuery.error(callbackName + " was not called");
                     }
                     return responseContainer[0];
                   };
 
                   // Force json dataType
-                  s.dataTypes[0] = 'json';
+                  s.dataTypes[0] = "json";
 
                   // Install callback
                   overwritten = window[callbackName];
@@ -19319,7 +19321,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   });
 
                   // Delegate to script
-                  return 'script';
+                  return "script";
                 }
               }
             );
@@ -19330,8 +19332,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Because of that, this security measure has to be disabled in Safari 8.
             // https://bugs.webkit.org/show_bug.cgi?id=137337
             support.createHTMLDocument = (function () {
-              var body = document.implementation.createHTMLDocument('').body;
-              body.innerHTML = '<form></form><form></form>';
+              var body = document.implementation.createHTMLDocument("").body;
+              body.innerHTML = "<form></form><form></form>";
               return body.childNodes.length === 2;
             })();
 
@@ -19340,10 +19342,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // defaults to document
             // keepScripts (optional): If true, will include scripts passed in the html string
             jQuery.parseHTML = function (data, context, keepScripts) {
-              if (typeof data !== 'string') {
+              if (typeof data !== "string") {
                 return [];
               }
-              if (typeof context === 'boolean') {
+              if (typeof context === "boolean") {
                 keepScripts = context;
                 context = false;
               }
@@ -19354,12 +19356,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 // Stop scripts or inline event handlers from being executed immediately
                 // by using document.implementation
                 if (support.createHTMLDocument) {
-                  context = document.implementation.createHTMLDocument('');
+                  context = document.implementation.createHTMLDocument("");
 
                   // Set the base href for the created document
                   // so any parsed elements with URLs
                   // are based on the document's URL (gh-2965)
-                  base = context.createElement('base');
+                  base = context.createElement("base");
                   base.href = document.location.href;
                   context.head.appendChild(base);
                 } else {
@@ -19392,7 +19394,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 type,
                 response,
                 self = this,
-                off = url.indexOf(' ');
+                off = url.indexOf(" ");
 
               if (off > -1) {
                 selector = stripAndCollapse(url.slice(off));
@@ -19406,8 +19408,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 params = undefined;
 
                 // Otherwise, build a param string
-              } else if (params && typeof params === 'object') {
-                type = 'POST';
+              } else if (params && typeof params === "object") {
+                type = "POST";
               }
 
               // If we have elements to modify, make the request
@@ -19419,9 +19421,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     // If "type" variable is undefined, then "GET" method will be used.
                     // Make value of this field explicit since
                     // user can override it through ajaxSetup method
-                    type: type || 'GET',
-                    dataType: 'html',
-                    data: params
+                    type: type || "GET",
+                    dataType: "html",
+                    data: params,
                   })
                   .done(function (responseText) {
                     // Save response for use in complete callback
@@ -19430,12 +19432,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     self.html(
                       selector
                         ? // If a selector was specified, locate the right elements in a dummy div
-                          // Exclude scripts to avoid IE 'Permission Denied' errors
-                          jQuery('<div>')
-                            .append(jQuery.parseHTML(responseText))
-                            .find(selector)
+                        // Exclude scripts to avoid IE 'Permission Denied' errors
+                        jQuery("<div>")
+                          .append(jQuery.parseHTML(responseText))
+                          .find(selector)
                         : // Otherwise use the full result
-                          responseText
+                        responseText
                     );
 
                     // If the request succeeds, this function gets "data", "status", "jqXHR"
@@ -19444,14 +19446,14 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   })
                   .always(
                     callback &&
-                      function (jqXHR, status) {
-                        self.each(function () {
-                          callback.apply(
-                            this,
-                            response || [jqXHR.responseText, status, jqXHR]
-                          );
-                        });
-                      }
+                    function (jqXHR, status) {
+                      self.each(function () {
+                        callback.apply(
+                          this,
+                          response || [jqXHR.responseText, status, jqXHR]
+                        );
+                      });
+                    }
                   );
               }
 
@@ -19473,21 +19475,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   curOffset,
                   curCSSLeft,
                   calculatePosition,
-                  position = jQuery.css(elem, 'position'),
+                  position = jQuery.css(elem, "position"),
                   curElem = jQuery(elem),
                   props = {};
 
                 // Set position first, in-case top/left are set even on static elem
-                if (position === 'static') {
-                  elem.style.position = 'relative';
+                if (position === "static") {
+                  elem.style.position = "relative";
                 }
 
                 curOffset = curElem.offset();
-                curCSSTop = jQuery.css(elem, 'top');
-                curCSSLeft = jQuery.css(elem, 'left');
+                curCSSTop = jQuery.css(elem, "top");
+                curCSSLeft = jQuery.css(elem, "left");
                 calculatePosition =
-                  (position === 'absolute' || position === 'fixed') &&
-                  (curCSSTop + curCSSLeft).indexOf('auto') > -1;
+                  (position === "absolute" || position === "fixed") &&
+                  (curCSSTop + curCSSLeft).indexOf("auto") > -1;
 
                 // Need to be able to calculate position if either
                 // top or left is auto and position is either absolute or fixed
@@ -19512,12 +19514,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   props.left = options.left - curOffset.left + curLeft;
                 }
 
-                if ('using' in options) {
+                if ("using" in options) {
                   options.using.call(elem, props);
                 } else {
                   curElem.css(props);
                 }
-              }
+              },
             };
 
             jQuery.fn.extend({
@@ -19528,8 +19530,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   return options === undefined
                     ? this
                     : this.each(function (i) {
-                        jQuery.offset.setOffset(this, options, i);
-                      });
+                      jQuery.offset.setOffset(this, options, i);
+                    });
                 }
 
                 var rect,
@@ -19553,7 +19555,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                 win = elem.ownerDocument.defaultView;
                 return {
                   top: rect.top + win.pageYOffset,
-                  left: rect.left + win.pageXOffset
+                  left: rect.left + win.pageXOffset,
                 };
               },
 
@@ -19571,7 +19573,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   parentOffset = { top: 0, left: 0 };
 
                 // position:fixed elements are offset from the viewport, which itself always has zero offset
-                if (jQuery.css(elem, 'position') === 'fixed') {
+                if (jQuery.css(elem, "position") === "fixed") {
                   // Assume position:fixed implies availability of getBoundingClientRect
                   offset = elem.getBoundingClientRect();
                 } else {
@@ -19585,7 +19587,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     offsetParent &&
                     (offsetParent === doc.body ||
                       offsetParent === doc.documentElement) &&
-                    jQuery.css(offsetParent, 'position') === 'static'
+                    jQuery.css(offsetParent, "position") === "static"
                   ) {
                     offsetParent = offsetParent.parentNode;
                   }
@@ -19598,12 +19600,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                     parentOffset = jQuery(offsetParent).offset();
                     parentOffset.top += jQuery.css(
                       offsetParent,
-                      'borderTopWidth',
+                      "borderTopWidth",
                       true
                     );
                     parentOffset.left += jQuery.css(
                       offsetParent,
-                      'borderLeftWidth',
+                      "borderLeftWidth",
                       true
                     );
                   }
@@ -19614,11 +19616,11 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                   top:
                     offset.top -
                     parentOffset.top -
-                    jQuery.css(elem, 'marginTop', true),
+                    jQuery.css(elem, "marginTop", true),
                   left:
                     offset.left -
                     parentOffset.left -
-                    jQuery.css(elem, 'marginLeft', true)
+                    jQuery.css(elem, "marginLeft", true),
                 };
               },
 
@@ -19638,21 +19640,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                   while (
                     offsetParent &&
-                    jQuery.css(offsetParent, 'position') === 'static'
+                    jQuery.css(offsetParent, "position") === "static"
                   ) {
                     offsetParent = offsetParent.offsetParent;
                   }
 
                   return offsetParent || documentElement;
                 });
-              }
+              },
             });
 
             // Create scrollLeft and scrollTop methods
             jQuery.each(
-              { scrollLeft: 'pageXOffset', scrollTop: 'pageYOffset' },
+              { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" },
               function (method, prop) {
-                var top = 'pageYOffset' === prop;
+                var top = "pageYOffset" === prop;
 
                 jQuery.fn[method] = function (val) {
                   return access(
@@ -19693,7 +19695,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
             // getComputedStyle returns percent when specified for top/left/bottom/right;
             // rather than make the css module depend on the offset module, just check for it here
-            jQuery.each(['top', 'left'], function (_i, prop) {
+            jQuery.each(["top", "left"], function (_i, prop) {
               jQuery.cssHooks[prop] = addGetHookIf(
                 support.pixelPosition,
                 function (elem, computed) {
@@ -19702,7 +19704,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                     // If curCSS returns percentage, fallback to offset
                     return rnumnonpx.test(computed)
-                      ? jQuery(elem).position()[prop] + 'px'
+                      ? jQuery(elem).position()[prop] + "px"
                       : computed;
                   }
                 }
@@ -19711,25 +19713,25 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
             jQuery.each(
-              { Height: 'height', Width: 'width' },
+              { Height: "height", Width: "width" },
               function (name, type) {
                 jQuery.each(
                   {
-                    padding: 'inner' + name,
+                    padding: "inner" + name,
                     content: type,
-                    '': 'outer' + name
+                    "": "outer" + name,
                   },
                   function (defaultExtra, funcName) {
                     // Margin is only for outerHeight, outerWidth
                     jQuery.fn[funcName] = function (margin, value) {
                       var chainable =
-                          arguments.length &&
-                          (defaultExtra || typeof margin !== 'boolean'),
+                        arguments.length &&
+                        (defaultExtra || typeof margin !== "boolean"),
                         extra =
                           defaultExtra ||
                           (margin === true || value === true
-                            ? 'margin'
-                            : 'border');
+                            ? "margin"
+                            : "border");
 
                       return access(
                         this,
@@ -19738,9 +19740,9 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
                           if (isWindow(elem)) {
                             // $( window ).outerWidth/Height return w/h including scrollbars (gh-1729)
-                            return funcName.indexOf('outer') === 0
-                              ? elem['inner' + name]
-                              : elem.document.documentElement['client' + name];
+                            return funcName.indexOf("outer") === 0
+                              ? elem["inner" + name]
+                              : elem.document.documentElement["client" + name];
                           }
 
                           // Get document width or height
@@ -19750,19 +19752,19 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
                             // Either scroll[Width/Height] or offset[Width/Height] or client[Width/Height],
                             // whichever is greatest
                             return Math.max(
-                              elem.body['scroll' + name],
-                              doc['scroll' + name],
-                              elem.body['offset' + name],
-                              doc['offset' + name],
-                              doc['client' + name]
+                              elem.body["scroll" + name],
+                              doc["scroll" + name],
+                              elem.body["offset" + name],
+                              doc["offset" + name],
+                              doc["client" + name]
                             );
                           }
 
                           return value === undefined
                             ? // Get width or height on the element, requesting but not forcing parseFloat
-                              jQuery.css(elem, type, extra)
+                            jQuery.css(elem, type, extra)
                             : // Set width or height on the element
-                              jQuery.style(elem, type, value, extra);
+                            jQuery.style(elem, type, value, extra);
                         },
                         type,
                         chainable ? margin : undefined,
@@ -19776,12 +19778,12 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
 
             jQuery.each(
               [
-                'ajaxStart',
-                'ajaxStop',
-                'ajaxComplete',
-                'ajaxError',
-                'ajaxSuccess',
-                'ajaxSend'
+                "ajaxStart",
+                "ajaxStop",
+                "ajaxComplete",
+                "ajaxError",
+                "ajaxSuccess",
+                "ajaxSend",
               ],
               function (_i, type) {
                 jQuery.fn[type] = function (fn) {
@@ -19804,21 +19806,21 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               undelegate: function (selector, types, fn) {
                 // ( namespace ) or ( selector, types [, fn] )
                 return arguments.length === 1
-                  ? this.off(selector, '**')
-                  : this.off(types, selector || '**', fn);
+                  ? this.off(selector, "**")
+                  : this.off(types, selector || "**", fn);
               },
 
               hover: function (fnOver, fnOut) {
                 return this.mouseenter(fnOver).mouseleave(fnOut || fnOver);
-              }
+              },
             });
 
             jQuery.each(
               (
-                'blur focus focusin focusout resize scroll click dblclick ' +
-                'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave ' +
-                'change select submit keydown keypress keyup contextmenu'
-              ).split(' '),
+                "blur focus focusin focusout resize scroll click dblclick " +
+                "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+                "change select submit keydown keypress keyup contextmenu"
+              ).split(" "),
               function (_i, name) {
                 // Handle event binding
                 jQuery.fn[name] = function (data, fn) {
@@ -19840,7 +19842,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             jQuery.proxy = function (fn, context) {
               var tmp, args, proxy;
 
-              if (typeof context === 'string') {
+              if (typeof context === "string") {
                 tmp = fn[context];
                 context = fn;
                 fn = tmp;
@@ -19890,7 +19892,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
               // that can be coerced to finite numbers (gh-2662)
               var type = jQuery.type(obj);
               return (
-                (type === 'number' || type === 'string') &&
+                (type === "number" || type === "string") &&
                 // parseFloat NaNs numeric-cast false positives ("")
                 // ...but misinterprets leading-number strings, particularly hex literals ("0x...")
                 // subtraction forces infinities to NaN
@@ -19899,7 +19901,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             };
 
             jQuery.trim = function (text) {
-              return text == null ? '' : (text + '').replace(rtrim, '');
+              return text == null ? "" : (text + "").replace(rtrim, "");
             };
 
             // Register as a named AMD module, since jQuery can be concatenated with other
@@ -19915,8 +19917,8 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // AMD loader is present. jQuery is a special case. For more information, see
             // https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
-            if (typeof define === 'function' && define.amd) {
-              define('jquery', [], function () {
+            if (typeof define === "function" && define.amd) {
+              define("jquery", [], function () {
                 return jQuery;
               });
             }
@@ -19941,7 +19943,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             // Expose jQuery and $ identifiers, even in AMD
             // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
             // and CommonJS for browser emulators (#13566)
-            if (typeof noGlobal === 'undefined') {
+            if (typeof noGlobal === "undefined") {
               window.jQuery = window.$ = jQuery;
             }
 
@@ -19952,34 +19954,34 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         /***/
       },
 
-    /***/ './src/js/cursor.js':
+    /***/ "./src/js/cursor.js":
       /*!**************************!*\
   !*** ./src/js/cursor.js ***!
   \**************************/
       /*! exports provided: default */
       /***/ function (module, __webpack_exports__, __webpack_require__) {
-        'use strict';
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'default',
+          "default",
           function () {
             return Cursor;
           }
         );
         /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            /*! jquery */ './node_modules/jquery/dist/jquery.js'
+            /*! jquery */ "./node_modules/jquery/dist/jquery.js"
           );
         /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             jquery__WEBPACK_IMPORTED_MODULE_0__
           );
         /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(/*! gsap */ './node_modules/gsap/index.js');
+          __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
         function _classCallCheck(instance, Constructor) {
           if (!(instance instanceof Constructor)) {
-            throw new TypeError('Cannot call a class as a function');
+            throw new TypeError("Cannot call a class as a function");
           }
         }
         function _defineProperties(target, props) {
@@ -19987,7 +19989,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             var descriptor = props[i];
             descriptor.enumerable = descriptor.enumerable || false;
             descriptor.configurable = true;
-            if ('value' in descriptor) descriptor.writable = true;
+            if ("value" in descriptor) descriptor.writable = true;
             Object.defineProperty(target, descriptor.key, descriptor);
           }
         }
@@ -20003,10 +20005,10 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(
               true,
               {
-                container: 'body',
+                container: "body",
                 speed: 0.7,
-                ease: 'expo.out',
-                visibleTimeout: 300
+                ease: "expo.out",
+                visibleTimeout: 300,
               },
               options
             );
@@ -20023,167 +20025,167 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
           }
           _createClass(Cursor, [
             {
-              key: 'init',
+              key: "init",
               value: function init() {
                 this.el.append(this.text);
                 this.body.append(this.el);
                 this.bind();
                 this.move(-window.innerWidth, -window.innerHeight, 0);
-              }
+              },
             },
             {
-              key: 'bind',
+              key: "bind",
               value: function bind() {
                 var _this = this;
                 var self = this;
                 this.body
-                  .on('mouseleave', function () {
+                  .on("mouseleave", function () {
                     self.hide();
                   })
-                  .on('mouseenter', function () {
+                  .on("mouseenter", function () {
                     self.show();
                   })
-                  .on('mousemove', function (e) {
+                  .on("mousemove", function (e) {
                     _this.pos = {
                       x: _this.stick
                         ? _this.stick.x - (_this.stick.x - e.clientX) * 0.15
                         : e.clientX,
                       y: _this.stick
                         ? _this.stick.y - (_this.stick.y - e.clientY) * 0.15
-                        : e.clientY
+                        : e.clientY,
                     };
                     _this.update();
                   })
-                  .on('mousedown', function () {
-                    self.setState('-active');
+                  .on("mousedown", function () {
+                    self.setState("-active");
                   })
-                  .on('mouseup', function () {
-                    self.removeState('-active');
+                  .on("mouseup", function () {
+                    self.removeState("-active");
                   })
-                  .on('mouseenter', 'a,input,textarea,button', function () {
-                    self.setState('-pointer');
+                  .on("mouseenter", "a,input,textarea,button", function () {
+                    self.setState("-pointer");
                   })
-                  .on('mouseleave', 'a,input,textarea,button', function () {
-                    self.removeState('-pointer');
+                  .on("mouseleave", "a,input,textarea,button", function () {
+                    self.removeState("-pointer");
                   })
-                  .on('mouseenter', 'iframe', function () {
+                  .on("mouseenter", "iframe", function () {
                     self.hide();
                   })
-                  .on('mouseleave', 'iframe', function () {
+                  .on("mouseleave", "iframe", function () {
                     self.show();
                   })
-                  .on('mouseenter', '[data-cursor]', function () {
+                  .on("mouseenter", "[data-cursor]", function () {
                     self.setState(this.dataset.cursor);
                   })
-                  .on('mouseleave', '[data-cursor]', function () {
+                  .on("mouseleave", "[data-cursor]", function () {
                     self.removeState(this.dataset.cursor);
                   })
-                  .on('mouseenter', '[data-cursor-text]', function () {
+                  .on("mouseenter", "[data-cursor-text]", function () {
                     self.setText(this.dataset.cursorText);
                   })
-                  .on('mouseleave', '[data-cursor-text]', function () {
+                  .on("mouseleave", "[data-cursor-text]", function () {
                     self.removeText();
                   })
-                  .on('mouseenter', '[data-cursor-stick]', function () {
+                  .on("mouseenter", "[data-cursor-stick]", function () {
                     self.setStick(this.dataset.cursorStick);
                   })
-                  .on('mouseleave', '[data-cursor-stick]', function () {
+                  .on("mouseleave", "[data-cursor-stick]", function () {
                     self.removeStick();
                   });
-              }
+              },
             },
             {
-              key: 'setState',
+              key: "setState",
               value: function setState(state) {
                 this.el.addClass(state);
-              }
+              },
             },
             {
-              key: 'removeState',
+              key: "removeState",
               value: function removeState(state) {
                 this.el.removeClass(state);
-              }
+              },
             },
             {
-              key: 'toggleState',
+              key: "toggleState",
               value: function toggleState(state) {
                 this.el.toggleClass(state);
-              }
+              },
             },
             {
-              key: 'setText',
+              key: "setText",
               value: function setText(text) {
                 this.text.html(text);
-                this.el.addClass('-text');
-              }
+                this.el.addClass("-text");
+              },
             },
             {
-              key: 'removeText',
+              key: "removeText",
               value: function removeText() {
-                this.el.removeClass('-text');
-              }
+                this.el.removeClass("-text");
+              },
             },
             {
-              key: 'setStick',
+              key: "setStick",
               value: function setStick(el) {
                 var target = jquery__WEBPACK_IMPORTED_MODULE_0___default()(el);
                 var bound = target.get(0).getBoundingClientRect();
                 this.stick = {
                   y: bound.top + target.height() / 2,
-                  x: bound.left + target.width() / 2
+                  x: bound.left + target.width() / 2,
                 };
                 this.move(this.stick.x, this.stick.y, 5);
-              }
+              },
             },
             {
-              key: 'removeStick',
+              key: "removeStick",
               value: function removeStick() {
                 this.stick = false;
-              }
+              },
             },
             {
-              key: 'update',
+              key: "update",
               value: function update() {
                 this.move();
                 this.show();
-              }
+              },
             },
             {
-              key: 'move',
+              key: "move",
               value: function move(x, y, duration) {
-                gsap__WEBPACK_IMPORTED_MODULE_1__['default'].to(this.el, {
+                gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(this.el, {
                   x: x || this.pos.x,
                   y: y || this.pos.y,
                   force3D: true,
                   overwrite: true,
                   ease: this.options.ease,
-                  duration: this.visible ? duration || this.options.speed : 0
+                  duration: this.visible ? duration || this.options.speed : 0,
                 });
-              }
+              },
             },
             {
-              key: 'show',
+              key: "show",
               value: function show() {
                 var _this2 = this;
                 if (this.visible) return;
                 clearInterval(this.visibleInt);
-                this.el.addClass('-visible');
+                this.el.addClass("-visible");
                 this.visibleInt = setTimeout(function () {
                   return (_this2.visible = true);
                 });
-              }
+              },
             },
             {
-              key: 'hide',
+              key: "hide",
               value: function hide() {
                 var _this3 = this;
                 clearInterval(this.visibleInt);
-                this.el.removeClass('-visible');
+                this.el.removeClass("-visible");
                 this.visibleInt = setTimeout(function () {
                   return (_this3.visible = false);
                 }, this.options.visibleTimeout);
-              }
-            }
+              },
+            },
           ]);
           return Cursor;
         })();
@@ -20191,65 +20193,65 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
         /***/
       },
 
-    /***/ './src/js/index.js':
+    /***/ "./src/js/index.js":
       /*!*************************!*\
   !*** ./src/js/index.js ***!
   \*************************/
       /*! no exports provided */
       /***/ function (module, __webpack_exports__, __webpack_require__) {
-        'use strict';
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            /*! jquery */ './node_modules/jquery/dist/jquery.js'
+            /*! jquery */ "./node_modules/jquery/dist/jquery.js"
           );
         /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             jquery__WEBPACK_IMPORTED_MODULE_0__
           );
         /* harmony import */ var cursor__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(/*! cursor */ './src/js/cursor.js');
+          __webpack_require__(/*! cursor */ "./src/js/cursor.js");
         /* harmony import */ var magnetic__WEBPACK_IMPORTED_MODULE_2__ =
-          __webpack_require__(/*! magnetic */ 'magnetic.js');
+          __webpack_require__(/*! magnetic */ "magnetic.js");
         /*** IMPORTS FROM imports-loader ***/ var define = false; // Init cursor
-        var cursor = new cursor__WEBPACK_IMPORTED_MODULE_1__['default'](); // Init magnetic
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-magnetic]').each(
+        var cursor = new cursor__WEBPACK_IMPORTED_MODULE_1__["default"](); // Init magnetic
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("[data-magnetic]").each(
           function () {
-            new magnetic__WEBPACK_IMPORTED_MODULE_2__['default'](this);
+            new magnetic__WEBPACK_IMPORTED_MODULE_2__["default"](this);
           }
         );
 
         /***/
       },
 
-    /***/ 'magnetic.js':
+    /***/ "magnetic.js":
       /*!****************************!*\
   !*** magnetic.js ***!
   \****************************/
       /*! exports provided: default */
       /***/ function (module, __webpack_exports__, __webpack_require__) {
-        'use strict';
+        "use strict";
         __webpack_require__.r(__webpack_exports__);
         /* harmony export (binding) */ __webpack_require__.d(
           __webpack_exports__,
-          'default',
+          "default",
           function () {
             return Magnetic;
           }
         );
         /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ =
           __webpack_require__(
-            /*! jquery */ './node_modules/jquery/dist/jquery.js'
+            /*! jquery */ "./node_modules/jquery/dist/jquery.js"
           );
         /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default =
           /*#__PURE__*/ __webpack_require__.n(
             jquery__WEBPACK_IMPORTED_MODULE_0__
           );
         /* harmony import */ var gsap__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(/*! gsap */ './node_modules/gsap/index.js');
+          __webpack_require__(/*! gsap */ "./node_modules/gsap/index.js");
         function _classCallCheck(instance, Constructor) {
           if (!(instance instanceof Constructor)) {
-            throw new TypeError('Cannot call a class as a function');
+            throw new TypeError("Cannot call a class as a function");
           }
         }
         function _defineProperties(target, props) {
@@ -20257,7 +20259,7 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             var descriptor = props[i];
             descriptor.enumerable = descriptor.enumerable || false;
             descriptor.configurable = true;
-            if ('value' in descriptor) descriptor.writable = true;
+            if ("value" in descriptor) descriptor.writable = true;
             Object.defineProperty(target, descriptor.key, descriptor);
           }
         }
@@ -20278,57 +20280,57 @@ _totalTimeToTime = (clampedTotalTime, duration, repeat, repeatDelay, yoyo) => {
             this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(
               true,
               { y: 0.2, x: 0.2, s: 0.2, rs: 0.7 },
-              this.el.data('magnetic') || options
+              this.el.data("magnetic") || options
             );
             this.y = 0;
             this.x = 0;
             this.width = 0;
             this.height = 0;
-            if (this.el.data('magnetic-init')) return;
-            this.el.data('magnetic-init', true);
+            if (this.el.data("magnetic-init")) return;
+            this.el.data("magnetic-init", true);
             this.bind();
           }
           _createClass(Magnetic, [
             {
-              key: 'bind',
+              key: "bind",
               value: function bind() {
                 var _this = this;
-                this.el.on('mouseenter', function () {
+                this.el.on("mouseenter", function () {
                   _this.y = _this.el.offset().top - window.pageYOffset;
                   _this.x = _this.el.offset().left - window.pageXOffset;
                   _this.width = _this.el.outerWidth();
                   _this.height = _this.el.outerHeight();
                 });
-                this.el.on('mousemove', function (e) {
+                this.el.on("mousemove", function (e) {
                   var y =
                     (e.clientY - _this.y - _this.height / 2) * _this.options.y;
                   var x =
                     (e.clientX - _this.x - _this.width / 2) * _this.options.x;
                   _this.move(x, y, _this.options.s);
                 });
-                this.el.on('mouseleave', function (e) {
+                this.el.on("mouseleave", function (e) {
                   _this.move(0, 0, _this.options.rs);
                 });
-              }
+              },
             },
             {
-              key: 'move',
+              key: "move",
               value: function move(x, y, speed) {
-                gsap__WEBPACK_IMPORTED_MODULE_1__['default'].to(this.el, {
+                gsap__WEBPACK_IMPORTED_MODULE_1__["default"].to(this.el, {
                   y: y,
                   x: x,
                   force3D: true,
                   overwrite: true,
-                  duration: speed
+                  duration: speed,
                 });
-              }
-            }
+              },
+            },
           ]);
           return Magnetic;
         })();
 
         /***/
-      }
+      },
 
     /******/
   }

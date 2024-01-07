@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import ProvidingElement from "./ProvidingElement";
-export default function ProdivingSection() {
+const ProdivingSection = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -122,4 +122,6 @@ export default function ProdivingSection() {
       </div>
     </div>
   );
-}
+};
+
+export default ProdivingSection;

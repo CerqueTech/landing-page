@@ -1,9 +1,6 @@
 ---
 import ClientLogoSection from "../components/index/ClientLogoSection.astro";
 import CounterSection from "../components/index/Counter/CounterSection.jsx";
-import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton.jsx";
-import Footer from "../components/environment/Footer.astro";
-import Header from "../components/environment/Header/Header";
 import HeroeSection from "../components/index/HeroeSection.astro";
 import Layout from "../layouts/Layout.astro";
 import PortafolioSection from "../components/index/Portafolio/PortafolioSection.jsx";
@@ -14,44 +11,33 @@ import StepSection from "../components/index/Step/StepSection.astro";
 import TeamSection from "../components/index/Team/TeamSection.astro";
 ---
 
-<Layout title="CerqueTech Solutions">
+<Layout title="CerqueTech Solutions" menu="main-menu-3">
   <Preloader client:load />
-  <div class="page_wrapper">
-    <Header menu="main-menu-3" client:visible  />
-    <WhatsAppButton client:only="react" />
-    <main class="page_content">
-      <section class="hero_banner_section style_3 bg_primary">
-        <HeroeSection />
-      </section>
-      <section class="service_section_2">
-        <ProvidingSection client:only="react" />
-      </section>
-        <ClientLogoSection />
-      <section class="starter_steps_section section_space_lg">
-        <StepSection />
-      </section>
-      <section class="counter_section section_space_lg decoration_wrap">
-        <CounterSection client:only="react" transition:persist/>
-      </section>
-      <section class="portfolio_section section_space_lg">
-        <PortafolioSection client:only="react" transition:persist/>
-      </section>
-      <section class="team_section section_space_lg bg_half_top_light">
-        <TeamSection />
-      </section>
-      <section class="review_section section_space_lg bg_primary">
-        <ReviewSection client:only="react" />
-      </section>
-    </main>
-    <footer class="site_footer style_4">
-      <Footer />
-    </footer>
-  </div>
+  <section class="hero_banner_section style_3 bg_primary">
+    <HeroeSection />
+  </section>
+  <section class="service_section_2">
+    <ProvidingSection client:only="react" />
+  </section>
+  <ClientLogoSection />
+  <section class="starter_steps_section section_space_lg">
+    <StepSection />
+  </section>
+  <section class="counter_section section_space_lg decoration_wrap">
+    <CounterSection client:only="react" />
+  </section>
+  <section class="portfolio_section section_space_lg">
+    <PortafolioSection client:only="react" />
+  </section>
+  <section class="team_section section_space_lg bg_half_top_light">
+    <TeamSection />
+  </section>
+  <section class="review_section section_space_lg bg_primary">
+    <ReviewSection client:only="react" />
+  </section>
 </Layout>
+
 <style>
-  .site_footer {
-    margin-top: 50px;
-  }
   .service_section_2 {
     background-image: url("assets/images/shapes/shape_7.svg");
   }
@@ -59,9 +45,5 @@ import TeamSection from "../components/index/Team/TeamSection.astro";
   .hero_banner_section {
     width: 100vw !important;
     height: 100vh !important;
-  }
-  .page_wrapper {
-    overflow: hidden;
-    position: relative;
   }
 </style>

@@ -50,16 +50,16 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href="index.html">Inicio</a>
+                      <a className="a_inicio" href="index.html" data-astro-reload>Inicio</a>  {/*Revisar bien esto..*/}
                     </li>
                     <li>
-                      <a className='a_servicios' href="service.html">Servicios</a>
+                      <a className='a_servicios' href="service.html" data-astro-reload>Servicios</a>
                     </li>
                     <li>
-                      <a className='a_servicios' href="about-us.html">Nosotros</a>
+                      <a className='a_servicios' href="about-us.html" data-astro-reload>Nosotros</a>
                     </li>
                     <li>
-                      <a className='a_contacto' href="contact.html">Contactanos</a>
+                      <a className='a_contacto' href="contact.html" data-astro-reload>Contactanos</a>
                     </li>
                   </ul>
                 </nav>
