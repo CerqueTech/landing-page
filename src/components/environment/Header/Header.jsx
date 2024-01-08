@@ -37,7 +37,7 @@ export default function Header(props) {
         <div className="container">
           <div className="header_wrapper">
             <div className="site_logo">
-              <a className="site_link" href="index.html">
+              <a className="site_link" href="index">
                 <img
                   src={
                     'assets/images/logo/dark_without_icon.png'
@@ -50,16 +50,16 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href="index.html" data-astro-reload>Inicio</a>  {/*Revisar bien esto..*/}
+                      <a className="a_inicio" href="index" data-astro-reload>Inicio</a>  {/*Revisar bien esto..*/}
                     </li>
                     <li>
-                      <a className='a_servicios' href="service.html" data-astro-reload>Servicios</a>
+                      <a className='a_servicios' href="service" data-astro-reload>Servicios</a>
                     </li>
                     <li>
-                      <a className='a_servicios' href="about-us.html" data-astro-reload>Nosotros</a>
+                      <a className='a_servicios' href="about-us" data-astro-reload>Nosotros</a>
                     </li>
                     <li>
-                      <a className='a_contacto' href="contact.html" data-astro-reload>Contactanos</a>
+                      <a className='a_contacto' href="contact" data-astro-reload>Contactanos</a>
                     </li>
                   </ul>
                 </nav>
@@ -82,7 +82,7 @@ export default function Header(props) {
                 </li>
                 <li>
                   <a
-                    href="contact.html"
+                    href="contact"
                     className={
                       'bd-btn-link outline-' +
                       (props.menu == '' ? 'dark' : 'white')
