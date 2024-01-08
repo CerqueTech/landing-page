@@ -1,6 +1,6 @@
 ---
-import BoxElement from "./BoxElement.astro";
-import DetailElement from "./DetailElement.astro";
+import BoxElement from './BoxElement.astro';
+import DetailElement from './DetailElement.astro';
 interface Props {
   headTxt: string;
   bttnTxt: string;
@@ -10,7 +10,7 @@ const { headTxt, bttnTxt } = Astro.props;
 
 <div class="row">
   <div class="col col-lg-4">
-    <DetailElement bttnTxt={bttnTxt} headTxt={headTxt}/>
+    <DetailElement bttnTxt={bttnTxt} headTxt={headTxt} />
   </div>
   <div class="col col-lg-8">
     <div class="row">
@@ -29,7 +29,7 @@ const { headTxt, bttnTxt } = Astro.props;
       <BoxElement
         icon="assets/images/icons/icon_communication_primary.svg"
         title="Habilidades de comunicación"
-        txt="Esto puede parecer obvio, pero en realidad hay mucho mas que hacer. Aprender a comunicarse con un cliente. Primero,deber ser capaz de hablar abiertamente"
+        txt="Esto puede parecer obvio, pero en realidad hay mucho mas que hacer. Aprender a comunicarse con un cliente. Primero, deber ser capaz de hablar abiertamente"
       />
       <BoxElement
         icon="assets/images/icons/icon_teaching_primary.svg"

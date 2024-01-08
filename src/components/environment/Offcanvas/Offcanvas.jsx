@@ -42,50 +42,48 @@ export default function Offcanvas(props) {
               <div className="mobile-menu fix mb-4 mean-container">
                 <nav className="mean-nav">
                   <ul className="ul-mean ">
-                    <li className="has-dropdown">
+                    <li>
                       <a href="/">Inicio</a>
-                      <a className="mean-expand" href="#">
-                        <i className="fal fa-plus"></i>
-                      </a>
+                      
                     </li>
-                    <li className="has-dropdown">
+                    <li>
                       <a href="service">Servicios</a>
-                      <a className="mean-expand" href="#">
-                        <i className="fal fa-plus"></i>
-                      </a>
+                      
                     </li>
-                    <li className="has-dropdown">
+                    <li>
+                      <a href="about-us">Nosotros</a>
+                      
+                    </li>
+                    <li>
                       <a href="contact">Contactanos</a>
-                      <a className="mean-expand" href="#">
-                        <i className="fal fa-plus"></i>
-                      </a>
+                      
                     </li>
                   </ul>
                 </nav>
               </div>
             </div>
             <div className="offcanvas__contact text-center">
-              <h4 className="offcanvas__title">Contact Info</h4>
+              <h4 className="offcanvas__title">Informacion de Contacto</h4>
               <div className="offcanvas__contact-text mb-2">
                 <p>
-                  <a href="mailto:paradox@example" target="_blank">
-                    paradox@example.com
+                  <a href="mailto:mateo.cerquetella@cerquetech.com" target="_blank">
+                    mateo.cerquetella@cerquetech.com
                   </a>
                 </p>
                 <span>
-                  <a href="tel:725214456">725 214 456</a>
+                  <a href="tel:+5491140541120">+54 911 4054-1120</a>
                 </span>
               </div>
               <div className="offcanvas__contact-text">
                 <p>
                   <a target="_blank" href="https://www.google.com/maps">
-                    Folkungagatan 83, Stockholm, Sweden
+                    San Miguel CP1613, Buenos Aires, Argentina
                   </a>
                 </p>
               </div>
             </div>
             <div className="offcanvas__devider"></div>
-            <div className="offcanvas__social">
+            {/* <div className="offcanvas__social">
               <ul>
                 <li>
                   <a target="_blank" href="https://www.facebook.com">
@@ -108,7 +106,7 @@ export default function Offcanvas(props) {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
