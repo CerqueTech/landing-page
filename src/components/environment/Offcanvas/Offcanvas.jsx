@@ -15,7 +15,7 @@ export default function Offcanvas(props) {
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
-                  <a href="index">
+                  <a href="/">
                     <img
                       src="assets/images/logo/dark_one_line.png"
                       alt="logo not found"
@@ -43,7 +43,7 @@ export default function Offcanvas(props) {
                 <nav className="mean-nav">
                   <ul className="ul-mean ">
                     <li className="has-dropdown">
-                      <a href="index">Inicio</a>
+                      <a href="/">Inicio</a>
                       <a className="mean-expand" href="#">
                         <i className="fal fa-plus"></i>
                       </a>

@@ -37,7 +37,7 @@ export default function Header(props) {
         <div className="container">
           <div className="header_wrapper">
             <div className="site_logo">
-              <a className="site_link" href="index">
+              <a className="site_link" href="/">
                 <img
                   src={
                     'assets/images/logo/dark_without_icon.png'
@@ -50,7 +50,7 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href="index" data-astro-reload>Inicio</a>  {/*Revisar bien esto..*/}
+                      <a className="a_inicio" href="/" data-astro-reload>Inicio</a>  {/*Revisar bien esto..*/}
                     </li>
                     <li>
                       <a className='a_servicios' href="service" data-astro-reload>Servicios</a>
