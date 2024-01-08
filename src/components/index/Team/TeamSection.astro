@@ -1,5 +1,8 @@
 ---
 import Member from './Member.astro';
+import Mateo from '../../../../public/assets/images/team/mateo.png';
+import Fer from '../../../../public/assets/images/team/fer.png';
+import Fede from '../../../../public/assets/images/team/fede.png';
 ---
 
 <div class="container">
@@ -15,28 +18,27 @@ import Member from './Member.astro';
   </div>
 
   <div class="row justify-content-center">
-    <!--TODOO -->
-    <!-- Poner imagenes de los integrantes -->
     <Member
       name="Mateo Cerquetella"
       designation="CEO & Software Architect"
-      image=""  
+      image={Mateo.src}
+      customImgStyle="width: 100%;object-fit: cover;height: 400px;margin-top: -7em;"
       linkedin="https://www.linkedin.com/in/mateocerquetella/"
     />
     <Member
       name="Fernando Schlottman"
       designation="Sr. Software Developer"
-      image=""
-      linkedin="https://www.linkedin.com/"
+      image={Fer.src}
+      linkedin="https://www.linkedin.com/in/fernando-schlottmann/"
     />
     <Member
       name="Federico Rosales"
       designation="Jr. Software Developer"
-      image=""
-      linkedin="https://www.linkedin.com/"
+      image={Fede.src}
+      linkedin="https://www.linkedin.com/in/federosaless/"
     />
     <Member
-      name="Matias Gomez"
+      name="Matias Kalil Gomez"
       designation="Jr. Software Developer"
       image=""
       linkedin="https://www.linkedin.com/"

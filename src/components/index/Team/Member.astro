@@ -4,15 +4,16 @@ export interface Props {
   designation: string;
   image: string;
   linkedin: string;
+  customImgStyle?: string;
 }
-const { name, designation, image, linkedin } = Astro.props;
+const { name, designation, image, linkedin, customImgStyle } = Astro.props;
 ---
 
 <div class="col col-xl-3 col-lg-6 col-md-6">
   <div class="team_item style_1 tilt">
     <div class="admin_thumbnail">
       <div class="thumbnail_wrap">
-        <img src={image} />
+        <img style={customImgStyle} src={image} />
       </div>
     </div>
     <div class="admin_info_content">
