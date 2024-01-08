@@ -2063,6 +2063,19 @@ blockquote .author_name:before {
   height: 100%;
   object-fit: cover;
 }
+
+.team {
+  text-align: center;
+}
+
+.team img {
+  width: 70%;
+   border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 70px;
+  object-fit: cover;
+}
+
 .video_widget:before {
   top: 0;
   inset-inline-start: 0;
