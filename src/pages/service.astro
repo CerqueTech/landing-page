@@ -2,9 +2,11 @@
 import BannerSection from '../components/environment/BannerSection.astro';
 import Layout from '../layouts/Layout.astro';
 import ServicesSection from '../components/services/ServicesSection.astro';
+import WhatsAppButton from '../components/environment/WhatsAppButton/WhatsAppButton';
 ---
 
 <Layout title="Servicios" menu="">
+  <WhatsAppButton client:only="react" />
   <section class="page_banner text-center">
     <BannerSection
       title="Servicios"

@@ -2,7 +2,6 @@
 import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/environment/Header/Header';
 import Footer from '../components/environment/Footer.astro';
-import WhatsAppButton from '../components/environment/WhatsAppButton/WhatsAppButton';
 interface Props {
   title: string;
   menu: string;
@@ -71,7 +70,6 @@ const { title, menu } = Astro.props;
         <Header transition:persist menu={menu} client:only="react" />
       </header>
       <main class="page_content">
-        <WhatsAppButton transition:persist client:only="react" />
         <slot />
       </main>
       <footer class="site_footer style_4">
