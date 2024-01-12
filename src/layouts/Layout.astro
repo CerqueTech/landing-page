@@ -65,10 +65,14 @@ const { title, menu } = Astro.props;
   </head>
 
   <body>
-    <WhatsAppButton transition:persist transition:animate="none" client:only="react"/> 
     <div class="page_wrapper">
       <header>
-        <Header transition:persist transition:animate="none" client:only="react" menu={menu}/>
+        <Header
+          transition:persist
+          transition:animate="none"
+          client:only="react"
+          menu={menu}
+        />
       </header>
       <main class="page_content">
         <slot />
@@ -80,12 +84,12 @@ const { title, menu } = Astro.props;
     <script is:inline>
       function setDarkMode(document) {
         let theme =
-          localStorage.getItem("darkMode") === "true" ? "dark" : "light";
+          localStorage.getItem('darkMode') === 'true' ? 'dark' : 'light';
         document.documentElement.dataset.theme = theme;
       }
       setDarkMode(document);
 
-      document.addEventListener("astro:before-swap", (ev) => {
+      document.addEventListener('astro:before-swap', (ev) => {
         setDarkMode(ev.newDocument);
       });
     </script>
