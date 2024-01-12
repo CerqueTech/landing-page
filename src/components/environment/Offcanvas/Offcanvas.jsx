@@ -1,5 +1,5 @@
-import './Offcanvas.css';
- const Offcanvas = (props) => {
+import "./Offcanvas.css";
+const Offcanvas = (props) => {
   const handleCLick = () => {
     props.updateOpen();
   };
@@ -8,14 +8,14 @@ import './Offcanvas.css';
       <div className="fix">
         <div
           className={
-            props.open ? 'offcanvas__info info-open' : 'offcanvas__info'
+            props.open ? "offcanvas__info info-open" : "offcanvas__info"
           }
         >
           <div className="offcanvas__wrapper">
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
-                  <a href="/">
+                  <a href="/" data-astro-reload>
                     <img
                       src="assets/images/logo/dark_one_line.png"
                       alt="logo not found"
@@ -43,16 +43,44 @@ import './Offcanvas.css';
                 <nav className="mean-nav">
                   <ul className="ul-mean ">
                     <li>
-                      <a href="/" transition:persist="true" transition:animate="none">Inicio</a>
+                      <a
+                        href="/"
+                        transition:persist="true"
+                        transition:animate="none"
+                        data-astro-reload
+                      >
+                        Inicio
+                      </a>
                     </li>
                     <li>
-                      <a href="service" transition:persist="true" transition:animate="none">Servicios</a>                      
+                      <a
+                        href="service"
+                        transition:persist="true"
+                        transition:animate="none"
+                        data-astro-reload
+                      >
+                        Servicios
+                      </a>
                     </li>
                     <li>
-                      <a href="about-us" transition:persist="true" transition:animate="none">Nosotros</a>                      
+                      <a
+                        href="about-us"
+                        transition:persist="true"
+                        transition:animate="none"
+                        data-astro-reload
+                      >
+                        Nosotros
+                      </a>
                     </li>
                     <li>
-                      <a href="contact" transition:persist="true" transition:animate="none">Contactanos</a>                     
+                      <a
+                        href="contact"
+                        transition:persist="true"
+                        transition:animate="none"
+                        data-astro-reload
+                      >
+                        Contactanos
+                      </a>
                     </li>
                   </ul>
                 </nav>
@@ -62,12 +90,18 @@ import './Offcanvas.css';
               <h4 className="offcanvas__title">Informacion de Contacto</h4>
               <div className="offcanvas__contact-text mb-2">
                 <p>
-                  <a href="mailto:mateo.cerquetella@cerquetech.com" target="_blank" data-astro-reload >
-                    mateo.cerquetella@cerquetech.com 
+                  <a
+                    href="mailto:mateo.cerquetella@cerquetech.com"
+                    target="_blank"
+                    data-astro-reload
+                  >
+                    mateo.cerquetella@cerquetech.com
                   </a>
                 </p>
                 <span>
-                  <a href="tel:+5491140541120" data-astro-reaload>+54 911 4054-1120</a>
+                  <a href="tel:+5491140541120" data-astro-reaload>
+                    +54 911 4054-1120
+                  </a>
                 </span>
               </div>
               <div className="offcanvas__contact-text">
@@ -84,11 +118,11 @@ import './Offcanvas.css';
       </div>
       <div
         className={
-          props.open ? 'offcanvas__overlay overlay-open' : 'offcanvas__overlay'
+          props.open ? "offcanvas__overlay overlay-open" : "offcanvas__overlay"
         }
       ></div>
       <div className="offcanvas__overlay-white"></div>
     </>
   );
-}
+};
 export default Offcanvas;

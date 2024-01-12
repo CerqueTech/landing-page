@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './ContactForm.css';
-
 const ContactFormSection = () => {
   const formRef = useRef();
 
