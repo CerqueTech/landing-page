@@ -78,31 +78,31 @@ export default function ReviewSection() {
       <div className="review_carousel_3">
         <Slider ref={sliderRef} {...settings}>
           <ReviewElement
-            title="Mejor atención al cliente"
+            title="Soluciones Innovadoras"
             start={5}
-            content="Los comentarios de los clientes lo ayudarán a comprender exactamente cómo sus clientes experimentan su servicio o producto y solucionar sus inquietudes conducirá a una mejor experiencia del cliente. La satisfacción del cliente conduce a la retención del cliente Excelente."
-            icon="assets/images/icons/icon_quote_dark.svg"
-            img="assets/images/meta/avatar_1.png"
-            name="Manuel K. Peoples"
-            designation="Director"
-          />
-          <ReviewElement
-            title="Mejor atención al cliente"
-            start={4}
-            content="Los comentarios de los clientes lo ayudarán a comprender exactamente cómo sus clientes experimentan su servicio o producto y solucionar sus inquietudes conducirá a una mejor experiencia del cliente. La satisfacción del cliente conduce a la retención del cliente Excelente."
+            content="La dedicación del equipo de Cerquetech fue más allá de lo esperado. Personalmente, siempre sentí que realmente les importaba el éxito de nuestro proyecto."
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_2.png"
-            name="Manuel K. Peoples"
-            designation="Director"
+            name="Tomas Pacios Moya"
+            designation="CEO de PM Finance"
           />
           <ReviewElement
-            title="Mejor atención al cliente"
-            start={3}
-            content="Los comentarios de los clientes lo ayudarán a comprender exactamente cómo sus clientes experimentan su servicio o producto y solucionar sus inquietudes conducirá a una mejor experiencia del cliente. La satisfacción del cliente conduce a la retención del cliente Excelente."
+            title="Experiencia de Usuario Sobresaliente"
+            start={4}
+            content="Lo que más valoro de Cerquetech es su enfoque humano. Fernando, de su equipo, fue particularmente atento; su habilidad para escuchar y entender nuestras preocupaciones transformó completamente nuestra forma de trabajar."
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_3.png"
-            name="Manuel K. Peoples"
-            designation="Director"
+            name="Andres Sosa"
+            designation="Maestro Mayor de Obras"
+          />
+          <ReviewElement
+            title="Soporte Confiable y Eficaz"
+            start={4}
+            content="El soporte técnico de Cerquetech es confiable y siempre accesible. Su capacidad para solucionar problemas rápidamente y con eficacia nos ha ayudado a mantener nuestras operaciones funcionando sin problemas."
+            icon="assets/images/icons/icon_quote_dark.svg"
+            img="assets/images/meta/avatar_1.png"
+            name="Trinidad Tevini"
+            designation="CEO de Tevini Finance"
           />
         </Slider>
         <ul className="carousel_arrow unordered_list_center">
