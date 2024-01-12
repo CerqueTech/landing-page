@@ -41,7 +41,8 @@ const Header = (props) => {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href="/" >
+                      <a className="a_inicio" href="/"
+                       >
                         Inicio
                       </a>{" "}
                       {/*Revisar bien esto..*/}
