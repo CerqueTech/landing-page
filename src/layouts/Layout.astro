@@ -1,15 +1,13 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import Header from "../components/environment/Header/Header.jsx";
-import Footer from "../components/environment/Footer.astro";
-import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton.jsx";
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/environment/Header/Header';
+import Footer from '../components/environment/Footer.astro';
 interface Props {
   title: string;
   menu: string;
 }
 
 const { title, menu } = Astro.props;
-//injectSpeedInsights()
 ---
 
 <!doctype html>
@@ -73,7 +71,7 @@ const { title, menu } = Astro.props;
         <Header transition:persist transition:animate="none" client:only="react" menu={menu}/>
       </header>
       <main class="page_content">
-        <slot transition:animate="none" />
+        <slot />
       </main>
       <footer class="site_footer style_4">
         <Footer transition:animate="none" />

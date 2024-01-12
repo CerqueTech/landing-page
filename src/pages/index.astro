@@ -1,14 +1,15 @@
 ---
-import ClientLogoSection from "../components/index/ClientLogoSection.astro";
-import CounterSection from "../components/index/Counter/CounterSection.jsx";
-import HeroeSection from "../components/index/HeroeSection.astro";
-import Layout from "../layouts/Layout.astro";
-import PortafolioSection from "../components/index/Portafolio/PortafolioSection.jsx";
-import ProvidingSection from "../components/index/Providing/ProvidingSection.jsx";
-import ReviewSection from "../components/index/Review/ReviewSection.jsx";
-import StepSection from "../components/index/Step/StepSection.astro";
-import TeamSection from "../components/index/Team/TeamSection.astro";
-import Preloader from "../components/environment/Preloader/Preloader.jsx";
+import ClientLogoSection from '../components/index/ClientLogoSection.astro';
+import CounterSection from '../components/index/Counter/CounterSection.jsx';
+import HeroeSection from '../components/index/HeroeSection.astro';
+import Layout from '../layouts/Layout.astro';
+import PortafolioSection from '../components/index/Portafolio/PortafolioSection.jsx';
+import Preloader from '../components/environment/Preloader/Preloader.jsx';
+import ProvidingSection from '../components/index/Providing/ProvidingSection.jsx';
+import ReviewSection from '../components/index/Review/ReviewSection.jsx';
+import StepSection from '../components/index/Step/StepSection.astro';
+import TeamSection from '../components/index/Team/TeamSection.astro';
+import WhatsAppButton from '../components/environment/WhatsAppButton/WhatsAppButton';
 ---
 <Layout title="CerqueTech Solutions" menu="main-menu-3">
   <Preloader client:only="react"/>
@@ -38,7 +39,7 @@ import Preloader from "../components/environment/Preloader/Preloader.jsx";
 
 <style>
   .service_section_2 {
-    background-image: url("assets/images/shapes/shape_7.svg");
+    background-image: url('assets/images/shapes/shape_7.svg');
   }
 
   .hero_banner_section {
