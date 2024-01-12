@@ -1,7 +1,6 @@
-body.dark {
+html[data-theme="dark"] body{
   background: #121212 !important;
   color: #f1f1f1 !important;
-
   .calltoaction_section,
   .footer_widget_area,
   .footer_bottom,
@@ -30,12 +29,17 @@ body.dark {
   .a_inicio,
   .a_servicios,
   .a_contacto,
-  .bd-button-text {
+  .bd-button-text,
+  a {
     color: #f1f1f1 !important;
   }
 
   .fa-light.fa-arrow-right-long {
     color: #f1f1f1;
+  }
+
+  section.page_banner.text-center::before{
+    background-color: #121212 !important;
   }
 
   .odometer-inside,
@@ -159,5 +163,4 @@ body.dark {
   ::-moz-scrollbar-track {
     background-color: #424242 !important;
   }
-
 }

@@ -4,15 +4,14 @@ import CounterSection from "../components/index/Counter/CounterSection.jsx";
 import HeroeSection from "../components/index/HeroeSection.astro";
 import Layout from "../layouts/Layout.astro";
 import PortafolioSection from "../components/index/Portafolio/PortafolioSection.jsx";
-import Preloader from "../components/environment/Preloader/Preloader.jsx";
 import ProvidingSection from "../components/index/Providing/ProvidingSection.jsx";
 import ReviewSection from "../components/index/Review/ReviewSection.jsx";
 import StepSection from "../components/index/Step/StepSection.astro";
 import TeamSection from "../components/index/Team/TeamSection.astro";
+import Preloader from "../components/environment/Preloader/Preloader.jsx";
 ---
-
 <Layout title="CerqueTech Solutions" menu="main-menu-3">
-  <Preloader client:load />
+  <Preloader client:only="react"/>
   <section class="hero_banner_section style_3 bg_primary">
     <HeroeSection />
   </section>
@@ -34,7 +33,7 @@ import TeamSection from "../components/index/Team/TeamSection.astro";
   </section>
   <section class="review_section section_space_lg bg_primary">
     <ReviewSection client:only="react" />
-  </section>
+  </section>  
 </Layout>
 
 <style>

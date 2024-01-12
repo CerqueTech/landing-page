@@ -1,16 +1,26 @@
-import './StyleButton.css';
-import { useState } from 'react';
+import "./StyleButton.css";
+import { useState, useEffect } from "react";
 
 export default function StyleButton() {
-  const [color, setColor] = useState('');
+  const [theme, setTheme] = useState("");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    const initialTheme = storedTheme || "light";
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    setTheme(initialTheme);
+  }, []);
 
   const toggle = () => {
-    document.body.classList.toggle('dark');
-    setColor((prevColor) => (prevColor === '' ? ' active' : ''));
+    const newTheme = theme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+    setTheme(newTheme);
+
+    localStorage.setItem("theme", newTheme);
   };
 
   return (
-    <button className={'switch' + color} id="switch" onClick={toggle}>
+    <button className={"switch" + (theme === "dark" ? " active" : "")} id="switch" onClick={toggle}>
       <span>
         <i className="fas fa-sun"></i>
       </span>

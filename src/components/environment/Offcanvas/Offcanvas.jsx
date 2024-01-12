@@ -1,5 +1,5 @@
 import './Offcanvas.css';
-export default function Offcanvas(props) {
+ const Offcanvas = (props) => {
   const handleCLick = () => {
     props.updateOpen();
   };
@@ -43,20 +43,16 @@ export default function Offcanvas(props) {
                 <nav className="mean-nav">
                   <ul className="ul-mean ">
                     <li>
-                      <a href="/">Inicio</a>
-                      
+                      <a href="/" transition:persist="true" transition:animate="none">Inicio</a>
                     </li>
                     <li>
-                      <a href="service">Servicios</a>
-                      
+                      <a href="service" transition:persist="true" transition:animate="none">Servicios</a>                      
                     </li>
                     <li>
-                      <a href="about-us">Nosotros</a>
-                      
+                      <a href="about-us" transition:persist="true" transition:animate="none">Nosotros</a>                      
                     </li>
                     <li>
-                      <a href="contact">Contactanos</a>
-                      
+                      <a href="contact" transition:persist="true" transition:animate="none">Contactanos</a>                     
                     </li>
                   </ul>
                 </nav>
@@ -66,12 +62,12 @@ export default function Offcanvas(props) {
               <h4 className="offcanvas__title">Informacion de Contacto</h4>
               <div className="offcanvas__contact-text mb-2">
                 <p>
-                  <a href="mailto:mateo.cerquetella@cerquetech.com" target="_blank">
-                    mateo.cerquetella@cerquetech.com
+                  <a href="mailto:mateo.cerquetella@cerquetech.com" target="_blank" data-astro-reload >
+                    mateo.cerquetella@cerquetech.com 
                   </a>
                 </p>
                 <span>
-                  <a href="tel:+5491140541120">+54 911 4054-1120</a>
+                  <a href="tel:+5491140541120" data-astro-reaload>+54 911 4054-1120</a>
                 </span>
               </div>
               <div className="offcanvas__contact-text">
@@ -83,30 +79,6 @@ export default function Offcanvas(props) {
               </div>
             </div>
             <div className="offcanvas__devider"></div>
-            {/* <div className="offcanvas__social">
-              <ul>
-                <li>
-                  <a target="_blank" href="https://www.facebook.com">
-                    Facebook
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.instagram.com">
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.twitter.com">
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a target="_blank" href="https://www.linkedin.com">
-                    Linkedin
-                  </a>
-                </li>
-              </ul>
-            </div> */}
           </div>
         </div>
       </div>
@@ -119,3 +91,4 @@ export default function Offcanvas(props) {
     </>
   );
 }
+export default Offcanvas;

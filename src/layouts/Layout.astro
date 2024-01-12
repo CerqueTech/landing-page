@@ -1,9 +1,8 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import { injectSpeedInsights } from "@vercel/speed-insights";
-import Header from "../components/environment/Header/Header";
+import Header from "../components/environment/Header/Header.jsx";
 import Footer from "../components/environment/Footer.astro";
-import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton";
+import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton.jsx";
 interface Props {
   title: string;
   menu: string;
@@ -14,8 +13,8 @@ const { title, menu } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
-  <head transition:persist>
+<html lang="es" transition:animate="none">
+  <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -62,30 +61,41 @@ const { title, menu } = Astro.props;
     <meta property="og:image" content="https://www.cerquetech.com/logo.png" />
     <meta property="og:url" content="https://www.cerquetech.com" />
     <meta name="twitter:card" content="summary_large_image" />
-
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
   </head>
+
   <body>
+    <WhatsAppButton transition:persist transition:animate="none" client:only="react"/> 
     <div class="page_wrapper">
       <header>
-        <Header transition:persist menu={menu} client:only="react" />
+        <Header transition:persist transition:animate="none" client:only="react" menu={menu}/>
       </header>
       <main class="page_content">
-        <WhatsAppButton transition:persist client:only="react" />
-        <slot />
+        <slot transition:animate="none" />
       </main>
       <footer class="site_footer style_4">
-        <Footer />
+        <Footer transition:animate="none" />
       </footer>
     </div>
+    <script is:inline>
+      function setDarkMode(document) {
+        let theme =
+          localStorage.getItem("darkMode") === "true" ? "dark" : "light";
+        document.documentElement.dataset.theme = theme;
+      }
+      setDarkMode(document);
 
+      document.addEventListener("astro:before-swap", (ev) => {
+        setDarkMode(ev.newDocument);
+      });
+    </script>
     <script is:inline src="/assets/js/jquery.min.js"></script>
     <script is:inline src="/assets/js/parallax-scroll.js"></script>
     <script is:inline src="/assets/js/cursor.js"></script>
-    <!--Borrar si no queres mas las animaciones de las imagenes-->
 
+    <!--Borrar si no queres mas las animaciones de las imagenes-->
     <style is:global>
       a,
       small {

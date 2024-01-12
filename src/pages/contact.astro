@@ -1,6 +1,6 @@
 ---
 import BannerSection from '../components/environment/BannerSection.astro';
-import ContactForm from '../components/contact/ContactForm.astro';
+import ContactForm from '../components/contact/ContactForm.jsx';
 import FaqSection from '../components/contact/FaqSection.astro';
 import Layout from '../layouts/Layout.astro';
 ---
@@ -15,7 +15,7 @@ import Layout from '../layouts/Layout.astro';
     />
   </section>
   <section class="contact-section">
-    <ContactForm />
+    <ContactForm  client:only="react"/>
   </section>
   <section class="faq_section section_space_lg">
     <FaqSection />
