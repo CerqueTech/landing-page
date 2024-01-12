@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import Offcanvas from "../Offcanvas/Offcanvas.jsx";
-import StyleButton from "../StyleButton/StyleButton.jsx";
-const Header = (props) => {
+import { useState, useEffect } from 'react';
+import Offcanvas from '../Offcanvas/Offcanvas.jsx';
+import StyleButton from '../StyleButton/StyleButton.jsx';
+export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   useEffect(() => {
@@ -12,67 +12,54 @@ const Header = (props) => {
         setSticky(false);
       }
     };
-     document.addEventListener("scroll", handleScroll);
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
-      document.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const headerClass = isSticky
-    ? "site_header site_header_3 sticky"
-    : "site_header site_header_3";
+    ? 'site_header site_header_3 sticky'
+    : 'site_header site_header_3';
 
   const swapElems = () => {
     setElemOpen(!elemOpen);
   };
+  const updateOpen = () => {
+    swapElems();
+  };
   return (
     <>
-      <Offcanvas open={elemOpen} updateOpen={swapElems} transition:animate="none"/>
+      <Offcanvas open={elemOpen} updateOpen={updateOpen} />
       <div className={headerClass}>
         <div className="container">
           <div className="header_wrapper">
             <div className="site_logo">
               <a className="site_link" href="/">
-                <img src={"assets/images/logo/dark_without_icon.png"} />
+                <img
+                  src={
+                    'assets/images/logo/dark_without_icon.png'
+                  }
+                />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
-              <div className={"main-menu " + props.menu}>
+              <div className={'main-menu ' + props.menu}>
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href="/"
-                       >
-                        Inicio
-                      </a>{" "}
-                      {/*Revisar bien esto..*/}
+                      <a className="a_inicio" href="/" data-astro-reload>Inicio</a>  {/*Revisar bien esto..*/}
                     </li>
                     <li>
-                      <a
-                        className="a_servicios"
-                        href="service"
-                        
-                      >
-                        Servicios
-                      </a>
+                      <a className='a_servicios' href="service" data-astro-reload>Servicios</a>
                     </li>
                     <li>
-                      <a
-                        className="a_servicios"
-                        href="about-us"
-                        
-                      >
-                        Nosotros
-                      </a>
+                      <a className='a_servicios' href="about-us" data-astro-reload>Nosotros</a>
                     </li>
                     <li>
-                      <a
-                        className="a_contacto"
-                        href="contact"
-                        
-                      >
-                        Contactanos
-                      </a>
+                      <a className='a_contacto' href="contact" data-astro-reload>Contactanos</a>
                     </li>
                   </ul>
                 </nav>
@@ -97,8 +84,8 @@ const Header = (props) => {
                   <a
                     href="contact"
                     className={
-                      "bd-btn-link outline-" +
-                      (props.menu == "" ? "dark" : "white")
+                      'bd-btn-link outline-' +
+                      (props.menu == '' ? 'dark' : 'white')
                     }
                   >
                     <span className="bd-button-content-wrapper">
@@ -115,8 +102,9 @@ const Header = (props) => {
               <div className="offcanvas-toggle d-lg-none" onClick={swapElems}>
                 <a
                   className={
-                    "bar-icon" + (props.menu === "" ? "" : " is-white")
+                    'bar-icon' + (props.menu === '' ? '' : ' is-white')
                   }
+                  href=""
                 >
                   <span></span>
                   <span>
@@ -131,5 +119,4 @@ const Header = (props) => {
       </div>
     </>
   );
-};
-export default Header;
+}
