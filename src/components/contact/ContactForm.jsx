@@ -117,24 +117,28 @@ const ContactFormSection = () => {
                     placeholder="Escribe tu mensaje"></textarea>
                 </div>
               </div>
-              <ReCAPTCHA
-                sitekey="6LcR3VIpAAAAAIrEQNSLspAIsWliq76GBc4RP675"
-                onChange={onCaptchaChange}
-              />
-              <div className="col-12 text-center">
-                <button type="submit" className="bd-btn-link btn_warning">
-                  <span className="bd-button-content-wrapper">
-                    <span className="bd-button-icon">
-                      <i className="fa-light fa-arrow-right-long"></i>
-                    </span>
-                    <span className="pd-animation-flip">
-                      <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">Enviar ahora</span>
-                        <span className="bd-button-text">Enviar ahora</span>
+              <div className="col-12 row">
+                <div className="col-6">
+                  <ReCAPTCHA
+                    sitekey="6LcR3VIpAAAAAIrEQNSLspAIsWliq76GBc4RP675"
+                    onChange={onCaptchaChange}
+                  />
+                </div>
+                <div className="col-6">
+                  <button type="submit" className="bd-btn-link btn_warning">
+                    <span className="bd-button-content-wrapper">
+                      <span className="bd-button-icon">
+                        <i className="fa-light fa-arrow-right-long"></i>
+                      </span>
+                      <span className="pd-animation-flip">
+                        <span className="bd-btn-anim-wrapp">
+                          <span className="bd-button-text">Enviar ahora</span>
+                          <span className="bd-button-text">Enviar ahora</span>
+                        </span>
                       </span>
                     </span>
-                  </span>
-                </button>
+                  </button>
+                </div>
               </div>
             </form>
           </div>
