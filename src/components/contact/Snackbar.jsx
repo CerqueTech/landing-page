@@ -2,31 +2,7 @@ import { Paper } from "@mui/material";
 import {useSnackbar} from 'notistack';
 const {enqueueSnackbar} = useSnackbar();
 const Snackbar = (menssage) => {
-  const styles = {
-    root:{
-      flexGrow:1,
-      display:'flex',
-      margin:16,
-      justifyContent:'center',
-      alignItems:'middle'
-    },
-    button{
-      margin:8,
-      borderColor:"#43a047"
-    },
-    success:{
-      borderColor:'#43a047',
-      color:'#43a046'
-    }
-    error:{
-      borderColor:'#2979ff',
-      color:'#2979ff'
-    }
-    warning{
-      borderColor:'#ffa000'
-      color:'#ffa000'
-    }
-  }
+  
   const buttons = [
     {variant:'success',message:'Sucessfully done the operation'},
     {variant:'error',message:'something went wrong'},
