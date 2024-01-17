@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
 import "./ContactForm.css";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+import React, { useState, useEffect, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import MySnackbar from "./Snackbar";
+
 const ContactFormSection = () => {
   const {
     register,
@@ -24,7 +26,7 @@ const ContactFormSection = () => {
       alert("Por favor, resuelve el CAPTCHA.");
       return;
     }
-
+    /* poner espacios tanto en los nombres como en los apellidos */
     emailjs
       .sendForm("service_jzbyr2g", "template_nx3hy1l", formRef.current)
       .then(() => {

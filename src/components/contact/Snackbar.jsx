@@ -1,28 +1,29 @@
-import { Paper } from "@mui/material";
-import {useSnackbar} from 'notistack';
-const {enqueueSnackbar} = useSnackbar();
-const Snackbar = (menssage) => {
-  
-  const buttons = [
-    {variant:'success',message:'Sucessfully done the operation'},
-    {variant:'error',message:'something went wrong'},
-    {variant:'warning',message:'something could go wrong'}
-  ]
-   return(
-      
-    <Paper>
-      {buttons.map((button)=>{
-        if(button.variant===menssage){
-        <button key={button.variant}
-        variant='outlined'
-        style={{...styles.button,...styles[button.variant]}}>
-          {button.variant}
-        </button>
-      }
-      })}
-    </Paper>
-    
-    );
+import React, { useState } from "react";
+import { Alert, AlertTitle } from "@mui/material";
+import Snackbar from "@mui/material/Snackbar";
+const MySnackbar = ({ message, severity, alertTitle, autoHideDuration }) => {
+  const [open, setOpen] = useState(true);
+  const handleClose = () => {
+    setOpen(false);
   };
 
-  export default Snackbar;
+  return (
+    <Snackbar
+      open={open}
+      autoHideDuration={autoHideDuration}
+      onClose={() => setOpen(false)}
+    >
+      <Alert
+        severity={severity}
+        onClose={() => {
+          setOpen(false);
+        }}
+      >
+        <AlertTitle>{alertTitle}</AlertTitle>
+        {message}
+      </Alert>
+    </Snackbar>
+  );
+};
+
+export default MySnackbar;
