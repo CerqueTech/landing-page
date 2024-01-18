@@ -6,6 +6,15 @@ import ReCAPTCHA from "react-google-recaptcha";
 import MySnackbar from "./Snackbar";
 
 const ContactFormSection = () => {
+  const [showSnackbar, setShowSnackbar] = useState(false);
+  const [showErrorSnackbar, setShowErrorSnackbar] = useState(false);
+
+  const handleSnackbarErrorClose = () => {
+    setShowErrorSnackbar(false);
+  };
+  const handleSnackbarClose = () => {
+    setShowSnackbar(false);
+  };
   const {
     register,
     handleSubmit,
@@ -26,23 +35,42 @@ const ContactFormSection = () => {
       alert("Por favor, resuelve el CAPTCHA.");
       return;
     }
-    /* poner espacios tanto en los nombres como en los apellidos */
     emailjs
       .sendForm("service_jzbyr2g", "template_nx3hy1l", formRef.current)
       .then(() => {
+        setShowSnackbar(true);
         console.log("SUCCESS!");
         reset();
-        setCaptchaValue(null); // Reset CAPTCHA
+        setCaptchaValue(null);
       })
       .catch((error) => {
-        console.log("FAILED...", error);
+        setShowErrorSnackbar(true);
         alert("Error al enviar el mensaje. Por favor, intenta nuevamente.");
       });
   };
 
   return (
-    //TODOO hacer que el captcha sea responsive con el formulario
     <section className="contact_form_section">
+      <div className="snackbars">
+        {showSnackbar ? (
+          <MySnackbar
+            alertTitle="Success"
+            autoHideDuration={2000}
+            message="Enviado correctamente"
+            severity="success"
+            onClose={handleSnackbarClose}
+          />
+        ) : null}
+        {showSnackbar ? (
+          <MySnackbar
+            alertTitle="Error"
+            autoHideDuration={2000}
+            message="rror al enviar el mensaje. Por favor, intenta nuevamente."
+            severity="error"
+            onClose={handleSnackbarErrorClose}
+          />
+        ) : null}
+      </div>
       <div className="container">
         <div className="contact_form_boxed bg_primary decoration_wrap">
           <div className="contact_form p-0 bg-transparent rounded-0">
