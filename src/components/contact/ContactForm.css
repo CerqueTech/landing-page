@@ -40,6 +40,9 @@
       fadeInUp 1s ease-in-out forwards 0.1s,
       moveY 2s ease-in-out infinite;
   }
+  .bd-button-text{
+    color: black !important;
+  }
   span{
     display:block;
     color:#CC3423;
