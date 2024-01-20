@@ -1,28 +1,39 @@
-import "./ContactForm.css";
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-import React, { useState, useEffect, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import MySnackbar from "./Snackbar";
-
+import "./ContactForm.css";
 const ContactFormSection = () => {
-  const [showSnackbar, setShowSnackbar] = useState(false);
-  const [showErrorSnackbar, setShowErrorSnackbar] = useState(false);
-
-  const handleSnackbarErrorClose = () => {
-    setShowErrorSnackbar(false);
-  };
-  const handleSnackbarClose = () => {
-    setShowSnackbar(false);
-  };
+  const formRef = useRef();
+  const recaptchaRef = useRef(null);
+  const [captchaValue, setCaptchaValue] = useState(null);
+  const [snackbarConfig, setSnackbarConfig] = useState({
+    showSnackbar: false,
+    showErrorSnackbar: false,
+    swapError: false,
+  });
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
-  const formRef = useRef();
-  const [captchaValue, setCaptchaValue] = useState(null);
+
+  const handleSnackbarErrorClose = () => {
+    setSnackbarConfig({ ...snackbarConfig, showErrorSnackbar: false });
+  };
+  const handleSnackbarClose = () => {
+    setSnackbarConfig({ ...snackbarConfig, showSnackbar: false });
+  };
+  const resetState = () => {
+    setSnackbarConfig({
+      showSnackbar: false,
+      showErrorSnackbar: false,
+      swapError: false,
+    });
+  };
+
   useEffect(() => {
     emailjs.init("-FHCpc8dqO74zCggh");
   }, []);
@@ -30,42 +41,53 @@ const ContactFormSection = () => {
   const onCaptchaChange = (value) => {
     setCaptchaValue(value);
   };
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (!captchaValue) {
-      alert("Por favor, resuelve el CAPTCHA.");
+      setSnackbarConfig({
+        ...snackbarConfig,
+        swapError: true,
+        showErrorSnackbar: true,
+      });
       return;
     }
-    emailjs
-      .sendForm("service_jzbyr2g", "template_nx3hy1l", formRef.current)
-      .then(() => {
-        setShowSnackbar(true);
-        console.log("SUCCESS!");
-        reset();
-        setCaptchaValue(null);
-      })
-      .catch((error) => {
-        setShowErrorSnackbar(true);
-        alert("Error al enviar el mensaje. Por favor, intenta nuevamente.");
-      });
+
+    try {
+      await emailjs.sendForm(
+        "service_jzbyr2g",
+        "template_nx3hy1l",
+        formRef.current
+      );
+      setSnackbarConfig({ ...snackbarConfig, showSnackbar: true });
+      reset();
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+    } catch (error) {
+      setSnackbarConfig({ ...snackbarConfig, showErrorSnackbar: true });
+    }
   };
 
   return (
-    <section className="contact_form_section">
+    <>
       <div className="snackbars">
-        {showSnackbar ? (
+        {snackbarConfig.showSnackbar ? (
           <MySnackbar
             alertTitle="Success"
-            autoHideDuration={2000}
+            autoHideDuration={3000}
             message="Enviado correctamente"
             severity="success"
             onClose={handleSnackbarClose}
           />
         ) : null}
-        {showSnackbar ? (
+        {snackbarConfig.showErrorSnackbar ? (
           <MySnackbar
             alertTitle="Error"
-            autoHideDuration={2000}
-            message="rror al enviar el mensaje. Por favor, intenta nuevamente."
+            autoHideDuration={3000}
+            message={
+              snackbarConfig.swapError
+                ? "Complete el recaptcha porfavor"
+                : "Error al enviar el mensaje. Por favor, intenta nuevamente."
+            }
             severity="error"
             onClose={handleSnackbarErrorClose}
           />
@@ -224,12 +246,17 @@ const ContactFormSection = () => {
               <div className="row">
                 <div className="col-md-6 mb-3">
                   <ReCAPTCHA
+                    ref={recaptchaRef}
                     sitekey="6LcR3VIpAAAAAIrEQNSLspAIsWliq76GBc4RP675"
                     onChange={onCaptchaChange}
                   />
                 </div>
                 <div className="col-md-6 mb-3">
-                  <button type="submit" className="bd-btn-link btn_warning m-2">
+                  <button
+                    type="submit"
+                    className="bd-btn-link btn_warning m-2"
+                    onClick={resetState}
+                  >
                     <span className="bd-button-content-wrapper">
                       <span className="bd-button-icon">
                         <i className="fa-light fa-arrow-right-long"></i>
@@ -260,7 +287,7 @@ const ContactFormSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
