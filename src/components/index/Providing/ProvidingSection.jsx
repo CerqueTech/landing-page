@@ -67,57 +67,58 @@ const ProdivingSection = () => {
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
             title="Desarrollo Web"
-            description="Creando aplicaciones web modernas y escalables con Angular, React y Svelte."
+            description="Soluciones web personalizadas para impulsar tu negocio en el mundo digital."
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_2.svg"
             iconImage="assets/images/icons/icon_house_2.svg"
             title="Desarrollo de Aplicaciones Móviles"
-            description="Construyendo aplicaciones móviles multiplataforma con Swift y NativeScript."
+            description="Aplicaciones móviles intuitivas y eficientes para alcanzar a tus clientes dondequiera que estén."
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_3.svg"
             iconImage="assets/images/icons/icon_grid_2.svg"
             title="Soluciones en la Nube"
-            description="Implementando servicios en la nube y estrategias de migración con AWS, Azure y Heroku."
+            description="Estrategias personalizadas de nube para optimizar tu infraestructura y operaciones."
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_4.svg"
             iconImage="/assets/images/icons/icon_speaker.svg"
             title="DevOps y Automatización"
-            description="Mejorando procesos de CI/CD utilizando Docker, Kubernetes y Jenkins."
+            description="Automatización y eficiencia para tus procesos de desarrollo y operaciones."
           />
 
           <ProvidingElement
             shape="/assets/images/shapes/shape_color_5.svg"
             iconImage="/assets/images/icons/icon_camera_2.svg"
             title="Arquitectura de Microservicios"
-            description="Diseñando e implementando microservicios para sistemas eficientes y escalables."
+            description="Sistemas ágiles y escalables para un crecimiento empresarial sostenible."
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_6.svg"
             iconImage="assets/images/icons/icon_code_4.svg"
             title="Consultoría en Ciberseguridad"
-            description="Ofreciendo auditorías de seguridad y consultoría de cumplimiento de primera categoría."
+            description="Protege tu negocio con estrategias de seguridad de vanguardia y consultoría experta."
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_7.svg"
             iconImage="assets/images/icons/icon_idea_3.svg"
             title="Análisis de Datos"
-            description="Transformando datos en conocimientos con herramientas modernas de análisis y reportes."
+            description="Convierte tus datos en decisiones inteligentes y estrategias competitivas."
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_8.svg"
             iconImage="assets/images/icons/icon_cog.svg"
             title="IA y Aprendizaje Automático"
-            description="Desarrollando soluciones impulsadas por IA para mejorar las operaciones empresariales."
+            description="Impulsa tu negocio con soluciones avanzadas de IA adaptadas a tus necesidades."
           />
+
         </Slider>
       </div>
     </div>
