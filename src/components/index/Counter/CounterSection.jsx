@@ -6,14 +6,14 @@ const CounterSection = () => {
       <div className="container">
         <div className="row">
         <CounterItem
-            count={7}
+            count={8}
             title="Clientes satisfechos en todo el mundo"
             supText="+"
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
           <CounterItem
-            count={4}
+            count={5}
             title="Proyectos exitosos"
             supText="+"
           />
