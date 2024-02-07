@@ -12,7 +12,7 @@ const { title, aHref, aText, liText } = Astro.props;
 <div class="container decoration_wrap">
   <h1 class="page_title">{title}</h1>
   <ul class="breadcrumb_nav unordered_list_center">
-    <li class="inicio"><a href={aHref}>{aText}</a></li>
+    <li class="inicio"><a href={aHref} data-astro-reload>{aText}</a></li>
     <li class="page">{liText}</li>
   </ul>
   <div class="deco_item shape_1">

@@ -5,8 +5,8 @@ import ReCAPTCHA from "react-google-recaptcha";
 import MySnackbar from "./Snackbar";
 import "./ContactForm.css";
 import getData from "../../services/data";
-const data = await getData("es/contact/contactform");
-const ContactFormSection = () => {
+const ContactFormSection = (props) => {
+  const [data, setData] = useState({});
   const formRef = useRef();
   const recaptchaRef = useRef(null);
   const [captchaValue, setCaptchaValue] = useState(null);
@@ -38,6 +38,11 @@ const ContactFormSection = () => {
 
   useEffect(() => {
     emailjs.init("-FHCpc8dqO74zCggh");
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/contact/contactform`);
+      setData(result);
+    };
+    fetchData();
   }, []);
 
   const onCaptchaChange = (value) => {
@@ -238,7 +243,10 @@ const ContactFormSection = () => {
                   ref={recaptchaRef}
                   sitekey="6LcR3VIpAAAAAIrEQNSLspAIsWliq76GBc4RP675"
                   onChange={onCaptchaChange}
+                  size="normal"
+                  hl={props.lang}
                 />
+                {console.log(props.lang)}
               </div>
               <div className="col-md-6 mb-3">
                 <button

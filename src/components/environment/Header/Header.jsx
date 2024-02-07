@@ -1,15 +1,20 @@
-import { getLangFromUrl, getRouteFromUrl  } from '../../../i18n/utils.ts';
 import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas.jsx";
 import StyleButton from "../StyleButton/StyleButton.jsx";
 import getData from "../../../services/data.ts";
 import LenguaguePicker from '../LenguagePicker.jsx';
-
-const data = await getData('es/enviroment/header')
-
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/enviroment/header`);
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -39,8 +44,7 @@ export default function Header(props) {
     swapElems();
   };
   
-  const lang = getLangFromUrl(props.url);
-  const route = getRouteFromUrl(props.url);
+ // const route = getRouteFromUrl(props.url);
 
   return (
     <>
@@ -49,7 +53,7 @@ export default function Header(props) {
         <div className="container">
           <div className="header_wrapper">
             <div className="site_logo">
-              <a className="site_link" href={`/${lang}`} data-astro-reload>
+              <a className="site_link" href={`/${props.lang}`} data-astro-reload>
                 <img src={"/assets/images/logo/dark_without_icon.png"} />
               </a>
             </div>
@@ -58,14 +62,14 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href={`/${lang}`} data-astro-reload>
+                      <a className="a_inicio" href={`/${props.lang}`} data-astro-reload>
                       {data.home}
                       </a>
                     </li>
                     <li>
                       <a
                         className="a_servicios"
-                        href={`/${lang}/service/`}
+                        href={`/${props.lang}/service/`}
                         data-astro-reload
                       >
                         {data.services}
@@ -74,7 +78,7 @@ export default function Header(props) {
                     <li>
                       <a
                         className="a_servicios"
-                        href={`/${lang}/about-us/`}
+                        href={`/${props.lang}/about-us/`}
                         data-astro-reload
                       >
                         {data.about}
@@ -83,7 +87,7 @@ export default function Header(props) {
                     <li>
                       <a
                         className="a_contacto"
-                        href={`/${lang}/contact/`}
+                        href={`/${props.lang}/contact/`}
                         data-astro-reload
                       >
                         {data.contact}
@@ -106,7 +110,7 @@ export default function Header(props) {
             <div className="header_right">
               <ul className="header_btns_group unordered_list_end d-none d-md-inline-flex">
                 <li>
-                  <LenguaguePicker/>
+                  <LenguaguePicker lang={props.lang} route={props.route} url={props.url}/>
                 </li>
                 <li>
                   <StyleButton />

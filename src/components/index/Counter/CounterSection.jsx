@@ -1,30 +1,33 @@
-import CounterItem from './CounterItem';
-import Decos from './Decos';
-import getData from '../../../services/data';
+import CounterItem from "./CounterItem";
+import Decos from "./Decos";
+import getData from "../../../services/data";
+import { useState, useEffect } from "react";
+const CounterSection = (props) => {
+  const [data, setData] = useState({});
 
-const data = await getData('es/index/counter');
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/index/counter`);
+      setData(result);
+    };
 
-
-const CounterSection = () => {
+    fetchData();
+  }, []);
   return (
     <>
       <div className="container">
         <div className="row">
-        <CounterItem
+          <CounterItem
             count={8}
             title={data.counter1title}
             supText="+"
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
-          <CounterItem
-            count={4}
-            title="Proyectos exitosos"
-            supText="+"
-          />
+          <CounterItem count={4} title={data.counter2title} supText="+" />
 
           <CounterItem
-            count={5} 
+            count={5}
             title={data.counter3title}
             supText="+"
             dataParallax='{"y" : -30, "smoothness": 10}'

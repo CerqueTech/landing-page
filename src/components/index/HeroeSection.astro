@@ -1,6 +1,8 @@
 ---
+import { getLangFromUrl } from "../../i18n/utils";
 import getData from "../../services/data";
-const data = await getData("es/index/hero");
+const lang = getLangFromUrl(Astro.url);
+const data = await getData(`${lang}/index/hero`);
 if (!data) {
   return Astro.redirect("/404");
 }

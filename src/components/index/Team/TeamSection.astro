@@ -4,7 +4,9 @@ import Mateo from "../../../../public/assets/images/team/mateo.png";
 import Fer from "../../../../public/assets/images/team/fer.png";
 import Fede from "../../../../public/assets/images/team/fede.png";
 import getData from "../../../services/data";
-const data = await getData("es/index/team");
+import { getLangFromUrl } from "../../../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const data = await getData(`${lang}/index/team`);
 if (!data) {
   return Astro.redirect("/404");
 }

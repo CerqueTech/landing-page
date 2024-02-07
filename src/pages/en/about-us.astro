@@ -1,16 +1,19 @@
 ---
+import { getLangFromUrl } from "../../i18n/utils";
 import AboutUsSection from "../../components/about-us/AboutUsSection.astro";
 import BannerSection from "../../components/environment/BannerSection.astro";
+import getData from "../../services/data";
 import Layout from "../../layouts/Layout.astro";
+const lang = getLangFromUrl(Astro.url);
+const data = await getData(`${lang}/enviroment/routes`);
 ---
-
-<Layout transition:persist title="Nosotros" menu="">
+<Layout transition:persist title={data.about} menu="" lang="en">
   <section class="page_banner text-center">
     <BannerSection
-      title="Conocé a nuestro equipo"
+      title={data.aboutTxt}
       ahref="/"
-      aText="Inicio"
-      liText="Nosotros"
+      aText={data.index}
+      liText={data.about}
     />
   </section>
   <section

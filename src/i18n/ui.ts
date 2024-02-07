@@ -18,13 +18,13 @@ export const ui = {
 
 export const routes = {
   es: {
-    'index':' ',
+    'es':'/',
     'service':'servicios',
     'about-us':'nosotros',
     'contact':'contactanos',
   },
   en: {
-    'index':'en',
+    'en':'/',
     'service':'service',
     'about-us':'about-us',
     'contact':'contact',

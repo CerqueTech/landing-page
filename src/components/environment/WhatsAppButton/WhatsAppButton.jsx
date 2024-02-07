@@ -1,10 +1,17 @@
 import { FloatingWhatsApp } from "react-floating-whatsapp";
-import { getCollection, getEntry } from "astro:content";
-import { getLangFromUrl, useTranslations } from "../../../i18n/utils.ts";
 import getData from "../../../services/data.ts";
-const data = await getData("es/enviroment/whatsapp");
+import { useState, useEffect } from "react";
 export default function WhatsAppButton(props) {
-  const lang = getLangFromUrl(props.lang);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/enviroment/whatsapp`);
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
   return (
     <FloatingWhatsApp
       phoneNumber="+541140541120"

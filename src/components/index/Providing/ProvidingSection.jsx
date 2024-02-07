@@ -1,8 +1,16 @@
 import Slider from "react-slick";
 import ProvidingElement from "./ProvidingElement";
 import getData from "../../../services/data";
-const data = await getData("es/index/providing");
-const ProdivingSection = () => {
+import { useState, useEffect } from "react";
+const ProdivingSection = (props) => {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/index/providing`);
+      setData(result);
+    };
+    fetchData();
+  }, []);
   const settings = {
     dots: true,
     infinite: true,

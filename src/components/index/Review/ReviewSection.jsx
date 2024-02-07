@@ -1,9 +1,18 @@
-import React, { useRef } from "react";
+import { useRef,useEffect,useState } from "react";
 import Slider from "react-slick";
 import ReviewElement from "./ReviewElement";
 import getData from "../../../services/data";
-const data = await getData("es/index/review");
-export default function ReviewSection() {
+export default function ReviewSection(props) {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/index/review`);
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
   const settings = {
     infinite: true,
     speed: 1500,

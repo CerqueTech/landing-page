@@ -3,9 +3,7 @@ import { getLangFromUrl} from '../../i18n/utils';
 import getData from '../../services/data';
 const currentYear = new Date().getFullYear();
 const lang = getLangFromUrl(Astro.url);
-
-
-const data = await getData("en/enviroment/footer");
+const data = await getData(`${lang}/enviroment/footer`);
 ---
 
 

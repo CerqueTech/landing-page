@@ -2,15 +2,18 @@
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/environment/Header/Header";
 import Footer from "../components/environment/Footer.astro";
-import { getLangFromUrl } from "../i18n/utils";
+import { getRouteFromUrl } from "../i18n/utils";
 import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton";
 interface Props {
   title: string;
   menu: string;
+  lang:string;
 }
 
-const { title, menu } = Astro.props;
-const lang = getLangFromUrl(Astro.url);
+const { title, menu, lang } = Astro.props;
+const route = getRouteFromUrl(Astro.url);
+
+console.log(route);
 ---
 
 <!doctype html>
@@ -68,16 +71,17 @@ const lang = getLangFromUrl(Astro.url);
   </head>
 
   <body>
-    <!-- <LenguagePicker></LenguagePicker> -->
     <div class="page_wrapper">
-      <WhatsAppButton client:only="react" lang={Astro.url} />
+      <WhatsAppButton client:only="react" lang={lang} />
       <header>
         <Header
           transition:persist
           transition:animate="none"
           client:only="react"
           menu={menu}
-          url={Astro.url}
+          lang={lang}
+          route={route}
+          url={Astro.url.pathname}
         />
       </header>
       <main class="page_content">
@@ -97,12 +101,11 @@ const lang = getLangFromUrl(Astro.url);
 
       document.addEventListener("astro:before-swap", (ev) => {
         setDarkMode(ev.newDocument);
-      });
+      }); 
     </script>
     <script is:inline src="/assets/js/jquery.min.js"></script>
     <script is:inline src="/assets/js/parallax-scroll.js"></script>
     <script is:inline src="/assets/js/cursor.js"></script>
-    <!--Borrar si no queres mas las animaciones de las imagenes-->
     <style is:global>
       a,
       small {

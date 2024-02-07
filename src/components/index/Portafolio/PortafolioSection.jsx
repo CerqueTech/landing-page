@@ -1,8 +1,18 @@
 import Slider from "react-slick";
 import PortafolioElement from "./PortafolioElement";
 import getData from "../../../services/data";
-const data = await getData("es/index/portafolio");
-export default function PortafolioSection() {
+import { useState,useEffect } from "react";
+export default function PortafolioSection(props) {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getData(`${props.lang}/index/portafolio`);
+      setData(result);
+    };
+
+    fetchData();
+  }, []);
   const settings = {
     dots: true,
     infinite: true,

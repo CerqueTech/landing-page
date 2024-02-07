@@ -1,8 +1,10 @@
 ---
+import {getLangFromUrl}  from "../../i18n/utils";
 import getData from "../../services/data";
 import BodyDown from "./BodyDown.astro";
 import BodyUp from "./BodyUp.astro";
-const data = await getData("es/about-us/aboutus");
+const lang = getLangFromUrl(Astro.url);
+const data = await getData(`${lang}/about-us/aboutus`);
 ---
 
 <div class="container">
@@ -22,5 +24,7 @@ const data = await getData("es/about-us/aboutus");
       </div>
     </div>
     <BodyDown bttnTxt={data.bBttnTxt} headTxt={data.bHeadTxt} />
+  </div>
+</div>
   </div>
 </div>

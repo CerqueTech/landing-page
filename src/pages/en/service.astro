@@ -1,16 +1,20 @@
 ---
+import { getLangFromUrl } from '../../i18n/utils';
 import BannerSection from '../../components/environment/BannerSection.astro';
+import getData from '../../services/data';
 import Layout from '../../layouts/Layout.astro';
 import ServicesSection from '../../components/services/ServicesSection.astro';
+const lang = getLangFromUrl(Astro.url);
+const data = await getData(`${lang}/enviroment/routes`);
 ---
 
-<Layout title="Servicios" menu="">
+<Layout title={data.service} menu="" lang="en">
   <section class="page_banner text-center">
     <BannerSection
-      title="Servicios"
+      title={data.service}
       ahref="/"
-      aText="Inicio"
-      liText="Servicios"
+      aText={data.index}
+      liText={data.service}
     />
   </section>
   <section class="service_section section_space_lg">

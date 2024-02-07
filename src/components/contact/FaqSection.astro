@@ -1,7 +1,9 @@
 ---
+import { getLangFromUrl } from "../../i18n/utils";
 import getData from "../../services/data";
 import FaqItem from "./FaqItem";
-const data = await getData("es/contact/faq");
+const lang = getLangFromUrl(Astro.url);
+const data = await getData(`${lang}/contact/faq`);
 ---
 
 <div class="container">
