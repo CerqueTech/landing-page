@@ -1,30 +1,26 @@
 ---
-import BodyDown from './BodyDown.astro';
-import BodyUp from './BodyUp.astro';
+import getData from "../../services/data";
+import BodyDown from "./BodyDown.astro";
+import BodyUp from "./BodyUp.astro";
+const data = await getData("es/about-us/aboutus");
 ---
 
 <div class="container">
   <div class="details_content_wrap">
     <BodyUp
-      bttnTxt="Descubre Nuestra Filosofía"
-      headTitle="Innovando con Valores y Tecnología"
-      rigthTxt="En Cerquetech Solutions, nuestra pasión por la tecnología se fusiona con un compromiso firme hacia la innovación ética y sostenible. Adoptamos las últimas tendencias tecnológicas para ofrecer soluciones que no solo son avanzadas, sino también responsables y alineadas con los valores de nuestros clientes."
-      item1Txt="Compromiso Ético: Innovación con responsabilidad."
-      item2Txt="Sostenibilidad: Tecnología para un futuro mejor."
-      item3Txt="Avance Tecnológico: Adoptamos las últimas tendencias."
+      bttnTxt={data.bttnTxt}
+      headTitle={data.headTitle}
+      rigthTxt={data.rigthTxt}
+      item1Txt={data.item1Txt}
+      item2Txt={data.item2Txt}
+      item3Txt={data.item3Txt}
     />
 
     <div class="section_space_lg">
       <div class="team">
-        <img
-          src="assets/images/team/team.png"
-          alt="Equipo de Cerquetech Solutions"
-        />
+        <img src="/assets/images/team/team.png" alt={data.imgAlt} />
       </div>
     </div>
-    <BodyDown
-      bttnTxt="Nuestras Tecnologías"
-      headTxt="Liderando con Innovación y Expertise Tecnológico"
-    />
+    <BodyDown bttnTxt={data.bBttnTxt} headTxt={data.bHeadTxt} />
   </div>
 </div>

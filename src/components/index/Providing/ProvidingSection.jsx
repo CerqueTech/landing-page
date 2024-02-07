@@ -1,5 +1,7 @@
 import Slider from "react-slick";
 import ProvidingElement from "./ProvidingElement";
+import getData from "../../../services/data";
+const data = await getData("es/index/providing");
 const ProdivingSection = () => {
   const settings = {
     dots: true,
@@ -57,68 +59,67 @@ const ProdivingSection = () => {
     <div className="container">
       <div className="section_heading style_4 text-center">
         <h2 className="heading_subtitle text-uppercase">
-          <span>Nuestros Servicios</span>
+          <span>{data.span}</span>
         </h2>
-        <h3 className="heading_title mb-0">Las soluciones</h3>
+        <h3 className="heading_title mb-0">{data.h3}</h3>
       </div>
       <div className="common_carousel_4col row">
         <Slider {...settings}>
           <ProvidingElement
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
-            title="Desarrollo Web"
-            description="Soluciones web personalizadas para impulsar tu negocio en el mundo digital."
+            title={data.elem1Title}
+            description={data.elem1Desc}
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_2.svg"
             iconImage="assets/images/icons/icon_house_2.svg"
-            title="Desarrollo de Aplicaciones Móviles"
-            description="Aplicaciones móviles intuitivas y eficientes para alcanzar a tus clientes dondequiera que estén."
+            title={data.elem2Title}
+            description={data.elem2Desc}
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_3.svg"
             iconImage="assets/images/icons/icon_grid_2.svg"
-            title="Soluciones en la Nube"
-            description="Estrategias personalizadas de nube para optimizar tu infraestructura y operaciones."
+            title={data.elem3Title}
+            description={data.elem3Desc}
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_4.svg"
             iconImage="/assets/images/icons/icon_speaker.svg"
-            title="DevOps y Automatización"
-            description="Automatización y eficiencia para tus procesos de desarrollo y operaciones."
+            title={data.elem4Title}
+            description={data.elem4Desc}
           />
 
           <ProvidingElement
             shape="/assets/images/shapes/shape_color_5.svg"
             iconImage="/assets/images/icons/icon_camera_2.svg"
-            title="Arquitectura de Microservicios"
-            description="Sistemas ágiles y escalables para un crecimiento empresarial sostenible."
+            title={data.elem5Title}
+            description={data.elem5Desc}
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_6.svg"
             iconImage="assets/images/icons/icon_code_4.svg"
-            title="Consultoría en Ciberseguridad"
-            description="Protege tu negocio con estrategias de seguridad de vanguardia y consultoría experta."
+            title={data.elem6Title}
+            description={data.elem6Desc}
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_7.svg"
             iconImage="assets/images/icons/icon_idea_3.svg"
-            title="Análisis de Datos"
-            description="Convierte tus datos en decisiones inteligentes y estrategias competitivas."
+            title={data.elem7Title}
+            description={data.elem7Desc}
           />
 
           <ProvidingElement
             shape="assets/images/shapes/shape_color_8.svg"
             iconImage="assets/images/icons/icon_cog.svg"
-            title="IA y Aprendizaje Automático"
-            description="Impulsa tu negocio con soluciones avanzadas de IA adaptadas a tus necesidades."
+            title={data.elem8Title}
+            description={data.elem8Desc}
           />
-
         </Slider>
       </div>
     </div>

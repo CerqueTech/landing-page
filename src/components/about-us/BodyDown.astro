@@ -1,10 +1,12 @@
 ---
-import BoxElement from './BoxElement.astro';
-import DetailElement from './DetailElement.astro';
+import getData from "../../services/data";
+import BoxElement from "./BoxElement.astro";
+import DetailElement from "./DetailElement.astro";
 interface Props {
   headTxt: string;
   bttnTxt: string;
 }
+const data = await getData("es/about-us/bodydown")
 const { headTxt, bttnTxt } = Astro.props;
 ---
 
@@ -15,24 +17,24 @@ const { headTxt, bttnTxt } = Astro.props;
   <div class="col col-lg-8">
     <div class="row">
       <BoxElement
-        icon="assets/images/icons/icon_care_primary.svg"
-        title="Atención al cliente"
-        txt="La atención al cliente es nuestra máxima prioridad, y buscamos ir más allá de la simple satisfacción. Nos esmeramos en ofrecer un cuidado genuino, superando las expectativas y necesidades de quienes confían en nosotros."
+        icon="/assets/images/icons/icon_care_primary.svg"
+        title={data.box1Title}
+        txt={data.box1Txt}
       />
       <BoxElement
-        icon="assets/images/icons/icon_together_primary.svg"
-        title="Usando la empatía"
-        txt="Continuamos con el cuidado al cliente. Practicar la empatía y ponerse en el lugar del cliente lleva la atención al cliente a un nivel superior."
+        icon="/assets/images/icons/icon_together_primary.svg"
+        title={data.box2Title}
+        txt={data.box2Txt}
       />
       <BoxElement
-        icon="assets/images/icons/icon_communication_primary.svg"
-        title="Habilidades de comunicación"
-        txt="Esto puede parecer obvio, pero en realidad hay mucho mas que hacer. Aprender a comunicarse con un cliente. Primero, deber ser capaz de hablar abiertamente"
+        icon="/assets/images/icons/icon_communication_primary.svg"
+        title={data.box3Title}
+        txt={data.box3Txt}
       />
       <BoxElement
-        icon="assets/images/icons/icon_teaching_primary.svg"
-        title="Enseñanza y tutoría"
-        txt="La última pero una de las cosas más importantes es retribuir. Tomarse el tiempo para enseñar a desarrolladores novatos o asesorar a alguien es fundamental."
+        icon="/assets/images/icons/icon_teaching_primary.svg"
+        title={data.box4Title}
+        txt={data.box4Txt}
       />
     </div>
   </div>

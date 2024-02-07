@@ -4,6 +4,8 @@ import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
 import MySnackbar from "./Snackbar";
 import "./ContactForm.css";
+import getData from "../../services/data";
+const data = await getData("es/contact/contactform");
 const ContactFormSection = () => {
   const formRef = useRef();
   const recaptchaRef = useRef(null);
@@ -72,21 +74,21 @@ const ContactFormSection = () => {
       <div className="snackbars">
         {snackbarConfig.showSnackbar ? (
           <MySnackbar
-            alertTitle="Success"
+            alertTitle={data.snackTitle}
             autoHideDuration={3000}
-            message="Enviado correctamente"
+            message={data.snackMsg}
             severity="success"
             onClose={handleSnackbarClose}
           />
         ) : null}
         {snackbarConfig.showErrorSnackbar ? (
           <MySnackbar
-            alertTitle="Error"
+            alertTitle={data.snack1Title}
             autoHideDuration={3000}
             message={
               snackbarConfig.swapError
-                ? "Complete el recaptcha porfavor"
-                : "Error al enviar el mensaje. Por favor, intenta nuevamente."
+                ? `${data.snack1Msg1}`
+                : `${data.snackMsg2}`
             }
             severity="error"
             onClose={handleSnackbarErrorClose}
@@ -101,9 +103,9 @@ const ContactFormSection = () => {
                 <i className="fas fa-sharp fa-square-full"></i>
                 <i className="fas fa-sharp fa-square-full"></i>
               </span>
-              <span>Contactenos</span>
+              <span>{data.span}</span>
             </h2>
-            <h3 className="heading_title">Ponete en contacto</h3>
+            <h3 className="heading_title">{data.h3}</h3>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} ref={formRef}>
             <div className="row">
@@ -113,23 +115,23 @@ const ContactFormSection = () => {
                     className="form-control"
                     type="text"
                     name="firstname"
-                    placeholder="Nombre"
+                    placeholder={data.placeHolderName}
                     {...register("firstname", {
                       required: {
                         value: true,
-                        message: "Nombre es requerido",
+                        message: `${data.msgName}`,
                       },
                       minLength: {
                         value: 3,
-                        message: "Nombre debe tener al menos 3 caracteres",
+                        message: `${data.msg1Name}`,
                       },
                       maxLength: {
                         value: 20,
-                        message: "Nombre debe tener máximo 20 caracteres",
+                        message: `${data.msg2Name}`,
                       },
                       pattern: {
                         value: /^[A-Za-z]+$/,
-                        message: "Solo se permiten letras en el nombre",
+                        message: `${data.msg3Name}`,
                       },
                     })}
                   />
@@ -142,23 +144,23 @@ const ContactFormSection = () => {
                     className="form-control"
                     type="text"
                     name="lastname"
-                    placeholder="Apellido"
+                    placeholder={data.placeHolderLastName}
                     {...register("lastname", {
                       required: {
                         value: true,
-                        message: "Nombre es requerido",
+                        message: `${data.msgLastName}`,
                       },
                       minLength: {
                         value: 3,
-                        message: "Nombre debe tener al menos 3 caracteres",
+                        message: `${data.msg1LastName}`,
                       },
                       maxLength: {
                         value: 20,
-                        message: "Nombre debe tener máximo 20 caracteres",
+                        message: `${data.msg2LastName}`,
                       },
                       pattern: {
                         value: /^[A-Za-z]+$/,
-                        message: "Solo se permiten letras en el apellido",
+                        message: `${data.msg3LastName}`,
                       },
                     })}
                   />
@@ -171,15 +173,15 @@ const ContactFormSection = () => {
                     className="form-control"
                     type="text"
                     name="cellphone"
-                    placeholder="Telefono"
+                    placeholder={data.placeHolderTel}
                     {...register("cellphone", {
                       required: {
                         value: true,
-                        message: "Telefono es requerido",
+                        message: `${data.msgTel}`,
                       },
                       pattern: {
                         value: /^[0-9]+$/,
-                        message: "Solo se permiten números",
+                        message: `${data.msg1Tel}`,
                       },
                     })}
                   />
@@ -196,24 +198,16 @@ const ContactFormSection = () => {
                     {...register("subjectSelect")}
                   >
                     <option value="" defaultValue={""} disabled>
-                      Seleccionar Asunto
+                      {data.select1}
                     </option>
-                    <option value="web-development">Desarrollo Web</option>
-                    <option value="mobile-app">
-                      Desarrollo de Aplicaciones Móviles
-                    </option>
-                    <option value="cloud-solutions">
-                      Soluciones en la Nube
-                    </option>
-                    <option value="devops">DevOps y Automatización</option>
-                    <option value="microservices">
-                      Arquitectura de Microservicios
-                    </option>
-                    <option value="cybersecurity">
-                      Consultoría en Ciberseguridad
-                    </option>
-                    <option value="data-analytics">Análisis de Datos</option>
-                    <option value="ai-ml">IA & Aprendizaje Automático</option>
+                    <option value="web-development">{data.select2}</option>
+                    <option value="mobile-app">{data.select3}</option>
+                    <option value="cloud-solutions">{data.select4}</option>
+                    <option value="devops">{data.select5}</option>
+                    <option value="microservices">{data.select6}</option>
+                    <option value="cybersecurity">{data.select7}</option>
+                    <option value="data-analytics">{data.select8}</option>
+                    <option value="ai-ml">{data.select9}</option>
                   </select>
                 </div>
               </div>
@@ -223,15 +217,15 @@ const ContactFormSection = () => {
                 <textarea
                   className="form-control"
                   name="message"
-                  placeholder="Escribe tu mensaje"
+                  placeholder={data.placeHolderMsg}
                   {...register("message", {
                     required: {
                       value: true,
-                      message: "El mensaje es requerido",
+                      message: `${data.msgMsg}`,
                     },
                     minLength: {
                       value: 5,
-                      message: "El minimo de caracteres es 5",
+                      message: `${data.msg1Msg}`,
                     },
                   })}
                 ></textarea>
@@ -258,8 +252,12 @@ const ContactFormSection = () => {
                     </span>
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">Enviar ahora</span>
-                        <span className="bd-button-text">Enviar ahora</span>
+                        <span className="bd-button-text">
+                          {data.bttnTxt}
+                        </span>
+                        <span className="bd-button-text">
+                          {data.bttnTxt}
+                        </span>
                       </span>
                     </span>
                   </span>
@@ -270,13 +268,13 @@ const ContactFormSection = () => {
         </div>
         <div className="deco_item shape_1">
           <img
-            src="assets/images/shapes/shape_comment.png"
+            src="/assets/images/shapes/shape_comment.png"
             className="img-fluid"
           />
         </div>
         <div className="deco_item shape_2">
           <img
-            src="assets/images/shapes/shape_man_1.png"
+            src="/assets/images/shapes/shape_man_1.png"
             className="img-fluid"
           />
         </div>

@@ -16,7 +16,7 @@ const ProvidingElement = (props) => {
         <a className="item_details_btn" data-cursor="-opaque">
           <span className="btn_icon">
             <img
-              src="assets/images/icons/icon_arrow_down_right_dark_2.svg"
+              src="/assets/images/icons/icon_arrow_down_right_dark_2.svg"
               alt="Arrow icon"
             />
           </span>

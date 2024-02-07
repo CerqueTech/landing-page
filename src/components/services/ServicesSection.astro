@@ -1,5 +1,7 @@
 ---
+import getData from '../../services/data';
 import ServiceItem from './ServiceItem.astro';
+const data = await getData('es/services/service');
 ---
 
 <div class="container">
@@ -7,15 +9,17 @@ import ServiceItem from './ServiceItem.astro';
     <div class="col col-lg-4 col-md-6 col-sm-6">
       <ServiceItem
         icon="far fa-code"
-        title="Desarrollo web"
-        description="Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+        title={data.item1title}
+        description={data.item1Desc}
+        btnText={data.BtnText}
       />
     </div>
     <div class="col col-lg-4 col-md-6 col-sm-6">
       <ServiceItem
         icon="far fa-home"
-        title="Diseño UX/UI"
-        description="Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+        title={data.item2title}
+        description={data.item2Desc}
+        btnText={data.BtnText}
       />
     </div>
     <div class="col col-lg-4 col-md-6 col-sm-6">
@@ -63,17 +67,16 @@ import ServiceItem from './ServiceItem.astro';
           </svg>
         </div>
         <div class="item_content">
-          <h3 class="item_title">Desarrollo de aplicaciones</h3>
+          <h3 class="item_title">{data.item3title}</h3>
           <p class="item_description">
-            Colaboramos en la creación de un flujo de efectivo positivo y
-            reinvertimos los ingresos para seguir creciendo
+            {data.item3Desc}
           </p>
         </div>
         <a class="btn-link">
-          <span class="btn_text">Ver detalles</span>
+          <span class="btn_text">{data.BtnText}</span>
           <span class="btn_icon">
-            <img src="assets/images/icons/icon_arrow_down_right_dark.svg" />
-            <img src="assets/images/icons/icon_arrow_down_right_primary.svg" />
+            <img src="/assets/images/icons/icon_arrow_down_right_dark.svg" />
+            <img src="/assets/images/icons/icon_arrow_down_right_primary.svg" />
           </span>
         </a>
       </div>
@@ -82,8 +85,9 @@ import ServiceItem from './ServiceItem.astro';
     <div class="col col-lg-4 col-md-6 col-sm-6">
       <ServiceItem
         icon="far fa-video"
-        title="Edición de video"
-        description="Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+        title={data.item4title}
+        description={data.item4Desc}
+        btnText={data.BtnText}     
       />
     </div>
     <div class="col col-lg-4 col-md-6 col-sm-6">
@@ -128,20 +132,19 @@ import ServiceItem from './ServiceItem.astro';
           </svg>
         </div>
         <div class="item_content">
-          <h3 class="item_title">Programación y tecnología</h3>
+          <h3 class="item_title">{data.item5title}</h3>
           <p class="item_description">
-            Colaboramos en la creación de un flujo de efectivo positivo y
-            reinvertimos los ingresos para seguir creciendo
+            {data.item5Desc}
           </p>
         </div>
         <a class="btn-link">
-          <span class="btn_text">Ver detalles</span>
+          <span class="btn_text">{data.BtnText}</span>
           <span class="btn_icon">
             <img
-              src="assets/images/icons/icon_arrow_down_right_dark.svg"
+              src="/assets/images/icons/icon_arrow_down_right_dark.svg"
               alt="Paradox icons"
             />
-            <img src="assets/images/icons/icon_arrow_down_right_primary.svg" />
+            <img src="/assets/images/icons/icon_arrow_down_right_primary.svg" />
           </span>
         </a>
       </div>
@@ -222,17 +225,16 @@ import ServiceItem from './ServiceItem.astro';
           </svg>
         </div>
         <div class="item_content">
-          <h3 class="item_title">Consulta Laboral</h3>
+          <h3 class="item_title">{data.item6title}</h3>
           <p class="item_description">
-            Colaboramos en la creación de un flujo de efectivo positivo y
-            reinvertimos los ingresos para seguir creciendo
+            {data.item6Desc}
           </p>
         </div>
         <a class="btn-link">
-          <span class="btn_text">Ver detalles</span>
+          <span class="btn_text">{data.BtnText}</span>
           <span class="btn_icon">
-            <img src="assets/images/icons/icon_arrow_down_right_dark.svg" />
-            <img src="assets/images/icons/icon_arrow_down_right_primary.svg" />
+            <img src="/assets/images/icons/icon_arrow_down_right_dark.svg" />
+            <img src="/assets/images/icons/icon_arrow_down_right_primary.svg" />
           </span>
         </a>
       </div>

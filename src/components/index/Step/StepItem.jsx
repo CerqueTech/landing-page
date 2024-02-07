@@ -25,7 +25,7 @@ export default function StepItem({ delay, title }) {
   return (
     <div className="content_wrap" ref={contentRef}>
       <div className="item_icon">
-        <img src="assets/images/icons/icon_team_white.svg" alt="Icono" />
+        <img src="/assets/images/icons/icon_team_white.svg" alt="Icono" />
       </div>
       <h3 className="item_title m-0">{title}</h3>
     </div>

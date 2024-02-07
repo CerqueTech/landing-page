@@ -1,12 +1,14 @@
 ---
+import getData from "../../services/data";
 import FaqItem from "./FaqItem";
+const data = await getData("es/contact/faq");
 ---
 
 <div class="container">
   <div class="row">
     <div class="col-lg-4 col-md-6">
       <div class="section_heading mb-lg-0">
-        <h2 class="heading_title">Preguntas frecuentes de los usuarios</h2>
+        <h2 class="heading_title">{data.headingTitle}</h2>
         <a class="bd-btn-link btn_primary">
           <span class="bd-button-content-wrapper">
             <span class="bd-button-icon">
@@ -14,8 +16,8 @@ import FaqItem from "./FaqItem";
             </span>
             <span class="pd-animation-flip">
               <span class="bd-btn-anim-wrapp">
-                <span class="bd-button-text">Necesito saber más</span>
-                <span class="bd-button-text">Necesito saber más</span>
+                <span class="bd-button-text">{data.bttnTxt}</span>
+                <span class="bd-button-text">{data.bttnTxt}</span>
               </span>
             </span>
           </span>
@@ -25,43 +27,43 @@ import FaqItem from "./FaqItem";
     <div class="col-lg-8 col-md-6">
       <div class="accordion_wrap" id="faq_accordion">
         <FaqItem
-          id="cost"
-          txtHeader="¿Cómo se determina el costo de un proyecto?"
-          txtBody="El costo de un proyecto depende de varios factores, como la complejidad del diseño, las funcionalidades requeridas, y el tiempo de desarrollo. Siempre proporcionamos una cotización detallada después de entender completamente tus necesidades específicas."
+          id={data.item1Id}
+          txtHeader={data.item1Txt}
+          txtBody={data.item1BodyTxt}
           expanded={true}
           client:visible
         />
         <FaqItem
-          id="maintenance"
-          txtHeader="¿Ofrecen mantenimiento continuo para proyectos desarrollados?"
-          txtBody="Sí, ofrecemos servicios de mantenimiento y soporte para todos los proyectos que desarrollamos. Esto incluye actualizaciones de seguridad, mejoras de rendimiento y asistencia técnica."
+          id={data.item2Id}
+          txtHeader={data.item2Txt}
+          txtBody={data.item2BodyTxt}
           client:visible
         />
         <FaqItem
-          id="mobile_compatibility"
-          txtHeader="¿Cómo aseguran la compatibilidad con dispositivos móviles?"
-          txtBody="Nos enfocamos en el diseño responsivo para asegurar que todas nuestras aplicaciones y sitios web funcionen sin problemas en una variedad de dispositivos móviles, optimizando la experiencia del usuario en todas las plataformas."
+          id={data.item3Id}
+          txtHeader={data.item3Txt}
+          txtBody={data.item3BodyTxt}
           expanded={false}
           client:visible
         />
         <FaqItem
-          id="future_support"
-          txtHeader="¿Qué tipo de soporte ofrecen después del lanzamiento de un sitio web o aplicación?"
-          txtBody="Tras el lanzamiento, ofrecemos un período de soporte técnico para abordar cualquier problema o duda que puedas tener. Además, estamos disponibles para colaboraciones futuras, ya sean mejoras, actualizaciones o el desarrollo de nuevas funcionalidades."
+          id={data.item4Id}
+          txtHeader={data.item4Txt}
+          txtBody={data.item4BodyTxt}
           expanded={false}
           client:visible
         />
         <FaqItem
-          id="tech_stack"
-          txtHeader="¿Qué tecnologías utilizan para el desarrollo de proyectos?"
-          txtBody="Utilizamos una variedad de tecnologías modernas y eficientes, incluyendo JavaScript, TypeScript, Angular, React, Node.js, entre otras. Nuestra selección de tecnología depende de los requisitos específicos del proyecto y de la mejor solución para tus necesidades."
+          id={data.item5Id}
+          txtHeader={data.item5Txt}
+          txtBody={data.item5BodyTxt}
           expanded={false}
           client:visible
         />
         <FaqItem
-          id="custom_solution"
-          txtHeader="¿Pueden desarrollar soluciones personalizadas para necesidades específicas de negocio?"
-          txtBody="Absolutamente. Nos especializamos en desarrollar soluciones personalizadas que se adaptan específicamente a las necesidades únicas de tu negocio, asegurando que el producto final cumpla con tus expectativas y objetivos."
+          id={data.item6Id}
+          txtHeader={data.item6Txt}
+          txtBody={data.item6BodyTxt}
           expanded={false}
           client:visible
         />

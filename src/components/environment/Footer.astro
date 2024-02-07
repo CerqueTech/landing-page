@@ -1,6 +1,13 @@
 ---
+import { getLangFromUrl} from '../../i18n/utils';
+import getData from '../../services/data';
 const currentYear = new Date().getFullYear();
+const lang = getLangFromUrl(Astro.url);
+
+
+const data = await getData("en/enviroment/footer");
 ---
+
 
 <div class="calltoaction_section style_5">
   <div class="container">
@@ -9,7 +16,7 @@ const currentYear = new Date().getFullYear();
         <div class="col col-xxl-5 col-xl-6 col-lg-6 order-last">
           <div class="cta_image">
             <img
-              src="assets/images/calltoaction/cta_image_5.png"
+              src="/assets/images/calltoaction/cta_image_5.png"
               alt="Imagen de Llamada a la Acción de CerqueTech Solutions"
             />
           </div>
@@ -17,7 +24,7 @@ const currentYear = new Date().getFullYear();
         <div class="col col-xxl-7 col-xl-6 col-lg-6">
           <div class="wrapper_box mb-4 mb-lg-0">
             <div class="section_heading text-white">
-              <h2 class="heading_title mb-0">Creemos algo asombroso juntos.</h2>
+              <h2 class="heading_title mb-0">{data.headTitle}</h2>
             </div>
             <a href="contact" class="bd-btn-link btn_warning">
               <span class="bd-button-content-wrapper">
@@ -26,8 +33,8 @@ const currentYear = new Date().getFullYear();
                 </span>
                 <span class="pd-animation-flip">
                   <span class="bd-btn-anim-wrapp">
-                    <span class="bd-button-text">Empezar</span>
-                    <span class="bd-button-text">Empezar</span>
+                    <span class="bd-button-text">{data.bottom}</span>
+                    <span class="bd-button-text">{data.bottom}</span>
                   </span>
                 </span>
               </span>
@@ -36,7 +43,7 @@ const currentYear = new Date().getFullYear();
         </div>
       </div>
       <div class="deco_item shape_1">
-        <img src="assets/images/shapes/shape_4.svg" />
+        <img src="/assets/images/shapes/shape_4.svg" />
       </div>
     </div>
   </div>
@@ -50,7 +57,7 @@ const currentYear = new Date().getFullYear();
           <a class="site_link" href="#" data-astro-reload>
             <img
               style="height: 150px;margin-top: -2em;"
-              src="assets/images/logo/white.png"
+              src="/assets/images/logo/white.png"
               alt="Logo de CerqueTech Solutions"
             />
           </a>
@@ -58,10 +65,9 @@ const currentYear = new Date().getFullYear();
       </div>
       <div class="col col-lg-3 col-md-6">
         <div class="footer_widget">
-          <h3 class="footer_widget_title">Contactanos</h3>
+          <h3 class="footer_widget_title">{data.widget1Ttitle}</h3>
           <div class="icon_list_widget">
-            <h4 class="widget_title mb-0">
-              Si deseas empezar un nuevo proyecto:
+            <h4 class="widget_title mb-0">{data.widget1Titlep}
             </h4>
             <ul class="icon_list unordered_list_block">
               <li>
@@ -77,14 +83,14 @@ const currentYear = new Date().getFullYear();
       </div>
       <div class="col col-lg-3 col-md-6">
         <div class="footer_widget">
-          <h3 class="footer_widget_title">Encuéntranos</h3>
+          <h3 class="footer_widget_title">{data.widget2Title}</h3>
           <div class="icon_list_widget">
             <ul class="icon_list unordered_list_block">
               <li>
                 <a>
                   <span class="d-block mb-2"> </span>
                   <span class="list_item_text">
-                    San Miguel CP1613, Buenos Aires, Argentina
+                    {data.widget2Titlep}
                   </span>
                 </a>
               </li>
@@ -94,13 +100,13 @@ const currentYear = new Date().getFullYear();
       </div>
       <div class="col col-lg-3 col-md-6">
         <div class="footer_widget">
-          <h3 class="footer_widget_title">Newsletter</h3>
+          <h3 class="footer_widget_title">{data.newsletter}</h3>
           <form action="#">
             <div class="small_newsletter_form">
               <input
                 type="email"
                 id="email"
-                placeholder="Dirección de Email"
+                placeholder={data.newsletterPlace}
                 autocomplete="email"
               />
               <button type="submit">
@@ -118,10 +124,10 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer_bottom_grid">
       <div class="copyright_widget">
-        Derechos de Autor © 2023-{currentYear} por <a
+        {data.copyright} © 2023-{currentYear} {data.by} <a
           target="_blank"
           href="https://www.cerquetech.com"><u>CerqueTech Solutions™</u></a
-        > Todos los derechos reservados.
+        > {data.copyright1}
       </div>
     </div>
   </div>

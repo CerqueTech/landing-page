@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
-import ReviewElement from './ReviewElement';
-
+import React, { useRef } from "react";
+import Slider from "react-slick";
+import ReviewElement from "./ReviewElement";
+import getData from "../../../services/data";
+const data = await getData("es/index/review");
 export default function ReviewSection() {
   const settings = {
     infinite: true,
@@ -11,7 +12,7 @@ export default function ReviewSection() {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
-    easing: 'ease-in',
+    easing: "ease-in",
     pauseOnHover: false,
     pauseOnFocus: false,
     responsive: [
@@ -19,38 +20,38 @@ export default function ReviewSection() {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 575,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   const sliderRef = useRef(null);
@@ -70,39 +71,38 @@ export default function ReviewSection() {
             <i className="fas fa-sharp fa-square-full"></i>
             <i className="fas fa-sharp fa-square  -full"></i>
           </span>
-          <span>Testimonios</span>
+          <span>{data.span}</span>
         </h2>
-        <h3 className="heading_title mb-0">Lo que dicen mis clientes</h3>
+        <h3 className="heading_title mb-0">{data.h3}</h3>
       </div>
-
       <div className="review_carousel_3">
         <Slider ref={sliderRef} {...settings}>
           <ReviewElement
-            title="Soluciones Innovadoras"
+            title={data.elem1Title}
             start={5}
-            content="La dedicación del equipo de Cerquetech fue más allá de lo esperado. Personalmente, siempre sentí que realmente les importaba el éxito de nuestro proyecto."
+            content={data.elem1Content}
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_2.png"
-            name="Tomas Pacios Moya"
-            designation="CEO de PM Finance"
+            name={data.elem1Name}
+            designation={data.elem1Designation}
           />
           <ReviewElement
-            title="Experiencia de Usuario Sobresaliente"
+            title={data.elem2Title}
             start={4}
-            content="Lo que más valoro de Cerquetech es su enfoque humano. Fernando, de su equipo, fue particularmente atento; su habilidad para escuchar y entender nuestras preocupaciones transformó completamente nuestra forma de trabajar."
+            content={data.elem2Content}
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_3.png"
-            name="Andres Sosa"
-            designation="Maestro Mayor de Obras"
+            name={data.elem2Name}
+            designation={data.elem2Designation}
           />
           <ReviewElement
-            title="Soporte Confiable y Eficaz"
+            title={data.elem3Title}
             start={4}
-            content="El soporte técnico de Cerquetech es confiable y siempre accesible. Su capacidad para solucionar problemas rápidamente y con eficacia nos ha ayudado a mantener nuestras operaciones funcionando sin problemas."
+            content={data.elem3Content}
             icon="assets/images/icons/icon_quote_dark.svg"
             img="assets/images/meta/avatar_1.png"
-            name="Trinidad Tevini"
-            designation="CEO de Tevini Finance"
+            name={data.elem3Name}
+            designation={data.elem3Designation}
           />
         </Slider>
         <ul className="carousel_arrow unordered_list_center">

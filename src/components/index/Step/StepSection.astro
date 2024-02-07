@@ -1,9 +1,14 @@
 ---
-import StepItem from './StepItem';
+import getData from "../../../services/data";
+import StepItem from "./StepItem";
+const data = await getData("es/index/step");
+if (!data) {
+  return Astro.redirect("/404");
+}
 ---
 
 <div class="deco_item shado">
-  <img class="shape-circle" src="assets/images/shapes/shape_circle_2.svg" />
+  <img class="shape-circle" src="/assets/images/shapes/shape_circle_2.svg" />
 </div>
 <div class="container decoration_wrap">
   <div class="row align-items-center">
@@ -11,23 +16,26 @@ import StepItem from './StepItem';
       <div class="starter_steps_group decoration_wrap mb-4 mg-lg-0">
         <ul class="unordered_list">
           <li>
-            <StepItem client:visible title="Expertos Globales" delay="0.3" />
+            <StepItem client:visible title={data.step1title} delay="0.3" />
           </li>
           <li>
-            <StepItem client:visible title="Calidad Garantizada" delay="0.9" />
+            <StepItem client:visible title={data.step2title} delay="0.9" />
           </li>
           <li>
-            <StepItem client:visible title="Respuesta Rápida" delay="1.2" />
+            <StepItem client:visible title={data.step3title} delay="1.2" />
           </li>
         </ul>
         <div class="deco_item shape_1">
           <img
             class="circle-dashed"
-            src="assets/images/shapes/shape_circle_dashed_1.svg"
+            src="/assets/images/shapes/shape_circle_dashed_1.svg"
           />
         </div>
         <div class="deco_item shape_2">
-          <img class="circle-2" src="assets/images/shapes/shape_circle_2.svg" />
+          <img
+            class="circle-2"
+            src="/assets/images/shapes/shape_circle_2.svg"
+          />
         </div>
       </div>
     </div>
@@ -39,16 +47,11 @@ import StepItem from './StepItem';
               <i class="fas fa-sharp fa-square-full"></i>
               <i class="fas fa-sharp fa-square-full"></i>
             </span>
-            <span>¿Por qué elegirnos?</span>
+            <span>{data.span}</span>
           </h2>
-          <h3 class="heading_title">Impulsamos tu negocio</h3>
+          <h3 class="heading_title">{data.h3}</h3>
           <p class="heading_description mb-0">
-            En CerqueTech, fusionamos experiencia, innovación y compromiso para
-            transformar tus ideas en soluciones tecnológicas de vanguardia. Nos
-            dedicamos a entender y anticipar tus necesidades, garantizando una
-            colaboración que va más allá de lo convencional. Con nosotros, tu
-            visión se convierte en realidad, impulsando tu negocio hacia nuevas
-            alturas de éxito y eficiencia.
+            {data.p}
           </p>
         </div>
         <ul class="btns_group unordered_list">
@@ -60,46 +63,27 @@ import StepItem from './StepItem';
                 </span>
                 <span class="pd-animation-flip">
                   <span class="bd-btn-anim-wrapp">
-                    <span class="bd-button-text"
-                      >Explora nuestros servicios</span
-                    >
-                    <span class="bd-button-text"
-                      >Explora nuestros servicios</span
-                    >
+                    <span class="bd-button-text">{data.spanbuttontext}</span>
+                    <span class="bd-button-text">{data.spanbuttontext}</span>
                   </span>
                 </span>
               </span>
             </a>
           </li>
-          <!-- <li>
-            <a
-              class="video_play_btn popup_video"
-              href="https://www.youtube.com/watch?v=7e90gBu4pas"
-              data-cursor="-exclusion -lg"
-              data-cursor-stick="#intro_vbtn"
-            >
-              <span id="intro_vbtn" class="icon_wrap">
-                <i class="fas fa-play"></i>
-              </span>
-              <span class="btn_text"
-                ><small class="d-block">Mira nuestro</small> Video</span
-              >
-            </a>
-          </li> -->
         </ul>
       </div>
     </div>
   </div>
   <div class="deco_item shape_3">
     <img
-      src="assets/images/shapes/shape_circle_1.svg"
+      src="/assets/images/shapes/shape_circle_1.svg"
       data-parallax='{"y" : -140, "smoothness": 10}'
       class="imgCicle"
     />
   </div>
   <div class="deco_item shape_4">
     <img
-      src="assets/images/shapes/shape_close_icon.png"
+      src="/assets/images/shapes/shape_close_icon.png"
       data-parallax='{"y" : 140, "smoothness": 10}'
       class="close"
     />

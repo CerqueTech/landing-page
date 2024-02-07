@@ -2,16 +2,19 @@
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/environment/Header/Header";
 import Footer from "../components/environment/Footer.astro";
+import { getLangFromUrl } from "../i18n/utils";
+import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton";
 interface Props {
   title: string;
   menu: string;
 }
 
 const { title, menu } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="es" transition:animate="none">
+<html transition:animate="none" lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -65,13 +68,16 @@ const { title, menu } = Astro.props;
   </head>
 
   <body>
+    <!-- <LenguagePicker></LenguagePicker> -->
     <div class="page_wrapper">
+      <WhatsAppButton client:only="react" lang={Astro.url} />
       <header>
         <Header
           transition:persist
           transition:animate="none"
           client:only="react"
           menu={menu}
+          url={Astro.url}
         />
       </header>
       <main class="page_content">
@@ -96,7 +102,6 @@ const { title, menu } = Astro.props;
     <script is:inline src="/assets/js/jquery.min.js"></script>
     <script is:inline src="/assets/js/parallax-scroll.js"></script>
     <script is:inline src="/assets/js/cursor.js"></script>
-
     <!--Borrar si no queres mas las animaciones de las imagenes-->
     <style is:global>
       a,

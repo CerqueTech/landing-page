@@ -1,9 +1,18 @@
+---
+import getData from "../../services/data";
+const data = await getData("es/index/hero");
+if (!data) {
+  return Astro.redirect("/404");
+}
+---
+
 <div class="container d-flex align-items-center">
   <div class="row align-items-center">
     <div class="col-12 col-md-5 col-lg-6">
       <div class="banner_content_3 mb-4 mb-lg-0">
         <h1 class="hero_banner_heading">
-          <span>Soluciones</span> digitales para tu empresa
+          <span>{data.span1}</span>
+          {data.span2}
         </h1>
         <a href="contact" class="bd-btn-link btn_warning">
           <span class="bd-button-content-wrapper">
@@ -12,8 +21,8 @@
             </span>
             <span class="pd-animation-flip">
               <span class="bd-btn-anim-wrapp">
-                <span class="bd-button-text">Contactanos</span>
-                <span class="bd-button-text">Contactanos</span>
+                <span class="bd-button-text">{data.buttontext}</span>
+                <span class="bd-button-text">{data.buttontext}</span>
               </span>
             </span>
           </span>
@@ -24,13 +33,13 @@
       <div class="hero_banner_image_3 decoration_wrap">
         <div class="man_image">
           <img
-            src="assets/images/banner/hero_banner_image_3.png"
+            src="/assets/images/banner/hero_banner_image_3.png"
             alt="Paradox Illustration Image"
             class="img-fluid"
           />
         </div>
         <div class="deco_item shape_1">
-          <img src="assets/images/shapes/shape_star_smooth.svg" class="deco" />
+          <img src="/assets/images/shapes/shape_star_smooth.svg" class="deco" />
         </div>
       </div>
     </div>
@@ -164,10 +173,10 @@
   }
   .hero_banner_section.style_3 .hero_banner_heading span::before {
     position: absolute;
-    content: '';
+    content: "";
     bottom: 5px;
     inset-inline-start: 0;
-    background: url('/assets/images/shapes/shape_line_2.svg');
+    background: url("/assets/images/shapes/shape_line_2.svg");
     width: 100%;
     height: 100%;
     background-size: contain;

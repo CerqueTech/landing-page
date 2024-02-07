@@ -1,8 +1,13 @@
 ---
-import Member from './Member.astro';
-import Mateo from '../../../../public/assets/images/team/mateo.png';
-import Fer from '../../../../public/assets/images/team/fer.png';
-import Fede from '../../../../public/assets/images/team/fede.png';
+import Member from "./Member.astro";
+import Mateo from "../../../../public/assets/images/team/mateo.png";
+import Fer from "../../../../public/assets/images/team/fer.png";
+import Fede from "../../../../public/assets/images/team/fede.png";
+import getData from "../../../services/data";
+const data = await getData("es/index/team");
+if (!data) {
+  return Astro.redirect("/404");
+}
 ---
 
 <div class="container">
@@ -12,36 +17,36 @@ import Fede from '../../../../public/assets/images/team/fede.png';
         <i class="fas fa-sharp fa-square-full"></i>
         <i class="fas fa-sharp fa-square-full"></i>
       </span>
-      <span>Nuestro equipo</span>
+      <span>{data.span}</span>
     </h2>
-    <h3 class="heading_title mb-0">Nuestros miembros del equipo</h3>
+    <h3 class="heading_title mb-0">{data.h3}</h3>
   </div>
 
   <div class="row justify-content-center">
     <Member
-      name="Mateo Cerquetella"
-      designation="CEO & Software Architect"
+      name={data.m1Name}
+      designation={data.m1Designation}
       image={Mateo.src}
       customImgStyle="width: 100%;object-fit: cover;height: 400px;margin-top: -7em;"
-      linkedin="https://www.linkedin.com/in/mateocerquetella/"
+      linkedin={data.m1Linkedin}
     />
     <Member
-      name="Fernando Schlottman"
-      designation="Sr. Software Developer"
+      name={data.m2Name}
+      designation={data.m2Designation}
       image={Fer.src}
-      linkedin="https://www.linkedin.com/in/fernando-schlottmann/"
+      linkedin={data.m2Linkedin}
     />
     <Member
-      name="Federico Rosales"
-      designation="Jr. Software Developer"
+      name={data.m3Name}
+      designation={data.m3Designation}
       image={Fede.src}
-      linkedin="https://www.linkedin.com/in/federosaless/"
+      linkedin={data.m3Linkedin}
     />
     <Member
-      name="Matias Kalil Gomez"
-      designation="Jr. Software Developer"
+      name={data.m4Name}
+      designation={data.m4Designation}
       image=""
-      linkedin="https://www.linkedin.com/in/matías-kalil-gómez-26b647223/"
+      linkedin={data.m4Linkedin}
     />
 
     <div class="btn_wrap pb-0 text-center">
@@ -52,8 +57,8 @@ import Fede from '../../../../public/assets/images/team/fede.png';
           </span>
           <span class="pd-animation-flip">
             <span class="bd-btn-anim-wrapp">
-              <span class="bd-button-text">Conocé a nuestro equipo</span>
-              <span class="bd-button-text">Conocé a nuestro equipo</span>
+              <span class="bd-button-text">{data.span1}</span>
+              <span class="bd-button-text">{data.span1}</span>
             </span>
           </span>
         </span>

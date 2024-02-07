@@ -1,0 +1,15 @@
+---
+item1title: "Web development"
+item1Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+itemBtnText: "See details"
+item2title: "UX/UI Design"
+item2Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+item3title: "Applications development"
+item3Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+item4title: "Video edition"
+item4Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+item5title: "Programming and technology"
+item5Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+item6title: "Labor Consultation"
+item6Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+---

@@ -1,5 +1,10 @@
 import CounterItem from './CounterItem';
 import Decos from './Decos';
+import getData from '../../../services/data';
+
+const data = await getData('es/index/counter');
+
+
 const CounterSection = () => {
   return (
     <>
@@ -7,20 +12,20 @@ const CounterSection = () => {
         <div className="row">
         <CounterItem
             count={7}
-            title="Clientes satisfechos en todo el mundo"
+            title={data.counter1title}
             supText="+"
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
           <CounterItem
             count={4}
-            title="Proyectos exitosos"
+            title={data.counter2title}
             supText="+"
           />
 
           <CounterItem
             count={5} 
-            title="Profesionales talentosos"
+            title={data.counter3title}
             supText="+"
             dataParallax='{"y" : -30, "smoothness": 10}'
           />

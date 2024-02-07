@@ -1,0 +1,19 @@
+---
+import BannerSection from '../../components/environment/BannerSection.astro';
+import Layout from '../../layouts/Layout.astro';
+import ServicesSection from '../../components/services/ServicesSection.astro';
+---
+
+<Layout title="Servicios" menu="">
+  <section class="page_banner text-center">
+    <BannerSection
+      title="Servicios"
+      ahref="/"
+      aText="Inicio"
+      liText="Servicios"
+    />
+  </section>
+  <section class="service_section section_space_lg">
+    <ServicesSection />
+  </section>
+</Layout>

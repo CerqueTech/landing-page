@@ -1,0 +1,15 @@
+---
+item1title: "Desarrollo web"
+item1Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+itemBtnText: "Ver detalles"
+item2title: "Diseño UX/UI"
+item2Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+item3title: "Desarrollo de aplicaciones"
+item3Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+item4title: "Edición de video"
+item4Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+item5title: "Programación y tecnología"
+item5Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+item6title: "Consulta Laboral"
+item6Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+---

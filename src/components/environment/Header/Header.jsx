@@ -1,6 +1,12 @@
+import { getLangFromUrl, getRouteFromUrl  } from '../../../i18n/utils.ts';
 import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas.jsx";
 import StyleButton from "../StyleButton/StyleButton.jsx";
+import getData from "../../../services/data.ts";
+import LenguaguePicker from '../LenguagePicker.jsx';
+
+const data = await getData('es/enviroment/header')
+
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
@@ -13,12 +19,14 @@ export default function Header(props) {
       }
     };
 
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+ 
 
   const headerClass = isSticky
     ? "site_header site_header_3 sticky"
@@ -30,15 +38,19 @@ export default function Header(props) {
   const updateOpen = () => {
     swapElems();
   };
+  
+  const lang = getLangFromUrl(props.url);
+  const route = getRouteFromUrl(props.url);
+
   return (
     <>
-      <Offcanvas open={elemOpen} updateOpen={updateOpen} />
+      <Offcanvas open={elemOpen} updateOpen={updateOpen} data={data}  />
       <div className={headerClass}>
         <div className="container">
           <div className="header_wrapper">
             <div className="site_logo">
-              <a className="site_link" href="/" data-astro-reload>
-                <img src={"assets/images/logo/dark_without_icon.png"} />
+              <a className="site_link" href={`/${lang}`} data-astro-reload>
+                <img src={"/assets/images/logo/dark_without_icon.png"} />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
@@ -46,35 +58,35 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href="/" data-astro-reload>
-                        Inicio
+                      <a className="a_inicio" href={`/${lang}`} data-astro-reload>
+                      {data.home}
                       </a>
                     </li>
                     <li>
                       <a
                         className="a_servicios"
-                        href="service"
+                        href={`/${lang}/service/`}
                         data-astro-reload
                       >
-                        Servicios
+                        {data.services}
                       </a>
                     </li>
                     <li>
                       <a
                         className="a_servicios"
-                        href="about-us"
+                        href={`/${lang}/about-us/`}
                         data-astro-reload
                       >
-                        Nosotros
+                        {data.about}
                       </a>
                     </li>
                     <li>
                       <a
                         className="a_contacto"
-                        href="contact"
+                        href={`/${lang}/contact/`}
                         data-astro-reload
                       >
-                        Contactanos
+                        {data.contact}
                       </a>
                     </li>
                   </ul>
@@ -94,6 +106,9 @@ export default function Header(props) {
             <div className="header_right">
               <ul className="header_btns_group unordered_list_end d-none d-md-inline-flex">
                 <li>
+                  <LenguaguePicker/>
+                </li>
+                <li>
                   <StyleButton />
                 </li>
                 <li>
@@ -109,8 +124,8 @@ export default function Header(props) {
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
-                          <span className="bd-button-text">Cotizar</span>
-                          <span className="bd-button-text">Cotizar</span>
+                          <span className="bd-button-text">{data.quote}</span>
+                          <span className="bd-button-text">{data.quote}</span>
                         </span>
                       </span>
                     </span>

@@ -17,7 +17,7 @@ const Offcanvas = (props) => {
                 <div className="offcanvas__logo">
                   <a href="/" data-astro-reload>
                     <img
-                      src="assets/images/logo/dark_one_line.png"
+                      src="/assets/images/logo/dark_one_line.png"
                       alt="logo not found"
                     />
                   </a>
@@ -49,7 +49,7 @@ const Offcanvas = (props) => {
                         transition:animate="none"
                         data-astro-reload
                       >
-                        Inicio
+                       {props.data.home}
                       </a>
                     </li>
                     <li>
@@ -59,7 +59,7 @@ const Offcanvas = (props) => {
                         transition:animate="none"
                         data-astro-reload
                       >
-                        Servicios
+                        {props.data.services}
                       </a>
                     </li>
                     <li>
@@ -69,7 +69,7 @@ const Offcanvas = (props) => {
                         transition:animate="none"
                         data-astro-reload
                       >
-                        Nosotros
+                       {props.data.about}
                       </a>
                     </li>
                     <li>
@@ -79,7 +79,7 @@ const Offcanvas = (props) => {
                         transition:animate="none"
                         data-astro-reload
                       >
-                        Contactanos
+                        {props.data.contact}
                       </a>
                     </li>
                   </ul>
@@ -87,7 +87,7 @@ const Offcanvas = (props) => {
               </div>
             </div>
             <div className="offcanvas__contact text-center">
-              <h4 className="offcanvas__title">Informacion de Contacto</h4>
+              <h4 className="offcanvas__title">{props.data.offcanvasTitle}</h4>
               <div className="offcanvas__contact-text mb-2">
                 <p>
                   <a
