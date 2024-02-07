@@ -1,14 +1,15 @@
 ---
-import Member from "./Member.astro";
-import Mateo from "../../../../public/assets/images/team/mateo.png";
-import Fer from "../../../../public/assets/images/team/fer.png";
-import Fede from "../../../../public/assets/images/team/fede.png";
-import getData from "../../../services/data";
-import { getLangFromUrl } from "../../../i18n/utils";
+import Member from './Member.astro';
+import Mateo from '../../../../public/assets/images/team/mateo.png';
+import Fer from '../../../../public/assets/images/team/fer.png';
+import Fede from '../../../../public/assets/images/team/fede.png';
+import Mati from '../../../../public/assets/images/team/mati.png';
+import getData from '../../../services/data';
+import { getLangFromUrl } from '../../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const data = await getData(`${lang}/index/team`);
 if (!data) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404');
 }
 ---
 
@@ -47,7 +48,7 @@ if (!data) {
     <Member
       name={data.m4Name}
       designation={data.m4Designation}
-      image=""
+      image={Mati.src}
       linkedin={data.m4Linkedin}
     />
 
