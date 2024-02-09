@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas.jsx";
 import StyleButton from "../StyleButton/StyleButton.jsx";
 import getData from "../../../services/data.ts";
-import LenguaguePicker from '../LenguagePicker.jsx';
+import LenguaguePicker from "../LenguagePicker.jsx";
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
@@ -12,7 +12,6 @@ export default function Header(props) {
       const result = await getData(`${props.lang}/enviroment/header`);
       setData(result);
     };
-
     fetchData();
   }, []);
   useEffect(() => {
@@ -24,14 +23,12 @@ export default function Header(props) {
       }
     };
 
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
- 
 
   const headerClass = isSticky
     ? "site_header site_header_3 sticky"
@@ -43,17 +40,24 @@ export default function Header(props) {
   const updateOpen = () => {
     swapElems();
   };
-  
- // const route = getRouteFromUrl(props.url);
 
   return (
     <>
-      <Offcanvas open={elemOpen} updateOpen={updateOpen} data={data}  />
+      <Offcanvas
+        open={elemOpen}
+        updateOpen={updateOpen}
+        data={data}
+        lang={props.lang}
+      />
       <div className={headerClass}>
         <div className="container">
           <div className="header_wrapper">
             <div className="site_logo">
-              <a className="site_link" href={`/${props.lang}`} data-astro-reload>
+              <a
+                className="site_link"
+                href={`/${props.lang}`}
+                data-astro-reload
+              >
                 <img src={"/assets/images/logo/dark_without_icon.png"} />
               </a>
             </div>
@@ -62,14 +66,18 @@ export default function Header(props) {
                 <nav id="mobile-menu">
                   <ul>
                     <li>
-                      <a className="a_inicio" href={`/${props.lang}`} data-astro-reload>
-                      {data.home}
+                      <a
+                        className="a_inicio"
+                        href={`/${props.lang}`}
+                        data-astro-reload
+                      >
+                        {data.home}
                       </a>
                     </li>
                     <li>
                       <a
                         className="a_servicios"
-                        href={`/${props.lang}/service/`}
+                        href={`/${props.lang}/${data.s}/`}
                         data-astro-reload
                       >
                         {data.services}
@@ -78,7 +86,7 @@ export default function Header(props) {
                     <li>
                       <a
                         className="a_servicios"
-                        href={`/${props.lang}/about-us/`}
+                        href={`/${props.lang}/${data.a}/`}
                         data-astro-reload
                       >
                         {data.about}
@@ -87,7 +95,7 @@ export default function Header(props) {
                     <li>
                       <a
                         className="a_contacto"
-                        href={`/${props.lang}/contact/`}
+                        href={`/${props.lang}/${data.c}/`}
                         data-astro-reload
                       >
                         {data.contact}
@@ -110,14 +118,17 @@ export default function Header(props) {
             <div className="header_right">
               <ul className="header_btns_group unordered_list_end d-none d-md-inline-flex">
                 <li>
-                  <LenguaguePicker lang={props.lang} route={props.route} url={props.url}/>
+                  <LenguaguePicker
+                    lang={props.lang}
+                    url={props.url}
+                  />
                 </li>
                 <li>
                   <StyleButton />
                 </li>
                 <li>
                   <a
-                    href="contact"
+                    href={`/${props.lang}/${data.c}/`}
                     className={
                       "bd-btn-link outline-" +
                       (props.menu == "" ? "dark" : "white")

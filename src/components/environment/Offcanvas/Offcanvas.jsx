@@ -15,7 +15,7 @@ const Offcanvas = (props) => {
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
-                  <a href="/" data-astro-reload>
+                  <a href={"/"+props.lang} data-astro-reload>
                     <img
                       src="/assets/images/logo/dark_one_line.png"
                       alt="logo not found"
@@ -44,7 +44,7 @@ const Offcanvas = (props) => {
                   <ul className="ul-mean ">
                     <li>
                       <a
-                        href="/"
+                        href={"/"+props.lang}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
@@ -54,7 +54,7 @@ const Offcanvas = (props) => {
                     </li>
                     <li>
                       <a
-                        href="service"
+                        href={"/"+props.lang+"/"+props.data.s}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
@@ -64,7 +64,7 @@ const Offcanvas = (props) => {
                     </li>
                     <li>
                       <a
-                        href="about-us"
+                        href={"/"+props.lang+"/"+props.data.a}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
@@ -74,7 +74,7 @@ const Offcanvas = (props) => {
                     </li>
                     <li>
                       <a
-                        href="contact"
+                        href={"/"+props.lang+"/"+props.data.c}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload

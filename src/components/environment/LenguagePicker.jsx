@@ -1,14 +1,15 @@
 import React from 'react';
 
-const LanguagePicker = (props) => {
+const LanguagePicker = ({ url }) => {
   const handleChange = (event) => {
     const newLanguage = event.target.value;
-    let urlTranslate;
-    if (props.url && props.url.length >= 3) {
-      urlTranslate = `/${newLanguage}${props.url.slice(3)}`;
-    } else {
-      urlTranslate = `/${newLanguage}`;
+    const currentLanguage = url && url.length >= 3 ? url.slice(1, 3) : '';
+    
+    if (currentLanguage === newLanguage) {
+      return;
     }
+    
+    const urlTranslate = currentLanguage ? `/${newLanguage}${url.slice(3)}` : `/${newLanguage}`;
     window.location.href = urlTranslate;
   };
 

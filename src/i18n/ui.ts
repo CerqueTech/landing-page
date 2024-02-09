@@ -25,7 +25,7 @@ export const routes = {
   },
   en: {
     'en':'/',
-    'service':'service',
+    'service':'services',
     'about-us':'about-us',
     'contact':'contact',
   },

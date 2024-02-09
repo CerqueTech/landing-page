@@ -4,14 +4,20 @@ import AboutUsSection from "../../components/about-us/AboutUsSection.astro";
 import BannerSection from "../../components/environment/BannerSection.astro";
 import getData from "../../services/data";
 import Layout from "../../layouts/Layout.astro";
-const lang = getLangFromUrl(Astro.url);
+export const prerender = true;
+export async function getStaticPaths() {
+  return [
+    { params: { lang:'es',about:'nosotros'}},
+    { params: { lang:'en',about:'about-us'}},
+  ];
+}
+const { lang, about } = Astro.params;
 const data = await getData(`${lang}/enviroment/routes`);
 ---
-<Layout transition:persist title={data.about} menu="" lang="en">
+<Layout transition:persist title={data.about} menu="" lang={lang}>
   <section class="page_banner text-center">
     <BannerSection
       title={data.aboutTxt}
-      ahref="/"
       aText={data.index}
       liText={data.about}
     />

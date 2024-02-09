@@ -246,7 +246,6 @@ const ContactFormSection = (props) => {
                   size="normal"
                   hl={props.lang}
                 />
-                {console.log(props.lang)}
               </div>
               <div className="col-md-6 mb-3">
                 <button

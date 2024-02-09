@@ -1,7 +1,7 @@
 ---
 item1title: "Web development"
 item1Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
-itemBtnText: "See details"
+itemBtnText: "View Details"
 item2title: "UX/UI Design"
 item2Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
 item3title: "Applications development"
