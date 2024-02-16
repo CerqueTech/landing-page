@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  p: string;
+}
+const { title, p } = Astro.props;
+---
+
+<div class="col col-lg-4 col-md-6">
+  <div class="iconbox_item bg-white">
+    <div class="item_icon">
+      <img
+        src="/assets/images/icons/icon_care_primary.svg"
+        alt="Icon Eye White"
+      />
+    </div>
+    <div class="item_content">
+      <h3 class="item_title">Client Care</h3>
+      <p class="mb-0">
+        Client care always goes to the top of the list. It goes beyond just
+        taking care of clients & making sure they are happy with your services.
+        It is a genuine caring.
+      </p>
+    </div>
+  </div>
+</div>

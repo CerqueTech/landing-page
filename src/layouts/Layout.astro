@@ -7,13 +7,11 @@ import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppBut
 interface Props {
   title: string;
   menu: string;
-  lang:string;
+  lang: string;
 }
-
 const { title, menu, lang } = Astro.props;
 const route = getRouteFromUrl(Astro.url);
 
-console.log(route);
 ---
 
 <!doctype html>
@@ -88,7 +86,7 @@ console.log(route);
         <slot />
       </main>
       <footer class="site_footer style_4">
-        <Footer transition:animate="none" />
+        <Footer transition:animate="none" lang={lang} />
       </footer>
     </div>
     <script is:inline>
@@ -98,10 +96,9 @@ console.log(route);
         document.documentElement.dataset.theme = theme;
       }
       setDarkMode(document);
-
       document.addEventListener("astro:before-swap", (ev) => {
         setDarkMode(ev.newDocument);
-      }); 
+      });
     </script>
     <script is:inline src="/assets/js/jquery.min.js"></script>
     <script is:inline src="/assets/js/parallax-scroll.js"></script>

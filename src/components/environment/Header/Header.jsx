@@ -121,6 +121,7 @@ export default function Header(props) {
                   <LenguaguePicker
                     lang={props.lang}
                     url={props.url}
+                    path={props.url.pathname}
                   />
                 </li>
                 <li>

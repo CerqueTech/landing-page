@@ -1,4 +1,3 @@
-
 export const languages = {
   es: "Español",
   en: "Ingles",
@@ -9,25 +8,19 @@ export const defaultLang = "es";
 export const showDefaultLang = false;
 
 export const ui = {
-  es: {
-
-  },
-  en: {
-  },
+  es: {},
+  en: {},
 } as const;
 
 export const routes = {
   es: {
-    'es':'/',
-    'service':'servicios',
-    'about-us':'nosotros',
-    'contact':'contactanos',
+    servicios: "services",
+    nosotros: "about-us",
+    contactanos: "contact",
   },
   en: {
-    'en':'/',
-    'service':'services',
-    'about-us':'about-us',
-    'contact':'contact',
+    servicios: "services",
+    nosotros: "about-us",
+    contactanos: "contact",
   },
-  
 };

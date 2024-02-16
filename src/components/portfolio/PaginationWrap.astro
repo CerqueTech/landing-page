@@ -1,0 +1,46 @@
+---
+interface Props {
+  btnTxtPrev: string;
+  btnTxtNext: string;
+}
+const { btnTxtPrev, btnTxtNext } = Astro.props;
+---
+
+<div class="pagination_wrap">
+  <div class="other_post_pagination">
+    <a
+      href="portfolio_details.html"
+      data-cursor="-exclusion -lg"
+      data-cursor-stick="#prev_post"
+    >
+      <span class="btn_text">{btnTxtPrev}</span>
+      <span id="prev_post" class="btn_icon">
+        <img
+          src="/assets/images/icons/icon_arrow_down_left_dark.svg"
+          alt="Icon Arrow Down Left"
+        />
+        <img
+          src="/assets/images/icons/icon_arrow_left_primary.svg"
+          alt="Icon Arrow Down Left"
+        />
+      </span>
+    </a>
+    <a
+      href="portfolio_details.html"
+      data-cursor="-exclusion -lg"
+      data-cursor-stick="#next_post"
+    >
+      <span class="btn_text">{btnTxtNext}</span>
+      <span id="next_post" class="btn_icon">
+        <img
+          src="/assets/images/icons/icon_arrow_down_right_dark.svg"
+          alt="Icon Arrow Down Right"
+        />
+        <img
+          src="/assets/images/icons/icon_arrow_right_primary.svg"
+          alt="Arrow Down Right"
+        />
+      </span>
+    </a>
+  </div>
+</div>

@@ -7,8 +7,8 @@ import Layout from "../../layouts/Layout.astro";
 export const prerender = true;
 export async function getStaticPaths() {
   return [
-    { params: { lang:'es',contact:'contactanos'}},
-    { params: { lang:'en',contact:'contact'}},
+    { params: { lang: "es", contact: "contactanos" } },
+    { params: { lang: "en", contact: "contact" } },
   ];
 }
 
@@ -16,7 +16,8 @@ const { lang, contact } = Astro.params;
 
 const data = await getData(`${lang}/enviroment/routes`);
 ---
-<Layout transition:persist title={data.contact} menu="" lang={lang}>
+
+<Layout transition:persist title={contact} menu="" lang={lang}>
   <section class="page_banner text-center">
     <BannerSection
       title={data.contact}
@@ -25,7 +26,7 @@ const data = await getData(`${lang}/enviroment/routes`);
     />
   </section>
   <section class="contact-section contact_form_section">
-    <ContactForm client:only="react" lang={lang}/>
+    <ContactForm client:only="react" lang={lang} />
   </section>
   <section class="faq_section section_space_lg">
     <FaqSection />

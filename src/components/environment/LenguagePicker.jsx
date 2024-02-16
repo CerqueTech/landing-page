@@ -1,15 +1,26 @@
-import React from 'react';
+import { useEffect, useState } from "react";
+import { getRouteFromUrl } from "../../i18n/utils";
 
+/*Tener cuidado porque estoy usando el path del url*/
+/*A Consultar */
 const LanguagePicker = ({ url }) => {
+  const [valuelang, setValuelang] = useState(url.pathname.split("/")[1]);
+  useEffect(() => {
+    setValuelang(url.pathname.split("/")[1]);
+  }, [url.pathname]);
+
   const handleChange = (event) => {
     const newLanguage = event.target.value;
-    const currentLanguage = url && url.length >= 3 ? url.slice(1, 3) : '';
-    
+    const route = getRouteFromUrl(url);
+    const currentLanguage = route;
+
     if (currentLanguage === newLanguage) {
       return;
     }
-    
-    const urlTranslate = currentLanguage ? `/${newLanguage}${url.slice(3)}` : `/${newLanguage}`;
+    localStorage.setItem("lang", newLanguage);
+    const urlTranslate = currentLanguage
+      ? `/${newLanguage}/${route}`
+      : `/${newLanguage}`;
     window.location.href = urlTranslate;
   };
 
@@ -18,7 +29,14 @@ const LanguagePicker = ({ url }) => {
       <div className="icon_wrap">
         <img src="/assets/images/icons/icon_globe.svg" alt="Globe Icon" />
       </div>
-      <select style={{ border: "none" }} onChange={handleChange}>
+      <select
+        style={{
+          border: "none",
+          background: "inherit",
+        }}
+        onChange={handleChange}
+        value={valuelang}
+      >
         <option value="es">Español</option>
         <option value="en">Inglés</option>
       </select>

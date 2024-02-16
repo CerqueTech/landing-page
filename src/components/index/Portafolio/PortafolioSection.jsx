@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import PortafolioElement from "./PortafolioElement";
 import getData from "../../../services/data";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 export default function PortafolioSection(props) {
   const [data, setData] = useState({});
 
@@ -50,21 +50,25 @@ export default function PortafolioSection(props) {
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_1.jpg"
             signTitle={data.portElem1title}
             signDescription={data.portElem1Desc}
+            href={props.lang + "/" + "portfolio1"}
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_2.jpg"
             signTitle={data.portElem2title}
             signDescription={data.portElem2Desc}
+            href={props.lang + "/" + "portfolio2"}
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_3.jpg"
             signTitle={data.portElem3title}
             signDescription={data.portElem3Desc}
+            href={props.lang + "/" + "portfolio3"}
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_4.jpg"
             signTitle={data.portElem4title}
             signDescription={data.portElem4Desc}
+            href={props.lang + "/" + "portfolio4"}
           />
         </Slider>
       </div>

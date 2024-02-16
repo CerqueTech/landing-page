@@ -21,8 +21,8 @@ export function getRouteFromUrl(url: URL): string | undefined {
   const path = parts?.pop() || parts?.pop();
   if (path === undefined) {
     return undefined;
-  }
-
+  } 
+  
   const currentLang = getLangFromUrl(url);
   
   if (defaultLang === currentLang) {
