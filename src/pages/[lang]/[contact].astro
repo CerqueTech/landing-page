@@ -2,7 +2,6 @@
 import BannerSection from "../../components/environment/BannerSection.astro";
 import ContactForm from "../../components/contact/ContactForm.jsx";
 import FaqSection from "../../components/contact/FaqSection.astro";
-import getData from "../../services/data";
 import Layout from "../../layouts/Layout.astro";
 export const prerender = true;
 export async function getStaticPaths() {
@@ -13,16 +12,15 @@ export async function getStaticPaths() {
 }
 
 const { lang, contact } = Astro.params;
-
-const data = await getData(`${lang}/enviroment/routes`);
+const contacUpper = contact.charAt(0).toUpperCase() + contact.slice(1);
 ---
 
 <Layout transition:persist title={contact} menu="" lang={lang}>
   <section class="page_banner text-center">
     <BannerSection
-      title={data.contact}
-      aText={data.index}
-      liText={data.contact}
+      title={contacUpper}
+      aText={lang === "en" ? "Home" : "Inicio"}
+      liText={contacUpper}
     />
   </section>
   <section class="contact-section contact_form_section">

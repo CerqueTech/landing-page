@@ -13,7 +13,7 @@ const LanguagePicker = ({ url }) => {
     const newLanguage = event.target.value;
     const route = getRouteFromUrl(url);
     const currentLanguage = route;
-
+    
     if (currentLanguage === newLanguage) {
       return;
     }

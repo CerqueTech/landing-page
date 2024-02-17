@@ -1,7 +1,6 @@
 ---
 import BannerSection from "../../components/environment/BannerSection.astro";
 import DetailsSection from "../../components/portfolio/DetailsSection.astro";
-import getData from "../../services/data";
 import Layout from "../../layouts/Layout.astro";
 export const prerender = true;
 export async function getStaticPaths() {
@@ -17,14 +16,14 @@ export async function getStaticPaths() {
   ];
 }
 const { lang, porfolio } = Astro.params;
-const data = await getData(`${lang}/enviroment/routes`);
 ---
+
 <Layout lang={lang} title={porfolio} menu="">
   <section class="page_banner text-center">
     <BannerSection
-      title={data.portfolio}
-      aText={data.index}
-      liText={data.portfolio}
+      title={lang === "en" ? "Portafolio Details" : "Detalles de la cartera"}
+      aText={lang === "en" ? "Home" : "Inicio"}
+      liText={lang === "en" ? "Portafolio Details" : "Detalles de la cartera"}
     />
   </section>
   <section class="details_section portfolio_details section_space_lg">

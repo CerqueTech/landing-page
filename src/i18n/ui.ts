@@ -17,10 +17,18 @@ export const routes = {
     servicios: "services",
     nosotros: "about-us",
     contactanos: "contact",
+    portfolio1: "portfolio1",
+    portfolio2: "portfolio2",
+    portfolio3: "portfolio3",
+    portfolio4: "portfolio4",
   },
   en: {
     servicios: "services",
     nosotros: "about-us",
     contactanos: "contact",
+    portfolio1: "portfolio1",
+    portfolio2: "portfolio2",
+    portfolio3: "portfolio3",
+    portfolio4: "portfolio4",
   },
 };

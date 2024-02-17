@@ -71,8 +71,9 @@ html[data-theme="dark"] body{
     color: #a1a8af;
   }
 
-  ul.admin_social.unordered_list {
+  ul.admin_social.unordered_list, .other_post_pagination {
     border-color: #414141 !important;
+
   }
 
   #email,

@@ -1,8 +1,8 @@
 ---
-import { ViewTransitions } from "astro:transitions";
-import Header from "../components/environment/Header/Header";
-import Footer from "../components/environment/Footer.astro";
 import { getRouteFromUrl } from "../i18n/utils";
+import { ViewTransitions } from "astro:transitions";
+import Footer from "../components/environment/Footer.astro";
+import Header from "../components/environment/Header/Header";
 import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton";
 interface Props {
   title: string;
@@ -11,7 +11,6 @@ interface Props {
 }
 const { title, menu, lang } = Astro.props;
 const route = getRouteFromUrl(Astro.url);
-
 ---
 
 <!doctype html>
@@ -86,7 +85,7 @@ const route = getRouteFromUrl(Astro.url);
         <slot />
       </main>
       <footer class="site_footer style_4">
-        <Footer transition:animate="none" lang={lang} />
+        <Footer transition:animate="none" transition:persist lang={lang} />
       </footer>
     </div>
     <script is:inline>

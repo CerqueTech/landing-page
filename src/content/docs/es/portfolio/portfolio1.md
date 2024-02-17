@@ -1,5 +1,5 @@
 ---
-portfolioImgSrc: "/assets/images/portfolio/portfolio_item_details_image.jpg"
+portfolioImgSrc: "/assets/images/portfolio/portfolio_lfi_image_1.jpg"
 portfolioImgAlt: "Imagen del Portafolio"
 headingTitle: "Desarrollo de Aplicación Móvil para Red Bancaria"
 p: "Por lo tanto, el proceso de desarrollo de aplicaciones móviles requiere crear software que pueda ser instalado en el dispositivo, y habilitar servicios backend para el acceso a datos a través de APIs, y probar la aplicación en dispositivos objetivo. Java, Python, C++, Kotlin, y Rust son lenguajes populares para el desarrollo de aplicaciones."

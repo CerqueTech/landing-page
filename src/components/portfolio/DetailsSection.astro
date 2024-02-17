@@ -1,6 +1,6 @@
 ---
 import IconBox from "./IconBox.astro";
-import PaginationWrap from "./PaginationWrap.astro";
+import PaginationWrap from "./PaginationWrap.jsx";
 import getData from "../../services/data";
 interface Props {
   lang: string;
@@ -142,7 +142,9 @@ const data = await getData(`${lang}/portfolio/${portfolio}`);
       <PaginationWrap
         btnTxtNext={data.btnTxtNext}
         btnTxtPrev={data.btnTxtPrev}
-      />
+        portFolio={portfolio}
+        client:only="react"
+        />  
     </div>
   </div>
 </div>
