@@ -40,7 +40,7 @@ export default function Header(props) {
   const updateOpen = () => {
     swapElems();
   };
-
+  const color = props.menu==="main-menu-3"? "black" : "white";
   return (
     <>
       <Offcanvas
@@ -134,14 +134,13 @@ export default function Header(props) {
                       "bd-btn-link outline-" +
                       (props.menu == "" ? "dark" : "white")
                     }
-                    transition:animate="none"
                     data-astro-reload
                   >
                     <span className="bd-button-content-wrapper">
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
                           <span className="bd-button-text">{data.quote}</span>
-                          <span className="bd-button-text">{data.quote}</span>
+                          <span className="bd-button-text" style={{color:color}}>{data.quote}</span>
                         </span>
                       </span>
                     </span>

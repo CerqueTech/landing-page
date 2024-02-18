@@ -1,18 +1,17 @@
-
-select.white{
-    color: white;
+select.white {
+  color: white;
 }
-select.dark{
-    color: black;
+select.dark {
+  color: black;
 }
-select{
-    border: none;
-    background: inherit;
+select {
+  border: none;
+  background: inherit;
 }
-select option.menu3{
-    color: #FFC961;
-    outline: none;
+select option.menu3 {
+  color: #ffc961;
+  outline: none;
 }
-.icon_wrap{
-    border: none !important;
+.icon_wrap {
+  border: none !important;
 }

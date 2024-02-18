@@ -1,4 +1,4 @@
-html[data-theme="dark"] body{
+html[data-theme="dark"] body {
   background: #121212 !important;
   color: #f1f1f1 !important;
   .calltoaction_section,
@@ -29,17 +29,24 @@ html[data-theme="dark"] body{
   .a_inicio,
   .a_servicios,
   .a_contacto,
-  .bd-button-text,
   a {
     color: #f1f1f1 !important;
   }
-
   .fa-light.fa-arrow-right-long {
     color: #f1f1f1;
   }
-
-  section.page_banner.text-center::before{
+  section.page_banner.text-center::before {
     background-color: #121212 !important;
+  }
+  .bd-btn-link.outline-dark {
+    border: 1px solid !important;
+  }
+  select.dark {
+    color: white !important;
+  }
+  select option {
+    color: #ffc961 !important;
+    outline: none;
   }
 
   .odometer-inside,
@@ -55,7 +62,7 @@ html[data-theme="dark"] body{
   }
 
   .accordion_button::before {
-    background-color: #24242C;
+    background-color: #24242c;
   }
 
   #heading_one {
@@ -71,9 +78,9 @@ html[data-theme="dark"] body{
     color: #a1a8af;
   }
 
-  ul.admin_social.unordered_list, .other_post_pagination {
+  ul.admin_social.unordered_list,
+  .other_post_pagination {
     border-color: #414141 !important;
-
   }
 
   #email,
@@ -86,16 +93,16 @@ html[data-theme="dark"] body{
   }
 
   .iconbox_item.bg-white::before {
-    background-color: #24242C !important;
+    background-color: #24242c !important;
   }
 
   .iconbox_item.bg-white:hover {
-    border: 1px solid #40415F;
-    background-color: #24242C !important;
+    border: 1px solid #40415f;
+    background-color: #24242c !important;
   }
 
   .form-control {
-    border: 1px solid #40415F;
+    border: 1px solid #40415f;
     color: #f1f1f1;
   }
 
@@ -117,11 +124,11 @@ html[data-theme="dark"] body{
   }
 
   .slick-dots li button {
-    border: 1px solid #4C4C4C;
+    border: 1px solid #4c4c4c;
   }
 
   .slick-dots li button::before {
-    background-color: #4C4C4C;
+    background-color: #4c4c4c;
   }
 
   .starter_steps_section {
@@ -133,7 +140,7 @@ html[data-theme="dark"] body{
   }
 
   .bg_half_top_light {
-    background-image: linear-gradient(0deg, transparent 41%, #232B35 0%);
+    background-image: linear-gradient(0deg, transparent 41%, #232b35 0%);
   }
 
   .calltoaction_section.style_5 {
@@ -155,7 +162,6 @@ html[data-theme="dark"] body{
   ::-moz-scrollbar-thumb {
     background-color: #333 !important;
   }
-
 
   ::-webkit-scrollbar-track {
     background-color: #424242 !important;

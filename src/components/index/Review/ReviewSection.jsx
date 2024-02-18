@@ -1,4 +1,4 @@
-import { useRef,useEffect,useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import Slider from "react-slick";
 import ReviewElement from "./ReviewElement";
 import getData from "../../../services/data";
@@ -137,4 +137,4 @@ export default function ReviewSection(props) {
       </div>
     </div>
   );
-}
+} 
