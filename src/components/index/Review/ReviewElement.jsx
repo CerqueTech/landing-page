@@ -1,7 +1,7 @@
 export default function ReviewElement(props) {
   return (
     <div className="carousel_item col">
-      <div className="review_item style_2 text-center">
+      <div className="review_item style_2 text-center" style={{height:'435px'}}>
         <h3 className="review_title">{props.title}</h3>
         <ul className="rating_star unordered_list">
           {[...Array(props.start)].map((_, index) => (
