@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { getRouteFromUrl } from "../../i18n/utils";
-
-/*Tener cuidado porque estoy usando el path del url*/
-/*A Consultar */
-const LanguagePicker = ({ url }) => {
+import { getRouteFromUrl } from "../../../i18n/utils";
+import "./LenguagePicker.css";
+const LanguagePicker = ({ url, menu }) => {
   const [valuelang, setValuelang] = useState(url.pathname.split("/")[1]);
   useEffect(() => {
     setValuelang(url.pathname.split("/")[1]);
@@ -13,7 +11,7 @@ const LanguagePicker = ({ url }) => {
     const newLanguage = event.target.value;
     const route = getRouteFromUrl(url);
     const currentLanguage = route;
-    
+
     if (currentLanguage === newLanguage) {
       return;
     }
@@ -27,18 +25,18 @@ const LanguagePicker = ({ url }) => {
   return (
     <div className="select_option m-0">
       <div className="icon_wrap">
-        <img src="/assets/images/icons/icon_globe.svg" alt="Globe Icon" />
+        <img
+          src={
+            menu === "main-menu-3"
+              ? "/assets/images/icons/icon_globe_2.svg"
+              : "/assets/images/icons/icon_globe.svg"
+          }
+          alt="Globe Icon"
+        />
       </div>
-      <select
-        style={{
-          border: "none",
-          background: "inherit",
-        }}
-        onChange={handleChange}
-        value={valuelang}
-      >
-        <option value="es">Español</option>
-        <option value="en">Inglés</option>
+      <select onChange={handleChange} value={valuelang} className={menu==="main-menu-3"?"white":"dark"}>
+        <option className={menu==="main-menu-3"?"menu3":""} value="es">Español</option>
+        <option className={menu==="main-menu-3"?"menu3":""} value="en">Inglés</option>
       </select>
     </div>
   );

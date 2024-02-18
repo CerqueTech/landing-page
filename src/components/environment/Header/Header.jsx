@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Offcanvas from "../Offcanvas/Offcanvas.jsx";
 import StyleButton from "../StyleButton/StyleButton.jsx";
 import getData from "../../../services/data.ts";
-import LenguaguePicker from "../LenguagePicker.jsx";
+import LenguaguePicker from "../LenguagePicker/LenguagePicker.jsx";
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
@@ -121,7 +121,7 @@ export default function Header(props) {
                   <LenguaguePicker
                     lang={props.lang}
                     url={props.url}
-                    path={props.url.pathname}
+                    menu={props.menu}
                   />
                 </li>
                 <li>
