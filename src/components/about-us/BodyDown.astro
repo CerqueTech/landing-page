@@ -1,43 +1,50 @@
 ---
-import { getLangFromUrl } from "../../i18n/utils";
-import getData from "../../services/data";
 import BoxElement from "./BoxElement.astro";
 import DetailElement from "./DetailElement.astro";
+import getData from "../../services/data";
 interface Props {
   headTxt: string;
   bttnTxt: string;
+  lang: string;
 }
-const lang = getLangFromUrl(Astro.url);
-const data = await getData(`${lang}/about-us/bodydown`)
-const { headTxt, bttnTxt } = Astro.props;
----
 
+const { headTxt, bttnTxt, lang } = Astro.props;
+const data = await getData(`${lang}/about-us/bodydown`);
+---
 <div class="row">
-  <div class="col col-lg-4">
+  <div class="col-lg-4">
     <DetailElement bttnTxt={bttnTxt} headTxt={headTxt} />
   </div>
-  <div class="col col-lg-8">
+  <div class="col-lg-8">
     <div class="row">
-      <BoxElement
-        icon="/assets/images/icons/icon_care_primary.svg"
-        title={data.box1Title}
-        txt={data.box1Txt}
-      />
-      <BoxElement
-        icon="/assets/images/icons/icon_together_primary.svg"
-        title={data.box2Title}
-        txt={data.box2Txt}
-      />
-      <BoxElement
-        icon="/assets/images/icons/icon_communication_primary.svg"
-        title={data.box3Title}
-        txt={data.box3Txt}
-      />
-      <BoxElement
-        icon="/assets/images/icons/icon_teaching_primary.svg"
-        title={data.box4Title}
-        txt={data.box4Txt}
-      />
+      <div class="col-md-6">
+        <BoxElement
+          icon="/assets/images/icons/icon_care_primary.svg"
+          title={data.box1Title}
+          txt={data.box1Txt}
+        />
+      </div>
+      <div class="col-md-6">
+        <BoxElement
+          icon="/assets/images/icons/icon_together_primary.svg"
+          title={data.box2Title}
+          txt={data.box2Txt}
+        />
+      </div>
+      <div class="col-md-6">
+        <BoxElement
+          icon="/assets/images/icons/icon_communication_primary.svg"
+          title={data.box3Title}
+          txt={data.box3Txt}
+        />
+      </div>
+      <div class="col-md-6">
+        <BoxElement
+          icon="/assets/images/icons/icon_teaching_primary.svg"
+          title={data.box4Title}
+          txt={data.box4Txt}
+        />
+      </div>
     </div>
   </div>
 </div>

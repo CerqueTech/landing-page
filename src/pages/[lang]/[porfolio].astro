@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const { lang, porfolio } = Astro.params;
 ---
 
-<Layout lang={lang} title={porfolio} menu="">
+<Layout lang={lang} title={porfolio} menu="" transition:animate="slide">
   <section class="page_banner text-center">
     <BannerSection
       title={lang === "en" ? "Portafolio Details" : "Detalles de la cartera"}

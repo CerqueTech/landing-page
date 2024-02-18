@@ -43,7 +43,7 @@
   .bd-button-text{
     color: black !important;
   }
-  span{
+  .span{
     display:block;
     color:#CC3423;
     font-size: small;

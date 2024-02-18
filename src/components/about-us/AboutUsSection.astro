@@ -23,7 +23,7 @@ const data = await getData(`${lang}/about-us/aboutus`);
         <img src="/assets/images/team/team.png" alt={data.imgAlt} />
       </div>
     </div>
-    <BodyDown bttnTxt={data.bBttnTxt} headTxt={data.bHeadTxt} />
+    <BodyDown bttnTxt={data.bBttnTxt} headTxt={data.bHeadTxt} lang={lang} />
   </div>
 </div>
   </div>

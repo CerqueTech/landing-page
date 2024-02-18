@@ -1,23 +1,19 @@
 ---
-import Preloader from "../../components/environment/Preloader/Preloader";
 import ClientLogoSection from "../../components/index/ClientLogoSection.astro";
 import CounterSection from "../../components/index/Counter/CounterSection";
 import HeroeSection from "../../components/index/HeroeSection.astro";
+import Layout from "../../layouts/Layout.astro";
 import PortafolioSection from "../../components/index/Portafolio/PortafolioSection";
+import Preloader from "../../components/environment/Preloader/Preloader";
 import ProvidingSection from "../../components/index/Providing/ProvidingSection";
 import ReviewSection from "../../components/index/Review/ReviewSection";
 import StepSection from "../../components/index/Step/StepSection.astro";
 import TeamSection from "../../components/index/Team/TeamSection.astro";
-import Layout from "../../layouts/Layout.astro";
 export const prerender = true;
 export async function getStaticPaths() {
-  return [
-    { params: { lang:'es'}},
-    { params: { lang:'en'}},
-  ];
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
 const { lang } = Astro.params;
-
 ---
 
 <!--TODOO  error styles dark/light button cotizar -->
@@ -27,14 +23,14 @@ const { lang } = Astro.params;
     <HeroeSection />
   </section>
   <section class="service_section_2">
-    <ProvidingSection client:only="react" lang={lang}/>
+    <ProvidingSection client:only="react" lang={lang} />
   </section>
   <ClientLogoSection />
   <section class="starter_steps_section section_space_lg">
     <StepSection />
   </section>
   <section class="counter_section section_space_lg decoration_wrap">
-    <CounterSection client:only="react" lang={lang}/>
+    <CounterSection client:only="react" lang={lang} />
   </section>
   <section class="portfolio_section section_space_lg">
     <PortafolioSection client:only="react" lang={lang} />
