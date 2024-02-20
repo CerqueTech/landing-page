@@ -255,7 +255,7 @@ const ContactFormSection = (props) => {
                 >
                   <span className="bd-button-content-wrapper">
                     <span className="bd-button-icon">
-                      <i className="fa-light fa-arrow-right-long"></i>
+                      <i className="fa-light fa-arrow-right-long dark"></i>
                     </span>
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">

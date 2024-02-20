@@ -1,10 +1,11 @@
 ---
 import getData from "../../services/data";
+import Logo from "./Logo.jsx";
 interface Props {
-  lang:string;
+  lang: string;
 }
 const currentYear = new Date().getFullYear();
-const {lang} = Astro.props;
+const { lang } = Astro.props;
 const data = await getData(`${lang}/enviroment/footer`);
 ---
 
@@ -53,12 +54,14 @@ const data = await getData(`${lang}/enviroment/footer`);
     <div class="row">
       <div class="col col-lg-3 col-md-6">
         <div class="site_logo">
-          <a class="site_link" href={"/"+lang} data-astro-reload>
-            <img
-              style="height: 150px;margin-top: -2em;"
-              src="/assets/images/logo/white_with.png"
+          <a class="site_link" href={"/" + lang} data-astro-reload>
+            <Logo
               alt="Logo de CerqueTech Solutions"
+              srcdark="/assets/images/logo/white_with.png"
+              srcwith="/assets/images/logo/dark_with_icon_color.png"
+              client:only="react"
             />
+            <!--style="height: 150px;margin-top: -2em;" -->
           </a>
         </div>
       </div>
