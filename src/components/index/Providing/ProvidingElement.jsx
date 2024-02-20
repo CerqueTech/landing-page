@@ -1,5 +1,8 @@
 import "./Providing.css";
+import { $theme } from "../../../environment/theme";
+import { useStore } from "@nanostores/react";
 const ProvidingElement = (props) => {
+  const theme = useStore($theme);
   return (
     <div className="col">
       <div className="service_item style_4">
@@ -16,7 +19,11 @@ const ProvidingElement = (props) => {
         <a className="item_details_btn" data-cursor="-opaque">
           <span className="btn_icon">
             <img
-              src="/assets/images/icons/icon_arrow_down_right_dark_2.svg"
+              src={
+                theme === "dark"
+                  ? "/assets/images/icons/icon_arrow_down_right_white.svg"
+                  : "/assets/images/icons/icon_arrow_down_right_dark_2.svg"
+              }
               alt="Arrow icon"
             />
           </span>

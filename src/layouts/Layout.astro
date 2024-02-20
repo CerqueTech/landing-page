@@ -72,8 +72,6 @@ const route = getRouteFromUrl(Astro.url);
       <WhatsAppButton client:only="react" lang={lang} />
       <header>
         <Header
-          transition:persist
-          transition:animate="none"
           client:only="react"
           menu={menu}
           lang={lang}

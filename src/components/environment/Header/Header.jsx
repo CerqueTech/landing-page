@@ -1,20 +1,21 @@
 import { useState, useEffect } from "react";
-import Offcanvas from "../Offcanvas/Offcanvas.jsx";
-import StyleButton from "../StyleButton/StyleButton.jsx";
 import getData from "../../../services/data.ts";
 import LenguaguePicker from "../LenguagePicker/LenguagePicker.jsx";
+import Offcanvas from "../Offcanvas/Offcanvas.jsx";
+import StyleButton from "../StyleButton/StyleButton.jsx";
+import { $theme } from "../../../environment/theme.js";
+import { useStore } from "@nanostores/react";
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   const [data, setData] = useState({});
+  const theme = useStore($theme); 
   useEffect(() => {
     const fetchData = async () => {
       const result = await getData(`${props.lang}/enviroment/header`);
       setData(result);
     };
     fetchData();
-  }, []);
-  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setSticky(true);
@@ -40,7 +41,7 @@ export default function Header(props) {
   const updateOpen = () => {
     swapElems();
   };
-  const color = props.menu==="main-menu-3"? "black" : "white";
+  const color = props.menu === "main-menu-3" ? "black" : "white";
   return (
     <>
       <Offcanvas
@@ -58,7 +59,13 @@ export default function Header(props) {
                 href={`/${props.lang}`}
                 data-astro-reload
               >
-                <img src={"/assets/images/logo/dark_without_icon.png"} />
+                <img
+                  src={
+                    props.menu === "" && theme === "light"
+                      ? "/assets/images/logo/white_without_icon.png"
+                      : "/assets/images/logo/dark_without_icon.png"
+                  }
+                />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
@@ -140,7 +147,12 @@ export default function Header(props) {
                       <span className="pd-animation-flip">
                         <span className="bd-btn-anim-wrapp">
                           <span className="bd-button-text">{data.quote}</span>
-                          <span className="bd-button-text" style={{color:color}}>{data.quote}</span>
+                          <span
+                            className="bd-button-text"
+                            style={{ color: color }}
+                          >
+                            {data.quote}
+                          </span>
                         </span>
                       </span>
                     </span>

@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
-
-const PaginationWrap = ({ btnTxtPrev, btnTxtNext, portFolio}) => {
+import { useEffect, useState } from "react";
+import { $theme } from "../../environment/theme";
+import { useStore } from "@nanostores/react";
+const PaginationWrap = ({ btnTxtPrev, btnTxtNext, portFolio }) => {
   const portFolios = ["portfolio1", "portfolio2", "portfolio3", "portfolio4"];
-  const [theme, setTheme] = useState("light");
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const theme = useStore($theme);
   const nextPage = portFolios[(currentIndex + 1) % portFolios.length];
   const prevPage =
     portFolios[(currentIndex - 1 + portFolios.length) % portFolios.length];
-
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
-  }, []);
 
   useEffect(() => {
     const index = portFolios.indexOf(portFolio);
@@ -30,7 +23,9 @@ const PaginationWrap = ({ btnTxtPrev, btnTxtNext, portFolio}) => {
           <span className="btn_text">{btnTxtPrev}</span>
           <span className="btn_icon">
             <img
-              src={`/assets/images/icons/icon_arrow_down_left_${theme === "dark" ? "white" : "dark"}.svg`}
+              src={`/assets/images/icons/icon_arrow_down_left_${
+                theme === "dark" ? "white" : "dark"
+              }.svg`}
               alt="Icon Arrow Down Left"
             />
             <img
@@ -43,7 +38,9 @@ const PaginationWrap = ({ btnTxtPrev, btnTxtNext, portFolio}) => {
           <span className="btn_text">{btnTxtNext}</span>
           <span className="btn_icon">
             <img
-              src={`/assets/images/icons/icon_arrow_down_right_${theme === "dark" ? "white" : "dark"}.svg`}
+              src={`/assets/images/icons/icon_arrow_down_right_${
+                theme === "dark" ? "white" : "dark"
+              }.svg`}
               alt="Icon Arrow Down Right"
             />
             <img
