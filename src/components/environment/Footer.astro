@@ -7,7 +7,7 @@ interface Props {
 const currentYear = new Date().getFullYear();
 const { lang } = Astro.props;
 const data = await getData(`${lang}/enviroment/footer`);
-const contact = lang+"/"+((lang==="es")?"contactanos":"contact");
+const contact = lang === "es" ? "/es/contactanos" : "/en/contact";
 ---
 
 <div class="calltoaction_section style_5">
