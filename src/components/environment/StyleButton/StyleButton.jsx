@@ -1,6 +1,5 @@
 import "./StyleButton.css";
 import { useState, useEffect } from "react";
-
 import { $theme } from "../../../environment/theme";
 import { useStore } from "@nanostores/react";
 

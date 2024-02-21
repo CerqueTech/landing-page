@@ -9,7 +9,7 @@ export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
   const [data, setData] = useState({});
-  const theme = useStore($theme); 
+  const theme = useStore($theme);
   useEffect(() => {
     const fetchData = async () => {
       const result = await getData(`${props.lang}/enviroment/header`);

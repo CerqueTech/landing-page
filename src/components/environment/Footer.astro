@@ -7,6 +7,7 @@ interface Props {
 const currentYear = new Date().getFullYear();
 const { lang } = Astro.props;
 const data = await getData(`${lang}/enviroment/footer`);
+const contact = lang+"/"+((lang==="es")?"contactanos":"contact");
 ---
 
 <div class="calltoaction_section style_5">
@@ -26,7 +27,7 @@ const data = await getData(`${lang}/enviroment/footer`);
             <div class="section_heading text-white">
               <h2 class="heading_title mb-0">{data.headTitle}</h2>
             </div>
-            <a href="contact" class="bd-btn-link btn_warning">
+            <a href={contact} data-astro-reload class="bd-btn-link btn_warning">
               <span class="bd-button-content-wrapper">
                 <span class="bd-button-icon">
                   <i class="fa-light fa-arrow-right-long"></i>
@@ -61,7 +62,6 @@ const data = await getData(`${lang}/enviroment/footer`);
               srcwith="/assets/images/logo/dark_with_icon_color.png"
               client:only="react"
             />
-            <!--style="height: 150px;margin-top: -2em;" -->
           </a>
         </div>
       </div>

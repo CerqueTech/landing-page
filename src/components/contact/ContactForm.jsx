@@ -259,12 +259,8 @@ const ContactFormSection = (props) => {
                     </span>
                     <span className="pd-animation-flip">
                       <span className="bd-btn-anim-wrapp">
-                        <span className="bd-button-text">
-                          {data.bttnTxt}
-                        </span>
-                        <span className="bd-button-text">
-                          {data.bttnTxt}
-                        </span>
+                        <span className="bd-button-text">{data.bttnTxt}</span>
+                        <span className="bd-button-text">{data.bttnTxt}</span>
                       </span>
                     </span>
                   </span>
