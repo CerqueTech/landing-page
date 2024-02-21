@@ -140,7 +140,7 @@ const ContactFormSection = (props) => {
                       },
                     })}
                   />
-                  {errors.firstname && <span>{errors.firstname.message}</span>}
+                  {errors.firstname && <span className="error">{errors.firstname.message}</span>}
                 </div>
               </div>
               <div className="col-md-6">
@@ -169,7 +169,7 @@ const ContactFormSection = (props) => {
                       },
                     })}
                   />
-                  {errors.lastname && <span>{errors.lastname.message}</span>}
+                  {errors.lastname && <span className="error">{errors.lastname.message}</span>}
                 </div>
               </div>
               <div className="col-md-6">
@@ -190,7 +190,7 @@ const ContactFormSection = (props) => {
                       },
                     })}
                   />
-                  {errors.cellphone && <span>{errors.cellphone.message}</span>}
+                  {errors.cellphone && <span className="error">{errors.cellphone.message}</span>}
                 </div>
               </div>
               <div className="col-md-6">
@@ -234,7 +234,7 @@ const ContactFormSection = (props) => {
                     },
                   })}
                 ></textarea>
-                {errors.message && <span>{errors.message.message}</span>}
+                {errors.message && <span className="error">{errors.message.message}</span>}
               </div>
             </div>
             <div className="row">
