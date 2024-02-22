@@ -1,6 +1,6 @@
 ---
 span: "Testimonios"
-h3: "Lo que dicen mis clientes"
+h3: "Lo que dicen nuestros clientes"
 elem1Title: "Soluciones Innovadoras"
 elem1Content: "La dedicación del equipo de Cerquetech fue más allá de lo esperado. Personalmente, siempre sentí que realmente les importaba el éxito de nuestro proyecto."
 elem1Name: "Tomas Pacios Moya"

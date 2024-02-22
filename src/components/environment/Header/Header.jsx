@@ -131,9 +131,9 @@ export default function Header(props) {
                     menu={props.menu}
                   />
                 </li>
-                <li>
+                {/* <li>
                   <StyleButton />
-                </li>
+                </li> */}
                 <li>
                   <a
                     href={`/${props.lang}/${data.c}/`}
