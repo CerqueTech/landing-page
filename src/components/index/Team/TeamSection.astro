@@ -11,6 +11,8 @@ const data = await getData(`${lang}/index/team`);
 if (!data) {
   return Astro.redirect('/404');
 }
+
+const hrefAboutUs = lang === "es" ? "nosotros" : "about-us";
 ---
 
 <div class="container">
@@ -53,7 +55,7 @@ if (!data) {
     />
 
     <div class="btn_wrap pb-0 text-center">
-      <a href={`/${lang}/about-us/`} class="bd-btn-link btn_primary" data-astro-reload>
+      <a href={`/${lang}/${hrefAboutUs}`} class="bd-btn-link btn_primary" data-astro-reload>
         <span class="bd-button-content-wrapper">
           <span class="bd-button-icon">
             <i class="fa-light fa-arrow-right-long"></i>
