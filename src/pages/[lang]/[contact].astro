@@ -16,12 +16,7 @@ const contacUpper = contact.charAt(0).toUpperCase() + contact.slice(1);
 ---
 
 <Layout transition:persist title={contact} menu="" lang={lang}>
-  <section class="page_banner text-center">
-    <BannerSection
-      title={contacUpper}
-      aText={lang === "en" ? "Home" : "Inicio"}
-      liText={contacUpper}
-    />
+  <section class="page_banner text-center" style="padding: 20px 0 150px;">
   </section>
   <section class="contact-section contact_form_section">
     <ContactForm client:only="react" lang={lang} />
