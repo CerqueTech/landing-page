@@ -108,7 +108,7 @@ const ContactFormSection = (props) => {
                 <i className="fas fa-sharp fa-square-full"></i>
                 <i className="fas fa-sharp fa-square-full"></i>
               </span>
-              <span className="span">{data.span}</span>
+              <span>{data.span}</span>
             </h2>
             <h3 className="heading_title">{data.h3}</h3>
           </div>
