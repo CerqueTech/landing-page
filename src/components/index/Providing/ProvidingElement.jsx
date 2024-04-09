@@ -1,6 +1,7 @@
 import "./Providing.css";
 import { $theme } from "../../../environment/theme";
 import { useStore } from "@nanostores/react";
+
 const ProvidingElement = (props) => {
   const theme = useStore($theme);
   return (
@@ -16,7 +17,7 @@ const ProvidingElement = (props) => {
           <h3 className="item_title">{props.title}</h3>
           <p className="item_description">{props.description}</p>
         </div>
-        <a className="item_details_btn" data-cursor="-opaque">
+        <a className="item_details_btn" data-cursor="-opaque" href={props.href}>
           <span className="btn_icon">
             <img
               src={

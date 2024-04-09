@@ -11,6 +11,8 @@ const ProdivingSection = (props) => {
     };
     fetchData();
   }, []);
+  const href = props.lang === "es" ? "es/servicios" : "en/services";
+
   const settings = {
     dots: true,
     infinite: true,
@@ -78,6 +80,7 @@ const ProdivingSection = (props) => {
             iconImage="/assets/images/icons/icon_code_5.svg"
             title={data.elem1Title}
             description={data.elem1Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -85,6 +88,7 @@ const ProdivingSection = (props) => {
             iconImage="assets/images/icons/icon_house_2.svg"
             title={data.elem2Title}
             description={data.elem2Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -92,6 +96,7 @@ const ProdivingSection = (props) => {
             iconImage="assets/images/icons/icon_grid_2.svg"
             title={data.elem3Title}
             description={data.elem3Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -99,6 +104,7 @@ const ProdivingSection = (props) => {
             iconImage="/assets/images/icons/icon_speaker.svg"
             title={data.elem4Title}
             description={data.elem4Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -106,6 +112,7 @@ const ProdivingSection = (props) => {
             iconImage="/assets/images/icons/icon_camera_2.svg"
             title={data.elem5Title}
             description={data.elem5Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -113,6 +120,7 @@ const ProdivingSection = (props) => {
             iconImage="assets/images/icons/icon_code_4.svg"
             title={data.elem6Title}
             description={data.elem6Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -120,6 +128,7 @@ const ProdivingSection = (props) => {
             iconImage="assets/images/icons/icon_idea_3.svg"
             title={data.elem7Title}
             description={data.elem7Desc}
+            href={href}
           />
 
           <ProvidingElement
@@ -127,6 +136,7 @@ const ProdivingSection = (props) => {
             iconImage="assets/images/icons/icon_cog.svg"
             title={data.elem8Title}
             description={data.elem8Desc}
+            href={href}
           />
         </Slider>
       </div>
