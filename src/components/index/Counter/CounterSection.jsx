@@ -18,16 +18,16 @@ const CounterSection = (props) => {
       <div className="container">
         <div className="row">
           <CounterItem
-            count={8}
+            count={11}
             title={data.counter1title}
             supText="+"
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
-          <CounterItem count={4} title={data.counter2title} supText="+" />
+          <CounterItem count={5} title={data.counter2title} supText="+" />
 
           <CounterItem
-            count={5}
+            count={7}
             title={data.counter3title}
             supText="+"
             dataParallax='{"y" : -30, "smoothness": 10}'
