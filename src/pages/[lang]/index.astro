@@ -1,55 +1,54 @@
 ---
-import ClientLogoSection from "../../components/index/ClientLogoSection.astro";
-import CounterSection from "../../components/index/Counter/CounterSection";
-import HeroeSection from "../../components/index/HeroeSection.astro";
-import Layout from "../../layouts/Layout.astro";
-import PortafolioSection from "../../components/index/Portafolio/PortafolioSection";
-import Preloader from "../../components/environment/Preloader/Preloader";
-import ProvidingSection from "../../components/index/Providing/ProvidingSection";
-import ReviewSection from "../../components/index/Review/ReviewSection";
-import StepSection from "../../components/index/Step/StepSection.astro";
-import TeamSection from "../../components/index/Team/TeamSection.astro";
+import ClientLogoSection from '../../components/index/ClientLogoSection.astro';
+import CounterSection from '../../components/index/Counter/CounterSection';
+import HeroeSection from '../../components/index/HeroeSection.astro';
+import Layout from '../../layouts/Layout.astro';
+import PortafolioSection from '../../components/index/Portafolio/PortafolioSection';
+import Preloader from '../../components/environment/Preloader/Preloader';
+import ProvidingSection from '../../components/index/Providing/ProvidingSection';
+import ReviewSection from '../../components/index/Review/ReviewSection';
+import StepSection from '../../components/index/Step/StepSection.astro';
+import TeamSection from '../../components/index/Team/TeamSection.astro';
 export const prerender = true;
 export async function getStaticPaths() {
-  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+    return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
 }
 const { lang } = Astro.params;
 ---
 
-<!--TODOO  error styles dark/light button cotizar -->
-<Layout title="CerqueTech Solutions" menu="main-menu-3" lang={lang}>
-  <Preloader client:only="react" />
-  <section class="hero_banner_section style_3 bg_primary">
-    <HeroeSection />
-  </section>
-  <section class="service_section_2">
-    <ProvidingSection client:only="react" lang={lang} />
-  </section>
-  <ClientLogoSection />
-  <section class="starter_steps_section section_space_lg">
-    <StepSection />
-  </section>
-  <section class="counter_section section_space_lg decoration_wrap">
-    <CounterSection client:only="react" lang={lang} />
-  </section>
-  <!-- <section class="portfolio_section section_space_lg">
+<!--TODO:  error styles dark/light button cotizar -->
+<Layout title='CerqueTech Solutions' menu='main-menu-3' lang={lang}>
+    <section class='hero_banner_section style_3 bg_primary'>
+        <HeroeSection />
+    </section>
+    <section class='service_section_2'>
+        <ProvidingSection client:only='react' lang={lang} />
+    </section>
+    <ClientLogoSection />
+    <section class='starter_steps_section section_space_lg'>
+        <StepSection />
+    </section>
+    <section class='counter_section section_space_lg decoration_wrap'>
+        <CounterSection client:only='react' lang={lang} />
+    </section>
+    <!-- <section class="portfolio_section section_space_lg">
     <PortafolioSection client:only="react" lang={lang} />
   </section> -->
-  <section class="team_section section_space_lg bg_half_top_light">
-    <TeamSection />
-  </section>
-  <section class="review_section section_space_lg bg_primary">
-    <ReviewSection client:only="react" lang={lang} />
-  </section>
+    <section class='team_section section_space_lg bg_half_top_light'>
+        <TeamSection />
+    </section>
+    <section class='review_section section_space_lg bg_primary'>
+        <ReviewSection client:only='react' lang={lang} />
+    </section>
 </Layout>
 
 <style>
-  .service_section_2 {
-    background-image: url("/assets/images/shapes/shape_7.svg");
-  }
+    .service_section_2 {
+        background-image: url('/assets/images/shapes/shape_7.svg');
+    }
 
-  .hero_banner_section {
-    width: 100vw !important;
-    height: 100vh !important;
-  }
+    .hero_banner_section {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
 </style>

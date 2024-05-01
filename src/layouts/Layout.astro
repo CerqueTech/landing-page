@@ -1,114 +1,132 @@
 ---
-import { getRouteFromUrl } from "../i18n/utils";
-import { ViewTransitions } from "astro:transitions";
-import Footer from "../components/environment/Footer.astro";
-import Header from "../components/environment/Header/Header";
-import WhatsAppButton from "../components/environment/WhatsAppButton/WhatsAppButton";
+import { getRouteFromUrl } from '../i18n/utils';
+import { ViewTransitions } from 'astro:transitions';
+import Footer from '../components/environment/Footer.astro';
+import Header from '../components/environment/Header/Header';
+import WhatsAppButton from '../components/environment/WhatsAppButton/WhatsAppButton';
+import Preloader from '../components/environment/Preloader/Preloader';
 interface Props {
-  title: string;
-  menu: string;
-  lang: string;
+    title: string;
+    menu: string;
+    lang: string;
 }
 const { title, menu, lang } = Astro.props;
 const route = getRouteFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html transition:animate="none" lang={lang}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta
-      name="description"
-      content="CerqueTech Solutions es una empresa líder en tecnología especializada en desarrollo web, soluciones de software y más."
-    />
-    <meta
-      name="keywords"
-      content="CerqueTech Solutions, Desarrollo Web, Soluciones de Software"
-    />
-    <meta name="author" content="CerqueTech Solutions" />
-    <link rel="canonical" href="https://www.cerquetech.com" />
-    <link
-      rel="shortcut icon"
-      href="/assets/images/logo/favicon.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" type="text/css" href="/assets/css/cursor.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/slick.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/darkMode.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/assets/css/fontawesome-pro.css"
-    />
-
-    <meta property="og:title" content="CerqueTech Solutions" />
-    <meta
-      property="og:description"
-      content="CerqueTech Solutions es una empresa líder en tecnología especializada en desarrollo web, soluciones de software y más."
-    />
-    <meta property="og:image" content="https://www.cerquetech.com/logo.png" />
-    <meta property="og:url" content="https://www.cerquetech.com" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <ViewTransitions />
-  </head>
-
-  <body>
-    <div class="page_wrapper">
-      <WhatsAppButton client:only="react" lang={lang} />
-      <header>
-        <Header
-          client:only="react"
-          menu={menu}
-          lang={lang}
-          route={route}
-          url={Astro.url}
+<html transition:animate='none' lang={lang}>
+    <head>
+        <meta charset='UTF-8' />
+        <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1, shrink-to-fit=no'
         />
-      </header>
-      <main class="page_content">
-        <slot />
-      </main>
-      <footer class="site_footer style_4">
-        <Footer transition:animate="none" transition:persist lang={lang} />
-      </footer>
-    </div>
-    <script is:inline>
-      function setDarkMode(document) {
-        let theme =
-          localStorage.getItem("darkMode") === "true" ? "dark" : "light";
-        document.documentElement.dataset.theme = theme;
-      }
-      setDarkMode(document);
-      document.addEventListener("astro:before-swap", (ev) => {
-        setDarkMode(ev.newDocument);
-      });
-    </script>
-    <script is:inline src="/assets/js/jquery.min.js"></script>
-    <script is:inline src="/assets/js/parallax-scroll.js"></script>
-    <script is:inline src="/assets/js/cursor.js"></script>
-    <style is:global>
-      a,
-      small {
-        text-decoration: none !important;
-      }
-      .page_wrapper {
-        overflow: hidden;
-        position: relative;
-      }
-    </style>
-  </body>
+        <meta http-equiv='x-ua-compatible' content='ie=edge' />
+        <meta
+            name='description'
+            content='CerqueTech Solutions es una empresa líder en tecnología especializada en desarrollo web, soluciones de software y más.'
+        />
+        <meta
+            name='keywords'
+            content='CerqueTech Solutions, Desarrollo Web, Soluciones de Software'
+        />
+        <meta name='author' content='CerqueTech Solutions' />
+        <link rel='canonical' href='https://www.cerquetech.com' />
+        <link
+            rel='shortcut icon'
+            href='/assets/images/logo/favicon.png'
+            type='image/x-icon'
+        />
+        <link rel='stylesheet' type='text/css' href='/assets/css/cursor.css' />
+        <link rel='stylesheet' type='text/css' href='/assets/css/slick.css' />
+        <link
+            rel='stylesheet'
+            type='text/css'
+            href='/assets/css/slick-theme.css'
+        />
+        <link rel='stylesheet' type='text/css' href='/assets/css/style.css' />
+        <link
+            rel='stylesheet'
+            type='text/css'
+            href='/assets/css/darkMode.css'
+        />
+        <link
+            href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'
+            rel='stylesheet'
+            integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN'
+            crossorigin='anonymous'
+        />
+        <link
+            rel='stylesheet'
+            type='text/css'
+            href='/assets/css/fontawesome-pro.css'
+        />
+
+        <meta property='og:title' content='CerqueTech Solutions' />
+        <meta
+            property='og:description'
+            content='CerqueTech Solutions es una empresa líder en tecnología especializada en desarrollo web, soluciones de software y más.'
+        />
+        <meta
+            property='og:image'
+            content='https://www.cerquetech.com/logo.png'
+        />
+        <meta property='og:url' content='https://www.cerquetech.com' />
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='generator' content={Astro.generator} />
+        <title>{title}</title>
+        <!-- <ViewTransitions /> -->
+    </head>
+    <body>
+        <div class='page_wrapper'>
+            <Preloader client:load />
+            <WhatsAppButton client:only='react' lang={lang} />
+            <header>
+                <Header
+                    client:only='react'
+                    menu={menu}
+                    lang={lang}
+                    route={route}
+                    url={Astro.url}
+                />
+            </header>
+            <main class='page_content'>
+                <slot />
+            </main>
+            <footer class='site_footer style_4'>
+                <Footer
+                    transition:animate='none'
+                    transition:persist
+                    lang={lang}
+                />
+            </footer>
+        </div>
+        <script is:inline>
+            function setDarkMode(document) {
+                let theme =
+                    localStorage.getItem('darkMode') === 'true'
+                        ? 'dark'
+                        : 'light';
+                document.documentElement.dataset.theme = theme;
+            }
+            setDarkMode(document);
+            document.addEventListener('astro:before-swap', (ev) => {
+                setDarkMode(ev.newDocument);
+            });
+        </script>
+        <script is:inline src='/assets/js/jquery.min.js'></script>
+        <script is:inline src='/assets/js/parallax-scroll.js'></script>
+        <script is:inline src='/assets/js/cursor.js'></script>
+        <style is:global>
+            a,
+            small {
+                text-decoration: none !important;
+            }
+            .page_wrapper {
+                overflow: hidden;
+                position: relative;
+            }
+        </style>
+    </body>
 </html>

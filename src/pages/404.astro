@@ -1,42 +1,47 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 ---
-<Layout lang="en" menu="" title="Error">
-  <section class="error_section text-center mouse_move">
-    <div class="container">
-      <div class="error_image decoration_wrap text-center">
-        <img src="/assets/images/bg/error.png" alt="Error image" />
-      </div>
-      <div class="error_content">
-        <h1>Page not found</h1>
-        <p>
-          The requested URL you are looking for doesn't <span class="d-md-block"
-            >exist on this server.</span
-          >
-        </p>
-        <a href="/es" data-astro-reload class="bd-btn-link btn_primary">
-          <span class="bd-button-content-wrapper">
-            <span class="bd-button-icon">
-              <i class="fa-light fa-arrow-right-long"></i>
-            </span>
-            <span class="pd-animation-flip">
-              <span class="bd-btn-anim-wrapp">
-                <span class="bd-button-text">Go Back To Home</span>
-                <span class="bd-button-text">Go Back To Home</span>
-              </span>
-            </span>
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
+
+<Layout lang='es' menu='' title='Error'>
+    <section class='error_section text-center mouse_move'>
+        <div class='container'>
+            <div class='error_image decoration_wrap text-center'>
+                <img src='/assets/images/bg/error.png' alt='Imagen de error' />
+            </div>
+            <div class='error_content'>
+                <h1>Página no encontrada</h1>
+                <p>
+                    La URL solicitada que estás buscando no <span
+                        class='d-md-block'>existe en este servidor.</span
+                    >
+                </p>
+                <a href='/es' data-astro-reload class='bd-btn-link btn_primary'>
+                    <span class='bd-button-content-wrapper'>
+                        <span class='bd-button-icon'>
+                            <i class='fa-light fa-arrow-right-long'></i>
+                        </span>
+                        <span class='pd-animation-flip'>
+                            <span class='bd-btn-anim-wrapp'>
+                                <span class='bd-button-text'
+                                    >Volver a la Página Principal</span
+                                >
+                                <span class='bd-button-text'
+                                    >Volver a la Página Principal</span
+                                >
+                            </span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
 </Layout>
 
 <style>
-  .error_image {
-    margin-top: 60px;
-  }
-  .error_content {
-    margin-top: 40px;
-  }
+    .error_image {
+        margin-top: 60px;
+    }
+    .error_content {
+        margin-top: 40px;
+    }
 </style>
