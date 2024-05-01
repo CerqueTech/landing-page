@@ -5,6 +5,15 @@ const Preloader = () => {
   const [visible, setVisible] = useState('visible');
 
   useEffect(() => {
+    const checkForHeader = () => {
+
+      const header = document.querySelector('.site_header.site_header_3');
+      if (header) {
+        hidePreloader();
+        clearInterval(intervalId);
+      }
+    };
+
     const hidePreloader = () => {
       const preloader = document.getElementById('preloader');
       if (preloader) {
@@ -12,9 +21,11 @@ const Preloader = () => {
         setVisible('hidden');
       }
     };
-    hidePreloader();
+
+    const intervalId = setInterval(checkForHeader, 100);
+
     return () => {
-      window.removeEventListener('load', hidePreloader);
+      clearInterval(intervalId);
     };
   }, []);
 
