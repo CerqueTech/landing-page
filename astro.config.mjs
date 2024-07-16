@@ -7,11 +7,14 @@ export default defineConfig({
   output: 'server',
   adapter: vercel({
     webAnalytics: {
-      enabled: true,
+      enabled: true
     },
     speedInsights: {
-      enabled: true,
-    },
+      enabled: true
+    }
   }),
+  image: {
+    domains: ['astro.build']
+  },
   integrations: [react()]
 });

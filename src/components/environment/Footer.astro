@@ -1,194 +1,212 @@
 ---
-import getData from "../../services/data";
-import Logo from "../environment/Logo/Logo";
+import getData from '../../services/data';
+import Logo from '../environment/Logo/Logo';
+import { Image } from 'astro:assets';
+
 interface Props {
-  lang: string;
+    lang: string;
 }
 const currentYear = new Date().getFullYear();
 const { lang } = Astro.props;
 const data = await getData(`${lang}/enviroment/footer`);
-const contact = lang === "es" ? "/es/contactanos" : "/en/contact";
+const contact = lang === 'es' ? '/es/contactanos' : '/en/contact';
 ---
 
-<div class="calltoaction_section style_5">
-  <div class="container">
-    <div class="content_box bg_primary decoration_wrap">
-      <div class="row align-items-center">
-        <div class="col col-xxl-5 col-xl-6 col-lg-6 order-last">
-          <div class="cta_image">
-            <img
-              src="/assets/images/calltoaction/cta_image_5.png"
-              alt="Imagen de Llamada a la Acción de CerqueTech Solutions"
-            />
-          </div>
-        </div>
-        <div class="col col-xxl-7 col-xl-6 col-lg-6">
-          <div class="wrapper_box mb-4 mb-lg-0">
-            <div class="section_heading text-white">
-              <h2 class="heading_title mb-0">{data.headTitle}</h2>
+<div class='calltoaction_section style_5'>
+    <div class='container'>
+        <div class='content_box bg_primary decoration_wrap'>
+            <div class='row align-items-center'>
+                <div class='col col-xxl-5 col-xl-6 col-lg-6 order-last'>
+                    <div class='cta_image'>
+                        <Image
+                            src='/assets/images/calltoaction/cta_image_5.png'
+                            alt='Imagen de Llamada a la Acción de CerqueTech Solutions'
+                            width={1200}
+                            height={1200}
+                        />
+                    </div>
+                </div>
+                <div class='col col-xxl-7 col-xl-6 col-lg-6'>
+                    <div class='wrapper_box mb-4 mb-lg-0'>
+                        <div class='section_heading text-white'>
+                            <h2 class='heading_title mb-0'>{data.headTitle}</h2>
+                        </div>
+                        <a
+                            href={contact}
+                            data-astro-reload
+                            class='bd-btn-link btn_warning'
+                        >
+                            <span class='bd-button-content-wrapper'>
+                                <span class='bd-button-icon'>
+                                    <i class='fa-light fa-arrow-right-long'></i>
+                                </span>
+                                <span class='pd-animation-flip'>
+                                    <span class='bd-btn-anim-wrapp'>
+                                        <span class='bd-button-text'
+                                            >{data.bottom}</span
+                                        >
+                                        <span class='bd-button-text'
+                                            >{data.bottom}</span
+                                        >
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <a href={contact} data-astro-reload class="bd-btn-link btn_warning">
-              <span class="bd-button-content-wrapper">
-                <span class="bd-button-icon">
-                  <i class="fa-light fa-arrow-right-long"></i>
-                </span>
-                <span class="pd-animation-flip">
-                  <span class="bd-btn-anim-wrapp">
-                    <span class="bd-button-text">{data.bottom}</span>
-                    <span class="bd-button-text">{data.bottom}</span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </div>
+            <div class='deco_item shape_1'>
+                <Image
+                    src='/assets/images/shapes/shape_4.svg'
+                    alt='Shape Circle'
+                    width={600}
+                    height={600}
+                />
+            </div>
         </div>
-      </div>
-      <div class="deco_item shape_1">
-        <img src="/assets/images/shapes/shape_4.svg" />
-      </div>
     </div>
-  </div>
 </div>
 
-<div class="footer_widget_area">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-3 col-md-6">
-        <div class="site_logo">
-          <a class="site_link" href={"/" + lang} data-astro-reload>
-            <Logo
-              alt="Logo de CerqueTech Solutions"
-              srcdark="/assets/images/logo/white_with.png"
-              srcwith="/assets/images/logo/dark_with_icon_color.png"
-              client:only="react"
-            />
-          </a>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="footer_widget">
-          <h3 class="footer_widget_title">{data.widget1Ttitle}</h3>
-          <div class="icon_list_widget">
-            <h4 class="widget_title mb-0">{data.widget1Titlep}</h4>
-            <ul class="icon_list unordered_list_block">
-              <li>
-                <a href="mailto:mateo.cerquetella@cerquetech.com">
-                  <span class="list_item_text">
-                    mateo.cerquetella@cerquetech.com</span
-                  >
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="footer_widget">
-          <h3 class="footer_widget_title">{data.widget2Title}</h3>
-          <div class="icon_list_widget">
-            <ul class="icon_list unordered_list_block">
-              <li>
-                <a>
-                  <span class="d-block mb-2"> </span>
-                  <span class="list_item_text">
-                    {data.widget2Titlep}
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col col-lg-3 col-md-6">
-        <div class="footer_widget">
-          <h3 class="footer_widget_title">{data.newsletter}</h3>
-          <form action="#">
-            <div class="small_newsletter_form">
-              <input
-                type="email"
-                id="email"
-                placeholder={data.newsletterPlace}
-                autocomplete="email"
-              />
-              <button type="submit">
-                <i class="far fa-arrow-right"></i>
-              </button>
+<div class='footer_widget_area'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col col-lg-3 col-md-6'>
+                <div class='site_logo'>
+                    <a class='site_link' href={'/' + lang} data-astro-reload>
+                        <Logo
+                            alt='Logo de CerqueTech Solutions'
+                            srcdark='/assets/images/logo/white_with.png'
+                            srcwith='/assets/images/logo/dark_with_icon_color.png'
+                            client:only='react'
+                        />
+                    </a>
+                </div>
             </div>
-          </form>
+            <div class='col col-lg-3 col-md-6'>
+                <div class='footer_widget'>
+                    <h3 class='footer_widget_title'>{data.widget1Ttitle}</h3>
+                    <div class='icon_list_widget'>
+                        <h4 class='widget_title mb-0'>{data.widget1Titlep}</h4>
+                        <ul class='icon_list unordered_list_block'>
+                            <li>
+                                <a
+                                    href='mailto:mateo.cerquetella@cerquetech.com'
+                                >
+                                    <span class='list_item_text'>
+                                        mateo.cerquetella@cerquetech.com</span
+                                    >
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class='col col-lg-3 col-md-6'>
+                <div class='footer_widget'>
+                    <h3 class='footer_widget_title'>{data.widget2Title}</h3>
+                    <div class='icon_list_widget'>
+                        <ul class='icon_list unordered_list_block'>
+                            <li>
+                                <a>
+                                    <span class='d-block mb-2'> </span>
+                                    <span class='list_item_text'>
+                                        {data.widget2Titlep}
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class='col col-lg-3 col-md-6'>
+                <div class='footer_widget'>
+                    <h3 class='footer_widget_title'>{data.newsletter}</h3>
+                    <form action='#'>
+                        <div class='small_newsletter_form'>
+                            <input
+                                type='email'
+                                id='email'
+                                placeholder={data.newsletterPlace}
+                                autocomplete='email'
+                            />
+                            <button type='submit'>
+                                <i class='far fa-arrow-right'></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
-<div class="footer_bottom">
-  <div class="container">
-    <div class="footer_bottom_grid">
-      <div class="copyright_widget">
-        {data.copyright} © 2023-{currentYear}
-        {data.by}
-        <a target="_blank" href="https://www.cerquetech.com"
-          ><u>CerqueTech Solutions™</u></a
-        >
-        {data.copyright1}
-      </div>
+<div class='footer_bottom'>
+    <div class='container'>
+        <div class='footer_bottom_grid'>
+            <div class='copyright_widget'>
+                {data.copyright} © 2023-{currentYear}
+                {data.by}
+                <a target='_blank' href='https://www.cerquetech.com'
+                    ><u>CerqueTech Solutions™</u></a
+                >
+                {data.copyright1}
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <style>
-  .container {
-    width: 100%;
-    padding: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  @media (max-width: 767px) {
-    .footer_widget_area .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .container {
+        width: 100%;
+        padding: 15px;
+        margin-right: auto;
+        margin-left: auto;
     }
 
-    .footer_widget_area .col {
-      flex: 0 0 100%;
-      max-width: 100%;
-      margin-bottom: 20px;
+    img {
+        max-width: 100%;
+        height: auto;
     }
 
-    .footer_widget form {
-      display: flex;
-      flex-direction: column;
+    @media (max-width: 767px) {
+        .footer_widget_area .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer_widget_area .col {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .footer_widget form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer_widget form .form-check {
+            margin-top: 10px;
+        }
     }
 
-    .footer_widget form .form-check {
-      margin-top: 10px;
+    .footer_social {
+        text-align: right;
     }
-  }
 
-  .footer_social {
-    text-align: right;
-  }
+    .footer_social .social_icon {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-  .footer_social .social_icon {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    .footer_social .social_icon li {
+        display: inline-block;
+        margin-right: 10px;
+    }
 
-  .footer_social .social_icon li {
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  .footer_social .social_icon li:last-child {
-    margin-right: 0;
-  }
+    .footer_social .social_icon li:last-child {
+        margin-right: 0;
+    }
 </style>
-./Logo/Logo.jsx

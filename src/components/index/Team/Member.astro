@@ -1,27 +1,29 @@
 ---
 export interface Props {
-  name: string;
-  designation: string;
-  image: string;
-  linkedin: string;
-  customImgStyle?: string;
+    name: string;
+    designation: string;
+    image: string;
+    linkedin: string;
+    customImgStyle?: string;
 }
 const { name, designation, image, linkedin, customImgStyle } = Astro.props;
 ---
 
-<div class="col col-xl-3 col-lg-6 col-md-6">
-  <div class="team_item style_1 tilt">
-    <div class="admin_thumbnail">
-      <div class="thumbnail_wrap">
-        <img style={customImgStyle} src={image} />
-      </div>
+<div class='col col-xl-3 col-lg-6 col-md-6'>
+    <div class='team_item style_1 tilt'>
+        <div class='admin_thumbnail'>
+            <div class='thumbnail_wrap'>
+                <img style={customImgStyle} src={image} />
+            </div>
+        </div>
+        <div class='admin_info_content'>
+            <h3 class='admin_name'>{name}</h3>
+            <p class='admin_designation mb-0'>{designation}</p>
+            <ul class='admin_social unordered_list'>
+                <li>
+                    <a href={linkedin}><i class='fab fa-linkedin-in'></i></a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="admin_info_content">
-      <h3 class="admin_name">{name}</h3>
-      <p class="admin_designation mb-0">{designation}</p>
-      <ul class="admin_social unordered_list">
-        <li><a href={linkedin}><i class="fab fa-linkedin-in"></i></a></li>
-      </ul>
-    </div>
-  </div>
 </div>

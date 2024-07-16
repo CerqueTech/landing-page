@@ -1,157 +1,197 @@
 ---
-import { getLangFromUrl } from "../../../i18n/utils";
-import getData from "../../../services/data";
-import StepItem from "./StepItem";
+import { getLangFromUrl } from '../../../i18n/utils';
+import getData from '../../../services/data';
+import StepItem from './StepItem';
+import { Image } from 'astro:assets';
+
 const lang = getLangFromUrl(Astro.url);
 const data = await getData(`${lang}/index/step`);
 if (!data) {
-  return Astro.redirect("/404");
+    return Astro.redirect('/404');
 }
 
-const hrefService = lang === "es" ? "servicios" : "services";
+const hrefService = lang === 'es' ? 'servicios' : 'services';
 ---
 
-<div class="deco_item shado">
-  <img class="shape-circle" src="/assets/images/shapes/shape_circle_2.svg" />
+<div class='deco_item shado'>
+    <Image
+        class='shape-circle'
+        alt='Shape Circle'
+        width={600}
+        height={600}
+        src='/assets/images/shapes/shape_circle_2.svg'
+    />
 </div>
-<div class="container decoration_wrap">
-  <div class="row align-items-center">
-    <div class="col-lg-6">
-      <div class="starter_steps_group decoration_wrap mb-4 mg-lg-0">
-        <ul class="unordered_list">
-          <li>
-            <StepItem client:visible title={data.step1title} delay="0.3" />
-          </li>
-          <li>
-            <StepItem client:visible title={data.step2title} delay="0.9" />
-          </li>
-          <li>
-            <StepItem client:visible title={data.step3title} delay="1.2" />
-          </li>
-        </ul>
-        <div class="deco_item shape_1">
-          <img
-            class="circle-dashed"
-            src="/assets/images/shapes/shape_circle_dashed_1.svg"
-          />
+<div class='container decoration_wrap'>
+    <div class='row align-items-center'>
+        <div class='col-lg-6'>
+            <div class='starter_steps_group decoration_wrap mb-4 mg-lg-0'>
+                <ul class='unordered_list'>
+                    <li>
+                        <StepItem
+                            client:visible
+                            title={data.step1title}
+                            delay='0.3'
+                        />
+                    </li>
+                    <li>
+                        <StepItem
+                            client:visible
+                            title={data.step2title}
+                            delay='0.9'
+                        />
+                    </li>
+                    <li>
+                        <StepItem
+                            client:visible
+                            title={data.step3title}
+                            delay='1.2'
+                        />
+                    </li>
+                </ul>
+                <div class='deco_item shape_1'>
+                    <Image
+                        alt='Shape Circle Dashed'
+                        width={600}
+                        height={600}
+                        class='circle-dashed'
+                        src='/assets/images/shapes/shape_circle_dashed_1.svg'
+                    />
+                </div>
+                <div class='deco_item shape_2'>
+                    <Image
+                        alt='Shape Circle'
+                        width={600}
+                        height={600}
+                        class='circle-2'
+                        src='/assets/images/shapes/shape_circle_2.svg'
+                    />
+                </div>
+            </div>
         </div>
-        <div class="deco_item shape_2">
-          <img
-            class="circle-2"
-            src="/assets/images/shapes/shape_circle_2.svg"
-          />
+        <div class='col-lg-6'>
+            <div class='steps_content_wrapper'>
+                <div class='section_heading mb-5'>
+                    <h2 class='heading_subtitle text-uppercase'>
+                        <span class='double_icon'>
+                            <i class='fas fa-sharp fa-square-full'></i>
+                            <i class='fas fa-sharp fa-square-full'></i>
+                        </span>
+                        <span>{data.span}</span>
+                    </h2>
+                    <h3 class='heading_title'>{data.h3}</h3>
+                    <p class='heading_description mb-0'>
+                        {data.p}
+                    </p>
+                </div>
+                <ul class='btns_group unordered_list'>
+                    <li>
+                        <a
+                            href={`/${lang}/${hrefService}`}
+                            data-astro-reload
+                            class='bd-btn-link btn_primary'
+                        >
+                            <span class='bd-button-content-wrapper'>
+                                <span class='bd-button-icon'>
+                                    <i class='fa-light fa-arrow-right-long'></i>
+                                </span>
+                                <span class='pd-animation-flip'>
+                                    <span class='bd-btn-anim-wrapp'>
+                                        <span class='bd-button-text'
+                                            >{data.spanbuttontext}</span
+                                        >
+                                        <span class='bd-button-text'
+                                            >{data.spanbuttontext}</span
+                                        >
+                                    </span>
+                                </span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-lg-6">
-      <div class="steps_content_wrapper">
-        <div class="section_heading mb-5">
-          <h2 class="heading_subtitle text-uppercase">
-            <span class="double_icon">
-              <i class="fas fa-sharp fa-square-full"></i>
-              <i class="fas fa-sharp fa-square-full"></i>
-            </span>
-            <span>{data.span}</span>
-          </h2>
-          <h3 class="heading_title">{data.h3}</h3>
-          <p class="heading_description mb-0">
-            {data.p}
-          </p>
-        </div>
-        <ul class="btns_group unordered_list">
-          <li>
-            <a href={`/${lang}/${hrefService}`} data-astro-reload class="bd-btn-link btn_primary">
-              <span class="bd-button-content-wrapper">
-                <span class="bd-button-icon">
-                  <i class="fa-light fa-arrow-right-long"></i>
-                </span>
-                <span class="pd-animation-flip">
-                  <span class="bd-btn-anim-wrapp">
-                    <span class="bd-button-text">{data.spanbuttontext}</span>
-                    <span class="bd-button-text">{data.spanbuttontext}</span>
-                  </span>
-                </span>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
+    <div class='deco_item shape_3'>
+        <Image
+            alt='Shape Circle'
+            width={600}
+            height={600}
+            src='/assets/images/shapes/shape_circle_1.svg'
+            data-parallax='{"y" : -140, "smoothness": 10}'
+            class='imgCicle'
+        />
     </div>
-  </div>
-  <div class="deco_item shape_3">
-    <img
-      src="/assets/images/shapes/shape_circle_1.svg"
-      data-parallax='{"y" : -140, "smoothness": 10}'
-      class="imgCicle"
-    />
-  </div>
-  <div class="deco_item shape_4">
-    <img
-      src="/assets/images/shapes/shape_close_icon.png"
-      data-parallax='{"y" : 140, "smoothness": 10}'
-      class="close"
-    />
-  </div>
+    <div class='deco_item shape_4'>
+        <Image
+            alt='Shape Close Icon'
+            width={600}
+            height={600}
+            src='/assets/images/shapes/shape_close_icon.png'
+            data-parallax='{"y" : 140, "smoothness": 10}'
+            class='close'
+        />
+    </div>
 </div>
 
 <style>
-  .circle {
-    visibility: visible;
-    animation-delay: 0.1s;
-    animation-name: fadeInUp;
-  }
-  .close {
-    transform: translate3d(0px, 140px, 0px) rotateX(0deg) rotateY(0deg)
-      rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
-    -webkit-transform: translate3d(0px, 140px, 0px) rotateX(0deg) rotateY(0deg)
-      rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
-  }
-  .fade {
-    visibility: visible;
-    animation-delay: 0.1s;
-    animation-name: uicoreFadeInDown, uicoreFadeIn;
-  }
-  .imgCicle {
-    transform: translate3d(0px, -41.707px, 0px) rotateX(0deg) rotateY(0deg)
-      rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
-    -webkit-transform: translate3d(0px, -41.707px, 0px) rotateX(0deg)
-      rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
-  }
-  .shape-circle,
-  .imgCicle,
-  .close {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    max-height: 80px;
-  }
-  @media (max-width: 992px) {
-    .starter_steps_group {
-      text-align: center;
+    .circle {
+        visibility: visible;
+        animation-delay: 0.1s;
+        animation-name: fadeInUp;
     }
-    .col-lg-6 {
-      flex: 0 0 100%;
-      max-width: 100%;
+    .close {
+        transform: translate3d(0px, 140px, 0px) rotateX(0deg) rotateY(0deg)
+            rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+        -webkit-transform: translate3d(0px, 140px, 0px) rotateX(0deg)
+            rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+    .fade {
+        visibility: visible;
+        animation-delay: 0.1s;
+        animation-name: uicoreFadeInDown, uicoreFadeIn;
+    }
+    .imgCicle {
+        transform: translate3d(0px, -41.707px, 0px) rotateX(0deg) rotateY(0deg)
+            rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+        -webkit-transform: translate3d(0px, -41.707px, 0px) rotateX(0deg)
+            rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
     }
     .shape-circle,
     .imgCicle,
     .close {
-      max-height: 60px;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        max-height: 80px;
     }
-  }
+    @media (max-width: 992px) {
+        .starter_steps_group {
+            text-align: center;
+        }
+        .col-lg-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .shape-circle,
+        .imgCicle,
+        .close {
+            max-height: 60px;
+        }
+    }
 
-  @media (max-width: 576px) {
-    .heading_title {
-      font-size: 24px;
+    @media (max-width: 576px) {
+        .heading_title {
+            font-size: 24px;
+        }
+        .section_heading {
+            text-align: center;
+        }
+        .shape-circle,
+        .imgCicle,
+        .close {
+            max-height: 40px;
+        }
     }
-    .section_heading {
-      text-align: center;
-    }
-    .shape-circle,
-    .imgCicle,
-    .close {
-      max-height: 40px;
-    }
-  }
 </style>
