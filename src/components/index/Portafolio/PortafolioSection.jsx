@@ -1,7 +1,7 @@
-import Slider from "react-slick";
-import PortafolioElement from "./PortafolioElement";
-import getData from "../../../services/data";
-import { useState, useEffect } from "react";
+import Slider from 'react-slick';
+import PortafolioElement from './PortafolioElement';
+import getData from '../../../services/data';
+import { useState, useEffect } from 'react';
 export default function PortafolioSection(props) {
   const [data, setData] = useState({});
 
@@ -21,9 +21,9 @@ export default function PortafolioSection(props) {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 10000,
-    easing: "ease-in",
+    easing: 'ease-in',
     pauseOnHover: false,
-    pauseOnFocus: false,
+    pauseOnFocus: false
   };
 
   return (
@@ -31,7 +31,7 @@ export default function PortafolioSection(props) {
       <div className="section_heading text-white text-center">
         <h2
           className="heading_subtitle text-uppercase"
-          style={{ color: "#000" }}
+          style={{ color: '#000' }}
         >
           <span className="double_icon">
             <i className="fas fa-sharp fa-square-full"></i>
@@ -39,7 +39,7 @@ export default function PortafolioSection(props) {
           </span>
           <span>{data.span1}</span>
         </h2>
-        <h3 className="heading_title mb-0" style={{ color: "#000" }}>
+        <h3 className="heading_title mb-0" style={{ color: '#000' }}>
           {data.h3}
         </h3>
       </div>
@@ -50,25 +50,25 @@ export default function PortafolioSection(props) {
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_1.jpg"
             signTitle={data.portElem1title}
             signDescription={data.portElem1Desc}
-            href={props.lang + "/" + "portfolio1"}
+            href={props.lang + '/' + 'portfolio1'}
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_2.jpg"
             signTitle={data.portElem2title}
             signDescription={data.portElem2Desc}
-            href={props.lang + "/" + "portfolio2"}
+            href={props.lang + '/' + 'portfolio2'}
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_3.jpg"
             signTitle={data.portElem3title}
             signDescription={data.portElem3Desc}
-            href={props.lang + "/" + "portfolio3"}
+            href={props.lang + '/' + 'portfolio3'}
           />
           <PortafolioElement
             portfolioImage="/assets/images/portfolio/portfolio_lfi_image_4.jpg"
             signTitle={data.portElem4title}
             signDescription={data.portElem4Desc}
-            href={props.lang + "/" + "portfolio4"}
+            href={props.lang + '/' + 'portfolio4'}
           />
         </Slider>
       </div>

@@ -1,4 +1,4 @@
-import "./Offcanvas.css";
+import './Offcanvas.css';
 const Offcanvas = (props) => {
   const handleCLick = () => {
     props.updateOpen();
@@ -8,14 +8,14 @@ const Offcanvas = (props) => {
       <div className="fix">
         <div
           className={
-            props.open ? "offcanvas__info info-open" : "offcanvas__info"
+            props.open ? 'offcanvas__info info-open' : 'offcanvas__info'
           }
         >
           <div className="offcanvas__wrapper">
             <div className="offcanvas__content">
               <div className="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                 <div className="offcanvas__logo">
-                  <a href={"/"+props.lang} data-astro-reload>
+                  <a href={'/' + props.lang} data-astro-reload>
                     <img
                       src="/assets/images/logo/dark_one_line.png"
                       alt="logo not found"
@@ -44,17 +44,17 @@ const Offcanvas = (props) => {
                   <ul className="ul-mean ">
                     <li>
                       <a
-                        href={"/"+props.lang}
+                        href={'/' + props.lang}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
                       >
-                       {props.data.home}
+                        {props.data.home}
                       </a>
                     </li>
                     <li>
                       <a
-                        href={"/"+props.lang+"/"+props.data.s}
+                        href={'/' + props.lang + '/' + props.data.s}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
@@ -64,17 +64,17 @@ const Offcanvas = (props) => {
                     </li>
                     <li>
                       <a
-                        href={"/"+props.lang+"/"+props.data.a}
+                        href={'/' + props.lang + '/' + props.data.a}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
                       >
-                       {props.data.about}
+                        {props.data.about}
                       </a>
                     </li>
                     <li>
                       <a
-                        href={"/"+props.lang+"/"+props.data.c}
+                        href={'/' + props.lang + '/' + props.data.c}
                         transition:persist="true"
                         transition:animate="none"
                         data-astro-reload
@@ -118,7 +118,7 @@ const Offcanvas = (props) => {
       </div>
       <div
         className={
-          props.open ? "offcanvas__overlay overlay-open" : "offcanvas__overlay"
+          props.open ? 'offcanvas__overlay overlay-open' : 'offcanvas__overlay'
         }
       ></div>
       <div className="offcanvas__overlay-white"></div>

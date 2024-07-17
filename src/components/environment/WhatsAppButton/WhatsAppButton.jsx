@@ -1,6 +1,6 @@
-import { FloatingWhatsApp } from "react-floating-whatsapp";
-import getData from "../../../services/data.ts";
-import { useState, useEffect } from "react";
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
+import getData from '../../../services/data.ts';
+import { useState, useEffect } from 'react';
 export default function WhatsAppButton(props) {
   const [data, setData] = useState({});
 

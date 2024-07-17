@@ -3,7 +3,7 @@ export default function ReviewElement(props) {
     <div className="carousel_item col">
       <div
         className="review_item style_2 text-center"
-        style={{ height: "435px" }}
+        style={{ height: '435px' }}
       >
         <h3 className="review_title">{props.title}</h3>
         <ul className="rating_star unordered_list">

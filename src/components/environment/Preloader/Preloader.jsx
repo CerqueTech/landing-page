@@ -6,7 +6,6 @@ const Preloader = () => {
 
   useEffect(() => {
     const checkForHeader = () => {
-
       const header = document.querySelector('.site_header.site_header_3');
       if (header) {
         hidePreloader();

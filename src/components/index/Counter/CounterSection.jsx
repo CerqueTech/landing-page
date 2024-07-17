@@ -1,7 +1,7 @@
-import CounterItem from "./CounterItem";
-import Decos from "./Decos";
-import getData from "../../../services/data";
-import { useState, useEffect } from "react";
+import CounterItem from './CounterItem';
+import Decos from './Decos';
+import getData from '../../../services/data';
+import { useState, useEffect } from 'react';
 const CounterSection = (props) => {
   const [data, setData] = useState({});
 

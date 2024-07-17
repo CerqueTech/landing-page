@@ -1,7 +1,7 @@
-import { ui, defaultLang, showDefaultLang, routes } from "./ui";
+import { ui, defaultLang, showDefaultLang, routes } from './ui';
 
 export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split("/");
+  const [, lang] = url.pathname.split('/');
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }
@@ -21,24 +21,30 @@ export function getRouteFromUrl(url: URL): string | undefined {
   const path = parts?.pop() || parts?.pop();
   if (path === undefined) {
     return undefined;
-  } 
-  
+  }
+
   const currentLang = getLangFromUrl(url);
-  
+
   if (defaultLang === currentLang) {
     const route = Object.values(routes)[0] as Record<string, string>;
-    const routerPath =  route[path];
+    const routerPath = route[path];
     return routerPath !== undefined ? routerPath : undefined;
   }
 
-  const getKeyByValue = (obj: Record<string, string>, value: string): string | undefined  => {
-      return Object.keys(obj).find((key) => obj[key] === value);
-  }
-  
-  const reversedKey = getKeyByValue(routes[currentLang] as Record<string, string>, path);
+  const getKeyByValue = (
+    obj: Record<string, string>,
+    value: string
+  ): string | undefined => {
+    return Object.keys(obj).find((key) => obj[key] === value);
+  };
+
+  const reversedKey = getKeyByValue(
+    routes[currentLang] as Record<string, string>,
+    path
+  );
 
   if (reversedKey !== undefined) {
     return reversedKey;
-  } 
+  }
   return undefined;
 }

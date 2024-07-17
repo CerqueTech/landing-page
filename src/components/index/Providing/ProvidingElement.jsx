@@ -1,6 +1,6 @@
-import "./Providing.css";
-import { $theme } from "../../../environment/theme";
-import { useStore } from "@nanostores/react";
+import './Providing.css';
+import { $theme } from '../../../environment/theme';
+import { useStore } from '@nanostores/react';
 
 const ProvidingElement = (props) => {
   const theme = useStore($theme);
@@ -21,9 +21,9 @@ const ProvidingElement = (props) => {
           <span className="btn_icon">
             <img
               src={
-                theme === "dark"
-                  ? "/assets/images/icons/icon_arrow_down_right_white.svg"
-                  : "/assets/images/icons/icon_arrow_down_right_dark_2.svg"
+                theme === 'dark'
+                  ? '/assets/images/icons/icon_arrow_down_right_white.svg'
+                  : '/assets/images/icons/icon_arrow_down_right_dark_2.svg'
               }
               alt="Arrow icon"
             />

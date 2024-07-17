@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
-import MySnackbar from "./Snackbar";
-import "./ContactForm.css";
-import getData from "../../services/data";
+import React, { useState, useEffect, useRef } from 'react';
+import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
+import MySnackbar from './Snackbar';
+import './ContactForm.css';
+import getData from '../../services/data';
 const ContactFormSection = (props) => {
   const [data, setData] = useState({});
   const formRef = useRef();
@@ -13,13 +13,13 @@ const ContactFormSection = (props) => {
   const [snackbarConfig, setSnackbarConfig] = useState({
     showSnackbar: false,
     showErrorSnackbar: false,
-    swapError: false,
+    swapError: false
   });
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    reset
   } = useForm();
 
   const handleSnackbarErrorClose = () => {
@@ -32,12 +32,12 @@ const ContactFormSection = (props) => {
     setSnackbarConfig({
       showSnackbar: false,
       showErrorSnackbar: false,
-      swapError: false,
+      swapError: false
     });
   };
 
   useEffect(() => {
-    emailjs.init("-FHCpc8dqO74zCggh");
+    emailjs.init('-FHCpc8dqO74zCggh');
     const fetchData = async () => {
       const result = await getData(`${props.lang}/contact/contactform`);
       setData(result);
@@ -53,15 +53,15 @@ const ContactFormSection = (props) => {
       setSnackbarConfig({
         ...snackbarConfig,
         swapError: true,
-        showErrorSnackbar: true,
+        showErrorSnackbar: true
       });
       return;
     }
 
     try {
       await emailjs.sendForm(
-        "service_jzbyr2g",
-        "template_nx3hy1l",
+        'service_jzbyr2g',
+        'template_nx3hy1l',
         formRef.current
       );
       setSnackbarConfig({ ...snackbarConfig, showSnackbar: true });
@@ -121,26 +121,28 @@ const ContactFormSection = (props) => {
                     type="text"
                     name="firstname"
                     placeholder={data.placeHolderName}
-                    {...register("firstname", {
+                    {...register('firstname', {
                       required: {
                         value: true,
-                        message: `${data.msgName}`,
+                        message: `${data.msgName}`
                       },
                       minLength: {
                         value: 3,
-                        message: `${data.msg1Name}`,
+                        message: `${data.msg1Name}`
                       },
                       maxLength: {
                         value: 20,
-                        message: `${data.msg2Name}`,
+                        message: `${data.msg2Name}`
                       },
                       pattern: {
                         value: /^[A-Za-z]+$/,
-                        message: `${data.msg3Name}`,
-                      },
+                        message: `${data.msg3Name}`
+                      }
                     })}
                   />
-                  {errors.firstname && <span className="error">{errors.firstname.message}</span>}
+                  {errors.firstname && (
+                    <span className="error">{errors.firstname.message}</span>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
@@ -150,26 +152,28 @@ const ContactFormSection = (props) => {
                     type="text"
                     name="lastname"
                     placeholder={data.placeHolderLastName}
-                    {...register("lastname", {
+                    {...register('lastname', {
                       required: {
                         value: true,
-                        message: `${data.msgLastName}`,
+                        message: `${data.msgLastName}`
                       },
                       minLength: {
                         value: 3,
-                        message: `${data.msg1LastName}`,
+                        message: `${data.msg1LastName}`
                       },
                       maxLength: {
                         value: 20,
-                        message: `${data.msg2LastName}`,
+                        message: `${data.msg2LastName}`
                       },
                       pattern: {
                         value: /^[A-Za-z]+$/,
-                        message: `${data.msg3LastName}`,
-                      },
+                        message: `${data.msg3LastName}`
+                      }
                     })}
                   />
-                  {errors.lastname && <span className="error">{errors.lastname.message}</span>}
+                  {errors.lastname && (
+                    <span className="error">{errors.lastname.message}</span>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
@@ -179,18 +183,20 @@ const ContactFormSection = (props) => {
                     type="text"
                     name="cellphone"
                     placeholder={data.placeHolderTel}
-                    {...register("cellphone", {
+                    {...register('cellphone', {
                       required: {
                         value: true,
-                        message: `${data.msgTel}`,
+                        message: `${data.msgTel}`
                       },
                       pattern: {
                         value: /^[0-9]+$/,
-                        message: `${data.msg1Tel}`,
-                      },
+                        message: `${data.msg1Tel}`
+                      }
                     })}
                   />
-                  {errors.cellphone && <span className="error">{errors.cellphone.message}</span>}
+                  {errors.cellphone && (
+                    <span className="error">{errors.cellphone.message}</span>
+                  )}
                 </div>
               </div>
               <div className="col-md-6">
@@ -199,10 +205,10 @@ const ContactFormSection = (props) => {
                     className="form-control"
                     id="subjectSelect"
                     name="subject"
-                    style={{ height: "60px" }}
-                    {...register("subjectSelect")}
+                    style={{ height: '60px' }}
+                    {...register('subjectSelect')}
                   >
-                    <option value="" defaultValue={""} disabled>
+                    <option value="" defaultValue={''} disabled>
                       {data.select1}
                     </option>
                     <option value="web-development">{data.select2}</option>
@@ -223,18 +229,20 @@ const ContactFormSection = (props) => {
                   className="form-control"
                   name="message"
                   placeholder={data.placeHolderMsg}
-                  {...register("message", {
+                  {...register('message', {
                     required: {
                       value: true,
-                      message: `${data.msgMsg}`,
+                      message: `${data.msgMsg}`
                     },
                     minLength: {
                       value: 5,
-                      message: `${data.msg1Msg}`,
-                    },
+                      message: `${data.msg1Msg}`
+                    }
                   })}
                 ></textarea>
-                {errors.message && <span className="error">{errors.message.message}</span>}
+                {errors.message && (
+                  <span className="error">{errors.message.message}</span>
+                )}
               </div>
             </div>
             <div className="row">

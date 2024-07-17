@@ -1,7 +1,7 @@
-import Slider from "react-slick";
-import ProvidingElement from "./ProvidingElement";
-import getData from "../../../services/data";
-import { useState, useEffect } from "react";
+import Slider from 'react-slick';
+import ProvidingElement from './ProvidingElement';
+import getData from '../../../services/data';
+import { useState, useEffect } from 'react';
 const ProdivingSection = (props) => {
   const [data, setData] = useState({});
   useEffect(() => {
@@ -11,7 +11,7 @@ const ProdivingSection = (props) => {
     };
     fetchData();
   }, []);
-  const href = props.lang === "es" ? "es/servicios" : "en/services";
+  const href = props.lang === 'es' ? 'es/servicios' : 'en/services';
 
   const settings = {
     dots: true,
@@ -21,7 +21,7 @@ const ProdivingSection = (props) => {
     slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 10000,
-    easing: "ease-in",
+    easing: 'ease-in',
     pauseOnHover: false,
     pauseOnFocus: false,
     responsive: [
@@ -29,22 +29,22 @@ const ProdivingSection = (props) => {
         breakpoint: 1400,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 768,
@@ -52,17 +52,17 @@ const ProdivingSection = (props) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: "80px",
-        },
+          centerPadding: '80px'
+        }
       },
       {
         breakpoint: 575,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (

@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from "react";
-import Slider from "react-slick";
-import ReviewElement from "./ReviewElement";
-import getData from "../../../services/data";
+import { useRef, useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import ReviewElement from './ReviewElement';
+import getData from '../../../services/data';
 export default function ReviewSection(props) {
   const [data, setData] = useState({});
 
@@ -21,7 +21,7 @@ export default function ReviewSection(props) {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 5000,
-    easing: "ease-in",
+    easing: 'ease-in',
     pauseOnHover: false,
     pauseOnFocus: false,
     responsive: [
@@ -29,38 +29,38 @@ export default function ReviewSection(props) {
         breakpoint: 1400,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
+          slidesToScroll: 1
+        }
       },
       {
         breakpoint: 575,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const sliderRef = useRef(null);
@@ -137,4 +137,4 @@ export default function ReviewSection(props) {
       </div>
     </div>
   );
-} 
+}

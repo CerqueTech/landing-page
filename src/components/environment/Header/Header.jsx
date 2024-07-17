@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import getData from "../../../services/data.ts";
-import LanguagePicker from "../LanguagePicker/LanguagePicker.jsx";
-import Offcanvas from "../Offcanvas/Offcanvas.jsx";
-import { $theme } from "../../../environment/theme.js";
-import { useStore } from "@nanostores/react";
+import { useState, useEffect } from 'react';
+import getData from '../../../services/data.ts';
+import LanguagePicker from '../LanguagePicker/LanguagePicker.jsx';
+import Offcanvas from '../Offcanvas/Offcanvas.jsx';
+import { $theme } from '../../../environment/theme.js';
+import { useStore } from '@nanostores/react';
 
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
@@ -24,16 +24,16 @@ export default function Header(props) {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const headerClass = isSticky
-    ? "site_header site_header_3 sticky"
-    : "site_header site_header_3";
+    ? 'site_header site_header_3 sticky'
+    : 'site_header site_header_3';
 
   const swapElems = () => {
     setElemOpen(!elemOpen);
@@ -41,7 +41,7 @@ export default function Header(props) {
   const updateOpen = () => {
     swapElems();
   };
-  const color = props.menu === "main-menu-3" ? "black" : "white";
+  const color = props.menu === 'main-menu-3' ? 'black' : 'white';
   return (
     <>
       <Offcanvas
@@ -61,15 +61,15 @@ export default function Header(props) {
               >
                 <img
                   src={
-                    props.menu === "" && theme === "light"
-                      ? "/assets/images/logo/white_without_icon.png"
-                      : "/assets/images/logo/dark_without_icon.png"
+                    props.menu === '' && theme === 'light'
+                      ? '/assets/images/logo/white_without_icon.png'
+                      : '/assets/images/logo/dark_without_icon.png'
                   }
                 />
               </a>
             </div>
             <div className="mean__menu-wrapper d-none d-lg-block">
-              <div className={"main-menu " + props.menu}>
+              <div className={'main-menu ' + props.menu}>
                 <nav id="mobile-menu">
                   <ul>
                     <li>
@@ -138,8 +138,8 @@ export default function Header(props) {
                   <a
                     href={`/${props.lang}/${data.c}/`}
                     className={
-                      "bd-btn-link outline-" +
-                      (props.menu == "" ? "dark" : "white")
+                      'bd-btn-link outline-' +
+                      (props.menu == '' ? 'dark' : 'white')
                     }
                     data-astro-reload
                   >
@@ -162,7 +162,7 @@ export default function Header(props) {
               <div className="offcanvas-toggle d-lg-none" onClick={swapElems}>
                 <a
                   className={
-                    "bar-icon" + (props.menu === "" ? "" : " is-white")
+                    'bar-icon' + (props.menu === '' ? '' : ' is-white')
                   }
                 >
                   <span></span>
