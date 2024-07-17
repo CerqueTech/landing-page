@@ -24,12 +24,12 @@ const CounterSection = (props) => {
             dataParallax='{"y" : 30, "smoothness": 10}'
           />
 
-          <CounterItem count={5} title={data.counter2title} supText="+" />
+          <CounterItem count={7} title={data.counter2title} supText="+" />
 
           <CounterItem
-            count={7}
+            count={100}
             title={data.counter3title}
-            supText="+"
+            supText="%"
             dataParallax='{"y" : -30, "smoothness": 10}'
           />
         </div>
