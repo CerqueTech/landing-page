@@ -2201,12 +2201,6 @@ textarea.form-control {
   background-color: #ffffff;
   border: 1px solid rgba(15, 14, 14, 0.1);
 }
-[dir='rtl'] .select_option .nice-select {
-  text-align: right !important;
-}
-[dir='rtl'] .select_option .nice-select .option {
-  text-align: right;
-}
 .select_option .nice-select:after {
   margin: 0;
   width: auto;
