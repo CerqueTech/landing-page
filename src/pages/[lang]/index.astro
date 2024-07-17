@@ -16,7 +16,6 @@ export async function getStaticPaths() {
 const { lang } = Astro.params;
 ---
 
-<!--TODO:  error styles dark/light button cotizar -->
 <Layout title='CerqueTech Solutions' menu='main-menu-3' lang={lang}>
     <section class='hero_banner_section style_3 bg_primary'>
         <HeroeSection />
@@ -31,14 +30,14 @@ const { lang } = Astro.params;
     <section class='counter_section section_space_lg decoration_wrap'>
         <CounterSection client:only='react' lang={lang} />
     </section>
-    <!-- <section class="portfolio_section section_space_lg">
-    <PortafolioSection client:only="react" lang={lang} />
-  </section> -->
     <section class='team_section section_space_lg bg_half_top_light'>
         <TeamSection />
     </section>
     <section class='review_section section_space_lg bg_primary'>
         <ReviewSection client:only='react' lang={lang} />
+    </section>
+    <section class='portfolio_section section_space_lg'>
+        <PortafolioSection client:only='react' lang={lang} />
     </section>
 </Layout>
 
