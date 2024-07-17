@@ -1,6 +1,6 @@
 ---
-headTitle: '¿Listo para empezar?'
-bottomTitle: 'Creemos Algo Asombroso Juntos.'
+headTitle: 'Transformamos tu empresa con tecnología.'
+bottomTitle: 'Empezar'
 bottom: 'Empezar'
 widget1Ttitle: 'Contactanos'
 widget1Titlep: 'Si deseas empezar un nuevo proyecto:'

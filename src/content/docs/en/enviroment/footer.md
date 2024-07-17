@@ -1,6 +1,6 @@
 ---
-headTitle: 'Ready To Go?'
-bottomTitle: "Let's Create Something Amazing Together."
+headTitle: 'We transform your business with technology.'
+bottomTitle: 'Get started'
 bottom: 'Get started'
 widget1Ttitle: 'Contact us'
 widget1Titlep: 'If you want to start a new project:'
