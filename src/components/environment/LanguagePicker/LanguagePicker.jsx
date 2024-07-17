@@ -34,9 +34,9 @@ const LanguagePicker = ({ url, menu }) => {
           alt="Globe Icon"
         />
       </div>
-      <select onChange={handleChange} value={valuelang} className={menu==="main-menu-3"?"white":"dark"}>
-        <option className={menu==="main-menu-3"?"menu3":""} value="es">Español</option>
-        <option className={menu==="main-menu-3"?"menu3":""} value="en">Inglés</option>
+      <select onChange={handleChange} value={valuelang} className={menu === "main-menu-3" ? "white" : "dark"}>
+        <option className={menu === "main-menu-3" ? "menu3" : ""} value="es">Español</option>
+        <option className={menu === "main-menu-3" ? "menu3" : ""} value="en">Inglés</option>
       </select>
     </div>
   );
