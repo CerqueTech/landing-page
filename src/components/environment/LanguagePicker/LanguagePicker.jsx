@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRouteFromUrl } from "../../../i18n/utils";
-import "./LenguagePicker.css";
+import "./LanguagePicker.css";
 const LanguagePicker = ({ url, menu }) => {
   const [valuelang, setValuelang] = useState(url.pathname.split("/")[1]);
   useEffect(() => {

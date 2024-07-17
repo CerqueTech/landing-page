@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import getData from "../../../services/data.ts";
-import LenguaguePicker from "../LenguagePicker/LenguagePicker.jsx";
+import LanguagePicker from "../LanguagePicker/LanguagePicker.jsx";
 import Offcanvas from "../Offcanvas/Offcanvas.jsx";
-import StyleButton from "../StyleButton/StyleButton.jsx";
 import { $theme } from "../../../environment/theme.js";
 import { useStore } from "@nanostores/react";
+
 export default function Header(props) {
   const [isSticky, setSticky] = useState(false);
   const [elemOpen, setElemOpen] = useState(false);
@@ -125,7 +125,7 @@ export default function Header(props) {
             <div className="header_right">
               <ul className="header_btns_group unordered_list_end d-none d-md-inline-flex">
                 <li>
-                  <LenguaguePicker
+                  <LanguagePicker
                     lang={props.lang}
                     url={props.url}
                     menu={props.menu}
