@@ -1,15 +1,15 @@
 ---
-item1title: "Desarrollo web"
-item1Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
-itemBtnText: "Ver detalles"
-item2title: "Diseño UX/UI"
-item2Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
-item3title: "Desarrollo de aplicaciones"
-item3Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
-item4title: "Edición de video"
-item4Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
-item5title: "Programación y tecnología"
-item5Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
-item6title: "Consulta Laboral"
-item6Desc: "Colaboramos en la creación de un flujo de efectivo positivo y reinvertimos los ingresos para seguir creciendo"
+item1title: 'Desarrollo Web'
+item1Desc: 'Soluciones web personalizadas para impulsar tu negocio en el mundo digital'
+itemBtnText: 'Ver detalles'
+item2title: 'Diseño UX/UI'
+item2Desc: 'Diseños intuitivos y optimizados para una mejor interacción con los usuarios'
+item3title: 'Desarrollo de Aplicaciones Móviles'
+item3Desc: 'Aplicaciones móviles eficientes para alcanzar a tus clientes donde quiera que estén'
+item4title: 'DevOps y Automatización'
+item4Desc: 'Automatización y eficiencia para tus procesos de desarrollo y operaciones'
+item5title: 'Soluciones en la Nube'
+item5Desc: 'Estrategias de nube personalizadas para optimizar tu infraestructura y operaciones'
+item6title: 'Consultoría en Ciberseguridad'
+item6Desc: 'Protege tu negocio con estrategias de seguridad de vanguardia y consultoría experta'
 ---

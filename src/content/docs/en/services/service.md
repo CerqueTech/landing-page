@@ -1,15 +1,15 @@
 ---
-item1title: "Web development"
-item1Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
-itemBtnText: "View Details"
-item2title: "UX/UI Design"
-item2Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
-item3title: "Applications development"
-item3Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
-item4title: "Video edition"
-item4Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
-item5title: "Programming and technology"
-item5Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
-item6title: "Labor Consultation"
-item6Desc: "We collaborate to create positive cash flow and reinvest income to continue growing"
+item1title: 'Web Development'
+item1Desc: 'Custom web solutions to boost your business in the digital world'
+itemBtnText: 'See details'
+item2title: 'UX/UI Design'
+item2Desc: 'Optimized user experiences and intuitive designs for better interaction'
+item3title: 'Mobile Application Development'
+item3Desc: 'Intuitive and efficient mobile applications to reach your customers wherever they are'
+item4title: 'DevOps and Automation'
+item4Desc: 'Automation and efficiency for your development and operations processes'
+item5title: 'Cloud Solutions'
+item5Desc: 'Customized cloud strategies to optimize your infrastructure and operations'
+item6title: 'Cybersecurity Consulting'
+item6Desc: 'Protect your business with cutting-edge security strategies and expert consulting'
 ---
