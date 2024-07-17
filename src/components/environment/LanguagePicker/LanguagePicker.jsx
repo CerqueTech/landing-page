@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRouteFromUrl } from "../../../i18n/utils";
 import "./LanguagePicker.css";
+
 const LanguagePicker = ({ url, menu }) => {
   const [valuelang, setValuelang] = useState(url.pathname.split("/")[1]);
   useEffect(() => {
@@ -31,6 +32,8 @@ const LanguagePicker = ({ url, menu }) => {
               ? "/assets/images/icons/icon_globe_2.svg"
               : "/assets/images/icons/icon_globe.svg"
           }
+          height={20}
+          width={20}
           alt="Globe Icon"
         />
       </div>
