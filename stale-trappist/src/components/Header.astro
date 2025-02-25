@@ -1,0 +1,120 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo.svg';
+---
+
+<header class='fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50'>
+    <div class='container mx-auto py-4'>
+        <div class='flex items-center justify-between'>
+            <a href='/' class='flex items-center space-x-2'>
+                <img
+                    src='/logo.svg'
+                    alt='Cerquetech Solutions Logo'
+                    class='h-10'
+                />
+                <span class='text-xl font-bold text-dark'>Cerquetech</span>
+            </a>
+
+            <nav class='hidden md:flex items-center space-x-8'>
+                <a
+                    href='#services'
+                    class='text-gray-700 hover:text-primary transition-colors'
+                    >Services</a
+                >
+                <a
+                    href='#about'
+                    class='text-gray-700 hover:text-primary transition-colors'
+                    >About</a
+                >
+                <a
+                    href='#portfolio'
+                    class='text-gray-700 hover:text-primary transition-colors'
+                    >Portfolio</a
+                >
+                <a
+                    href='#testimonials'
+                    class='text-gray-700 hover:text-primary transition-colors'
+                    >Testimonials</a
+                >
+                <a href='#contact' class='btn btn-primary'>Contact Us</a>
+            </nav>
+
+            <button
+                id='mobile-menu-button'
+                class='md:hidden text-gray-700 focus:outline-none'
+            >
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    class='h-6 w-6'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                >
+                    <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        stroke-width='2'
+                        d='M4 6h16M4 12h16M4 18h16'></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id='mobile-menu' class='md:hidden hidden bg-white border-t'>
+        <div class='container mx-auto py-4 space-y-4'>
+            <a
+                href='#services'
+                class='block text-gray-700 hover:text-primary transition-colors'
+                >Services</a
+            >
+            <a
+                href='#about'
+                class='block text-gray-700 hover:text-primary transition-colors'
+                >About</a
+            >
+            <a
+                href='#portfolio'
+                class='block text-gray-700 hover:text-primary transition-colors'
+                >Portfolio</a
+            >
+            <a
+                href='#testimonials'
+                class='block text-gray-700 hover:text-primary transition-colors'
+                >Testimonials</a
+            >
+            <a href='#contact' class='btn btn-primary w-full text-center'
+                >Contact Us</a
+            >
+        </div>
+    </div>
+</header>
+
+<script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
+    mobileLinks?.forEach((link) => {
+        link.addEventListener('click', () => {
+            mobileMenu?.classList.add('hidden');
+        });
+    });
+
+    // Add shadow to header on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 0) {
+            header?.classList.add('shadow');
+        } else {
+            header?.classList.remove('shadow');
+        }
+    });
+</script>
+

@@ -1,0 +1,28 @@
+import { k as createComponent, l as renderTemplate, n as maybeRenderHead, x as unescapeHTML } from './astro/server_CUYOnHqq.mjs';
+import 'kleur/colors';
+import 'clsx';
+
+const html = "";
+
+				const frontmatter = {"span":"Our services","h3":"The solutions","elem1Title":"Web development","elem1Desc":"Customized web solutions to boost your business in the digital world.","elem2Title":"Mobile application development","elem2Desc":"Intuitive and efficient mobile applications to reach your customers wherever they are.","elem3Title":"Cloud Solutions","elem3Desc":"Custom cloud strategies to optimize your infrastructure and operations.","elem4Title":"DevOps and Automation","elem4Desc":"Automation and efficiency for your development and operations processes.","elem5Title":"Microservices Architecture","elem5Desc":"Agile and scalable systems for sustainable business growth.","elem6Title":"Cybersecurity Consulting","elem6Desc":"Protect your business with cutting-edge security strategies and expert consulting.","elem7Title":"Analysis of data","elem7Desc":"Turn your data into intelligent decisions and competitive strategies.","elem8Title":"AI and Machine Learning","elem8Desc":"Boost your business with advanced AI solutions tailored to your needs."};
+				const file = "/Users/mateocerquetella/Documents/Mateo/Developer/CerqueTech/CerqueTech Landing Page/src/content/docs/en/index/providing.md";
+				const url = undefined;
+				function rawContent() {
+					return "";
+				}
+				function compiledContent() {
+					return html;
+				}
+				function getHeadings() {
+					return [];
+				}
+
+				const Content = createComponent((result, _props, slots) => {
+					const { layout, ...content } = frontmatter;
+					content.file = file;
+					content.url = url;
+
+					return renderTemplate`${maybeRenderHead()}${unescapeHTML(html)}`;
+				});
+
+export { Content, compiledContent, Content as default, file, frontmatter, getHeadings, rawContent, url };

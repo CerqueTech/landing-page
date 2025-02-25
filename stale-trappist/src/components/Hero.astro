@@ -1,0 +1,130 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class='relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden'>
+    <!-- Background Elements -->
+    <div class='absolute inset-0 -z-10 overflow-hidden'>
+        <div
+            class='absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl'
+        >
+        </div>
+        <div
+            class='absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] rounded-full bg-secondary/10 blur-3xl'
+        >
+        </div>
+    </div>
+
+    <div class='container mx-auto'>
+        <div class='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+            <!-- Text Content -->
+            <div class='animate__animated animate__fadeInLeft'>
+                <h1
+                    class='text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-6'
+                >
+                    Transforming Ideas Into <span class='text-primary'
+                        >Digital Solutions</span
+                    >
+                </h1>
+                <p class='text-lg text-gray-600 mb-8 max-w-lg'>
+                    We build cutting-edge web and mobile applications that help
+                    businesses grow, scale, and succeed in the digital world.
+                </p>
+                <div class='flex flex-wrap gap-4'>
+                    <a href='#contact' class='btn btn-primary'>Get Started</a>
+                    <a href='#services' class='btn btn-outline'>Our Services</a>
+                </div>
+
+                <!-- Stats -->
+                <div class='grid grid-cols-3 gap-4 mt-12'>
+                    <div class='text-center'>
+                        <div class='text-3xl font-bold text-primary mb-1'>
+                            100+
+                        </div>
+                        <div class='text-sm text-gray-600'>
+                            Projects Completed
+                        </div>
+                    </div>
+                    <div class='text-center'>
+                        <div class='text-3xl font-bold text-primary mb-1'>
+                            50+
+                        </div>
+                        <div class='text-sm text-gray-600'>Happy Clients</div>
+                    </div>
+                    <div class='text-center'>
+                        <div class='text-3xl font-bold text-primary mb-1'>
+                            5+
+                        </div>
+                        <div class='text-sm text-gray-600'>
+                            Years Experience
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class='relative animate__animated animate__fadeInRight'>
+                <div class='relative z-10'>
+                    <img
+                        src='/hero-image.svg'
+                        alt='Cerquetech Solutions - Digital Transformation'
+                        class='w-full h-auto'
+                    />
+                </div>
+                <!-- Decorative Elements -->
+                <div
+                    class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full border-2 border-dashed border-primary/20 animate-spin-slow'
+                >
+                </div>
+                <div
+                    class='absolute top-1/4 right-0 bg-secondary/80 w-16 h-16 rounded-full blur-xl'
+                >
+                </div>
+                <div
+                    class='absolute bottom-1/4 left-0 bg-primary/80 w-24 h-24 rounded-full blur-xl'
+                >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div
+        class='absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block'
+    >
+        <a
+            href='#services'
+            class='text-gray-400 hover:text-primary transition-colors'
+        >
+            <svg
+                xmlns='http://www.w3.org/2000/svg'
+                class='h-6 w-6'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke='currentColor'
+            >
+                <path
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                    d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
+            </svg>
+        </a>
+    </div>
+</section>
+
+<style>
+    @keyframes spin-slow {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    .animate-spin-slow {
+        animation: spin-slow 30s linear infinite;
+    }
+</style>
+

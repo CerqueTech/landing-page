@@ -1,0 +1,1 @@
+import{j as e}from"./jsx-runtime.BtZcDuGr.js";import{u as m,$ as a}from"./index.D8cS5ooK.js";import"./index.CTjT7uj6.js";const c=({srcwith:o,srcdark:s,alt:t})=>{const r=m(a);return e.jsx("img",{className:"logo",src:r==="dark"?o:s,alt:t})};export{c as default};

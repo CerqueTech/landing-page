@@ -1,0 +1,1 @@
+const e="es/index/hero.md",t="docs",n="es/index/hero",o="",s={buttontext:"Contactanos",span1:"Soluciones",span2:"digitales para tu empresa"},a={type:"content",filePath:"/Users/mateocerquetella/Documents/Mateo/Developer/CerqueTech/CerqueTech Landing Page/src/content/docs/es/index/hero.md",rawData:void 0};export{a as _internal,o as body,t as collection,s as data,e as id,n as slug};

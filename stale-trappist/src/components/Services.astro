@@ -1,0 +1,139 @@
+---
+const services = [
+    {
+        id: 'web-development',
+        title: 'Web Development',
+        description:
+            'Custom web applications built with modern technologies to deliver exceptional user experiences.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>`,
+        features: [
+            'Responsive Design',
+            'Progressive Web Apps',
+            'E-commerce Solutions',
+            'CMS Integration'
+        ]
+    },
+    {
+        id: 'mobile-apps',
+        title: 'Mobile Apps',
+        description:
+            'Native and cross-platform mobile applications that provide seamless experiences across devices.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+    </svg>`,
+        features: [
+            'iOS & Android Apps',
+            'React Native',
+            'Flutter Development',
+            'App Store Optimization'
+        ]
+    },
+    {
+        id: 'cloud-solutions',
+        title: 'Cloud Solutions',
+        description:
+            'Scalable and secure cloud infrastructure to power your applications and business operations.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+    </svg>`,
+        features: [
+            'AWS & Azure',
+            'Serverless Architecture',
+            'DevOps & CI/CD',
+            'Microservices'
+        ]
+    },
+    {
+        id: 'ui-ux-design',
+        title: 'UI/UX Design',
+        description:
+            'User-centered design that creates intuitive, engaging, and accessible digital experiences.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+    </svg>`,
+        features: [
+            'User Research',
+            'Wireframing & Prototyping',
+            'Visual Design',
+            'Usability Testing'
+        ]
+    },
+    {
+        id: 'consulting',
+        title: 'IT Consulting',
+        description:
+            'Strategic technology consulting to help you make informed decisions and achieve your business goals.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    </svg>`,
+        features: [
+            'Technology Strategy',
+            'Digital Transformation',
+            'Security Audits',
+            'Performance Optimization'
+        ]
+    },
+    {
+        id: 'custom-software',
+        title: 'Custom Software',
+        description:
+            'Tailored software solutions designed to address your specific business challenges and requirements.',
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+    </svg>`,
+        features: [
+            'Enterprise Applications',
+            'API Development',
+            'Legacy System Integration',
+            'Automation Solutions'
+        ]
+    }
+];
+---
+
+<section id='services' class='section bg-gray-50'>
+    <div class='container'>
+        <h2 class='section-title'>Our Services</h2>
+        <p class='section-subtitle'>
+            We offer a comprehensive range of technology services to help your
+            business thrive in the digital landscape.
+        </p>
+
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12'>
+            {
+                services.map((service) => (
+                    <div
+                        id={service.id}
+                        class='card p-6 animate__animated animate__fadeIn'
+                    >
+                        <div class='mb-4' set:html={service.icon} />
+                        <h3 class='text-xl font-bold mb-3'>{service.title}</h3>
+                        <p class='text-gray-600 mb-4'>{service.description}</p>
+                        <ul class='space-y-2'>
+                            {service.features.map((feature) => (
+                                <li class='flex items-center'>
+                                    <svg
+                                        xmlns='http://www.w3.org/2000/svg'
+                                        class='h-5 w-5 text-primary mr-2'
+                                        viewBox='0 0 20 20'
+                                        fill='currentColor'
+                                    >
+                                        <path
+                                            fill-rule='evenodd'
+                                            d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
+                                            clip-rule='evenodd'
+                                        />
+                                    </svg>
+                                    <span>{feature}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+

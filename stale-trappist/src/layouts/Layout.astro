@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import 'animate.css/animate.min.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+    title: string;
+    description?: string;
+}
+
+const {
+    title,
+    description = 'Cerquetech Solutions - Transforming ideas into digital solutions with cutting-edge technology and expert development services.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+        <meta name='generator' content={Astro.generator} />
+        <title>{title}</title>
+        <meta name='description' content={description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://cerquetech.com/' />
+        <meta property='og:title' content={title} />
+        <meta property='og:description' content={description} />
+        <meta property='og:image' content='/og-image.jpg' />
+
+        <!-- Twitter -->
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content='https://cerquetech.com/' />
+        <meta property='twitter:title' content={title} />
+        <meta property='twitter:description' content={description} />
+        <meta property='twitter:image' content='/og-image.jpg' />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+
+        <script>
+            // Initialize animations
+            document.addEventListener('DOMContentLoaded', () => {
+                const animatedElements =
+                    document.querySelectorAll('.animate__animated');
+
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('animate__fadeIn');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.1 }
+                );
+
+                animatedElements.forEach((element) => {
+                    observer.observe(element);
+                });
+            });
+        </script>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>

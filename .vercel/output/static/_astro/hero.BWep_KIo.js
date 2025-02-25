@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["_astro/hero.Bk2mdw6X.js","_astro/data.BJiGOz3E.js"])))=>i.map(i=>d[i]);
+import{_ as t}from"./data.BJiGOz3E.js";async function o(){return t(()=>import("./hero.Bk2mdw6X.js"),__vite__mapDeps([0,1]))}const e="@@ASTRO-LINKS@@",c="@@ASTRO-STYLES@@",r="@@ASTRO-SCRIPTS@@",l={__astroPropagation:!0,getMod:o,collectedLinks:e,collectedStyles:c,collectedScripts:r};export{l as default};

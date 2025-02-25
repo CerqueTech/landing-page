@@ -1,0 +1,388 @@
+<section id='contact' class='section'>
+    <div class='container'>
+        <h2 class='section-title'>Get In Touch</h2>
+        <p class='section-subtitle'>
+            Ready to start your next project? Contact us today for a free
+            consultation and let's discuss how we can help you achieve your
+            digital goals.
+        </p>
+
+        <div class='grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12'>
+            <!-- Contact Form -->
+            <div class='card p-8 animate__animated animate__fadeInLeft'>
+                <h3 class='text-2xl font-bold mb-6'>Send Us a Message</h3>
+                <form id='contact-form' class='space-y-6'>
+                    <div class='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                        <div>
+                            <label
+                                for='name'
+                                class='block text-sm font-medium text-gray-700 mb-1'
+                                >Name</label
+                            >
+                            <input
+                                type='text'
+                                id='name'
+                                name='name'
+                                class='w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary'
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for='email'
+                                class='block text-sm font-medium text-gray-700 mb-1'
+                                >Email</label
+                            >
+                            <input
+                                type='email'
+                                id='email'
+                                name='email'
+                                class='w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary'
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label
+                            for='subject'
+                            class='block text-sm font-medium text-gray-700 mb-1'
+                            >Subject</label
+                        >
+                        <input
+                            type='text'
+                            id='subject'
+                            name='subject'
+                            class='w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary'
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label
+                            for='message'
+                            class='block text-sm font-medium text-gray-700 mb-1'
+                            >Message</label
+                        >
+                        <textarea
+                            id='message'
+                            name='message'
+                            rows='5'
+                            class='w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary'
+                            required></textarea>
+                    </div>
+
+                    <div class='flex items-center'>
+                        <input
+                            type='checkbox'
+                            id='privacy'
+                            name='privacy'
+                            class='h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded'
+                            required
+                        />
+                        <label
+                            for='privacy'
+                            class='ml-2 block text-sm text-gray-700'
+                        >
+                            I agree to the <a
+                                href='#'
+                                class='text-primary hover:underline'
+                                >Privacy Policy</a
+                            >
+                        </label>
+                    </div>
+
+                    <div>
+                        <button
+                            type='submit'
+                            class='btn btn-primary w-full'
+                            id='submit-button'
+                        >
+                            Send Message
+                        </button>
+                    </div>
+
+                    <div id='form-status' class='text-center hidden'>
+                        <p id='success-message' class='text-green-600 hidden'>
+                            Your message has been sent successfully. We'll get
+                            back to you soon!
+                        </p>
+                        <p id='error-message' class='text-red-600 hidden'>
+                            There was an error sending your message. Please try
+                            again later.
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class='animate__animated animate__fadeInRight'>
+                <h3 class='text-2xl font-bold mb-6'>Contact Information</h3>
+
+                <div class='space-y-6'>
+                    <div class='flex items-start'>
+                        <div
+                            class='flex-shrink-0 bg-primary/10 p-3 rounded-full'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-6 w-6 text-primary'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class='ml-4'>
+                            <h4 class='text-lg font-semibold'>Email</h4>
+                            <a
+                                href='mailto:info@cerquetech.com'
+                                class='text-gray-600 hover:text-primary'
+                                >info@cerquetech.com</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class='flex items-start'>
+                        <div
+                            class='flex-shrink-0 bg-primary/10 p-3 rounded-full'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-6 w-6 text-primary'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class='ml-4'>
+                            <h4 class='text-lg font-semibold'>Phone</h4>
+                            <a
+                                href='tel:+1234567890'
+                                class='text-gray-600 hover:text-primary'
+                                >+1 (234) 567-890</a
+                            >
+                        </div>
+                    </div>
+
+                    <div class='flex items-start'>
+                        <div
+                            class='flex-shrink-0 bg-primary/10 p-3 rounded-full'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-6 w-6 text-primary'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'
+                                ></path>
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'></path>
+                            </svg>
+                        </div>
+                        <div class='ml-4'>
+                            <h4 class='text-lg font-semibold'>Location</h4>
+                            <p class='text-gray-600'>Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+
+                    <div class='flex items-start'>
+                        <div
+                            class='flex-shrink-0 bg-primary/10 p-3 rounded-full'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-6 w-6 text-primary'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class='ml-4'>
+                            <h4 class='text-lg font-semibold'>
+                                Business Hours
+                            </h4>
+                            <p class='text-gray-600'>
+                                Monday - Friday: 9:00 AM - 6:00 PM
+                            </p>
+                            <p class='text-gray-600'>
+                                Saturday - Sunday: Closed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class='mt-8'>
+                    <h4 class='text-lg font-semibold mb-4'>Follow Us</h4>
+                    <div class='flex space-x-4'>
+                        <a
+                            href='https://twitter.com/cerquetech'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            class='bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-white transition-colors'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-5 w-5'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z'
+                                ></path>
+                            </svg>
+                        </a>
+                        <a
+                            href='https://linkedin.com/company/cerquetech'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            class='bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-white transition-colors'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-5 w-5'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                                ></path>
+                            </svg>
+                        </a>
+                        <a
+                            href='https://github.com/cerquetech'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            class='bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-white transition-colors'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-5 w-5'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4'
+                                ></path>
+                            </svg>
+                        </a>
+                        <a
+                            href='https://instagram.com/cerquetech'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            class='bg-primary/10 p-3 rounded-full text-primary hover:bg-primary hover:text-white transition-colors'
+                        >
+                            <svg
+                                xmlns='http://www.w3.org/2000/svg'
+                                class='h-5 w-5'
+                                fill='none'
+                                viewBox='0 0 24 24'
+                                stroke='currentColor'
+                            >
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z'
+                                ></path>
+                                <path
+                                    stroke-linecap='round'
+                                    stroke-linejoin='round'
+                                    stroke-width='2'
+                                    d='M15 13a3 3 0 11-6 0 3 3 0 016 0z'></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const contactForm = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const formStatus = document.getElementById('form-status');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                if (submitButton) submitButton.textContent = 'Sending...';
+                if (submitButton) submitButton.disabled = true;
+
+                // Collect form data
+                const formData = new FormData(contactForm as HTMLFormElement);
+                const formDataObj = Object.fromEntries(formData.entries());
+
+                try {
+                    // Simulate form submission (replace with actual API call)
+                    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+                    // Show success message
+                    if (formStatus) formStatus.classList.remove('hidden');
+                    if (successMessage)
+                        successMessage.classList.remove('hidden');
+                    if (errorMessage) errorMessage.classList.add('hidden');
+
+                    // Reset form
+                    contactForm.reset();
+                } catch (error) {
+                    // Show error message
+                    if (formStatus) formStatus.classList.remove('hidden');
+                    if (errorMessage) errorMessage.classList.remove('hidden');
+                    if (successMessage) successMessage.classList.add('hidden');
+                } finally {
+                    if (submitButton) submitButton.textContent = 'Send Message';
+                    if (submitButton) submitButton.disabled = false;
+                }
+            });
+        }
+    });
+</script>
+
