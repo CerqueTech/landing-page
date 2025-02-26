@@ -4,6 +4,16 @@ import { useStore } from '@nanostores/react';
 
 const ProvidingElement = (props) => {
   const theme = useStore($theme);
+
+  // Verificar si el enlace es externo
+  const isExternalLink = props.href && (props.href.startsWith('http://') || props.href.startsWith('https://'));
+
+  // Atributos adicionales para enlaces externos
+  const externalLinkProps = isExternalLink ? {
+    target: "_blank",
+    rel: "noopener noreferrer"
+  } : {};
+
   return (
     <div className="col">
       <div className="service_item style_4">
@@ -17,7 +27,12 @@ const ProvidingElement = (props) => {
           <h3 className="item_title">{props.title}</h3>
           <p className="item_description">{props.description}</p>
         </div>
-        <a className="item_details_btn" data-cursor="-opaque" href={props.href}>
+        <a
+          className="item_details_btn"
+          data-cursor="-opaque"
+          href={props.href}
+          {...externalLinkProps}
+        >
           <span className="btn_icon">
             <img
               src={

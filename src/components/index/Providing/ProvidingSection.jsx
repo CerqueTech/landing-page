@@ -76,6 +76,14 @@ const ProdivingSection = (props) => {
       <div className="common_carousel_4col row">
         <Slider {...settings}>
           <ProvidingElement
+            shape="assets/images/shapes/shape_color_6.svg"
+            iconImage="assets/images/icons/icon_code_4.svg"
+            title={data.elem6Title}
+            description={data.elem6Desc}
+            href="https://shieldcrackers.com/"
+          />
+
+          <ProvidingElement
             shape="assets/images/shapes/shape_color_1.svg"
             iconImage="/assets/images/icons/icon_code_5.svg"
             title={data.elem1Title}
@@ -112,14 +120,6 @@ const ProdivingSection = (props) => {
             iconImage="/assets/images/icons/icon_camera_2.svg"
             title={data.elem5Title}
             description={data.elem5Desc}
-            href={href}
-          />
-
-          <ProvidingElement
-            shape="assets/images/shapes/shape_color_6.svg"
-            iconImage="assets/images/icons/icon_code_4.svg"
-            title={data.elem6Title}
-            description={data.elem6Desc}
             href={href}
           />
 
