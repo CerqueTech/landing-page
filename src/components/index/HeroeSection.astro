@@ -18,7 +18,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
 <section class='hero_section_wrapper' aria-label='Sección principal'>
     <div class='container d-flex align-items-center'>
-        <div class='row align-items-center'>
+        <div class='row align-items-center justify-content-between'>
             <div class='col-12 col-md-5 col-lg-5'>
                 <div class='banner_content_3 mb-4 mb-lg-0'>
                     <h1 class='hero_banner_heading'>
@@ -125,59 +125,54 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
 <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('DOM loaded, checking globe visibility...');
+        // Obtener el contenedor del globo
+        const container = document.querySelector('.earth_globe');
+        if (!container) return;
 
-        try {
-            // Get container dimensions
-            const container = document.querySelector('.earth_globe');
-            if (!container) return;
+        // Variables globales
+        let globe = null;
+        let globeInitialized = false;
+        let isDestroyed = false;
+        let observer = null;
+        const isMobile = window.innerWidth < 768;
 
-            // Función para verificar si el elemento está visible en la ventana
-            const isElementInViewport = (el) => {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top < window.innerHeight &&
-                    rect.bottom > 0 &&
-                    rect.left < window.innerWidth &&
-                    rect.right > 0
-                );
-            };
+        // Función para inicializar el globo
+        function initGlobe() {
+            if (globeInitialized || isDestroyed) return;
 
-            // Verificar si estamos en un dispositivo móvil
-            const isMobile = window.innerWidth < 768;
-
-            // Variables para el globo
-            let globe = null;
-            let globeInitialized = false;
-            let globeElement = document.getElementById('globeViz');
-
-            // Inicialmente ocultar el contenedor del globo si no está visible
-            if (!isElementInViewport(container) && isMobile) {
-                container.style.display = 'none';
-            }
-
-            // Función para inicializar el globo
-            const initGlobe = () => {
-                // Si ya está inicializado o el elemento no existe, salir
-                if (globeInitialized || !globeElement) return;
+            try {
+                console.log('Inicializando globo...');
 
                 // Verificar si Globe está disponible
                 if (typeof Globe === 'undefined') {
                     console.error(
-                        'Globe is not defined. Script might not have loaded correctly.'
+                        'Globe no está definido. El script podría no haberse cargado correctamente.'
                     );
                     return;
                 }
 
-                console.log('Initializing globe...');
-
                 // Mostrar el contenedor
                 container.style.display = 'flex';
 
-                const width = container.clientWidth;
-                const height = container.clientHeight;
+                const globeElement = document.getElementById('globeViz');
+                if (!globeElement) return;
 
-                // Create globe instance
+                // Calcular dimensiones óptimas para el globo
+                let width, height;
+
+                if (isMobile) {
+                    // En móvil, usar el ancho completo del contenedor
+                    width = container.clientWidth;
+                    height = width; // Mantener proporción cuadrada
+
+                    // Asegurar que el contenedor tenga la altura correcta
+                    container.style.height = `${height}px`;
+                } else {
+                    width = container.clientWidth;
+                    height = container.clientHeight;
+                }
+
+                // Crear instancia del globo con configuración mínima
                 globe = Globe()
                     .globeImageUrl(
                         'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
@@ -186,280 +181,315 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     .width(width)
                     .height(height);
 
-                // Define specific connection points with major cities
-                const majorCities = [
-                    // South America
-                    { lat: -34.6037, lng: -58.3816, name: 'Buenos Aires' }, // Argentina first
-                    { lat: -15.7801, lng: -47.9292, name: 'Brasilia' },
-                    { lat: -22.9068, lng: -43.1729, name: 'Rio de Janeiro' },
-                    { lat: -23.5505, lng: -46.6333, name: 'São Paulo' },
-                    { lat: -12.0464, lng: -77.0428, name: 'Lima' },
-                    { lat: 4.711, lng: -74.0721, name: 'Bogotá' },
-
-                    // North America
-                    { lat: 40.7128, lng: -74.006, name: 'New York' },
-                    { lat: 19.4326, lng: -99.1332, name: 'Mexico City' },
-                    { lat: 37.7749, lng: -122.4194, name: 'San Francisco' },
-
-                    // Europe
-                    { lat: 51.5074, lng: -0.1278, name: 'London' },
-                    { lat: 48.8566, lng: 2.3522, name: 'Paris' },
-                    { lat: 41.9028, lng: 12.4964, name: 'Rome' },
-                    { lat: 52.52, lng: 13.405, name: 'Berlin' },
-                    { lat: 40.4168, lng: -3.7038, name: 'Madrid' },
-
-                    // Asia
-                    { lat: 55.7558, lng: 37.6173, name: 'Moscow' },
-                    { lat: 31.2304, lng: 121.4737, name: 'Shanghai' },
-                    { lat: 35.6762, lng: 139.6503, name: 'Tokyo' },
-                    { lat: 1.3521, lng: 103.8198, name: 'Singapore' },
-                    { lat: 28.6139, lng: 77.209, name: 'New Delhi' },
-
-                    // Oceania
-                    { lat: -33.8688, lng: 151.2093, name: 'Sydney' },
-                    { lat: -37.8136, lng: 144.9631, name: 'Melbourne' },
-
-                    // Africa
-                    { lat: -33.9249, lng: 18.4241, name: 'Cape Town' },
-                    { lat: 30.0444, lng: 31.2357, name: 'Cairo' }
-                ];
-
-                // Define specific connections between cities
+                // Definir conexiones mínimas para mejor rendimiento
                 const connections = [
-                    // Conexiones con Buenos Aires
-                    { source: 'Buenos Aires', target: 'São Paulo' },
-                    { source: 'Buenos Aires', target: 'Rio de Janeiro' },
-                    { source: 'Buenos Aires', target: 'Lima' },
-                    { source: 'Buenos Aires', target: 'Madrid' },
-                    { source: 'Buenos Aires', target: 'Tokyo' },
-
-                    // South America connections
-                    { source: 'Brasilia', target: 'Rio de Janeiro' },
-                    { source: 'São Paulo', target: 'Rio de Janeiro' },
-                    { source: 'Lima', target: 'Bogotá' },
-
-                    // North America to South America
-                    { source: 'New York', target: 'São Paulo' },
-                    { source: 'Mexico City', target: 'Bogotá' },
-
-                    // Europe connections
-                    { source: 'London', target: 'Paris' },
-                    { source: 'Paris', target: 'Rome' },
-                    { source: 'Berlin', target: 'Madrid' },
-
-                    // Europe to Americas
-                    { source: 'London', target: 'New York' },
-                    { source: 'Madrid', target: 'Mexico City' },
-
-                    // Asia connections
-                    { source: 'Moscow', target: 'Berlin' },
-                    { source: 'Shanghai', target: 'Tokyo' },
-                    { source: 'Singapore', target: 'New Delhi' },
-
-                    // Oceania connections
-                    { source: 'Sydney', target: 'Melbourne' },
-                    { source: 'Singapore', target: 'Sydney' },
-
-                    // Africa connections
-                    { source: 'Cape Town', target: 'Cairo' },
-                    { source: 'Cairo', target: 'Rome' },
-
-                    // Other global connections
-                    { source: 'Tokyo', target: 'San Francisco' },
-                    { source: 'New Delhi', target: 'London' }
+                    {
+                        startLat: -34.6037,
+                        startLng: -58.3816,
+                        endLat: -23.5505,
+                        endLng: -46.6333,
+                        color: ['#4169e1', '#ffcc00']
+                    }, // Buenos Aires - São Paulo
+                    {
+                        startLat: -34.6037,
+                        startLng: -58.3816,
+                        endLat: -22.9068,
+                        endLng: -43.1729,
+                        color: ['#4169e1', '#5e7ce2']
+                    }, // Buenos Aires - Rio
+                    {
+                        startLat: -34.6037,
+                        startLng: -58.3816,
+                        endLat: 40.4168,
+                        endLng: -3.7038,
+                        color: ['#ffcc00', '#ff9933']
+                    }, // Buenos Aires - Madrid
+                    {
+                        startLat: -34.6037,
+                        startLng: -58.3816,
+                        endLat: 35.6762,
+                        endLng: 139.6503,
+                        color: ['#5e7ce2', '#4169e1']
+                    }, // Buenos Aires - Tokyo
+                    {
+                        startLat: -23.5505,
+                        startLng: -46.6333,
+                        endLat: 40.7128,
+                        endLng: -74.006,
+                        color: ['#ffcc00', '#ff9933']
+                    }, // São Paulo - New York
+                    {
+                        startLat: 51.5074,
+                        startLng: -0.1278,
+                        endLat: 48.8566,
+                        endLng: 2.3522,
+                        color: ['#4169e1', '#5e7ce2']
+                    }, // London - Paris
+                    {
+                        startLat: 35.6762,
+                        startLng: 139.6503,
+                        endLat: 37.7749,
+                        endLng: -122.4194,
+                        color: ['#5e7ce2', '#ffcc00']
+                    } // Tokyo - San Francisco
                 ];
 
-                // Create a map for quick city lookup
-                const cityMap = {};
-                majorCities.forEach((city) => {
-                    cityMap[city.name] = city;
-                });
-
-                // Generate arc data from defined connections
-                const arcsData = connections
-                    .map((conn) => {
-                        const source = cityMap[conn.source];
-                        const target = cityMap[conn.target];
-
-                        if (!source || !target) {
-                            console.error(
-                                `Missing city: ${!source ? conn.source : conn.target}`
-                            );
-                            return null;
-                        }
-
-                        return {
-                            startLat: source.lat,
-                            startLng: source.lng,
-                            endLat: target.lat,
-                            endLng: target.lng,
-                            color: [
-                                ['#4169e1', '#5e7ce2', '#ffcc00', '#ff9933'][
-                                    Math.round(Math.random() * 3)
-                                ],
-                                ['#4169e1', '#5e7ce2', '#ffcc00', '#ff9933'][
-                                    Math.round(Math.random() * 3)
-                                ]
-                            ],
-                            size: Math.random() * 1.5 + 1 // Thinner lines (1-2.5px)
-                        };
-                    })
-                    .filter((arc) => arc !== null);
-
-                // Add arcs to globe with slower animation and closer to surface
+                // Configuración simplificada para arcos
                 globe
-                    .arcsData(arcsData)
+                    .arcsData(connections)
                     .arcColor('color')
-                    .arcDashLength(() => Math.random() * 0.4 + 0.2)
-                    .arcDashGap(() => Math.random() * 0.2 + 0.1)
-                    .arcDashAnimateTime(() => Math.random() * 3000 + 2000) // Slower animation (2-5 seconds)
-                    .arcStroke('size')
-                    .arcAltitude(0.15) // Lower altitude (closer to surface)
-                    .arcAltitudeAutoScale(0.25); // Less curve variation
+                    .arcDashLength(0.4)
+                    .arcDashGap(0.2)
+                    .arcDashAnimateTime(2000)
+                    .arcStroke(isMobile ? 2.0 : 1.2) // Líneas más gruesas en móvil
+                    .arcAltitude(0.15)
+                    .arcAltitudeAutoScale(0.25);
 
-                // Initialize globe
+                // Inicializar globo
                 globe(globeElement);
 
-                // Configure controls
+                // Configurar controles
                 globe.controls().autoRotate = true;
-                globe.controls().autoRotateSpeed = 0.5; // Slower rotation
+                globe.controls().autoRotateSpeed = 0.5;
                 globe.controls().enableZoom = false;
                 globe.controls().enablePan = false;
 
-                // Set initial distance to prevent any zoom
+                // Fijar distancia
                 globe.controls().minDistance = globe.controls().getDistance();
                 globe.controls().maxDistance = globe.controls().getDistance();
 
-                // Set initial position to focus on Buenos Aires
+                // Posición inicial
                 globe.pointOfView(
                     {
                         lat: -34.6037,
                         lng: -58.3816,
-                        altitude: 2.0
+                        altitude: isMobile ? 2.0 : 2.0 // Misma altitud para mejor visualización
                     },
-                    1500
-                ); // 1500ms transition
+                    1000
+                );
 
                 globeInitialized = true;
-                console.log('Globe initialized successfully!');
-            };
+                console.log('Globo inicializado correctamente');
+            } catch (error) {
+                console.error('Error al inicializar el globo:', error);
+                destroyGlobe();
+            }
+        }
 
-            // Función para destruir el globo y liberar recursos
-            const destroyGlobe = () => {
-                if (!globeInitialized || !globe) return;
+        // Función para destruir completamente el globo
+        function destroyGlobe() {
+            if (!globeInitialized || !globe) return;
 
-                console.log('Destroying globe to save resources...');
+            try {
+                console.log('Destruyendo globo para liberar recursos...');
 
-                // Liberar memoria de Three.js
+                // Detener rotación
+                if (globe.controls()) {
+                    globe.controls().autoRotate = false;
+                }
+
+                // Liberar recursos de Three.js
                 if (globe.renderer()) {
                     const renderer = globe.renderer();
-                    const scene = globe.scene();
 
-                    if (scene) {
-                        scene.traverse((object) => {
-                            if (object.geometry) object.geometry.dispose();
-                            if (object.material) {
-                                if (Array.isArray(object.material)) {
-                                    object.material.forEach((material) =>
-                                        material.dispose()
-                                    );
+                    if (globe.scene()) {
+                        const scene = globe.scene();
+
+                        // Eliminar todos los objetos
+                        while (scene.children.length > 0) {
+                            const obj = scene.children[0];
+                            scene.remove(obj);
+
+                            // Liberar geometrías
+                            if (obj.geometry) {
+                                obj.geometry.dispose();
+                            }
+
+                            // Liberar materiales
+                            if (obj.material) {
+                                if (Array.isArray(obj.material)) {
+                                    obj.material.forEach((mat) => {
+                                        if (mat.map) mat.map.dispose();
+                                        mat.dispose();
+                                    });
                                 } else {
-                                    object.material.dispose();
+                                    if (obj.material.map)
+                                        obj.material.map.dispose();
+                                    obj.material.dispose();
                                 }
                             }
-                        });
+                        }
                     }
 
-                    if (renderer) {
-                        renderer.dispose();
-                        renderer.forceContextLoss();
-                        renderer.context = null;
-                        renderer.domElement = null;
+                    // Liberar renderizador
+                    renderer.dispose();
+                    renderer.forceContextLoss();
+                    renderer.domElement = null;
+
+                    // Eliminar canvas
+                    const canvas = document.querySelector('#globeViz canvas');
+                    if (canvas && canvas.parentNode) {
+                        canvas.parentNode.removeChild(canvas);
                     }
                 }
 
-                // Limpiar el contenido del elemento
+                // Limpiar elemento
+                const globeElement = document.getElementById('globeViz');
                 if (globeElement) {
                     globeElement.innerHTML = '';
                 }
 
+                // Ocultar contenedor
+                container.style.display = 'none';
+
+                // Limpiar referencias
                 globe = null;
                 globeInitialized = false;
+                isDestroyed = true;
 
-                // Ocultar el contenedor
+                console.log('Globo destruido completamente');
+
+                // Forzar recolección de basura
+                if (window.gc) window.gc();
+            } catch (error) {
+                console.error('Error al destruir el globo:', error);
+
+                // Asegurar que el contenedor esté oculto en caso de error
                 container.style.display = 'none';
-            };
+                globe = null;
+                globeInitialized = false;
+                isDestroyed = true;
+            }
+        }
 
-            // Función para manejar la visibilidad del globo
-            const handleGlobeVisibility = () => {
-                const isVisible = isElementInViewport(container);
-
-                if (isVisible && !globeInitialized) {
-                    // Si es visible y no está inicializado, inicializarlo
-                    initGlobe();
-                } else if (!isVisible && globeInitialized) {
-                    // Si no es visible y está inicializado, destruirlo
-                    destroyGlobe();
-                }
-            };
-
-            // Inicializar el globo solo si estamos en escritorio o si es visible en móvil
-            if (!isMobile || isElementInViewport(container)) {
-                initGlobe();
+        // Usar Intersection Observer para detectar visibilidad
+        function setupObserver() {
+            // Destruir observer existente si hay uno
+            if (observer) {
+                observer.disconnect();
+                observer = null;
             }
 
-            // Manejar el evento de scroll
-            window.addEventListener('scroll', handleGlobeVisibility);
+            observer = new IntersectionObserver(
+                (entries) => {
+                    const entry = entries[0];
 
-            // Manejar el evento de redimensionamiento de la ventana
-            window.addEventListener('resize', () => {
-                if (globe && globeInitialized) {
-                    const newWidth = container.clientWidth;
-                    const newHeight = container.clientHeight;
-                    globe.width(newWidth).height(newHeight);
+                    if (entry.isIntersecting) {
+                        // Solo inicializar si no está ya inicializado y no fue destruido
+                        if (!globeInitialized && !isDestroyed) {
+                            // Retrasar inicialización en móvil
+                            if (isMobile) {
+                                setTimeout(initGlobe, 500);
+                            } else {
+                                initGlobe();
+                            }
+                        }
+                    } else {
+                        // Destruir cuando no es visible
+                        if (globeInitialized) {
+                            destroyGlobe();
+                        }
+                    }
+                },
+                {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1 // 10% visible para activar
                 }
-            });
+            );
 
-            // Manejar cambio de visibilidad de la página
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden && globeInitialized) {
-                    destroyGlobe();
-                } else if (!document.hidden && isElementInViewport(container)) {
-                    initGlobe();
-                }
-            });
+            observer.observe(container);
+        }
 
-            // Limpiar recursos cuando se desmonte el componente
-            window.addEventListener('beforeunload', () => {
-                window.removeEventListener('scroll', handleGlobeVisibility);
+        // Manejar cambios de visibilidad de la página
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                // Página no visible, destruir globo
                 if (globeInitialized) {
                     destroyGlobe();
                 }
-            });
-
-            // Animate tech icons
-            const techIcons = document.querySelectorAll('.tech_icon');
-            techIcons.forEach((icon, index) => {
-                icon.style.animationDelay = `${index * 0.7}s`;
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        } catch (error) {
-            console.error('Error with globe:', error);
+            } else {
+                // Página visible de nuevo, reiniciar observer
+                isDestroyed = false;
+                setupObserver();
+            }
         }
+
+        // Manejar redimensionamiento de ventana
+        function handleResize() {
+            const newIsMobile = window.innerWidth < 768;
+
+            // Destruir globo al cambiar tamaño
+            if (globeInitialized) {
+                destroyGlobe();
+            }
+
+            // Si cambia entre móvil y desktop, actualizar el tamaño del contenedor
+            if (newIsMobile !== isMobile) {
+                if (newIsMobile) {
+                    // Ajustar tamaño para móvil
+                    const width = container.clientWidth;
+                    container.style.height = `${width}px`;
+                } else {
+                    // Restaurar tamaño para desktop
+                    container.style.height = '';
+                }
+            }
+
+            // Reiniciar observer después de un breve retraso
+            isDestroyed = false;
+            setTimeout(setupObserver, 300);
+        }
+
+        // Configurar observer inicial
+        setupObserver();
+
+        // Configurar event listeners
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        // Usar debounce para resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(handleResize, 300);
+        });
+
+        // Limpiar al desmontar
+        window.addEventListener('beforeunload', () => {
+            if (observer) {
+                observer.disconnect();
+            }
+
+            if (globeInitialized) {
+                destroyGlobe();
+            }
+
+            document.removeEventListener(
+                'visibilitychange',
+                handleVisibilityChange
+            );
+        });
+
+        // Animar iconos tecnológicos
+        const techIcons = document.querySelectorAll('.tech_icon');
+        techIcons.forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.7}s`;
+        });
+
+        // Scroll suave para enlaces de anclaje
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     });
 </script>
 
@@ -497,7 +527,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         min-height: 100vh;
         display: flex;
         align-items: center;
-        padding-top: 100px; /* Reducido el espacio para el header en desktop */
+        padding-top: 60px; /* Reducido el espacio para el header en desktop */
     }
 
     .hero_subtitle {
@@ -781,7 +811,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         font-size: 90px;
         line-height: 1.08;
         margin-bottom: 25px;
-        margin-top: 0; /* Eliminado el margen superior en desktop */
+        margin-top: 0;
         color: #ffffff;
         position: relative;
         z-index: 55;
@@ -822,11 +852,19 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         }
     }
 
+    .row.align-items-center {
+        margin-top: -20px; /* Ajuste para alinear mejor en desktop */
+    }
+
     /* Responsive styles */
     @media (min-width: 1600px) {
         .earth_globe_container {
             width: 900px;
             height: 900px;
+        }
+
+        .hero_section_wrapper {
+            padding-top: 50px; /* Aún menos espacio en pantallas grandes */
         }
     }
 
@@ -838,6 +876,10 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
         .hero_banner_heading {
             font-size: 80px;
+        }
+
+        .hero_section_wrapper {
+            padding-top: 60px;
         }
     }
 
@@ -900,7 +942,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 767px) {
         .hero_section_wrapper {
-            padding-top: 120px; /* Reducido el espacio para el header en móvil */
+            padding-top: 120px; /* Aumentado el espacio para evitar solapamiento con el header en móvil */
             padding-bottom: 40px;
             min-height: auto;
             height: auto;
@@ -913,7 +955,8 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         .earth_globe_container {
             width: 100%;
             aspect-ratio: 1/1; /* Mantener proporción cuadrada */
-            max-width: 400px;
+            max-width: 100%; /* Usar todo el ancho disponible */
+            height: auto; /* Altura automática basada en aspect-ratio */
             margin: 30px auto 0;
         }
 
@@ -921,16 +964,17 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             padding: 0;
             margin: 0 auto;
             width: 100%;
+            max-width: 100%; /* Usar todo el ancho disponible */
         }
 
         .tech_icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
         }
 
         .tech_icon i {
-            font-size: 20px;
-            margin-bottom: 3px;
+            font-size: 16px;
+            margin-bottom: 2px;
         }
 
         .hero_scroll_indicator {
@@ -938,7 +982,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         }
 
         .hero_banner_heading {
-            font-size: 50px;
+            font-size: 48px;
             text-align: center;
             margin-left: auto;
             margin-right: auto;
@@ -968,34 +1012,70 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             flex-basis: 100%;
             max-width: 100%;
         }
+
+        /* Ajustes para los iconos flotantes en móvil */
+        .icon_code {
+            top: 5%;
+            left: 5%;
+            width: 45px;
+            height: 45px;
+        }
+
+        .icon_mobile {
+            top: 80%;
+            left: 5%;
+            width: 45px;
+            height: 45px;
+        }
+
+        .icon_database {
+            top: 40%;
+            right: 5%;
+            width: 45px;
+            height: 45px;
+        }
     }
 
     @media (max-width: 576px) {
         .hero_section_wrapper {
-            padding-top: 100px;
+            padding-top: 110px; /* Ajustado para pantallas más pequeñas */
         }
 
         .earth_globe_container {
-            max-width: 350px;
+            max-width: 100%; /* Usar todo el ancho disponible */
+            height: auto;
+        }
+
+        .hero_banner_image_3 {
+            max-width: 100%;
         }
 
         .tech_icon {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .tech_icon i {
+            font-size: 14px;
         }
     }
 
     @media (max-width: 480px) {
         .hero_section_wrapper {
-            padding-top: 90px;
+            padding-top: 100px;
         }
 
         .earth_globe_container {
-            max-width: 300px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero_banner_image_3 {
+            max-width: 100%;
         }
 
         .hero_banner_heading {
-            font-size: 40px;
+            font-size: 38px;
         }
 
         .hero_features {
@@ -1005,15 +1085,20 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 400px) {
         .hero_section_wrapper {
-            padding-top: 80px;
+            padding-top: 90px;
         }
 
         .earth_globe_container {
-            max-width: 280px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero_banner_image_3 {
+            max-width: 100%;
         }
 
         .hero_banner_heading {
-            font-size: 36px;
+            font-size: 34px;
         }
     }
 </style>
