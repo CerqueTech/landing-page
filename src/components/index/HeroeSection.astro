@@ -19,7 +19,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 <section class='hero_section_wrapper' aria-label='Sección principal'>
     <div class='container d-flex align-items-center'>
         <div class='row align-items-center justify-content-between'>
-            <div class='col-12 col-md-5 col-lg-5'>
+            <div class='col-12 col-md-5 col-lg-5 content-col'>
                 <div class='banner_content_3 mb-4 mb-lg-0'>
                     <h1 class='hero_banner_heading'>
                         <span>Soluciones digitales</span>
@@ -71,7 +71,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     </div>
                 </div>
             </div>
-            <div class='col-12 col-md-7 col-lg-7'>
+            <div class='col-12 col-md-7 col-lg-7 globe-col'>
                 <div class='hero_banner_image_3 decoration_wrap'>
                     <div class='earth_globe_container'>
                         <div class='earth_globe'>
@@ -942,29 +942,40 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 767px) {
         .hero_section_wrapper {
-            padding-top: 120px; /* Aumentado el espacio para evitar solapamiento con el header en móvil */
+            padding-top: 100px; /* Reducido para que el globo esté más arriba */
             padding-bottom: 40px;
             min-height: auto;
             height: auto;
         }
 
         .row {
-            flex-direction: column;
+            flex-direction: column-reverse; /* Invertir el orden para móvil: primero el globo, luego el contenido */
+        }
+
+        /* Ajustes para el globo en móvil */
+        .globe-col {
+            margin-bottom: 0;
+            margin-top: -20px; /* Subir el globo */
         }
 
         .earth_globe_container {
             width: 100%;
-            aspect-ratio: 1/1; /* Mantener proporción cuadrada */
-            max-width: 100%; /* Usar todo el ancho disponible */
-            height: auto; /* Altura automática basada en aspect-ratio */
-            margin: 30px auto 0;
+            aspect-ratio: 1/1;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto; /* Quitar margen superior */
+        }
+
+        /* Ajustes para el contenido en móvil */
+        .content-col {
+            margin-top: 20px; /* Espacio entre el globo y el contenido */
         }
 
         .hero_banner_image_3 {
             padding: 0;
             margin: 0 auto;
             width: 100%;
-            max-width: 100%; /* Usar todo el ancho disponible */
+            max-width: 100%;
         }
 
         .tech_icon {
@@ -1013,32 +1024,35 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             max-width: 100%;
         }
 
-        /* Ajustes para los iconos flotantes en móvil */
+        /* Ajustes para los iconos flotantes en móvil para evitar solapamiento con el logo */
         .icon_code {
-            top: 5%;
+            top: 20%;
             left: 5%;
-            width: 45px;
-            height: 45px;
         }
 
         .icon_mobile {
             top: 80%;
             left: 5%;
-            width: 45px;
-            height: 45px;
         }
 
         .icon_database {
             top: 40%;
             right: 5%;
-            width: 45px;
-            height: 45px;
+        }
+
+        /* Ajustes específicos para el logo en móvil */
+        .site_link img {
+            min-width: 180px !important;
         }
     }
 
     @media (max-width: 576px) {
         .hero_section_wrapper {
-            padding-top: 110px; /* Ajustado para pantallas más pequeñas */
+            padding-top: 90px; /* Reducido aún más para pantallas pequeñas */
+        }
+
+        .globe-col {
+            margin-top: -30px; /* Subir más el globo en pantallas pequeñas */
         }
 
         .earth_globe_container {
@@ -1062,7 +1076,11 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 480px) {
         .hero_section_wrapper {
-            padding-top: 100px;
+            padding-top: 80px;
+        }
+
+        .globe-col {
+            margin-top: -40px; /* Subir aún más el globo en pantallas muy pequeñas */
         }
 
         .earth_globe_container {
@@ -1085,7 +1103,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 400px) {
         .hero_section_wrapper {
-            padding-top: 90px;
+            padding-top: 70px;
         }
 
         .earth_globe_container {
@@ -1100,5 +1118,34 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         .hero_banner_heading {
             font-size: 34px;
         }
+    }
+
+    /* Aumentar z-index del header para evitar solapamientos */
+    header,
+    .header_area,
+    .site-header {
+        position: relative;
+        z-index: 1500 !important; /* Valor más alto para asegurar que esté por encima de todo */
+    }
+
+    /* Asegurar que el globo esté por debajo del header */
+    .earth_globe_container,
+    .hero_banner_image_3 {
+        z-index: 50;
+    }
+
+    /* Estilos específicos para el logo */
+    .site_link img {
+        width: auto !important; /* Forzar tamaño original */
+        height: auto !important;
+        max-height: 100% !important;
+        min-width: 200px !important; /* Asegurar un tamaño mínimo */
+    }
+
+    /* Mejorar la visibilidad del logo */
+    .site_link {
+        display: inline-block !important;
+        padding: 5px !important;
+        z-index: 2000 !important; /* Mayor que el header */
     }
 </style>
