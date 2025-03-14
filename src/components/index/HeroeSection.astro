@@ -12,61 +12,456 @@ if (!data) {
 const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 ---
 
-<div class='container d-flex align-items-center'>
-    <div class='row align-items-center'>
-        <div class='col-12 col-md-5 col-lg-6'>
-            <div class='banner_content_3 mb-4 mb-lg-0'>
-                <h1 class='hero_banner_heading'>
-                    <span>{data.span1}</span>
-                    {data.span2}
-                </h1>
-                <a
-                    href={`${lang}/${hrefContact}`}
-                    data-astro-reload
-                    class='bd-btn-link btn_warning'
-                >
-                    <span class='bd-button-content-wrapper'>
-                        <span class='bd-button-icon'>
-                            <i class='fa-light fa-arrow-right-long'></i>
-                        </span>
-                        <span class='pd-animation-flip'>
-                            <span class='bd-btn-anim-wrapp'>
-                                <span class='bd-button-text'
-                                    >{data.buttontext}</span
-                                >
-                                <span class='bd-button-text'
-                                    >{data.buttontext}</span
-                                >
+<!-- Add globe.gl script directly in the head -->
+<script is:inline src='https://unpkg.com/globe.gl@2.28.2/dist/globe.gl.min.js'
+></script>
+
+<section class='hero_section_wrapper' aria-label='Sección principal'>
+    <div class='container d-flex align-items-center'>
+        <div class='row align-items-center'>
+            <div class='col-12 col-md-5 col-lg-5'>
+                <div class='banner_content_3 mb-4 mb-lg-0'>
+                    <h1 class='hero_banner_heading'>
+                        <span>Soluciones digitales</span>
+                    </h1>
+                    <p class='hero_description'>
+                        Desarrollamos aplicaciones web y móviles a medida que
+                        transforman ideas en soluciones digitales innovadoras
+                        para impulsar el crecimiento de tu negocio.
+                    </p>
+                    <ul class='hero_features'>
+                        <li>
+                            <i class='fa-light fa-check-circle'></i> Desarrollo web
+                            y móvil
+                        </li>
+                        <li>
+                            <i class='fa-light fa-check-circle'></i> Diseño UX/UI
+                            personalizado
+                        </li>
+                        <li>
+                            <i class='fa-light fa-check-circle'></i> Soluciones escalables
+                        </li>
+                    </ul>
+                    <div class='hero_buttons'>
+                        <a
+                            href={`${lang}/${hrefContact}`}
+                            data-astro-reload
+                            class='bd-btn-link btn_warning'
+                        >
+                            <span class='bd-button-content-wrapper'>
+                                <span class='bd-button-icon'>
+                                    <i class='fa-light fa-arrow-right-long'></i>
+                                </span>
+                                <span class='pd-animation-flip'>
+                                    <span class='bd-btn-anim-wrapp'>
+                                        <span class='bd-button-text'
+                                            >{data.buttontext}</span
+                                        >
+                                        <span class='bd-button-text'
+                                            >{data.buttontext}</span
+                                        >
+                                    </span>
+                                </span>
                             </span>
-                        </span>
-                    </span>
-                </a>
-            </div>
-        </div>
-        <div class='col-12 col-md-7 col-lg-6 ml-5'>
-            <div class='hero_banner_image_3 decoration_wrap'>
-                <div class='man_image'>
-                    <Image
-                        src='/assets/images/banner/hero_banner_image_3.png'
-                        alt='Hero Banner'
-                        width={600}
-                        height={600}
-                        class='img-fluid'
-                    />
+                        </a>
+                        <a href='#servicios' class='text-btn'>
+                            <span>Ver servicios</span>
+                            <i class='fa-light fa-chevron-down'></i>
+                        </a>
+                    </div>
                 </div>
-                <div class='deco_item shape_1'>
-                    <Image
-                        width={600}
-                        height={600}
-                        src='/assets/images/shapes/shape_star_smooth.svg'
-                        alt='Hero Banner'
-                        class='deco'
-                    />
+            </div>
+            <div class='col-12 col-md-7 col-lg-7'>
+                <div class='hero_banner_image_3 decoration_wrap'>
+                    <div class='earth_globe_container'>
+                        <div class='earth_globe'>
+                            <div id='globeViz'></div>
+                        </div>
+                        <div class='glow_effect'></div>
+                        <div class='tech_icons'>
+                            <div
+                                class='tech_icon icon_code'
+                                title='Desarrollo web'
+                            >
+                                <i class='fa-light fa-code'></i>
+                                <span class='icon_label'>Desarrollo</span>
+                            </div>
+                            <div
+                                class='tech_icon icon_mobile'
+                                title='Aplicaciones móviles'
+                            >
+                                <i class='fa-light fa-mobile'></i>
+                                <span class='icon_label'>Apps</span>
+                            </div>
+                            <div
+                                class='tech_icon icon_database'
+                                title='Soluciones en la nube'
+                            >
+                                <i class='fa-light fa-database'></i>
+                                <span class='icon_label'>Cloud</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='deco_item shape_1'>
+                        <Image
+                            width={600}
+                            height={600}
+                            src='/assets/images/shapes/shape_star_smooth.svg'
+                            alt='Elemento decorativo'
+                            class='deco rotating-star'
+                        />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class='hero_scroll_indicator'>
+        <div class='scroll_icon'>
+            <div class='mouse'></div>
+        </div>
+        <span>Scroll para explorar</span>
+    </div>
+</section>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM loaded, checking globe visibility...');
+
+        try {
+            // Get container dimensions
+            const container = document.querySelector('.earth_globe');
+            if (!container) return;
+
+            // Función para verificar si el elemento está visible en la ventana
+            const isElementInViewport = (el) => {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top < window.innerHeight &&
+                    rect.bottom > 0 &&
+                    rect.left < window.innerWidth &&
+                    rect.right > 0
+                );
+            };
+
+            // Verificar si estamos en un dispositivo móvil
+            const isMobile = window.innerWidth < 768;
+
+            // Variables para el globo
+            let globe = null;
+            let globeInitialized = false;
+            let globeElement = document.getElementById('globeViz');
+
+            // Inicialmente ocultar el contenedor del globo si no está visible
+            if (!isElementInViewport(container) && isMobile) {
+                container.style.display = 'none';
+            }
+
+            // Función para inicializar el globo
+            const initGlobe = () => {
+                // Si ya está inicializado o el elemento no existe, salir
+                if (globeInitialized || !globeElement) return;
+
+                // Verificar si Globe está disponible
+                if (typeof Globe === 'undefined') {
+                    console.error(
+                        'Globe is not defined. Script might not have loaded correctly.'
+                    );
+                    return;
+                }
+
+                console.log('Initializing globe...');
+
+                // Mostrar el contenedor
+                container.style.display = 'flex';
+
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+
+                // Create globe instance
+                globe = Globe()
+                    .globeImageUrl(
+                        'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
+                    )
+                    .backgroundColor('rgba(0,0,0,0)')
+                    .width(width)
+                    .height(height);
+
+                // Define specific connection points with major cities
+                const majorCities = [
+                    // South America
+                    { lat: -34.6037, lng: -58.3816, name: 'Buenos Aires' }, // Argentina first
+                    { lat: -15.7801, lng: -47.9292, name: 'Brasilia' },
+                    { lat: -22.9068, lng: -43.1729, name: 'Rio de Janeiro' },
+                    { lat: -23.5505, lng: -46.6333, name: 'São Paulo' },
+                    { lat: -12.0464, lng: -77.0428, name: 'Lima' },
+                    { lat: 4.711, lng: -74.0721, name: 'Bogotá' },
+
+                    // North America
+                    { lat: 40.7128, lng: -74.006, name: 'New York' },
+                    { lat: 19.4326, lng: -99.1332, name: 'Mexico City' },
+                    { lat: 37.7749, lng: -122.4194, name: 'San Francisco' },
+
+                    // Europe
+                    { lat: 51.5074, lng: -0.1278, name: 'London' },
+                    { lat: 48.8566, lng: 2.3522, name: 'Paris' },
+                    { lat: 41.9028, lng: 12.4964, name: 'Rome' },
+                    { lat: 52.52, lng: 13.405, name: 'Berlin' },
+                    { lat: 40.4168, lng: -3.7038, name: 'Madrid' },
+
+                    // Asia
+                    { lat: 55.7558, lng: 37.6173, name: 'Moscow' },
+                    { lat: 31.2304, lng: 121.4737, name: 'Shanghai' },
+                    { lat: 35.6762, lng: 139.6503, name: 'Tokyo' },
+                    { lat: 1.3521, lng: 103.8198, name: 'Singapore' },
+                    { lat: 28.6139, lng: 77.209, name: 'New Delhi' },
+
+                    // Oceania
+                    { lat: -33.8688, lng: 151.2093, name: 'Sydney' },
+                    { lat: -37.8136, lng: 144.9631, name: 'Melbourne' },
+
+                    // Africa
+                    { lat: -33.9249, lng: 18.4241, name: 'Cape Town' },
+                    { lat: 30.0444, lng: 31.2357, name: 'Cairo' }
+                ];
+
+                // Define specific connections between cities
+                const connections = [
+                    // Conexiones con Buenos Aires
+                    { source: 'Buenos Aires', target: 'São Paulo' },
+                    { source: 'Buenos Aires', target: 'Rio de Janeiro' },
+                    { source: 'Buenos Aires', target: 'Lima' },
+                    { source: 'Buenos Aires', target: 'Madrid' },
+                    { source: 'Buenos Aires', target: 'Tokyo' },
+
+                    // South America connections
+                    { source: 'Brasilia', target: 'Rio de Janeiro' },
+                    { source: 'São Paulo', target: 'Rio de Janeiro' },
+                    { source: 'Lima', target: 'Bogotá' },
+
+                    // North America to South America
+                    { source: 'New York', target: 'São Paulo' },
+                    { source: 'Mexico City', target: 'Bogotá' },
+
+                    // Europe connections
+                    { source: 'London', target: 'Paris' },
+                    { source: 'Paris', target: 'Rome' },
+                    { source: 'Berlin', target: 'Madrid' },
+
+                    // Europe to Americas
+                    { source: 'London', target: 'New York' },
+                    { source: 'Madrid', target: 'Mexico City' },
+
+                    // Asia connections
+                    { source: 'Moscow', target: 'Berlin' },
+                    { source: 'Shanghai', target: 'Tokyo' },
+                    { source: 'Singapore', target: 'New Delhi' },
+
+                    // Oceania connections
+                    { source: 'Sydney', target: 'Melbourne' },
+                    { source: 'Singapore', target: 'Sydney' },
+
+                    // Africa connections
+                    { source: 'Cape Town', target: 'Cairo' },
+                    { source: 'Cairo', target: 'Rome' },
+
+                    // Other global connections
+                    { source: 'Tokyo', target: 'San Francisco' },
+                    { source: 'New Delhi', target: 'London' }
+                ];
+
+                // Create a map for quick city lookup
+                const cityMap = {};
+                majorCities.forEach((city) => {
+                    cityMap[city.name] = city;
+                });
+
+                // Generate arc data from defined connections
+                const arcsData = connections
+                    .map((conn) => {
+                        const source = cityMap[conn.source];
+                        const target = cityMap[conn.target];
+
+                        if (!source || !target) {
+                            console.error(
+                                `Missing city: ${!source ? conn.source : conn.target}`
+                            );
+                            return null;
+                        }
+
+                        return {
+                            startLat: source.lat,
+                            startLng: source.lng,
+                            endLat: target.lat,
+                            endLng: target.lng,
+                            color: [
+                                ['#4169e1', '#5e7ce2', '#ffcc00', '#ff9933'][
+                                    Math.round(Math.random() * 3)
+                                ],
+                                ['#4169e1', '#5e7ce2', '#ffcc00', '#ff9933'][
+                                    Math.round(Math.random() * 3)
+                                ]
+                            ],
+                            size: Math.random() * 1.5 + 1 // Thinner lines (1-2.5px)
+                        };
+                    })
+                    .filter((arc) => arc !== null);
+
+                // Add arcs to globe with slower animation and closer to surface
+                globe
+                    .arcsData(arcsData)
+                    .arcColor('color')
+                    .arcDashLength(() => Math.random() * 0.4 + 0.2)
+                    .arcDashGap(() => Math.random() * 0.2 + 0.1)
+                    .arcDashAnimateTime(() => Math.random() * 3000 + 2000) // Slower animation (2-5 seconds)
+                    .arcStroke('size')
+                    .arcAltitude(0.15) // Lower altitude (closer to surface)
+                    .arcAltitudeAutoScale(0.25); // Less curve variation
+
+                // Initialize globe
+                globe(globeElement);
+
+                // Configure controls
+                globe.controls().autoRotate = true;
+                globe.controls().autoRotateSpeed = 0.5; // Slower rotation
+                globe.controls().enableZoom = false;
+                globe.controls().enablePan = false;
+
+                // Set initial distance to prevent any zoom
+                globe.controls().minDistance = globe.controls().getDistance();
+                globe.controls().maxDistance = globe.controls().getDistance();
+
+                // Set initial position to focus on Buenos Aires
+                globe.pointOfView(
+                    {
+                        lat: -34.6037,
+                        lng: -58.3816,
+                        altitude: 2.0
+                    },
+                    1500
+                ); // 1500ms transition
+
+                globeInitialized = true;
+                console.log('Globe initialized successfully!');
+            };
+
+            // Función para destruir el globo y liberar recursos
+            const destroyGlobe = () => {
+                if (!globeInitialized || !globe) return;
+
+                console.log('Destroying globe to save resources...');
+
+                // Liberar memoria de Three.js
+                if (globe.renderer()) {
+                    const renderer = globe.renderer();
+                    const scene = globe.scene();
+
+                    if (scene) {
+                        scene.traverse((object) => {
+                            if (object.geometry) object.geometry.dispose();
+                            if (object.material) {
+                                if (Array.isArray(object.material)) {
+                                    object.material.forEach((material) =>
+                                        material.dispose()
+                                    );
+                                } else {
+                                    object.material.dispose();
+                                }
+                            }
+                        });
+                    }
+
+                    if (renderer) {
+                        renderer.dispose();
+                        renderer.forceContextLoss();
+                        renderer.context = null;
+                        renderer.domElement = null;
+                    }
+                }
+
+                // Limpiar el contenido del elemento
+                if (globeElement) {
+                    globeElement.innerHTML = '';
+                }
+
+                globe = null;
+                globeInitialized = false;
+
+                // Ocultar el contenedor
+                container.style.display = 'none';
+            };
+
+            // Función para manejar la visibilidad del globo
+            const handleGlobeVisibility = () => {
+                const isVisible = isElementInViewport(container);
+
+                if (isVisible && !globeInitialized) {
+                    // Si es visible y no está inicializado, inicializarlo
+                    initGlobe();
+                } else if (!isVisible && globeInitialized) {
+                    // Si no es visible y está inicializado, destruirlo
+                    destroyGlobe();
+                }
+            };
+
+            // Inicializar el globo solo si estamos en escritorio o si es visible en móvil
+            if (!isMobile || isElementInViewport(container)) {
+                initGlobe();
+            }
+
+            // Manejar el evento de scroll
+            window.addEventListener('scroll', handleGlobeVisibility);
+
+            // Manejar el evento de redimensionamiento de la ventana
+            window.addEventListener('resize', () => {
+                if (globe && globeInitialized) {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    globe.width(newWidth).height(newHeight);
+                }
+            });
+
+            // Manejar cambio de visibilidad de la página
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && globeInitialized) {
+                    destroyGlobe();
+                } else if (!document.hidden && isElementInViewport(container)) {
+                    initGlobe();
+                }
+            });
+
+            // Limpiar recursos cuando se desmonte el componente
+            window.addEventListener('beforeunload', () => {
+                window.removeEventListener('scroll', handleGlobeVisibility);
+                if (globeInitialized) {
+                    destroyGlobe();
+                }
+            });
+
+            // Animate tech icons
+            const techIcons = document.querySelectorAll('.tech_icon');
+            techIcons.forEach((icon, index) => {
+                icon.style.animationDelay = `${index * 0.7}s`;
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        } catch (error) {
+            console.error('Error with globe:', error);
+        }
+    });
+</script>
 
 <style is:global>
     h1,
@@ -80,6 +475,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         font-family: Manrope, sans-serif;
         line-height: 1.2;
     }
+
     .container {
         width: 100%;
         height: 100%;
@@ -94,106 +490,310 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         height: auto;
     }
 
-    @media (max-width: 991px) {
-        .banner_content_3 {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-
-        .hero_banner_image_3 {
-            text-align: left;
-        }
+    .hero_section_wrapper {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 60px;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 100px; /* Reducido el espacio para el header en desktop */
     }
 
-    @media (max-width: 767px) {
-        .col {
-            flex-basis: 100%;
-            max-width: 100%;
-        }
+    .hero_subtitle {
+        margin-bottom: 20px;
     }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .hero_banner_image_3 {
-            margin: 0;
+
+    .hero_subtitle .badge {
+        background: rgba(65, 105, 225, 0.1);
+        color: #4169e1;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 30px;
+        display: inline-block;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .hero_description {
+        font-size: 18px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 25px;
+        max-width: 500px;
+    }
+
+    .hero_features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+    }
+
+    .hero_features li {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+
+    .hero_features li i {
+        color: #ffcc00;
+        margin-right: 10px;
+        font-size: 18px;
+    }
+
+    .hero_buttons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .text-btn {
+        color: #ffffff;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .text-btn:hover {
+        color: #ffcc00;
+    }
+
+    .text-btn i {
+        font-size: 14px;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
         }
-        .hero_banner_section.style_3 .man_image {
-            width: 425px;
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
         }
     }
 
-    .hero_banner_section.style_3 {
-        padding: 146px 0 80px;
-    }
-    @media only screen and (min-width: 1400px) and (max-width: 1600px) {
-        .hero_banner_section.style_3 {
-            padding: 100px 0 50px;
-        }
-
-        .hero_banner_image_3 {
-            padding-left: 155px;
-        }
-    }
-    @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-        .hero_banner_section.style_3 {
-            padding: 90px 0 50px;
-        }
-    }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .hero_banner_section.style_3 {
-            padding: 110px 0 60px;
-        }
-    }
-    @media (max-width: 575px),
-        only screen and (min-width: 576px) and (max-width: 767px) {
-        .hero_banner_section.style_3 {
-            padding: 135px 0 30px;
-        }
+    .earth_globe_container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        max-width: 900px;
+        max-height: 900px;
+        margin: 0 auto;
     }
 
-    .hero_banner_section.style_3 .hero_banner_heading {
+    .earth_globe {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+        z-index: 100;
+    }
+
+    .earth_globe:active {
+        cursor: grabbing;
+    }
+
+    .glow_effect {
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(65, 105, 225, 0.15) 0%,
+            rgba(65, 105, 225, 0.05) 50%,
+            rgba(0, 0, 0, 0) 70%
+        );
+        z-index: 90;
+        pointer-events: none;
+    }
+
+    #globeViz {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 0 60px rgba(65, 105, 225, 0.25);
+        position: relative;
+        z-index: 100;
+    }
+
+    .tech_icons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 110;
+        pointer-events: none;
+    }
+
+    .tech_icon {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: float 6s ease-in-out infinite;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        pointer-events: auto;
+    }
+
+    .tech_icon:hover {
+        transform: scale(1.1) translateY(-5px);
+        box-shadow: 0 15px 35px rgba(65, 105, 225, 0.2);
+    }
+
+    .tech_icon i {
+        font-size: 24px;
+        color: #4169e1;
+        transition: transform 0.3s ease;
+        margin-bottom: 5px;
+    }
+
+    .tech_icon:hover i {
+        transform: scale(1.2);
+    }
+
+    .icon_label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #4169e1;
+        opacity: 0;
+        transform: translateY(5px);
+        transition: all 0.3s ease;
+    }
+
+    .tech_icon:hover .icon_label {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .icon_code {
+        top: 15%;
+        left: 20%;
+    }
+
+    .icon_mobile {
+        top: 70%;
+        left: 15%;
+    }
+
+    .icon_database {
+        top: 40%;
+        right: 15%;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+
+    .hero_scroll_indicator {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+    }
+
+    .scroll_icon {
+        width: 30px;
+        height: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+    }
+
+    .mouse {
+        width: 6px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 3px;
+        animation: mouse-scroll 2s infinite;
+    }
+
+    @keyframes mouse-scroll {
+        0% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        50% {
+            opacity: 0.5;
+            transform: translateY(10px);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    }
+
+    .hero_banner_image_3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: visible;
+    }
+
+    .hero_banner_heading {
         font-size: 90px;
         line-height: 1.08;
-        margin-bottom: 70px;
+        margin-bottom: 25px;
+        margin-top: 0; /* Eliminado el margen superior en desktop */
         color: #ffffff;
         position: relative;
         z-index: 55;
         max-width: 650px;
     }
-    @media only screen and (min-width: 1400px) and (max-width: 1600px) {
-        .hero_banner_section.style_3 .hero_banner_heading {
-            font-size: 80px;
-        }
-    }
-    @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-        .hero_banner_section.style_3 .hero_banner_heading {
-            font-size: 75px;
-        }
-    }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .hero_banner_section.style_3 .hero_banner_heading {
-            font-size: 65px;
-        }
-    }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .hero_banner_section.style_3 .hero_banner_heading {
-            font-size: 68px;
-        }
-    }
-    @media (max-width: 575px),
-        only screen and (min-width: 576px) and (max-width: 767px) {
-        .hero_banner_section.style_3 .hero_banner_heading {
-            font-size: 50px;
-        }
-    }
-    @media (max-width: 450px) {
-        .hero_banner_section.style_3 .hero_banner_heading {
-            font-size: 40px;
-        }
-    }
-    .hero_banner_section.style_3 .hero_banner_heading span {
+
+    .hero_banner_heading span {
         position: relative;
         z-index: 5;
     }
-    .hero_banner_section.style_3 .hero_banner_heading span::before {
+
+    .hero_banner_heading span::before {
         position: absolute;
         content: '';
         bottom: 5px;
@@ -208,45 +808,212 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         animation: section-animation 3s infinite;
         z-index: -1;
     }
-    @media only screen and (min-width: 1400px) and (max-width: 1600px),
-        only screen and (min-width: 1200px) and (max-width: 1399px),
-        only screen and (min-width: 768px) and (max-width: 991px) {
-        .hero_banner_section.style_3 .man_image {
-            max-width: 560px;
+
+    .rotating-star {
+        animation: rotate-star 60s linear infinite;
+    }
+
+    @keyframes rotate-star {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
         }
     }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .hero_banner_section.style_3 .man_image {
-            width: 460px;
+
+    /* Responsive styles */
+    @media (min-width: 1600px) {
+        .earth_globe_container {
+            width: 900px;
+            height: 900px;
         }
     }
-    .hero_banner_section.style_3 .man_image img {
-        animation: upDown 1s infinite alternate;
-        width: 100%;
+
+    @media (min-width: 1400px) and (max-width: 1599px) {
+        .earth_globe_container {
+            width: 800px;
+            height: 800px;
+        }
+
+        .hero_banner_heading {
+            font-size: 80px;
+        }
     }
-    .hero_banner_section.style_3 .shape_1 {
-        top: 50%;
-        left: 50%;
-        width: 670px;
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
+
+    @media (min-width: 1200px) and (max-width: 1399px) {
+        .earth_globe_container {
+            width: 700px;
+            height: 700px;
+        }
+
+        .hero_banner_heading {
+            font-size: 75px;
+        }
     }
-    @media only screen and (min-width: 1200px) and (max-width: 1399px) {
-        .hero_banner_section.style_3 .shape_1 {
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .earth_globe_container {
             width: 600px;
+            height: 600px;
+        }
+
+        .hero_banner_heading {
+            font-size: 65px;
         }
     }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .hero_banner_section.style_3 .shape_1 {
-            width: 500px;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        .earth_globe_container {
+            width: 550px;
+            height: 550px;
+        }
+
+        .hero_banner_heading {
+            font-size: 68px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banner_content_3 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero_description,
+        .hero_subtitle,
+        .hero_features {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero_features li {
+            justify-content: center;
+        }
+
+        .hero_buttons {
+            justify-content: center;
         }
     }
-    @media (max-width: 575px) {
-        .hero_banner_section.style_3 .shape_1 {
+
+    @media (max-width: 767px) {
+        .hero_section_wrapper {
+            padding-top: 120px; /* Reducido el espacio para el header en móvil */
+            padding-bottom: 40px;
+            min-height: auto;
+            height: auto;
+        }
+
+        .row {
+            flex-direction: column;
+        }
+
+        .earth_globe_container {
+            width: 100%;
+            aspect-ratio: 1/1; /* Mantener proporción cuadrada */
+            max-width: 400px;
+            margin: 30px auto 0;
+        }
+
+        .hero_banner_image_3 {
+            padding: 0;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .tech_icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .tech_icon i {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .hero_scroll_indicator {
             display: none;
+        }
+
+        .hero_banner_heading {
+            font-size: 50px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .banner_content_3 {
+            text-align: center;
+        }
+
+        .hero_description,
+        .hero_subtitle,
+        .hero_features {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero_features li {
+            justify-content: center;
+        }
+
+        .hero_buttons {
+            justify-content: center;
+        }
+
+        .col {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero_section_wrapper {
+            padding-top: 100px;
+        }
+
+        .earth_globe_container {
+            max-width: 350px;
+        }
+
+        .tech_icon {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero_section_wrapper {
+            padding-top: 90px;
+        }
+
+        .earth_globe_container {
+            max-width: 300px;
+        }
+
+        .hero_banner_heading {
+            font-size: 40px;
+        }
+
+        .hero_features {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .hero_section_wrapper {
+            padding-top: 80px;
+        }
+
+        .earth_globe_container {
+            max-width: 280px;
+        }
+
+        .hero_banner_heading {
+            font-size: 36px;
         }
     }
 </style>

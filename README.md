@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains the source code for the Cerquetech Solutions website, accessible at [www.cerquetech.com](https://www.cerquetech.com), [cerque.tech](https://cerque.tech), and [cerquetech.com.ar](https://cerquetech.com.ar). The website is built using Astro, a modern front-end framework. It features a sleek design, animations, and SEO optimizations to provide an engaging user experience.
+This repository contains the source code for the Cerquetech Solutions website, accessible at [www.cerquetech.com](https://www.cerquetech.com) and [cerquetech.com.ar](https://cerquetech.com.ar). The website is built using Astro, a modern front-end framework. It features a sleek design, animations, and SEO optimizations to provide an engaging user experience.
 
 ## Features
 
