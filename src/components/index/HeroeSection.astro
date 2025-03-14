@@ -200,17 +200,24 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     {
                         startLat: -34.6037,
                         startLng: -58.3816,
+                        endLat: 19.4326,
+                        endLng: -99.1332,
+                        color: ['#ffcc00', '#ff9933']
+                    }, // Buenos Aires - Ciudad de México
+                    {
+                        startLat: 19.4326,
+                        startLng: -99.1332,
                         endLat: 40.4168,
                         endLng: -3.7038,
-                        color: ['#ffcc00', '#ff9933']
-                    }, // Buenos Aires - Madrid
+                        color: ['#ffcc00', '#4169e1']
+                    }, // Ciudad de México - Madrid
                     {
-                        startLat: -34.6037,
-                        startLng: -58.3816,
+                        startLat: 40.4168,
+                        startLng: -3.7038,
                         endLat: 35.6762,
                         endLng: 139.6503,
-                        color: ['#5e7ce2', '#4169e1']
-                    }, // Buenos Aires - Tokyo
+                        color: ['#4169e1', '#5e7ce2']
+                    }, // Madrid - Tokyo
                     {
                         startLat: -23.5505,
                         startLng: -46.6333,
@@ -228,10 +235,39 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     {
                         startLat: 35.6762,
                         startLng: 139.6503,
-                        endLat: 37.7749,
-                        endLng: -122.4194,
+                        endLat: 31.2304,
+                        endLng: 121.4737,
                         color: ['#5e7ce2', '#ffcc00']
-                    } // Tokyo - San Francisco
+                    }, // Tokyo - Shanghai
+                    {
+                        startLat: 31.2304,
+                        startLng: 121.4737,
+                        endLat: 1.3521,
+                        endLng: 103.8198,
+                        color: ['#4169e1', '#ffcc00']
+                    }, // Shanghai - Singapore
+                    {
+                        startLat: -34.6037,
+                        startLng: -58.3816,
+                        endLat: -33.8688,
+                        endLng: 151.2093,
+                        arcAltitude: 0.3,
+                        color: ['#5e7ce2', '#4169e1']
+                    }, // Buenos Aires - Sydney (con mayor altura)
+                    {
+                        startLat: -33.8688,
+                        startLng: 151.2093,
+                        endLat: 1.3521,
+                        endLng: 103.8198,
+                        color: ['#4169e1', '#ffcc00']
+                    }, // Sydney - Singapore
+                    {
+                        startLat: -34.6037,
+                        startLng: -58.3816,
+                        endLat: -15.7975,
+                        endLng: -47.8919,
+                        color: ['#5e7ce2', '#4169e1']
+                    } // Buenos Aires - Brasilia
                 ];
 
                 // Configuración simplificada para arcos
@@ -242,7 +278,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     .arcDashGap(0.2)
                     .arcDashAnimateTime(2000)
                     .arcStroke(isMobile ? 2.0 : 1.2) // Líneas más gruesas en móvil
-                    .arcAltitude(0.15)
+                    .arcAltitude((d) => d.arcAltitude || 0.15) // Permitir alturas personalizadas por arco
                     .arcAltitudeAutoScale(0.25);
 
                 // Inicializar globo
@@ -490,6 +526,12 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                 }
             });
         });
+
+        // Cambiar cursor en móvil
+        if (isMobile) {
+            container.style.cursor = 'default';
+            globe.controls().enabled = false; // Deshabilitar controles en móvil
+        }
     });
 </script>
 
@@ -1017,6 +1059,15 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
         .hero_buttons {
             justify-content: center;
+            margin-bottom: 40px; /* Más espacio después de los botones en móvil */
+        }
+
+        .earth_globe {
+            cursor: default; /* Quitar el cursor pointer en móvil */
+        }
+
+        .earth_globe:active {
+            cursor: default; /* Quitar el cursor grabbing en móvil */
         }
 
         .col {
