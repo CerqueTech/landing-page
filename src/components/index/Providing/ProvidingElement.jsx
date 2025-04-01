@@ -1,9 +1,30 @@
-import './Providing.css';
 import { $theme } from '../../../environment/theme';
 import { useStore } from '@nanostores/react';
+import { useState, useEffect } from 'react';
 
 const ProvidingElement = (props) => {
   const theme = useStore($theme);
+  const [contentHeight, setContentHeight] = useState('195px');
+
+  // Handle responsive styling
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
+        setContentHeight('140px');
+      } else {
+        setContentHeight('195px');
+      }
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Verificar si el enlace es externo
   const isExternalLink = props.href && (props.href.startsWith('http://') || props.href.startsWith('https://'));
@@ -23,7 +44,7 @@ const ProvidingElement = (props) => {
         >
           <img src={props.iconImage} alt={props.title} />
         </div>
-        <div className="item_content">
+        <div className="item_content" style={{ height: contentHeight }}>
           <h3 className="item_title">{props.title}</h3>
           <p className="item_description">{props.description}</p>
         </div>

@@ -1,8 +1,0 @@
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .item_content {
-    height: 140px !important;
-  }
-}
-.item_content {
-  height: 195px;
-}
