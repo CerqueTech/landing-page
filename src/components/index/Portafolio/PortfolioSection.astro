@@ -1,0 +1,233 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<div class='container'>
+    <div class='section_heading is_portfolio'>
+        <div class='row align-items-end'>
+            <div class='col col-lg-6'>
+                <h2 class='heading_subtitle'>
+                    <span class='double_icon'>
+                        <i class='fas fa-sharp fa-square-full'></i>
+                        <i class='fas fa-sharp fa-square-full'></i>
+                    </span>
+                    <span>Our Work</span>
+                </h2>
+                <h3 class='heading_title mb-0'>Our Latest Work</h3>
+            </div>
+            <div class='col col-lg-6'>
+                <div
+                    class='button-group filters-button-group m-0 justify-content-start justify-content-lg-end'
+                >
+                    <div class='portfolio_button has_bg_transparent'>
+                        <button class='active' data-filter='*'>View All</button>
+                        <button data-filter='.applications'>Applications</button
+                        >
+                        <button data-filter='.digital'>Digital</button>
+                        <button data-filter='.chatbots'>Chatbots</button>
+                        <button data-filter='.events'>Events</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='grid row'>
+        <div
+            class='col col-lg-6 col-md-6 element-item applications'
+            data-category='applications'
+        >
+            <div class='portfolio_item layout_grid text-center'>
+                <div class='item_image'>
+                    <a href='#!'>
+                        <img
+                            src='/assets/images/portfolio/siemprealerta.jpg'
+                            alt='SiempreAlerta App'
+                        />
+                    </a>
+                </div>
+                <div class='item_content'>
+                    <ul class='category_list unordered_list_center'>
+                        <li><a href='#!'>Applications</a></li>
+                    </ul>
+                    <h3 class='item_title mb-0'>
+                        <a href='#!'>
+                            SiempreAlerta - Emergency Alert System
+                        </a>
+                    </h3>
+                    <p class='item_description'>
+                        Allows any neighbor to alert emergency situations from
+                        their mobile device, whether it's a police incident, an
+                        emergency requiring firefighter intervention, or a
+                        gender violence incident.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class='col col-lg-6 col-md-6 element-item applications'
+            data-category='applications'
+        >
+            <div class='portfolio_item layout_grid text-center'>
+                <div class='item_image'>
+                    <a href='#!'>
+                        <img
+                            src='/assets/images/portfolio/turnero-digital.jpg'
+                            alt='Turnero Digital'
+                        />
+                    </a>
+                </div>
+                <div class='item_content'>
+                    <ul class='category_list unordered_list_center'>
+                        <li><a href='#!'>Applications</a></li>
+                    </ul>
+                    <h3 class='item_title mb-0'>
+                        <a href='#!'> Turnero Digital </a>
+                    </h3>
+                    <p class='item_description'>
+                        Digital queuing system for efficient appointment
+                        management.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class='col col-lg-6 col-md-6 element-item applications'
+            data-category='applications'
+        >
+            <div class='portfolio_item layout_grid text-center'>
+                <div class='item_image'>
+                    <a href='https://qrz.app' target='_blank'>
+                        <img
+                            src='/assets/images/portfolio/qrz-app.jpg'
+                            alt='QRZ App'
+                        />
+                    </a>
+                </div>
+                <div class='item_content'>
+                    <ul class='category_list unordered_list_center'>
+                        <li><a href='#!'>Applications</a></li>
+                    </ul>
+                    <h3 class='item_title mb-0'>
+                        <a href='https://qrz.app' target='_blank'> QRZ App </a>
+                    </h3>
+                    <p class='item_description'>
+                        Social network that connects, shares, and explores a
+                        specific community in a personalized way.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class='col col-lg-6 col-md-6 element-item digital'
+            data-category='digital'
+        >
+            <div class='portfolio_item layout_grid text-center'>
+                <div class='item_image'>
+                    <a href='#!'>
+                        <img
+                            src='/assets/images/portfolio/escuela-negocios.jpg'
+                            alt='Escuela de Negocios Digitales'
+                        />
+                    </a>
+                </div>
+                <div class='item_content'>
+                    <ul class='category_list unordered_list_center'>
+                        <li><a href='#!'>Digital</a></li>
+                    </ul>
+                    <h3 class='item_title mb-0'>
+                        <a href='#!'> Escuela de Negocios Digitales </a>
+                    </h3>
+                    <p class='item_description'>
+                        High-impact social courses for digital business
+                        education.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class='col col-lg-6 col-md-6 element-item events'
+            data-category='events'
+        >
+            <div class='portfolio_item layout_grid text-center'>
+                <div class='item_image'>
+                    <a href='#!'>
+                        <img
+                            src='/assets/images/portfolio/esports-events.jpg'
+                            alt='Esports Events'
+                        />
+                    </a>
+                </div>
+                <div class='item_content'>
+                    <ul class='category_list unordered_list_center'>
+                        <li><a href='#!'>Events</a></li>
+                    </ul>
+                    <h3 class='item_title mb-0'>
+                        <a href='#!'>
+                            Esports Tournament & Event Organization
+                        </a>
+                    </h3>
+                    <p class='item_description'>
+                        Professional organization and management of esports
+                        tournaments and events.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div
+            class='col col-lg-6 col-md-6 element-item chatbots'
+            data-category='chatbots'
+        >
+            <div class='portfolio_item layout_grid text-center'>
+                <div class='item_image'>
+                    <a href='#!'>
+                        <img
+                            src='/assets/images/portfolio/ai-chatbot.jpg'
+                            alt='AI ChatBot'
+                        />
+                    </a>
+                </div>
+                <div class='item_content'>
+                    <ul class='category_list unordered_list_center'>
+                        <li><a href='#!'>Chatbots</a></li>
+                    </ul>
+                    <h3 class='item_title mb-0'>
+                        <a href='#!'>
+                            AI-based ChatBot for User/Neighbor Assistance
+                        </a>
+                    </h3>
+                    <p class='item_description'>
+                        Can answer citizens' questions regardless of how they
+                        are expressed, maintaining conversation context. The
+                        system has an administration backend for administrators
+                        to load useful information citizens may need.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='btn_wrap pt-4 pb-0 text-center'>
+        <a href='#!' class='bd-btn-link btn_primary'>
+            <span class='bd-button-content-wrapper'>
+                <span class='bd-button-icon'>
+                    <i class='fa-light fa-arrow-right-long'></i>
+                </span>
+                <span class='pd-animation-flip'>
+                    <span class='bd-btn-anim-wrapp'>
+                        <span class='bd-button-text'>View All Work</span>
+                        <span class='bd-button-text'>View All Work</span>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </div>
+</div>
+
+<style>
+    .item_description {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+    }
+</style>
