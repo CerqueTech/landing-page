@@ -132,13 +132,13 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         // Variables globales
         let globe = null;
         let globeInitialized = false;
-        let isDestroyed = false;
+        let isHidden = false;
         let observer = null;
         const isMobile = window.innerWidth < 768;
 
-        // Función para inicializar el globo
+        // Función para inicializar el globo - solo una vez
         function initGlobe() {
-            if (globeInitialized || isDestroyed) return;
+            if (globeInitialized) return;
 
             try {
                 console.log('Inicializando globo...');
@@ -151,8 +151,10 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     return;
                 }
 
-                // Mostrar el contenedor
+                // Asegurar máxima visibilidad del contenedor
                 container.style.display = 'flex';
+                container.style.opacity = '1';
+                container.style.visibility = 'visible';
 
                 const globeElement = document.getElementById('globeViz');
                 if (!globeElement) return;
@@ -304,101 +306,41 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     1000
                 );
 
+                // Marcar como inicializado
                 globeInitialized = true;
                 console.log('Globo inicializado correctamente');
             } catch (error) {
                 console.error('Error al inicializar el globo:', error);
-                destroyGlobe();
             }
         }
 
-        // Función para destruir completamente el globo
-        function destroyGlobe() {
+        // Simplemente ocultar/mostrar el globo en vez de destruirlo
+        function toggleGlobeVisibility(isVisible) {
             if (!globeInitialized || !globe) return;
 
-            try {
-                console.log('Destruyendo globo para liberar recursos...');
+            if (isVisible && isHidden) {
+                console.log('Mostrando globo...');
+                container.style.opacity = '1';
+                container.style.visibility = 'visible';
+                isHidden = false;
 
-                // Detener rotación
+                // Reactivar rotación
+                if (globe.controls()) {
+                    globe.controls().autoRotate = true;
+                }
+            } else if (!isVisible && !isHidden) {
+                console.log('Ocultando globo temporalmente...');
+                container.style.opacity = '0.01'; // Casi invisible pero no completamente
+                isHidden = true;
+
+                // Pausar rotación para ahorrar recursos
                 if (globe.controls()) {
                     globe.controls().autoRotate = false;
                 }
-
-                // Liberar recursos de Three.js
-                if (globe.renderer()) {
-                    const renderer = globe.renderer();
-
-                    if (globe.scene()) {
-                        const scene = globe.scene();
-
-                        // Eliminar todos los objetos
-                        while (scene.children.length > 0) {
-                            const obj = scene.children[0];
-                            scene.remove(obj);
-
-                            // Liberar geometrías
-                            if (obj.geometry) {
-                                obj.geometry.dispose();
-                            }
-
-                            // Liberar materiales
-                            if (obj.material) {
-                                if (Array.isArray(obj.material)) {
-                                    obj.material.forEach((mat) => {
-                                        if (mat.map) mat.map.dispose();
-                                        mat.dispose();
-                                    });
-                                } else {
-                                    if (obj.material.map)
-                                        obj.material.map.dispose();
-                                    obj.material.dispose();
-                                }
-                            }
-                        }
-                    }
-
-                    // Liberar renderizador
-                    renderer.dispose();
-                    renderer.forceContextLoss();
-                    renderer.domElement = null;
-
-                    // Eliminar canvas
-                    const canvas = document.querySelector('#globeViz canvas');
-                    if (canvas && canvas.parentNode) {
-                        canvas.parentNode.removeChild(canvas);
-                    }
-                }
-
-                // Limpiar elemento
-                const globeElement = document.getElementById('globeViz');
-                if (globeElement) {
-                    globeElement.innerHTML = '';
-                }
-
-                // Ocultar contenedor
-                container.style.display = 'none';
-
-                // Limpiar referencias
-                globe = null;
-                globeInitialized = false;
-                isDestroyed = true;
-
-                console.log('Globo destruido completamente');
-
-                // Forzar recolección de basura
-                if (window.gc) window.gc();
-            } catch (error) {
-                console.error('Error al destruir el globo:', error);
-
-                // Asegurar que el contenedor esté oculto en caso de error
-                container.style.display = 'none';
-                globe = null;
-                globeInitialized = false;
-                isDestroyed = true;
             }
         }
 
-        // Usar Intersection Observer para detectar visibilidad
+        // Usar Intersection Observer solo para visibilidad, sin destruir
         function setupObserver() {
             // Destruir observer existente si hay uno
             if (observer) {
@@ -409,56 +351,30 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             observer = new IntersectionObserver(
                 (entries) => {
                     const entry = entries[0];
-
                     if (entry.isIntersecting) {
-                        // Solo inicializar si no está ya inicializado y no fue destruido
-                        if (!globeInitialized && !isDestroyed) {
-                            // Retrasar inicialización en móvil
-                            if (isMobile) {
-                                setTimeout(initGlobe, 500);
-                            } else {
-                                initGlobe();
-                            }
+                        // Inicializar si no está ya inicializado
+                        if (!globeInitialized) {
+                            initGlobe();
+                        } else {
+                            toggleGlobeVisibility(true);
                         }
                     } else {
-                        // Destruir cuando no es visible
-                        if (globeInitialized) {
-                            destroyGlobe();
-                        }
+                        toggleGlobeVisibility(false);
                     }
                 },
                 {
                     root: null,
-                    rootMargin: '0px',
-                    threshold: 0.1 // 10% visible para activar
+                    rootMargin: '100px 0px', // Un poco de margen para evitar parpadeos
+                    threshold: 0.01 // Apenas visible
                 }
             );
 
             observer.observe(container);
         }
 
-        // Manejar cambios de visibilidad de la página
-        function handleVisibilityChange() {
-            if (document.hidden) {
-                // Página no visible, destruir globo
-                if (globeInitialized) {
-                    destroyGlobe();
-                }
-            } else {
-                // Página visible de nuevo, reiniciar observer
-                isDestroyed = false;
-                setupObserver();
-            }
-        }
-
         // Manejar redimensionamiento de ventana
         function handleResize() {
             const newIsMobile = window.innerWidth < 768;
-
-            // Destruir globo al cambiar tamaño
-            if (globeInitialized) {
-                destroyGlobe();
-            }
 
             // Si cambia entre móvil y desktop, actualizar el tamaño del contenedor
             if (newIsMobile !== isMobile) {
@@ -470,40 +386,29 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     // Restaurar tamaño para desktop
                     container.style.height = '';
                 }
-            }
 
-            // Reiniciar observer después de un breve retraso
-            isDestroyed = false;
-            setTimeout(setupObserver, 300);
+                // Reiniciar globo para adaptarse al nuevo tamaño
+                if (globeInitialized && globe) {
+                    // Actualizar dimensiones
+                    let width = container.clientWidth;
+                    let height = newIsMobile ? width : container.clientHeight;
+
+                    globe.width(width).height(height);
+                }
+            }
         }
 
-        // Configurar observer inicial
-        setupObserver();
+        // Inicializar directamente (sin esperar que sea visible)
+        initGlobe();
 
-        // Configurar event listeners
-        document.addEventListener('visibilitychange', handleVisibilityChange);
+        // Configurar observer para controlar visibilidad
+        setupObserver();
 
         // Usar debounce para resize
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(handleResize, 300);
-        });
-
-        // Limpiar al desmontar
-        window.addEventListener('beforeunload', () => {
-            if (observer) {
-                observer.disconnect();
-            }
-
-            if (globeInitialized) {
-                destroyGlobe();
-            }
-
-            document.removeEventListener(
-                'visibilitychange',
-                handleVisibilityChange
-            );
         });
 
         // Animar iconos tecnológicos
@@ -530,7 +435,9 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         // Cambiar cursor en móvil
         if (isMobile) {
             container.style.cursor = 'default';
-            globe.controls().enabled = false; // Deshabilitar controles en móvil
+            if (globe && globe.controls) {
+                globe.controls().enabled = false; // Deshabilitar controles en móvil
+            }
         }
     });
 </script>
@@ -676,6 +583,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         height: 100%;
         cursor: grab;
         z-index: 100;
+        transition: opacity 0.3s ease;
     }
 
     .earth_globe:active {
