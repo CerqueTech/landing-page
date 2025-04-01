@@ -381,7 +381,8 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     }
                 }
             } else {
-                if (globeInitialized && globe && !isHidden) {
+                // Condición simplificada para asegurar que siempre se destruya cuando no es visible
+                if (globeInitialized && globe) {
                     console.log('Ocultando globo completamente...');
                     // Completamente oculto mientras no está en viewport
                     container.style.opacity = '0';
@@ -452,7 +453,15 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             observer = new IntersectionObserver(
                 (entries) => {
                     const entry = entries[0];
-                    toggleGlobeVisibility(entry.isIntersecting);
+                    // Asegurar que el estado de visibilidad cambie adecuadamente
+                    const isIntersecting = entry.isIntersecting;
+
+                    // Registrar el cambio de estado para depuración
+                    console.log(
+                        `Cambio de visibilidad: ${isIntersecting ? 'visible' : 'oculto'}`
+                    );
+
+                    toggleGlobeVisibility(isIntersecting);
                 },
                 {
                     root: null,
