@@ -135,7 +135,11 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         let globeInitialized = false;
         let isHidden = false;
         let observer = null;
+        let isScrolling = false;
+        let scrollTimeout = null;
+        let animationFrameId = null;
         const isMobile = window.innerWidth < 768;
+        const globeElement = document.getElementById('globeViz');
 
         // Función para inicializar el globo - solo una vez
         function initGlobe() {
@@ -157,7 +161,6 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                 container.style.opacity = '1';
                 container.style.visibility = 'visible';
 
-                const globeElement = document.getElementById('globeViz');
                 if (!globeElement) return;
 
                 // Calcular dimensiones óptimas para el globo
@@ -315,33 +318,130 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             }
         }
 
-        // Simplemente ocultar/mostrar el globo en vez de destruirlo
-        function toggleGlobeVisibility(isVisible) {
+        // Función para destruir completamente el globo y liberar recursos
+        function destroyGlobe() {
             if (!globeInitialized || !globe) return;
 
-            if (isVisible && isHidden) {
-                console.log('Mostrando globo...');
-                container.style.opacity = '1';
-                container.style.visibility = 'visible';
-                isHidden = false;
+            console.log('Destruyendo globo para liberar recursos...');
 
-                // Reactivar rotación
-                if (globe.controls()) {
-                    globe.controls().autoRotate = true;
+            // Cancelar cualquier animación pendiente
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+
+            // Limpiar el elemento del DOM
+            if (globeElement) {
+                globeElement.innerHTML = '';
+            }
+
+            // Liberar recursos de Three.js si es posible
+            if (globe && globe._destructor) {
+                globe._destructor();
+            } else if (globe && globe.renderer) {
+                // Intento manual de limpieza
+                const renderer = globe.renderer();
+                if (renderer) {
+                    renderer.dispose();
+
+                    if (renderer.domElement) {
+                        renderer.domElement.remove();
+                    }
                 }
-            } else if (!isVisible && !isHidden) {
-                console.log('Ocultando globo temporalmente...');
-                container.style.opacity = '0.01'; // Casi invisible pero no completamente
-                isHidden = true;
+            }
 
-                // Pausar rotación para ahorrar recursos
-                if (globe.controls()) {
-                    globe.controls().autoRotate = false;
+            // Marcar como no inicializado para reconstruir cuando sea visible
+            globeInitialized = false;
+            globe = null;
+            isHidden = true;
+
+            // Mostrar un placeholder en su lugar
+            container.style.backgroundImage =
+                "url('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')";
+            container.style.backgroundSize = 'cover';
+            container.style.backgroundPosition = 'center';
+        }
+
+        // Controlar visibilidad del globo
+        function toggleGlobeVisibility(isVisible) {
+            if (isVisible) {
+                if (!globeInitialized || !globe) {
+                    console.log('Inicializando globo porque es visible...');
+                    container.style.backgroundImage = 'none';
+                    initGlobe();
+                } else if (isHidden) {
+                    console.log('Mostrando globo...');
+                    container.style.opacity = '1';
+                    container.style.visibility = 'visible';
+                    isHidden = false;
+
+                    // Reactivar rotación solo si no está scrolling
+                    if (globe.controls() && !isScrolling) {
+                        globe.controls().autoRotate = true;
+                    }
+                }
+            } else {
+                if (globeInitialized && globe && !isHidden) {
+                    console.log('Ocultando globo completamente...');
+                    // Completamente oculto mientras no está en viewport
+                    container.style.opacity = '0';
+                    container.style.visibility = 'hidden';
+                    isHidden = true;
+
+                    // Destruir el globo después de un breve retraso para asegurar que esté fuera de vista
+                    setTimeout(destroyGlobe, 300);
                 }
             }
         }
 
-        // Usar Intersection Observer solo para visibilidad, sin destruir
+        // Función para pausar el globo durante el scroll
+        function pauseGlobe() {
+            if (!globeInitialized || !globe || isHidden) return;
+
+            if (!isScrolling) {
+                isScrolling = true;
+
+                // Cancelar cualquier animación pendiente
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                    animationFrameId = null;
+                }
+
+                // Pausar la animación para ahorrar CPU
+                if (globe.controls()) {
+                    globe.controls().autoRotate = false;
+                }
+
+                // Reducir visibilidad durante scroll
+                container.style.opacity = '0.5';
+            }
+
+            // Reinicia el temporizador cada vez que se detecta scroll
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                resumeGlobe();
+            }, 500); // Esperar 500ms después del último evento de scroll
+        }
+
+        // Función para reanudar el globo después del scroll
+        function resumeGlobe() {
+            if (!globeInitialized || !globe || isHidden) return;
+
+            isScrolling = false;
+
+            // Solo reanudar si está visible
+            if (!isHidden) {
+                // Reanudar la animación
+                if (globe.controls()) {
+                    globe.controls().autoRotate = true;
+                }
+
+                // Restaurar opacidad
+                container.style.opacity = '1';
+            }
+        }
+
+        // Usar Intersection Observer para controlar visibilidad
         function setupObserver() {
             // Destruir observer existente si hay uno
             if (observer) {
@@ -352,21 +452,12 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             observer = new IntersectionObserver(
                 (entries) => {
                     const entry = entries[0];
-                    if (entry.isIntersecting) {
-                        // Inicializar si no está ya inicializado
-                        if (!globeInitialized) {
-                            initGlobe();
-                        } else {
-                            toggleGlobeVisibility(true);
-                        }
-                    } else {
-                        toggleGlobeVisibility(false);
-                    }
+                    toggleGlobeVisibility(entry.isIntersecting);
                 },
                 {
                     root: null,
-                    rootMargin: '100px 0px', // Un poco de margen para evitar parpadeos
-                    threshold: 0.01 // Apenas visible
+                    rootMargin: '50px 0px', // Margen reducido para control más estricto
+                    threshold: 0.1 // Umbral más alto - solo renderizar cuando esté más visible
                 }
             );
 
@@ -399,11 +490,11 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             }
         }
 
-        // Inicializar directamente (sin esperar que sea visible)
-        initGlobe();
-
         // Configurar observer para controlar visibilidad
         setupObserver();
+
+        // Agregar evento de scroll para pausar el globo durante el scroll
+        window.addEventListener('scroll', pauseGlobe, { passive: true });
 
         // Usar debounce para resize
         let resizeTimeout;
