@@ -126,11 +126,9 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
 <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
-        // Obtener el contenedor del globo
         const container = document.querySelector('.earth_globe');
         if (!container) return;
 
-        // Variables globales
         let globe = null;
         let globeInitialized = false;
         let isHidden = false;
@@ -141,14 +139,12 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         const isMobile = window.innerWidth < 768;
         const globeElement = document.getElementById('globeViz');
 
-        // Función para inicializar el globo - solo una vez
         function initGlobe() {
             if (globeInitialized) return;
 
             try {
                 console.log('Inicializando globo...');
 
-                // Verificar si Globe está disponible
                 if (typeof Globe === 'undefined') {
                     console.error(
                         'Globe no está definido. El script podría no haberse cargado correctamente.'
@@ -156,29 +152,24 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     return;
                 }
 
-                // Asegurar máxima visibilidad del contenedor
                 container.style.display = 'flex';
                 container.style.opacity = '1';
                 container.style.visibility = 'visible';
 
                 if (!globeElement) return;
 
-                // Calcular dimensiones óptimas para el globo
                 let width, height;
 
                 if (isMobile) {
-                    // En móvil, usar el ancho completo del contenedor
                     width = container.clientWidth;
-                    height = width; // Mantener proporción cuadrada
+                    height = width;
 
-                    // Asegurar que el contenedor tenga la altura correcta
                     container.style.height = `${height}px`;
                 } else {
                     width = container.clientWidth;
                     height = container.clientHeight;
                 }
 
-                // Crear instancia del globo con configuración mínima
                 globe = Globe()
                     .globeImageUrl(
                         'https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg'
@@ -187,7 +178,6 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     .width(width)
                     .height(height);
 
-                // Definir conexiones mínimas para mejor rendimiento
                 const connections = [
                     {
                         startLat: -34.6037,
@@ -195,63 +185,63 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                         endLat: -23.5505,
                         endLng: -46.6333,
                         color: ['#4169e1', '#ffcc00']
-                    }, // Buenos Aires - São Paulo
+                    },
                     {
                         startLat: -34.6037,
                         startLng: -58.3816,
                         endLat: -22.9068,
                         endLng: -43.1729,
                         color: ['#4169e1', '#5e7ce2']
-                    }, // Buenos Aires - Rio
+                    },
                     {
                         startLat: -34.6037,
                         startLng: -58.3816,
                         endLat: 19.4326,
                         endLng: -99.1332,
                         color: ['#ffcc00', '#ff9933']
-                    }, // Buenos Aires - Ciudad de México
+                    },
                     {
                         startLat: 19.4326,
                         startLng: -99.1332,
                         endLat: 40.4168,
                         endLng: -3.7038,
                         color: ['#ffcc00', '#4169e1']
-                    }, // Ciudad de México - Madrid
+                    },
                     {
                         startLat: 40.4168,
                         startLng: -3.7038,
                         endLat: 35.6762,
                         endLng: 139.6503,
                         color: ['#4169e1', '#5e7ce2']
-                    }, // Madrid - Tokyo
+                    },
                     {
                         startLat: -23.5505,
                         startLng: -46.6333,
                         endLat: 40.7128,
                         endLng: -74.006,
                         color: ['#ffcc00', '#ff9933']
-                    }, // São Paulo - New York
+                    },
                     {
                         startLat: 51.5074,
                         startLng: -0.1278,
                         endLat: 48.8566,
                         endLng: 2.3522,
                         color: ['#4169e1', '#5e7ce2']
-                    }, // London - Paris
+                    },
                     {
                         startLat: 35.6762,
                         startLng: 139.6503,
                         endLat: 31.2304,
                         endLng: 121.4737,
                         color: ['#5e7ce2', '#ffcc00']
-                    }, // Tokyo - Shanghai
+                    },
                     {
                         startLat: 31.2304,
                         startLng: 121.4737,
                         endLat: 1.3521,
                         endLng: 103.8198,
                         color: ['#4169e1', '#ffcc00']
-                    }, // Shanghai - Singapore
+                    },
                     {
                         startLat: -34.6037,
                         startLng: -58.3816,
@@ -259,58 +249,52 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                         endLng: 151.2093,
                         arcAltitude: 0.3,
                         color: ['#5e7ce2', '#4169e1']
-                    }, // Buenos Aires - Sydney (con mayor altura)
+                    },
                     {
                         startLat: -33.8688,
                         startLng: 151.2093,
                         endLat: 1.3521,
                         endLng: 103.8198,
                         color: ['#4169e1', '#ffcc00']
-                    }, // Sydney - Singapore
+                    },
                     {
                         startLat: -34.6037,
                         startLng: -58.3816,
                         endLat: -15.7975,
                         endLng: -47.8919,
                         color: ['#5e7ce2', '#4169e1']
-                    } // Buenos Aires - Brasilia
+                    }
                 ];
 
-                // Configuración simplificada para arcos
                 globe
                     .arcsData(connections)
                     .arcColor('color')
                     .arcDashLength(0.4)
                     .arcDashGap(0.2)
                     .arcDashAnimateTime(2000)
-                    .arcStroke(isMobile ? 2.0 : 1.2) // Líneas más gruesas en móvil
-                    .arcAltitude((d) => d.arcAltitude || 0.15) // Permitir alturas personalizadas por arco
+                    .arcStroke(isMobile ? 2.0 : 1.2)
+                    .arcAltitude((d) => d.arcAltitude || 0.15)
                     .arcAltitudeAutoScale(0.25);
 
-                // Inicializar globo
                 globe(globeElement);
 
-                // Configurar controles
                 globe.controls().autoRotate = true;
                 globe.controls().autoRotateSpeed = 0.5;
                 globe.controls().enableZoom = false;
                 globe.controls().enablePan = false;
 
-                // Fijar distancia
                 globe.controls().minDistance = globe.controls().getDistance();
                 globe.controls().maxDistance = globe.controls().getDistance();
 
-                // Posición inicial
                 globe.pointOfView(
                     {
                         lat: -34.6037,
                         lng: -58.3816,
-                        altitude: isMobile ? 2.0 : 2.0 // Misma altitud para mejor visualización
+                        altitude: isMobile ? 2.0 : 2.0
                     },
                     1000
                 );
 
-                // Marcar como inicializado
                 globeInitialized = true;
                 console.log('Globo inicializado correctamente');
             } catch (error) {
@@ -318,28 +302,23 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             }
         }
 
-        // Función para destruir completamente el globo y liberar recursos
         function destroyGlobe() {
             if (!globeInitialized || !globe) return;
 
             console.log('Destruyendo globo para liberar recursos...');
 
-            // Cancelar cualquier animación pendiente
             if (animationFrameId) {
                 cancelAnimationFrame(animationFrameId);
                 animationFrameId = null;
             }
 
-            // Limpiar el elemento del DOM
             if (globeElement) {
                 globeElement.innerHTML = '';
             }
 
-            // Liberar recursos de Three.js si es posible
             if (globe && globe._destructor) {
                 globe._destructor();
             } else if (globe && globe.renderer) {
-                // Intento manual de limpieza
                 const renderer = globe.renderer();
                 if (renderer) {
                     renderer.dispose();
@@ -350,19 +329,16 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                 }
             }
 
-            // Marcar como no inicializado para reconstruir cuando sea visible
             globeInitialized = false;
             globe = null;
             isHidden = true;
 
-            // Mostrar un placeholder en su lugar
             container.style.backgroundImage =
                 "url('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')";
             container.style.backgroundSize = 'cover';
             container.style.backgroundPosition = 'center';
         }
 
-        // Controlar visibilidad del globo
         function toggleGlobeVisibility(isVisible) {
             if (isVisible) {
                 if (!globeInitialized || !globe) {
@@ -375,76 +351,61 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                     container.style.visibility = 'visible';
                     isHidden = false;
 
-                    // Reactivar rotación solo si no está scrolling
                     if (globe.controls() && !isScrolling) {
                         globe.controls().autoRotate = true;
                     }
                 }
             } else {
-                // Condición simplificada para asegurar que siempre se destruya cuando no es visible
                 if (globeInitialized && globe) {
                     console.log('Ocultando globo completamente...');
-                    // Completamente oculto mientras no está en viewport
                     container.style.opacity = '0';
                     container.style.visibility = 'hidden';
                     isHidden = true;
 
-                    // Destruir el globo después de un breve retraso para asegurar que esté fuera de vista
                     setTimeout(destroyGlobe, 300);
                 }
             }
         }
 
-        // Función para pausar el globo durante el scroll
         function pauseGlobe() {
             if (!globeInitialized || !globe || isHidden) return;
 
             if (!isScrolling) {
                 isScrolling = true;
 
-                // Cancelar cualquier animación pendiente
                 if (animationFrameId) {
                     cancelAnimationFrame(animationFrameId);
                     animationFrameId = null;
                 }
 
-                // Pausar la animación para ahorrar CPU
                 if (globe.controls()) {
                     globe.controls().autoRotate = false;
                 }
 
-                // Reducir visibilidad durante scroll
                 container.style.opacity = '0.5';
             }
 
-            // Reinicia el temporizador cada vez que se detecta scroll
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
                 resumeGlobe();
-            }, 500); // Esperar 500ms después del último evento de scroll
+            }, 500);
         }
 
-        // Función para reanudar el globo después del scroll
         function resumeGlobe() {
             if (!globeInitialized || !globe || isHidden) return;
 
             isScrolling = false;
 
-            // Solo reanudar si está visible
             if (!isHidden) {
-                // Reanudar la animación
                 if (globe.controls()) {
                     globe.controls().autoRotate = true;
                 }
 
-                // Restaurar opacidad
                 container.style.opacity = '1';
             }
         }
 
-        // Usar Intersection Observer para controlar visibilidad
         function setupObserver() {
-            // Destruir observer existente si hay uno
             if (observer) {
                 observer.disconnect();
                 observer = null;
@@ -453,10 +414,8 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             observer = new IntersectionObserver(
                 (entries) => {
                     const entry = entries[0];
-                    // Asegurar que el estado de visibilidad cambie adecuadamente
                     const isIntersecting = entry.isIntersecting;
 
-                    // Registrar el cambio de estado para depuración
                     console.log(
                         `Cambio de visibilidad: ${isIntersecting ? 'visible' : 'oculto'}`
                     );
@@ -465,32 +424,26 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                 },
                 {
                     root: null,
-                    rootMargin: '50px 0px', // Margen reducido para control más estricto
-                    threshold: 0.1 // Umbral más alto - solo renderizar cuando esté más visible
+                    rootMargin: '50px 0px',
+                    threshold: 0.1
                 }
             );
 
             observer.observe(container);
         }
 
-        // Manejar redimensionamiento de ventana
         function handleResize() {
             const newIsMobile = window.innerWidth < 768;
 
-            // Si cambia entre móvil y desktop, actualizar el tamaño del contenedor
             if (newIsMobile !== isMobile) {
                 if (newIsMobile) {
-                    // Ajustar tamaño para móvil
                     const width = container.clientWidth;
                     container.style.height = `${width}px`;
                 } else {
-                    // Restaurar tamaño para desktop
                     container.style.height = '';
                 }
 
-                // Reiniciar globo para adaptarse al nuevo tamaño
                 if (globeInitialized && globe) {
-                    // Actualizar dimensiones
                     let width = container.clientWidth;
                     let height = newIsMobile ? width : container.clientHeight;
 
@@ -499,26 +452,21 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             }
         }
 
-        // Configurar observer para controlar visibilidad
         setupObserver();
 
-        // Agregar evento de scroll para pausar el globo durante el scroll
         window.addEventListener('scroll', pauseGlobe, { passive: true });
 
-        // Usar debounce para resize
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(handleResize, 300);
         });
 
-        // Animar iconos tecnológicos
         const techIcons = document.querySelectorAll('.tech_icon');
         techIcons.forEach((icon, index) => {
             icon.style.animationDelay = `${index * 0.7}s`;
         });
 
-        // Scroll suave para enlaces de anclaje
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -533,11 +481,10 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             });
         });
 
-        // Cambiar cursor en móvil
         if (isMobile) {
             container.style.cursor = 'default';
             if (globe && globe.controls) {
-                globe.controls().enabled = false; // Deshabilitar controles en móvil
+                globe.controls().enabled = false;
             }
         }
     });
@@ -577,7 +524,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         min-height: 100vh;
         display: flex;
         align-items: center;
-        padding-top: 60px; /* Reducido el espacio para el header en desktop */
+        padding-top: 60px;
     }
 
     .hero_subtitle {
@@ -904,10 +851,9 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
     }
 
     .row.align-items-center {
-        margin-top: -20px; /* Ajuste para alinear mejor en desktop */
+        margin-top: -20px;
     }
 
-    /* Responsive styles */
     @media (min-width: 1600px) {
         .earth_globe_container {
             width: 900px;
@@ -915,7 +861,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         }
 
         .hero_section_wrapper {
-            padding-top: 50px; /* Aún menos espacio en pantallas grandes */
+            padding-top: 50px;
         }
     }
 
@@ -993,20 +939,19 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 767px) {
         .hero_section_wrapper {
-            padding-top: 100px; /* Reducido para que el globo esté más arriba */
+            padding-top: 100px;
             padding-bottom: 40px;
             min-height: auto;
             height: auto;
         }
 
         .row {
-            flex-direction: column-reverse; /* Invertir el orden para móvil: primero el globo, luego el contenido */
+            flex-direction: column-reverse;
         }
 
-        /* Ajustes para el globo en móvil */
         .globe-col {
             margin-bottom: 0;
-            margin-top: -20px; /* Subir el globo */
+            margin-top: -20px;
         }
 
         .earth_globe_container {
@@ -1014,12 +959,11 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             aspect-ratio: 1/1;
             max-width: 100%;
             height: auto;
-            margin: 0 auto; /* Quitar margen superior */
+            margin: 0 auto;
         }
 
-        /* Ajustes para el contenido en móvil */
         .content-col {
-            margin-top: 20px; /* Espacio entre el globo y el contenido */
+            margin-top: 20px;
         }
 
         .hero_banner_image_3 {
@@ -1068,15 +1012,15 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
         .hero_buttons {
             justify-content: center;
-            margin-bottom: 40px; /* Más espacio después de los botones en móvil */
+            margin-bottom: 40px;
         }
 
         .earth_globe {
-            cursor: default; /* Quitar el cursor pointer en móvil */
+            cursor: default;
         }
 
         .earth_globe:active {
-            cursor: default; /* Quitar el cursor grabbing en móvil */
+            cursor: default;
         }
 
         .col {
@@ -1084,7 +1028,6 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             max-width: 100%;
         }
 
-        /* Ajustes para los iconos flotantes en móvil para evitar solapamiento con el logo */
         .icon_code {
             top: 20%;
             left: 5%;
@@ -1100,7 +1043,6 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             right: 5%;
         }
 
-        /* Ajustes específicos para el logo en móvil */
         .site_link img {
             min-width: 180px !important;
         }
@@ -1108,15 +1050,15 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
 
     @media (max-width: 576px) {
         .hero_section_wrapper {
-            padding-top: 90px; /* Reducido aún más para pantallas pequeñas */
+            padding-top: 90px;
         }
 
         .globe-col {
-            margin-top: -30px; /* Subir más el globo en pantallas pequeñas */
+            margin-top: -30px;
         }
 
         .earth_globe_container {
-            max-width: 100%; /* Usar todo el ancho disponible */
+            max-width: 100%;
             height: auto;
         }
 
@@ -1140,7 +1082,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         }
 
         .globe-col {
-            margin-top: -40px; /* Subir aún más el globo en pantallas muy pequeñas */
+            margin-top: -40px;
         }
 
         .earth_globe_container {
@@ -1180,32 +1122,28 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         }
     }
 
-    /* Aumentar z-index del header para evitar solapamientos */
     header,
     .header_area,
     .site-header {
         position: relative;
-        z-index: 1500 !important; /* Valor más alto para asegurar que esté por encima de todo */
+        z-index: 1500 !important;
     }
 
-    /* Asegurar que el globo esté por debajo del header */
     .earth_globe_container,
     .hero_banner_image_3 {
         z-index: 50;
     }
 
-    /* Estilos específicos para el logo */
     .site_link img {
-        width: auto !important; /* Forzar tamaño original */
+        width: auto !important;
         height: auto !important;
         max-height: 100% !important;
-        min-width: 200px !important; /* Asegurar un tamaño mínimo */
+        min-width: 200px !important;
     }
 
-    /* Mejorar la visibilidad del logo */
     .site_link {
         display: inline-block !important;
         padding: 5px !important;
-        z-index: 2000 !important; /* Mayor que el header */
+        z-index: 2000 !important;
     }
 </style>
