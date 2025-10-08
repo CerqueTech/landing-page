@@ -12,4 +12,5 @@ item5title: 'Soluciones en la Nube'
 item5Desc: 'Estrategias de nube personalizadas para optimizar tu infraestructura y operaciones'
 item6title: 'Consultoría en Ciberseguridad'
 item6Desc: 'Protege tu negocio con estrategias de seguridad de vanguardia y consultoría experta'
+bannerHome: 'Inicio'
 ---

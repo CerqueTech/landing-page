@@ -8,4 +8,6 @@ item3Txt: 'Avance Tecnológico: Adoptamos las últimas tendencias.'
 imgAlt: 'Equipo de Cerquetech Solutions'
 bBttnTxt: 'Nuestras Tecnologías'
 bHeadTxt: 'Liderando con Innovación y Expertise Tecnológico'
+bannerTitle: 'Conocé a nuestro equipo'
+bannerHome: 'Inicio'
 ---

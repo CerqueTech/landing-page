@@ -12,4 +12,5 @@ item5title: 'Cloud Solutions'
 item5Desc: 'Customized cloud strategies to optimize your infrastructure and operations'
 item6title: 'Cybersecurity Consulting'
 item6Desc: 'Protect your business with cutting-edge security strategies and expert consulting'
+bannerHome: 'Home'
 ---

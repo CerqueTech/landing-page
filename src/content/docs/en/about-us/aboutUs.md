@@ -8,4 +8,6 @@ item3Txt: 'Technological Advancement: We adopt the latest trends.'
 imgAlt: 'Cerquetech Solutions Team'
 bBttnTxt: 'Our Technologies'
 bHeadTxt: 'Leading with Innovation and Technological Expertise'
+bannerTitle: 'Meet our team'
+bannerHome: 'Home'
 ---

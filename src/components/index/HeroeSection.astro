@@ -22,25 +22,20 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
             <div class='col-12 col-md-5 col-lg-5 content-col'>
                 <div class='banner_content_3 mb-4 mb-lg-0'>
                     <h1 class='hero_banner_heading'>
-                        <span>Soluciones Digitales</span>
+                        <span>{data.titulo}</span>
                     </h1>
                     <p class='hero_description'>
-                        Creamos tecnología que transforma negocios y
-                        comunidades. Desde apps de emergencia hasta plataformas
-                        sociales personalizadas.
+                        {data.descripcion}
                     </p>
                     <ul class='hero_features'>
                         <li>
-                            <i class='fa-light fa-check-circle'></i> Desarrollo de
-                            aplicaciones a medida
+                            <i class='fa-light fa-check-circle'></i> {data.feature1}
                         </li>
                         <li>
-                            <i class='fa-light fa-check-circle'></i> Soluciones digitales
-                            de alto impacto
+                            <i class='fa-light fa-check-circle'></i> {data.feature2}
                         </li>
                         <li>
-                            <i class='fa-light fa-check-circle'></i> Tecnologías
-                            basadas en IA y Cloud
+                            <i class='fa-light fa-check-circle'></i> {data.feature3}
                         </li>
                     </ul>
                     <div class='hero_buttons'>
@@ -66,7 +61,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                             </span>
                         </a>
                         <a href='#servicios' class='text-btn'>
-                            <span>Ver servicios</span>
+                            <span>{data.verServicios}</span>
                             <i class='fa-light fa-chevron-down'></i>
                         </a>
                     </div>
@@ -82,24 +77,24 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
                         <div class='tech_icons'>
                             <div
                                 class='tech_icon icon_code'
-                                title='Desarrollo web'
+                                title={data.techIcon1Title}
                             >
                                 <i class='fa-light fa-code'></i>
-                                <span class='icon_label'>Desarrollo</span>
+                                <span class='icon_label'>{data.techIcon1Label}</span>
                             </div>
                             <div
                                 class='tech_icon icon_mobile'
-                                title='Aplicaciones móviles'
+                                title={data.techIcon2Title}
                             >
                                 <i class='fa-light fa-mobile'></i>
-                                <span class='icon_label'>Apps</span>
+                                <span class='icon_label'>{data.techIcon2Label}</span>
                             </div>
                             <div
                                 class='tech_icon icon_database'
-                                title='Soluciones en la nube'
+                                title={data.techIcon3Title}
                             >
                                 <i class='fa-light fa-database'></i>
-                                <span class='icon_label'>Cloud</span>
+                                <span class='icon_label'>{data.techIcon3Label}</span>
                             </div>
                         </div>
                     </div>
@@ -120,7 +115,7 @@ const hrefContact = lang === 'es' ? 'contactanos' : 'contact';
         <div class='scroll_icon'>
             <div class='mouse'></div>
         </div>
-        <span>Scroll para explorar</span>
+        <span>{data.scrollText}</span>
     </div>
 </section>
 
