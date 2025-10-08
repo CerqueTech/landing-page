@@ -10,7 +10,7 @@ export default function PortafolioSection(props) {
       const result = await getData(`${props.lang}/index/portafolio`);
       setData(result);
     };
-
+    //
     fetchData();
   }, []);
   const settings = {
