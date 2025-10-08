@@ -297,14 +297,14 @@ if (!data) {
 
         // Agregar evento de clic a cada botón de filtro
         filterButtons.forEach((button) => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', (e) => {
                 // Eliminar la clase 'active' de todos los botones
                 filterButtons.forEach((btn) => btn.classList.remove('active'));
                 // Agregar la clase 'active' al botón actual
-                this.classList.add('active');
+                (e.currentTarget as HTMLButtonElement).classList.add('active');
 
                 // Obtener el valor del filtro
-                const filterValue = this.getAttribute('data-filter');
+                const filterValue = (e.currentTarget as HTMLButtonElement).getAttribute('data-filter') ?? '*';
 
                 // Filtrar los elementos del portafolio
                 portfolioItems.forEach((item) => {
