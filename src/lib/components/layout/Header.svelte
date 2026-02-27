@@ -26,11 +26,10 @@
 		{ label: t.nav.contact, href: `/${lang}#contact` }
 	]);
 
-	// Logo naming: "dark_one_line" = white text (for dark bg), "white_one_line" = black text (for white bg)
 	const logoSrc = $derived(
 		!scrolled || $theme === 'dark'
-			? '/images/logo/dark_one_line.png'
-			: '/images/logo/white_one_line.png'
+			? '/images/logo/dark_without_icon.png'
+			: '/images/logo/white_without_icon.png'
 	);
 
 	onMount(() => {
@@ -50,7 +49,7 @@
 >
 	<nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 		<a href="/{lang}" class="shrink-0">
-			<img src={logoSrc} alt="CerqueTech" class="h-8" />
+			<img src={logoSrc} alt="CerqueTech" class="h-12 w-auto" />
 		</a>
 
 		<div class="hidden items-center gap-1 lg:flex">
