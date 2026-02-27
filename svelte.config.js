@@ -7,7 +7,10 @@ const config = {
 	kit: {
 		adapter: adapter({
 			runtime: 'nodejs22.x'
-		})
+		}),
+		prerender: {
+			entries: ['*']
+		}
 	}
 };
 
