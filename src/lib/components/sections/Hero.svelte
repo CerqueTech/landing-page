@@ -14,41 +14,44 @@
 	const features = $derived(t.hero.features ?? []);
 </script>
 
-<section class="relative min-h-screen overflow-hidden bg-white dark:bg-zinc-950">
-	<!-- Gradient Orbs -->
+<section class="hero-section relative min-h-screen overflow-hidden bg-white dark:bg-zinc-950">
+	<!-- Background -->
 	<div class="pointer-events-none absolute inset-0">
+		<!-- Gradient mesh -->
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(168,85,247,0.10),transparent_70%)] dark:bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(120,80,220,0.25),transparent_70%)]"></div>
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(139,92,246,0.06),transparent_60%)] dark:bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(139,92,246,0.12),transparent_60%)]"></div>
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_20%_80%,rgba(168,85,247,0.06),transparent_60%)] dark:bg-[radial-gradient(ellipse_50%_50%_at_20%_80%,rgba(168,85,247,0.10),transparent_60%)]"></div>
+
+		<!-- Animated orbs -->
+		<div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-brand-400/8 blur-[120px] animate-float dark:bg-brand-700/15"></div>
+		<div class="absolute top-1/3 -right-20 h-[400px] w-[400px] rounded-full bg-brand-300/8 blur-[100px] animate-float-delayed dark:bg-brand-500/10"></div>
+		<div class="absolute -bottom-20 left-1/3 h-[350px] w-[350px] rounded-full bg-brand-400/6 blur-[100px] animate-float-slow dark:bg-brand-600/12"></div>
+
+		<!-- Grid -->
 		<div
-			class="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-brand-600/20 blur-[120px] animate-float dark:bg-brand-700/30"
+			class="absolute inset-0 opacity-[0.03] dark:opacity-[0.04]"
+			style="background-image: linear-gradient(rgba(0,0,0,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.06) 1px, transparent 1px); background-size: 60px 60px;"
 		></div>
-		<div
-			class="absolute top-1/3 right-0 h-80 w-80 rounded-full bg-brand-500/10 blur-[120px] animate-float-delayed dark:bg-brand-500/20"
-		></div>
-		<div
-			class="absolute bottom-1/4 left-1/3 h-72 w-72 rounded-full bg-brand-600/15 blur-[120px] animate-float-slow dark:bg-brand-600/25"
-		></div>
+
+		<!-- Bottom fade -->
+		<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white dark:to-zinc-950"></div>
 	</div>
 
-	<!-- Grid Pattern -->
-	<div
-		class="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.03]"
-		style="background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px); background-size: 60px 60px;"
-	></div>
-
 	<!-- Content -->
-	<div class="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-6 lg:flex-row lg:items-center">
-		<!-- Globe.gl 3D Globe - First on mobile, bigger -->
-		<div class="pointer-events-auto order-1 -mt-16 flex h-[320px] w-full items-center justify-center sm:h-[400px] md:h-[450px] lg:order-2 lg:mt-0 lg:h-[550px] lg:w-[58%] xl:h-[650px]">
-			<div class="h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[580px] xl:w-[580px]">
+	<div class="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:pt-0">
+		<!-- Globe - First on mobile -->
+		<div class="order-1 flex w-full items-center justify-center py-4 sm:py-6 lg:order-2 lg:w-[58%] lg:py-0">
+			<div class="globe-wrapper h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] md:h-[380px] md:w-[380px] lg:h-[520px] lg:w-[520px] xl:h-[650px] xl:w-[650px] 2xl:h-[720px] 2xl:w-[720px]">
 				<Globe3D />
 			</div>
 		</div>
 
 		<!-- Text Content -->
-		<div class="relative z-10 order-2 mt-8 max-w-2xl py-12 sm:py-16 lg:order-1 lg:w-1/2">
+		<div class="relative z-10 order-2 max-w-2xl pb-16 sm:pb-20 lg:order-1 lg:w-[42%] lg:pb-0">
 			<!-- Badge -->
-			<div class="hero-fade-in mb-6">
+			<div class="hero-fade-in mb-4 sm:mb-6">
 				<span
-					class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-400 uppercase backdrop-blur-sm"
+					class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-3 py-1 text-[10px] font-semibold tracking-wider text-brand-400 uppercase backdrop-blur-sm sm:px-4 sm:py-1.5 sm:text-xs"
 				>
 					<span class="h-1.5 w-1.5 rounded-full bg-brand-400 animate-pulse-slow"></span>
 					{t.hero.badge ?? (lang === 'es' ? 'Transformamos ideas en tecnologia' : 'We transform ideas into technology')}
@@ -56,7 +59,7 @@
 			</div>
 
 			<h1
-				class="hero-fade-in font-display text-4xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl"
+				class="hero-fade-in font-display text-3xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
 				style="animation-delay: 0.1s"
 			>
 				<span class="typing-container">
@@ -67,7 +70,7 @@
 				</span>
 			</h1>
 			<p
-				class="hero-fade-in mt-6 max-w-xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg md:text-xl"
+				class="hero-fade-in mt-4 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:mt-6 sm:text-base md:text-lg lg:text-xl"
 				style="animation-delay: 0.2s"
 			>
 				{t.hero.subheadline}
@@ -75,17 +78,17 @@
 
 			<!-- Feature bullets -->
 			{#if features.length > 0}
-				<ul class="hero-fade-in mt-6 flex flex-col gap-2 sm:mt-8" style="animation-delay: 0.3s">
-					{#each features as feature}
-						<li class="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300">
-							<CheckCircle class="h-4 w-4 shrink-0 text-brand-400" />
+				<ul class="hero-fade-in mt-4 flex flex-col gap-1.5 sm:mt-6 sm:gap-2 lg:mt-8" style="animation-delay: 0.3s">
+					{#each features as feature, i}
+						<li class="feature-item flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300 sm:text-sm" style="animation-delay: {0.3 + i * 0.08}s">
+							<CheckCircle class="h-3.5 w-3.5 shrink-0 text-brand-400 sm:h-4 sm:w-4" />
 							{feature}
 						</li>
 					{/each}
 				</ul>
 			{/if}
 
-			<div class="hero-fade-in mt-8 flex flex-wrap gap-4 sm:mt-10" style="animation-delay: 0.4s">
+			<div class="hero-fade-in mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4 lg:mt-10" style="animation-delay: 0.4s">
 				<Button variant="primary" href="/{lang}#contact">
 					{t.hero.cta}
 					<ArrowRight class="h-4 w-4" />
@@ -98,8 +101,8 @@
 	</div>
 
 	<!-- Scroll Indicator -->
-	<div class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 sm:block">
-		<div class="flex h-8 w-5 items-start justify-center rounded-full border-2 border-zinc-400 p-1 dark:border-zinc-600">
+	<div class="absolute bottom-6 left-1/2 hidden -translate-x-1/2 sm:block">
+		<div class="scroll-indicator flex h-8 w-5 items-start justify-center rounded-full border-2 border-zinc-400/50 p-1 dark:border-zinc-600/50">
 			<div class="h-1.5 w-1 animate-bounce rounded-full bg-zinc-500 dark:bg-zinc-400"></div>
 		</div>
 	</div>
@@ -123,7 +126,7 @@
 	.hero-fade-in {
 		opacity: 0;
 		transform: translateY(20px);
-		animation: hero-enter 0.8s ease-out forwards;
+		animation: hero-enter 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 	}
 
 	@keyframes hero-enter {
@@ -131,5 +134,42 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
+	}
+
+	.feature-item {
+		opacity: 0;
+		transform: translateX(-10px);
+		animation: feature-slide 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	}
+
+	@keyframes feature-slide {
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	.globe-wrapper {
+		animation: globe-fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+	}
+
+	@keyframes globe-fade-in {
+		from {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	.scroll-indicator {
+		animation: scroll-fade 2s ease-in-out 1.5s both;
+	}
+
+	@keyframes scroll-fade {
+		from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+		to { opacity: 1; transform: translateX(-50%) translateY(0); }
 	}
 </style>

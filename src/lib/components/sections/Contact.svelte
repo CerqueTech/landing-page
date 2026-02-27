@@ -69,7 +69,7 @@
 	}
 </script>
 
-<section id="contact" class="relative overflow-hidden bg-white py-24 lg:py-32 dark:bg-zinc-950">
+<section id="contact" class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-32 dark:bg-zinc-950">
 	<!-- Gradient Orbs -->
 	<div class="pointer-events-none absolute inset-0">
 		<div class="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>

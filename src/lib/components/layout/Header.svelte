@@ -6,7 +6,6 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import MobileMenu from './MobileMenu.svelte';
 	import type { Translations, Locale } from '$lib/i18n/types';
-	import { theme } from '$lib/stores/theme';
 
 	interface Props {
 		t: Translations;
@@ -26,11 +25,7 @@
 		{ label: t.nav.contact, href: `/${lang}#contact` }
 	]);
 
-	const logoSrc = $derived(
-		!scrolled || $theme === 'dark'
-			? '/images/logo/dark_without_icon.png'
-			: '/images/logo/white_without_icon.png'
-	);
+	const logoSrc = '/images/logo/favicon.png';
 
 	onMount(() => {
 		const onScroll = () => {
@@ -49,7 +44,7 @@
 >
 	<nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 		<a href="/{lang}" class="shrink-0">
-			<img src={logoSrc} alt="CerqueTech" class="h-12 w-auto" />
+			<img src={logoSrc} alt="CerqueTech" class="h-10 w-10" />
 		</a>
 
 		<div class="hidden items-center gap-1 lg:flex">
@@ -58,7 +53,7 @@
 					href={link.href}
 					class="rounded-lg px-4 py-2 text-sm font-medium transition-colors {scrolled
 						? 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
-						: 'text-zinc-300 hover:bg-white/10 hover:text-white'}"
+						: 'text-zinc-800 hover:bg-zinc-100/50 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white'}"
 				>
 					{link.label}
 				</a>

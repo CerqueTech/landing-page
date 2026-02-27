@@ -7,18 +7,38 @@
 	let globe: any = null;
 	let globeInitialized = false;
 
-	const GLOBE_IMAGE = '//unpkg.com/three-globe/example/img/earth-night.jpg';
+	const GLOBE_NIGHT = '//unpkg.com/three-globe/example/img/earth-night.jpg';
+	const GLOBE_DAY = '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg';
+
+	function isDarkMode(): boolean {
+		return document.documentElement.classList.contains('dark');
+	}
 
 	onMount(() => {
 		if (!browser) return;
 
+		const dark = isDarkMode();
 		const link = document.createElement('link');
 		link.rel = 'preload';
 		link.as = 'image';
-		link.href = GLOBE_IMAGE;
+		link.href = dark ? GLOBE_NIGHT : GLOBE_DAY;
 		document.head.appendChild(link);
 
+		// Watch for theme changes
+		const observer = new MutationObserver(() => {
+			if (globe && globeInitialized) {
+				const nowDark = isDarkMode();
+				globe.globeImageUrl(nowDark ? GLOBE_NIGHT : GLOBE_DAY);
+				globe.atmosphereColor(
+					nowDark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(100, 120, 255, 0.4)'
+				);
+			}
+		});
+		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
 		setTimeout(() => initGlobe(), 50);
+
+		return () => observer.disconnect();
 	});
 
 	async function initGlobe() {
@@ -30,11 +50,12 @@
 			const width = container.clientWidth;
 			const height = container.clientHeight;
 
+			const dark = isDarkMode();
 			globe = Globe()
-				.globeImageUrl(GLOBE_IMAGE)
+				.globeImageUrl(dark ? GLOBE_NIGHT : GLOBE_DAY)
 				.backgroundColor('rgba(0,0,0,0)')
-				.atmosphereColor('rgba(100, 160, 255, 0.3)')
-				.atmosphereAltitude(0.12)
+				.atmosphereColor(dark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(100, 120, 255, 0.4)')
+				.atmosphereAltitude(dark ? 0.12 : 0.15)
 				.width(width)
 				.height(height)
 				.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
@@ -82,9 +103,20 @@
 <div bind:this={container} class="globe-container relative">
 	{#if !loaded}
 		<div class="absolute inset-0 flex items-center justify-center">
-			<div class="relative h-full w-full">
-				<div class="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-brand-500/20 to-brand-700/20"></div>
-				<div class="absolute inset-4 animate-pulse rounded-full bg-gradient-to-br from-brand-400/30 to-brand-600/30" style="animation-delay: 0.2s"></div>
+			<div class="globe-loader">
+				<!-- Outer ring -->
+				<div class="globe-loader-ring"></div>
+				<!-- Middle ring -->
+				<div class="globe-loader-ring globe-loader-ring--mid"></div>
+				<!-- Inner orb -->
+				<div class="globe-loader-orb"></div>
+				<!-- Orbiting dots -->
+				<div class="globe-loader-orbit">
+					<div class="globe-loader-dot"></div>
+				</div>
+				<div class="globe-loader-orbit globe-loader-orbit--2">
+					<div class="globe-loader-dot globe-loader-dot--2"></div>
+				</div>
 			</div>
 		</div>
 	{/if}
@@ -97,5 +129,82 @@
 	}
 	.globe-container :global(canvas) {
 		cursor: default !important;
+	}
+
+	.globe-loader {
+		position: relative;
+		width: 120px;
+		height: 120px;
+	}
+
+	.globe-loader-ring {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		border: 2px solid transparent;
+		border-top-color: #a855f7;
+		border-right-color: #7c3aed;
+		animation: globe-spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	}
+
+	.globe-loader-ring--mid {
+		inset: 12px;
+		border-top-color: #c084fc;
+		border-left-color: #a855f7;
+		animation-duration: 1.8s;
+		animation-direction: reverse;
+	}
+
+	.globe-loader-orb {
+		position: absolute;
+		inset: 28px;
+		border-radius: 50%;
+		background: radial-gradient(circle at 35% 35%, #c084fc, #7c3aed 60%, #581c87);
+		opacity: 0.6;
+		animation: globe-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+
+	.globe-loader-orbit {
+		position: absolute;
+		inset: -4px;
+		animation: globe-spin 2.4s linear infinite;
+	}
+
+	.globe-loader-orbit--2 {
+		inset: 6px;
+		animation-duration: 3.2s;
+		animation-direction: reverse;
+	}
+
+	.globe-loader-dot {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 6px;
+		height: 6px;
+		margin-top: -3px;
+		border-radius: 50%;
+		background: #a855f7;
+		box-shadow: 0 0 8px #a855f7, 0 0 16px rgba(168, 85, 247, 0.4);
+	}
+
+	.globe-loader-dot--2 {
+		left: auto;
+		right: 0;
+		width: 4px;
+		height: 4px;
+		margin-top: -2px;
+		background: #c084fc;
+		box-shadow: 0 0 6px #c084fc, 0 0 12px rgba(192, 132, 252, 0.4);
+	}
+
+	@keyframes globe-spin {
+		0% { transform: rotate(0deg); }
+		100% { transform: rotate(360deg); }
+	}
+
+	@keyframes globe-pulse {
+		0%, 100% { opacity: 0.4; transform: scale(1); }
+		50% { opacity: 0.7; transform: scale(1.06); }
 	}
 </style>
