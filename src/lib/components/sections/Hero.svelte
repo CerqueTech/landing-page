@@ -14,24 +14,24 @@
 	const features = $derived(t.hero.features ?? []);
 </script>
 
-<section class="relative min-h-screen overflow-hidden bg-zinc-950">
+<section class="relative min-h-screen overflow-hidden bg-white dark:bg-zinc-950">
 	<!-- Gradient Orbs -->
 	<div class="pointer-events-none absolute inset-0">
 		<div
-			class="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-brand-700/30 blur-[120px] animate-float"
+			class="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-brand-600/20 blur-[120px] animate-float dark:bg-brand-700/30"
 		></div>
 		<div
-			class="absolute top-1/3 right-0 h-80 w-80 rounded-full bg-brand-500/20 blur-[120px] animate-float-delayed"
+			class="absolute top-1/3 right-0 h-80 w-80 rounded-full bg-brand-500/10 blur-[120px] animate-float-delayed dark:bg-brand-500/20"
 		></div>
 		<div
-			class="absolute bottom-1/4 left-1/3 h-72 w-72 rounded-full bg-brand-600/25 blur-[120px] animate-float-slow"
+			class="absolute bottom-1/4 left-1/3 h-72 w-72 rounded-full bg-brand-600/15 blur-[120px] animate-float-slow dark:bg-brand-600/25"
 		></div>
 	</div>
 
 	<!-- Grid Pattern -->
 	<div
-		class="pointer-events-none absolute inset-0 opacity-[0.03]"
-		style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"
+		class="pointer-events-none absolute inset-0 opacity-[0.03] dark:opacity-[0.03]"
+		style="background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px); background-size: 60px 60px;"
 	></div>
 
 	<!-- Content -->
@@ -48,7 +48,7 @@
 			</div>
 
 			<h1
-				class="hero-fade-in font-display text-4xl leading-[1.1] font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+				class="hero-fade-in font-display text-4xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl"
 				style="animation-delay: 0.1s"
 			>
 				{@html t.hero.headline.replace(
@@ -57,7 +57,7 @@
 				)}
 			</h1>
 			<p
-				class="hero-fade-in mt-6 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg md:text-xl"
+				class="hero-fade-in mt-6 max-w-xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg md:text-xl"
 				style="animation-delay: 0.2s"
 			>
 				{t.hero.subheadline}
@@ -67,7 +67,7 @@
 			{#if features.length > 0}
 				<ul class="hero-fade-in mt-6 flex flex-col gap-2 sm:mt-8" style="animation-delay: 0.3s">
 					{#each features as feature}
-						<li class="flex items-center gap-2 text-sm text-zinc-300">
+						<li class="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300">
 							<CheckCircle class="h-4 w-4 shrink-0 text-brand-400" />
 							{feature}
 						</li>
@@ -87,9 +87,9 @@
 		</div>
 
 		<!-- Globe.gl 3D Globe -->
-		<div class="pointer-events-auto absolute inset-y-0 right-0 hidden w-[55%] lg:block">
+		<div class="pointer-events-auto absolute inset-y-0 right-0 w-[55%] lg:w-[55%]">
 			<div class="flex h-full items-center justify-center">
-				<div class="h-[600px] w-[600px] xl:h-[700px] xl:w-[700px]">
+				<div class="h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]">
 					<Globe3D />
 				</div>
 			</div>
@@ -98,8 +98,8 @@
 
 	<!-- Scroll Indicator -->
 	<div class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 sm:block">
-		<div class="flex h-8 w-5 items-start justify-center rounded-full border-2 border-zinc-600 p-1">
-			<div class="h-1.5 w-1 animate-bounce rounded-full bg-zinc-400"></div>
+		<div class="flex h-8 w-5 items-start justify-center rounded-full border-2 border-zinc-400 p-1 dark:border-zinc-600">
+			<div class="h-1.5 w-1 animate-bounce rounded-full bg-zinc-500 dark:bg-zinc-400"></div>
 		</div>
 	</div>
 </section>

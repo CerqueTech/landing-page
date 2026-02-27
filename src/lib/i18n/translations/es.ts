@@ -226,7 +226,7 @@ export const es: Translations = {
 		info: {
 			email: 'info@cerquetech.com',
 			phone: '+54 11 1234-5678',
-			location: 'San Miguel CP1613, Buenos Aires, Argentina',
+			location: 'Núñez, Buenos Aires, Argentina',
 			whatsapp: 'https://wa.me/5491112345678'
 		},
 		success: 'Mensaje enviado correctamente',
@@ -245,7 +245,7 @@ export const es: Translations = {
 			services: 'Servicios',
 			contact: 'Contacto'
 		},
-		location: 'San Miguel CP1613, Buenos Aires, Argentina',
+		location: 'Núñez, Buenos Aires, Argentina',
 		copyright: '© 2024 CerqueTech Solutions. Todos los derechos reservados.'
 	},
 	whatsapp: {

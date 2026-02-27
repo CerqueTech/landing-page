@@ -15,9 +15,15 @@
 </script>
 
 <section id="about" class="relative overflow-hidden bg-white py-24 lg:py-32 dark:bg-zinc-950">
-	<!-- Decorative gradient orbs -->
-	<div class="pointer-events-none absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
-	<div class="pointer-events-none absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/20 blur-[100px] dark:bg-brand-600/10"></div>
+	<!-- Gradient Orbs -->
+	<div class="pointer-events-none absolute inset-0">
+		<div class="pointer-events-none absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
+		<div class="pointer-events-none absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/20 blur-[100px] dark:bg-brand-600/10"></div>
+		<div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-brand-400/15 blur-[120px] dark:bg-brand-500/10"></div>
+	</div>
+
+	<!-- Grid Pattern -->
+	<div class="pointer-events-none absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style="background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
 		<SectionHeading label={t.about.label} title={t.about.title} subtitle={t.about.description} />

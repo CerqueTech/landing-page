@@ -1,10 +1,22 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 
 	let container: HTMLDivElement;
+	let loading = $state(true);
 
 	let globe: any = null;
 	let globeInitialized = false;
+
+	const GLOBE_IMAGE = '//unpkg.com/three-globe/example/img/earth-night.jpg';
+
+	onMount(() => {
+		const link = document.createElement('link');
+		link.rel = 'preload';
+		link.as = 'image';
+		link.href = GLOBE_IMAGE;
+		document.head.appendChild(link);
+	});
 
 	$effect(() => {
 		if (!browser || !container) return;
@@ -15,19 +27,19 @@
 			if (globeInitialized) return;
 
 			try {
-				const Globe = (await import('globe.gl')).default;
+				const GlobeModule = await import('globe.gl');
+				const Globe = GlobeModule.default;
 				const width = container.clientWidth;
 				const height = container.clientHeight;
 
-				globe = Globe()
-					.globeImageUrl(
-						'https://unpkg.com/three-globe/example/img/earth-night.jpg'
-					)
+				globe = (Globe as any)()
+					.globeImageUrl(GLOBE_IMAGE)
 					.backgroundColor('rgba(0,0,0,0)')
 					.atmosphereColor('rgba(100, 160, 255, 0.3)')
 					.atmosphereAltitude(0.2)
 					.width(width)
-					.height(height);
+					.height(height)
+					.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
 
 				const connections = [
 					{
@@ -142,6 +154,7 @@
 				);
 
 				globeInitialized = true;
+				loading = false;
 			} catch (error) {
 				console.error('Globe initialization error:', error);
 			}
@@ -194,7 +207,13 @@
 	});
 </script>
 
-<div bind:this={container} class="globe-container"></div>
+<div bind:this={container} class="globe-container relative">
+	{#if loading}
+		<div class="absolute inset-0 flex items-center justify-center">
+			<div class="h-12 w-12 animate-spin rounded-full border-2 border-brand-500/30 border-t-brand-500"></div>
+		</div>
+	{/if}
+</div>
 
 <style>
 	.globe-container {

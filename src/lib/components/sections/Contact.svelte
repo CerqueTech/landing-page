@@ -70,8 +70,14 @@
 </script>
 
 <section id="contact" class="relative overflow-hidden bg-white py-24 lg:py-32 dark:bg-zinc-950">
-	<!-- Decorative gradient orb -->
-	<div class="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
+	<!-- Gradient Orbs -->
+	<div class="pointer-events-none absolute inset-0">
+		<div class="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
+		<div class="pointer-events-none absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/25 blur-[100px] dark:bg-brand-600/10"></div>
+	</div>
+
+	<!-- Grid Pattern -->
+	<div class="pointer-events-none absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style="background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
 		<SectionHeading label={t.contact.label} title={t.contact.title} subtitle={t.contact.subtitle} />
