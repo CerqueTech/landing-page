@@ -7,18 +7,41 @@
 	let globe: any = null;
 	let globeInitialized = false;
 
-	const GLOBE_IMAGE = '//unpkg.com/three-globe/example/img/earth-night.jpg';
+	const GLOBE_NIGHT = '//unpkg.com/three-globe/example/img/earth-night.jpg';
+	const GLOBE_DAY = '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg';
+
+	function isDarkMode(): boolean {
+		return document.documentElement.classList.contains('dark');
+	}
 
 	onMount(() => {
 		if (!browser) return;
 
+		// Preload the current theme's texture
+		const dark = isDarkMode();
 		const link = document.createElement('link');
 		link.rel = 'preload';
 		link.as = 'image';
-		link.href = GLOBE_IMAGE;
+		link.href = dark ? GLOBE_NIGHT : GLOBE_DAY;
 		document.head.appendChild(link);
 
 		setTimeout(() => initGlobe(), 50);
+
+		// Watch for theme changes
+		const themeObserver = new MutationObserver(() => {
+			if (globe && globeInitialized) {
+				const nowDark = isDarkMode();
+				globe.globeImageUrl(nowDark ? GLOBE_NIGHT : GLOBE_DAY);
+				globe.atmosphereColor(
+					nowDark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(100, 120, 255, 0.4)'
+				);
+			}
+		});
+		themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+		return () => {
+			themeObserver.disconnect();
+		};
 	});
 
 	async function initGlobe() {
@@ -30,11 +53,12 @@
 			const width = container.clientWidth;
 			const height = container.clientHeight;
 
+			const dark = isDarkMode();
 			globe = Globe()
-				.globeImageUrl(GLOBE_IMAGE)
+				.globeImageUrl(dark ? GLOBE_NIGHT : GLOBE_DAY)
 				.backgroundColor('rgba(0,0,0,0)')
-				.atmosphereColor('rgba(100, 160, 255, 0.3)')
-				.atmosphereAltitude(0.12)
+				.atmosphereColor(dark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(100, 120, 255, 0.4)')
+				.atmosphereAltitude(dark ? 0.12 : 0.15)
 				.width(width)
 				.height(height)
 				.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
