@@ -81,7 +81,7 @@ export const en: Translations = {
 				description:
 					'Emergency button mobile app connecting users with emergency services, achieving a 47% reduction in response times.',
 				category: 'mobile',
-				image: '/images/portfolio/siempre-alerta.jpg',
+				image: '/images/portfolio/siempre-alerta.webp',
 				tags: ['React Native', 'Node.js', 'Firebase']
 			},
 			{
@@ -89,7 +89,7 @@ export const en: Translations = {
 				description:
 					'Digital queue management system that reduced wait times by 65% and handles over 50,000 monthly appointments.',
 				category: 'web',
-				image: '/images/portfolio/turnero-digital.jpg',
+				image: '/images/portfolio/turnero-digital.webp',
 				tags: ['Angular', 'Spring Boot', 'PostgreSQL']
 			},
 			{
@@ -97,7 +97,7 @@ export const en: Translations = {
 				description:
 					'Customer service chatbot with natural language processing that autonomously resolves 75% of inquiries.',
 				category: 'ai',
-				image: '/images/portfolio/ai-chatbot.jpg',
+				image: '/images/portfolio/ai-chatbot.webp',
 				tags: ['Python', 'NLP', 'TensorFlow']
 			}
 		]
@@ -136,25 +136,25 @@ export const en: Translations = {
 				{
 					name: 'Mateo Cerquetella',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/mateo.png',
+					image: '/images/team/mateo.webp',
 					linkedin: 'https://www.linkedin.com/in/mateocerquetella/'
 				},
 				{
 					name: 'Mateo Rodriguez',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/mateo-rodriguez.png',
+					image: '/images/team/mateo-rodriguez.webp',
 					linkedin: ''
 				},
 				{
 					name: 'Federico Rosales',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/fede.png',
+					image: '/images/team/fede.webp',
 					linkedin: 'https://www.linkedin.com/in/federosaless/'
 				},
 				{
 					name: 'Matias Kalil Gomez',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/mati.png',
+					image: '/images/team/mati.webp',
 					linkedin: 'https://www.linkedin.com/in/mat%C3%ADas-kalil-g%C3%B3mez-26b647223/'
 				}
 			]

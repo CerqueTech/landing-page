@@ -81,7 +81,7 @@ export const es: Translations = {
 				description:
 					'Aplicación móvil de botón de emergencia que conecta usuarios con servicios de emergencia, logrando una reducción del 47% en tiempos de respuesta.',
 				category: 'mobile',
-				image: '/images/portfolio/siempre-alerta.jpg',
+				image: '/images/portfolio/siempre-alerta.webp',
 				tags: ['React Native', 'Node.js', 'Firebase']
 			},
 			{
@@ -89,7 +89,7 @@ export const es: Translations = {
 				description:
 					'Sistema de gestión de turnos digitales que redujo los tiempos de espera en un 65% y gestiona más de 50.000 turnos mensuales.',
 				category: 'web',
-				image: '/images/portfolio/turnero-digital.jpg',
+				image: '/images/portfolio/turnero-digital.webp',
 				tags: ['Angular', 'Spring Boot', 'PostgreSQL']
 			},
 			{
@@ -97,7 +97,7 @@ export const es: Translations = {
 				description:
 					'Chatbot de atención al cliente con procesamiento de lenguaje natural que resuelve el 75% de consultas de forma autónoma.',
 				category: 'ai',
-				image: '/images/portfolio/ai-chatbot.jpg',
+				image: '/images/portfolio/ai-chatbot.webp',
 				tags: ['Python', 'NLP', 'TensorFlow']
 			}
 		]
@@ -136,25 +136,25 @@ export const es: Translations = {
 				{
 					name: 'Mateo Cerquetella',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/mateo.png',
+					image: '/images/team/mateo.webp',
 					linkedin: 'https://www.linkedin.com/in/mateocerquetella/'
 				},
 				{
 					name: 'Mateo Rodriguez',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/mateo-rodriguez.png',
+					image: '/images/team/mateo-rodriguez.webp',
 					linkedin: ''
 				},
 				{
 					name: 'Federico Rosales',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/fede.png',
+					image: '/images/team/fede.webp',
 					linkedin: 'https://www.linkedin.com/in/federosaless/'
 				},
 				{
 					name: 'Matias Kalil Gomez',
 					role: 'Sr. Full Stack Developer',
-					image: '/images/team/mati.png',
+					image: '/images/team/mati.webp',
 					linkedin: 'https://www.linkedin.com/in/mat%C3%ADas-kalil-g%C3%B3mez-26b647223/'
 				}
 			]

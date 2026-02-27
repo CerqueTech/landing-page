@@ -77,8 +77,11 @@
 							<img
 								src={member.image}
 								alt={member.name}
+								width="400"
+								height="400"
 								class="h-full w-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-110"
 								loading="lazy"
+								decoding="async"
 							/>
 						</div>
 						<h4 class="font-display text-sm font-bold text-zinc-900 sm:text-base dark:text-white">

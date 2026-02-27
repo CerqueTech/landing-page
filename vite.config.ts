@@ -9,13 +9,11 @@ export default defineConfig({
 		minify: 'esbuild',
 		rollupOptions: {
 			output: {
-				manualChunks: {
-					'lucide': ['lucide-svelte']
+				manualChunks(id) {
+					if (id.includes('lucide-svelte')) return 'lucide';
+					if (id.includes('globe.gl') || id.includes('three')) return 'globe';
 				}
 			}
 		}
-	},
-	optimizeDeps: {
-		include: ['three']
 	}
 });
