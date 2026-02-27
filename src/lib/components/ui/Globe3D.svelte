@@ -33,8 +33,9 @@
 				const nowDark = isDarkMode();
 				globe.globeImageUrl(nowDark ? GLOBE_NIGHT : GLOBE_DAY);
 				globe.atmosphereColor(
-					nowDark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(100, 120, 255, 0.4)'
+					nowDark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(120, 100, 255, 0.15)'
 				);
+				globe.atmosphereAltitude(nowDark ? 0.12 : 0.1);
 			}
 		});
 		themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
@@ -57,8 +58,8 @@
 			globe = Globe()
 				.globeImageUrl(dark ? GLOBE_NIGHT : GLOBE_DAY)
 				.backgroundColor('rgba(0,0,0,0)')
-				.atmosphereColor(dark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(100, 120, 255, 0.4)')
-				.atmosphereAltitude(dark ? 0.12 : 0.15)
+				.atmosphereColor(dark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(120, 100, 255, 0.15)')
+				.atmosphereAltitude(dark ? 0.12 : 0.1)
 				.width(width)
 				.height(height)
 				.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
