@@ -5,11 +5,12 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 	build: {
+		target: 'esnext',
+		minify: 'esbuild',
 		rollupOptions: {
 			output: {
 				manualChunks: {
-					'lucide': ['lucide-svelte'],
-					'three': ['three']
+					'lucide': ['lucide-svelte']
 				}
 			}
 		}

@@ -36,9 +36,9 @@
 
 	<!-- Content -->
 	<div class="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-6 lg:flex-row lg:items-center">
-		<!-- Globe.gl 3D Globe - First on mobile -->
-		<div class="pointer-events-auto order-1 -mt-20 flex h-[280px] w-full items-center justify-center sm:h-[350px] lg:order-2 lg:mt-0 lg:h-[500px] lg:w-[55%] xl:h-[600px]">
-			<div class="h-[250px] w-[250px] sm:h-[320px] sm:w-[320px] lg:h-[450px] lg:w-[450px] xl:h-[550px] xl:w-[550px]">
+		<!-- Globe.gl 3D Globe - First on mobile, bigger -->
+		<div class="pointer-events-auto order-1 -mt-16 flex h-[320px] w-full items-center justify-center sm:h-[400px] md:h-[450px] lg:order-2 lg:mt-0 lg:h-[550px] lg:w-[58%] xl:h-[650px]">
+			<div class="h-[280px] w-[280px] sm:h-[360px] sm:w-[360px] md:h-[400px] md:w-[400px] lg:h-[480px] lg:w-[480px] xl:h-[580px] xl:w-[580px]">
 				<Globe3D />
 			</div>
 		</div>

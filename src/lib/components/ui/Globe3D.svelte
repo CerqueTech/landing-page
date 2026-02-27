@@ -18,7 +18,7 @@
 		link.href = GLOBE_IMAGE;
 		document.head.appendChild(link);
 
-		setTimeout(() => initGlobe(), 100);
+		setTimeout(() => initGlobe(), 50);
 	});
 
 	async function initGlobe() {
@@ -34,7 +34,7 @@
 				.globeImageUrl(GLOBE_IMAGE)
 				.backgroundColor('rgba(0,0,0,0)')
 				.atmosphereColor('rgba(100, 160, 255, 0.3)')
-				.atmosphereAltitude(0.15)
+				.atmosphereAltitude(0.12)
 				.width(width)
 				.height(height)
 				.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
@@ -45,28 +45,24 @@
 				{ startLat: -34.6037, startLng: -58.3816, endLat: 19.4326, endLng: -99.1332, color: ['#A855F7', '#C084FC'] },
 				{ startLat: 19.4326, startLng: -99.1332, endLat: 40.4168, endLng: -3.7038, color: ['#A855F7', '#7C3AED'] },
 				{ startLat: 40.4168, startLng: -3.7038, endLat: 35.6762, endLng: 139.6503, color: ['#7C3AED', '#8B5CF6'] },
-				{ startLat: -23.5505, startLng: -46.6333, endLat: 40.7128, endLng: -74.006, color: ['#A855F7', '#C084FC'] },
-				{ startLat: 51.5074, startLng: -0.1278, endLat: 48.8566, endLng: 2.3522, color: ['#7C3AED', '#8B5CF6'] },
-				{ startLat: 35.6762, startLng: 139.6503, endLat: 31.2304, endLng: 121.4737, color: ['#8B5CF6', '#A855F7'] },
-				{ startLat: 31.2304, startLng: 121.4737, endLat: 1.3521, endLng: 103.8198, color: ['#7C3AED', '#A855F7'] },
-				{ startLat: -34.6037, startLng: -58.3816, endLat: -33.8688, endLng: 151.2093, arcAltitude: 0.3, color: ['#8B5CF6', '#7C3AED'] },
-				{ startLat: -34.6037, startLng: -58.3816, endLat: -15.7975, endLng: -47.8919, color: ['#8B5CF6', '#7C3AED'] }
+				{ startLat: -34.6037, startLng: -58.3816, endLat: -33.8688, endLng: 151.2093, arcAltitude: 0.25, color: ['#8B5CF6', '#7C3AED'] },
+				{ startLat: 51.5074, startLng: -0.1278, endLat: 48.8566, endLng: 2.3522, color: ['#7C3AED', '#8B5CF6'] }
 			];
 
 			globe
 				.arcsData(connections)
 				.arcColor('color')
 				.arcDashLength(0.4)
-				.arcDashGap(0.2)
+				.arcDashGap(0.25)
 				.arcDashAnimateTime(2000)
-				.arcStroke(0.8)
-				.arcAltitude((d: any) => d.arcAltitude || 0.1)
-				.arcAltitudeAutoScale(0.15);
+				.arcStroke(0.6)
+				.arcAltitude(0.08)
+				.arcAltitudeAutoScale(0.12);
 
 			globe(container);
 
 			globe.controls().autoRotate = true;
-			globe.controls().autoRotateSpeed = 0.5;
+			globe.controls().autoRotateSpeed = 0.4;
 			globe.controls().enableZoom = false;
 			globe.controls().enablePan = false;
 			globe.controls().minDistance = globe.controls().getDistance();
@@ -89,7 +85,6 @@
 			<div class="relative h-full w-full">
 				<div class="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-brand-500/20 to-brand-700/20"></div>
 				<div class="absolute inset-4 animate-pulse rounded-full bg-gradient-to-br from-brand-400/30 to-brand-600/30" style="animation-delay: 0.2s"></div>
-				<div class="absolute inset-8 animate-pulse rounded-full bg-gradient-to-br from-brand-300/40 to-brand-500/40" style="animation-delay: 0.4s"></div>
 			</div>
 		</div>
 	{/if}
