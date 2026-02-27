@@ -25,7 +25,7 @@
 		{ label: t.nav.contact, href: `/${lang}#contact` }
 	]);
 
-	const logoSrc = '/images/logo/favicon.png';
+	const logoSrc = '/images/logo/favicon.webp';
 
 	onMount(() => {
 		const onScroll = () => {

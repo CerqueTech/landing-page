@@ -7,8 +7,8 @@
 	let globe: any = null;
 	let globeInitialized = false;
 
-	const GLOBE_NIGHT = '//unpkg.com/three-globe/example/img/earth-night.jpg';
-	const GLOBE_DAY = '//unpkg.com/three-globe/example/img/earth-blue-marble.jpg';
+	const GLOBE_NIGHT = '/images/globe/earth-night.jpg';
+	const GLOBE_DAY = '/images/globe/earth-blue-marble.jpg';
 
 	function isDarkMode(): boolean {
 		return document.documentElement.classList.contains('dark');

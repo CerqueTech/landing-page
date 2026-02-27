@@ -26,9 +26,21 @@
 	let submitting = $state(false);
 	let toast = $state({ visible: false, message: '', type: 'success' as 'success' | 'error' });
 
-	// Preload reCAPTCHA when component mounts
+	let contactSection: HTMLElement;
+
+	// Defer reCAPTCHA loading until contact form is visible
 	onMount(() => {
-		loadRecaptcha().catch(() => {});
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					loadRecaptcha().catch(() => {});
+					observer.disconnect();
+				}
+			},
+			{ rootMargin: '200px' }
+		);
+		if (contactSection) observer.observe(contactSection);
+		return () => observer.disconnect();
 	});
 
 	function validate(): boolean {
@@ -75,7 +87,7 @@
 	}
 </script>
 
-<section id="contact" class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-32 dark:bg-zinc-950">
+<section bind:this={contactSection} id="contact" class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-32 dark:bg-zinc-950">
 	<!-- Gradient Orbs -->
 	<div class="pointer-events-none absolute inset-0">
 		<div class="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>

@@ -13,7 +13,7 @@
 
 	// Logo naming: "dark_one_line" = white text (for dark bg), "white_one_line" = black text (for white bg)
 	const logoSrc = $derived(
-		$theme === 'dark' ? '/images/logo/dark_one_line.png' : '/images/logo/white_one_line.png'
+		$theme === 'dark' ? '/images/logo/dark_one_line.webp' : '/images/logo/white_one_line.webp'
 	);
 
 	const navLinks = $derived([
