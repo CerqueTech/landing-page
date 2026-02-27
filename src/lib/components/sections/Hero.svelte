@@ -41,7 +41,7 @@
 	<div class="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:pt-0">
 		<!-- Globe - First on mobile -->
 		<div class="order-1 flex w-full items-center justify-center py-4 sm:py-6 lg:order-2 lg:w-[58%] lg:py-0">
-			<div class="globe-wrapper overflow-hidden rounded-full h-[300px] w-[300px] sm:h-[340px] sm:w-[340px] md:h-[400px] md:w-[400px] lg:h-[520px] lg:w-[520px] xl:h-[650px] xl:w-[650px] 2xl:h-[720px] 2xl:w-[720px]">
+			<div class="globe-wrapper overflow-hidden rounded-full dark:overflow-visible dark:rounded-none h-[300px] w-[300px] sm:h-[340px] sm:w-[340px] md:h-[400px] md:w-[400px] lg:h-[520px] lg:w-[520px] xl:h-[650px] xl:w-[650px] 2xl:h-[720px] 2xl:w-[720px]">
 				<Globe3D />
 			</div>
 		</div>
