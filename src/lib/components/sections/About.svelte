@@ -14,8 +14,12 @@
 	const valueIcons = [Award, Shield, Zap];
 </script>
 
-<section id="about" class="py-24 lg:py-32">
-	<div class="mx-auto max-w-7xl px-6">
+<section id="about" class="relative overflow-hidden bg-white py-24 lg:py-32 dark:bg-zinc-950">
+	<!-- Decorative gradient orbs -->
+	<div class="pointer-events-none absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
+	<div class="pointer-events-none absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/20 blur-[100px] dark:bg-brand-600/10"></div>
+
+	<div class="relative mx-auto max-w-7xl px-6">
 		<SectionHeading label={t.about.label} title={t.about.title} subtitle={t.about.description} />
 
 		<!-- Values -->

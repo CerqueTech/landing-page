@@ -10,7 +10,7 @@
 	let { t }: Props = $props();
 </script>
 
-<section class="bg-zinc-50 py-24 lg:py-32 dark:bg-zinc-900/30">
+<section class="relative overflow-hidden bg-zinc-50 py-24 lg:py-32 dark:bg-zinc-900/50">
 	<div class="mx-auto max-w-7xl px-6">
 		<SectionHeading label={t.testimonials.label} title={t.testimonials.title} />
 

@@ -53,18 +53,16 @@
 			</div>
 		</div>
 
-		<!-- Globe -->
+		<!-- Night Earth Globe -->
 		<div class="pointer-events-none absolute right-0 top-1/2 hidden -translate-y-1/2 lg:block">
-			<div class="globe-container">
-				<div class="globe">
-					<div class="globe-inner"></div>
-					<div class="globe-meridian globe-meridian-1"></div>
-					<div class="globe-meridian globe-meridian-2"></div>
-					<div class="globe-meridian globe-meridian-3"></div>
-					<div class="globe-parallel globe-parallel-1"></div>
-					<div class="globe-parallel globe-parallel-2"></div>
-					<div class="globe-parallel globe-parallel-3"></div>
-					<div class="globe-glow"></div>
+			<div class="earth-container">
+				<!-- Outer glow -->
+				<div class="earth-atmosphere"></div>
+				<!-- Planet sphere -->
+				<div class="earth">
+					<div class="earth-surface"></div>
+					<div class="earth-lights"></div>
+					<div class="earth-overlay"></div>
 				</div>
 				<!-- Orbiting dots -->
 				<div class="orbit orbit-1">
@@ -89,112 +87,115 @@
 </section>
 
 <style>
-	.globe-container {
+	.earth-container {
 		position: relative;
-		width: 520px;
-		height: 520px;
+		width: 500px;
+		height: 500px;
 	}
 
-	.globe {
+	.earth-atmosphere {
 		position: absolute;
-		inset: 60px;
+		inset: 10px;
 		border-radius: 50%;
 		background: radial-gradient(
 			circle at 35% 35%,
-			rgba(168, 85, 247, 0.15) 0%,
-			rgba(124, 58, 237, 0.08) 40%,
-			rgba(59, 7, 100, 0.05) 70%,
-			transparent 100%
-		);
-		border: 1px solid rgba(168, 85, 247, 0.2);
-		overflow: hidden;
-		animation: globe-rotate 20s linear infinite;
-	}
-
-	.globe-inner {
-		position: absolute;
-		inset: 0;
-		border-radius: 50%;
-		background: radial-gradient(
-			circle at 30% 30%,
-			rgba(168, 85, 247, 0.1) 0%,
-			transparent 60%
-		);
-	}
-
-	.globe-meridian {
-		position: absolute;
-		inset: 0;
-		border-radius: 50%;
-		border: 1px solid rgba(168, 85, 247, 0.12);
-	}
-
-	.globe-meridian-1 {
-		transform: rotateY(0deg);
-		border-left: 1px solid rgba(168, 85, 247, 0.15);
-		border-right: 1px solid rgba(168, 85, 247, 0.15);
-		width: 60%;
-		left: 20%;
-	}
-
-	.globe-meridian-2 {
-		transform: rotateY(60deg);
-		border-left: 1px solid rgba(168, 85, 247, 0.12);
-		border-right: 1px solid rgba(168, 85, 247, 0.12);
-		width: 35%;
-		left: 32.5%;
-	}
-
-	.globe-meridian-3 {
-		border-left: none;
-		border-right: none;
-		border-top: 1px solid rgba(168, 85, 247, 0.1);
-		border-bottom: 1px solid rgba(168, 85, 247, 0.1);
-		width: 85%;
-		left: 7.5%;
-	}
-
-	.globe-parallel {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		border-radius: 50%;
-		border: 1px solid rgba(168, 85, 247, 0.1);
-	}
-
-	.globe-parallel-1 {
-		width: 90%;
-		height: 30%;
-		top: 35%;
-	}
-
-	.globe-parallel-2 {
-		width: 70%;
-		height: 20%;
-		top: 20%;
-	}
-
-	.globe-parallel-3 {
-		width: 70%;
-		height: 20%;
-		bottom: 20%;
-	}
-
-	.globe-glow {
-		position: absolute;
-		inset: -20%;
-		border-radius: 50%;
-		background: radial-gradient(
-			circle,
-			rgba(168, 85, 247, 0.08) 0%,
-			rgba(124, 58, 237, 0.04) 40%,
+			rgba(100, 180, 255, 0.12) 0%,
+			rgba(80, 140, 240, 0.06) 40%,
 			transparent 70%
 		);
+		filter: blur(20px);
+		animation: atmosphere-pulse 4s ease-in-out infinite;
 	}
 
-	@keyframes globe-rotate {
-		from { transform: rotateY(0deg); }
-		to { transform: rotateY(360deg); }
+	.earth {
+		position: absolute;
+		inset: 50px;
+		border-radius: 50%;
+		overflow: hidden;
+		box-shadow:
+			inset -30px -20px 60px rgba(0, 0, 0, 0.8),
+			inset 10px 10px 40px rgba(80, 140, 240, 0.1),
+			0 0 60px rgba(80, 140, 240, 0.15),
+			0 0 120px rgba(80, 140, 240, 0.05);
+	}
+
+	.earth-surface {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		background:
+			/* Ocean base - deep dark blue */
+			radial-gradient(circle at 35% 35%, #0a1628 0%, #060d1a 60%, #020810 100%);
+	}
+
+	.earth-lights {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		animation: earth-rotate 30s linear infinite;
+		/* City lights pattern using radial gradients */
+		background:
+			/* Europe cluster */
+			radial-gradient(1.5px 1.5px at 52% 28%, rgba(255, 200, 80, 0.9) 0%, transparent 100%),
+			radial-gradient(1px 1px at 50% 30%, rgba(255, 200, 80, 0.7) 0%, transparent 100%),
+			radial-gradient(2px 2px at 53% 32%, rgba(255, 200, 80, 0.8) 0%, transparent 100%),
+			radial-gradient(1px 1px at 48% 31%, rgba(255, 200, 80, 0.6) 0%, transparent 100%),
+			radial-gradient(1.5px 1.5px at 55% 29%, rgba(255, 200, 80, 0.7) 0%, transparent 100%),
+			radial-gradient(1px 1px at 51% 33%, rgba(255, 200, 80, 0.5) 0%, transparent 100%),
+			/* North Africa / Middle East */
+			radial-gradient(1px 1px at 55% 38%, rgba(255, 200, 80, 0.6) 0%, transparent 100%),
+			radial-gradient(1.5px 1.5px at 58% 36%, rgba(255, 200, 80, 0.5) 0%, transparent 100%),
+			radial-gradient(1px 1px at 60% 35%, rgba(255, 200, 80, 0.4) 0%, transparent 100%),
+			/* South America */
+			radial-gradient(1.5px 1.5px at 32% 55%, rgba(255, 200, 80, 0.7) 0%, transparent 100%),
+			radial-gradient(1px 1px at 34% 52%, rgba(255, 200, 80, 0.6) 0%, transparent 100%),
+			radial-gradient(2px 2px at 33% 58%, rgba(255, 200, 80, 0.8) 0%, transparent 100%),
+			radial-gradient(1px 1px at 30% 50%, rgba(255, 200, 80, 0.5) 0%, transparent 100%),
+			radial-gradient(1px 1px at 35% 48%, rgba(255, 200, 80, 0.4) 0%, transparent 100%),
+			/* North America east coast */
+			radial-gradient(1.5px 1.5px at 25% 32%, rgba(255, 200, 80, 0.8) 0%, transparent 100%),
+			radial-gradient(1px 1px at 23% 34%, rgba(255, 200, 80, 0.6) 0%, transparent 100%),
+			radial-gradient(1.5px 1.5px at 22% 30%, rgba(255, 200, 80, 0.7) 0%, transparent 100%),
+			radial-gradient(1px 1px at 20% 35%, rgba(255, 200, 80, 0.5) 0%, transparent 100%),
+			/* India / Asia */
+			radial-gradient(2px 2px at 68% 40%, rgba(255, 200, 80, 0.7) 0%, transparent 100%),
+			radial-gradient(1.5px 1.5px at 70% 38%, rgba(255, 200, 80, 0.6) 0%, transparent 100%),
+			radial-gradient(1px 1px at 72% 42%, rgba(255, 200, 80, 0.5) 0%, transparent 100%),
+			radial-gradient(1px 1px at 65% 37%, rgba(255, 200, 80, 0.4) 0%, transparent 100%),
+			/* East Asia / China / Japan */
+			radial-gradient(2px 2px at 78% 33%, rgba(255, 200, 80, 0.8) 0%, transparent 100%),
+			radial-gradient(1.5px 1.5px at 80% 30%, rgba(255, 200, 80, 0.7) 0%, transparent 100%),
+			radial-gradient(1px 1px at 76% 35%, rgba(255, 200, 80, 0.6) 0%, transparent 100%),
+			radial-gradient(1.5px 1.5px at 82% 32%, rgba(255, 200, 80, 0.5) 0%, transparent 100%),
+			/* Scattered lights */
+			radial-gradient(1px 1px at 40% 42%, rgba(255, 200, 80, 0.3) 0%, transparent 100%),
+			radial-gradient(1px 1px at 45% 25%, rgba(255, 200, 80, 0.3) 0%, transparent 100%),
+			radial-gradient(1px 1px at 62% 45%, rgba(255, 200, 80, 0.3) 0%, transparent 100%),
+			radial-gradient(1px 1px at 15% 38%, rgba(255, 200, 80, 0.3) 0%, transparent 100%);
+		/* Continent shapes - dark landmasses slightly lighter than ocean */
+		background-color: transparent;
+	}
+
+	.earth-overlay {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		/* 3D lighting - illuminated edge and dark side */
+		background:
+			radial-gradient(circle at 30% 30%, rgba(100, 160, 255, 0.08) 0%, transparent 50%),
+			radial-gradient(circle at 75% 70%, rgba(0, 0, 0, 0.6) 0%, transparent 60%),
+			/* Subtle atmosphere rim */
+			radial-gradient(circle at 50% 50%, transparent 45%, rgba(60, 120, 220, 0.08) 48%, rgba(60, 120, 220, 0.12) 50%, transparent 52%);
+	}
+
+	@keyframes earth-rotate {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	@keyframes atmosphere-pulse {
+		0%, 100% { opacity: 1; transform: scale(1); }
+		50% { opacity: 0.7; transform: scale(1.02); }
 	}
 
 	/* Orbits */
@@ -203,27 +204,27 @@
 		top: 50%;
 		left: 50%;
 		border-radius: 50%;
-		border: 1px solid rgba(168, 85, 247, 0.08);
+		border: 1px solid rgba(100, 160, 255, 0.08);
 		transform: translate(-50%, -50%);
 	}
 
 	.orbit-1 {
-		width: 460px;
-		height: 460px;
-		animation: orbit-spin 12s linear infinite;
+		width: 440px;
+		height: 440px;
+		animation: orbit-spin 14s linear infinite;
 	}
 
 	.orbit-2 {
-		width: 380px;
-		height: 380px;
-		animation: orbit-spin 18s linear infinite reverse;
+		width: 360px;
+		height: 360px;
+		animation: orbit-spin 20s linear infinite reverse;
 	}
 
 	.orbit-3 {
-		width: 520px;
-		height: 520px;
-		border-color: rgba(168, 85, 247, 0.05);
-		animation: orbit-spin 25s linear infinite;
+		width: 500px;
+		height: 500px;
+		border-color: rgba(100, 160, 255, 0.04);
+		animation: orbit-spin 28s linear infinite;
 	}
 
 	.orbit-dot {
@@ -233,8 +234,8 @@
 		width: 8px;
 		height: 8px;
 		border-radius: 50%;
-		background: rgba(168, 85, 247, 0.6);
-		box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+		background: rgba(100, 180, 255, 0.7);
+		box-shadow: 0 0 12px rgba(100, 180, 255, 0.5);
 		transform: translateX(-50%);
 	}
 
@@ -242,16 +243,16 @@
 		width: 5px;
 		height: 5px;
 		top: -2.5px;
-		background: rgba(192, 132, 252, 0.5);
-		box-shadow: 0 0 8px rgba(192, 132, 252, 0.3);
+		background: rgba(140, 200, 255, 0.5);
+		box-shadow: 0 0 8px rgba(140, 200, 255, 0.3);
 	}
 
 	.orbit-dot-lg {
 		width: 6px;
 		height: 6px;
 		top: -3px;
-		background: rgba(147, 51, 234, 0.5);
-		box-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+		background: rgba(80, 140, 240, 0.6);
+		box-shadow: 0 0 10px rgba(80, 140, 240, 0.4);
 	}
 
 	@keyframes orbit-spin {

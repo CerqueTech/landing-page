@@ -10,6 +10,11 @@ function createThemeStore() {
 
 	const { subscribe, set, update } = writable<'light' | 'dark'>(initial);
 
+	// Sync DOM on initialization
+	if (browser) {
+		document.documentElement.classList.toggle('dark', initial === 'dark');
+	}
+
 	return {
 		subscribe,
 		toggle: () => {

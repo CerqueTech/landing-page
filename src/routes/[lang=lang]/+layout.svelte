@@ -2,8 +2,15 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import WhatsAppButton from '$lib/components/layout/WhatsAppButton.svelte';
+	import { theme } from '$lib/stores/theme';
 
 	let { data, children } = $props();
+
+	// Ensure theme store is initialized and synced with DOM
+	$effect(() => {
+		// Subscribe to force store initialization on mount
+		const _ = $theme;
+	});
 </script>
 
 <svelte:head>

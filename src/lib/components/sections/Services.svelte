@@ -10,8 +10,11 @@
 	let { t }: Props = $props();
 </script>
 
-<section id="services" class="py-24 lg:py-32">
-	<div class="mx-auto max-w-7xl px-6">
+<section id="services" class="relative overflow-hidden bg-white py-24 lg:py-32 dark:bg-zinc-950">
+	<!-- Decorative gradient orb -->
+	<div class="pointer-events-none absolute -right-40 top-0 h-80 w-80 rounded-full bg-brand-200/40 blur-[100px] dark:bg-brand-700/20"></div>
+
+	<div class="relative mx-auto max-w-7xl px-6">
 		<SectionHeading label={t.services.label} title={t.services.title} />
 
 		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

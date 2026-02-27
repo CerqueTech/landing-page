@@ -25,8 +25,11 @@
 	);
 </script>
 
-<section id="portfolio" class="bg-zinc-50 py-24 lg:py-32 dark:bg-zinc-900/30">
-	<div class="mx-auto max-w-7xl px-6">
+<section id="portfolio" class="relative overflow-hidden bg-zinc-50 py-24 lg:py-32 dark:bg-zinc-900/50">
+	<!-- Decorative gradient orb -->
+	<div class="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-600/15"></div>
+
+	<div class="relative mx-auto max-w-7xl px-6">
 		<SectionHeading label={t.portfolio.label} title={t.portfolio.title} />
 
 		<!-- Filter Buttons -->

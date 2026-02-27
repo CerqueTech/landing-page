@@ -69,8 +69,11 @@
 	}
 </script>
 
-<section id="contact" class="py-24 lg:py-32">
-	<div class="mx-auto max-w-7xl px-6">
+<section id="contact" class="relative overflow-hidden bg-white py-24 lg:py-32 dark:bg-zinc-950">
+	<!-- Decorative gradient orb -->
+	<div class="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
+
+	<div class="relative mx-auto max-w-7xl px-6">
 		<SectionHeading label={t.contact.label} title={t.contact.title} subtitle={t.contact.subtitle} />
 
 		<div class="grid gap-12 lg:grid-cols-5">
