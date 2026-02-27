@@ -1,54 +1,28 @@
 {
-  "name": "landing-page",
-  "type": "module",
-  "version": "1.0.0",
-  "engines": {
-    "node": "18.x"
-  },
+  "name": "cerquetech-landing",
+  "version": "2.0.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/react": "^3.6.2",
-    "@astrojs/vercel": "^7.8.1",
-    "@emailjs/browser": "^4.4.1",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.16.4",
-    "@mui/styled-engine-sc": "6.0.0-alpha.18",
-    "@nanostores/react": "^0.7.2",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vercel/speed-insights": "^1.0.12",
-    "animate.css": "^4.1.1",
-    "astro": "^4.15.4",
-    "bootstrap": "^5.3.3",
-    "emailjs": "^4.0.3",
-    "gsap": "^3.12.5",
-    "jquery": "^3.7.1",
-    "nanostores": "^0.10.3",
-    "odometer": "^0.4.8",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-floating-whatsapp": "^5.0.8",
-    "react-google-recaptcha": "^3.1.0",
-    "react-hook-form": "^7.52.1",
-    "react-scroll": "^1.9.0",
-    "react-slick": "^0.30.2",
-    "react-sticky-header": "^0.2.0",
-    "react-visibility-sensor": "^5.1.1",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.11"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.30",
-    "@types/react-slick": "^0.23.13",
-    "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "sass": "^1.77.8"
-  }
+    "@sveltejs/adapter-vercel": "^5.7.2",
+    "@sveltejs/kit": "^2.16.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.19.0",
+    "svelte-check": "^4.1.4",
+    "tailwindcss": "^4.0.6",
+    "@tailwindcss/vite": "^4.0.6",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "lucide-svelte": "^0.474.0"
+  },
+  "type": "module"
 }
