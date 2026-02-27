@@ -4,6 +4,7 @@
 
 	let container: HTMLDivElement;
 	let loading = $state(true);
+	let loadError = $state(false);
 
 	let globe: any = null;
 	let globeInitialized = false;
@@ -16,19 +17,34 @@
 		link.as = 'image';
 		link.href = GLOBE_IMAGE;
 		document.head.appendChild(link);
+
+		const script = document.createElement('script');
+		script.src = '//unpkg.com/globe.gl';
+		script.async = true;
+		script.onload = () => {
+			loading = false;
+		};
+		script.onerror = () => {
+			loadError = true;
+			loading = false;
+		};
+		document.body.appendChild(script);
+
+		return () => {
+			script.remove();
+		};
 	});
 
 	$effect(() => {
-		if (!browser || !container) return;
+		if (!browser || !container || !window.Globe) return;
 
 		let observer: IntersectionObserver | null = null;
 
 		async function initGlobe() {
-			if (globeInitialized) return;
+			if (globeInitialized || loadError) return;
 
 			try {
-				const GlobeModule = await import('globe.gl');
-				const Globe = GlobeModule.default;
+				const Globe = window.Globe;
 				const width = container.clientWidth;
 				const height = container.clientHeight;
 
@@ -36,7 +52,7 @@
 					.globeImageUrl(GLOBE_IMAGE)
 					.backgroundColor('rgba(0,0,0,0)')
 					.atmosphereColor('rgba(100, 160, 255, 0.3)')
-					.atmosphereAltitude(0.2)
+					.atmosphereAltitude(0.15)
 					.width(width)
 					.height(height)
 					.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
@@ -135,9 +151,9 @@
 					.arcDashLength(0.4)
 					.arcDashGap(0.2)
 					.arcDashAnimateTime(2000)
-					.arcStroke(1.2)
-					.arcAltitude((d: any) => d.arcAltitude || 0.15)
-					.arcAltitudeAutoScale(0.25);
+					.arcStroke(1)
+					.arcAltitude((d: any) => d.arcAltitude || 0.12)
+					.arcAltitudeAutoScale(0.2);
 
 				globe(container);
 
@@ -154,9 +170,9 @@
 				);
 
 				globeInitialized = true;
-				loading = false;
 			} catch (error) {
 				console.error('Globe initialization error:', error);
+				loadError = true;
 			}
 		}
 
@@ -169,17 +185,15 @@
 					renderer.domElement?.remove();
 				}
 			} catch {
-				// cleanup errors are ok
 			}
 			globe = null;
 			globeInitialized = false;
 			if (container) container.innerHTML = '';
 		}
 
-		// Use IntersectionObserver to init/destroy on visibility
 		observer = new IntersectionObserver(
 			(entries) => {
-				if (entries[0].isIntersecting) {
+				if (entries[0].isIntersecting && window.Globe) {
 					initGlobe();
 				} else if (globeInitialized) {
 					destroyGlobe();
@@ -190,7 +204,6 @@
 
 		observer.observe(container);
 
-		// Handle resize
 		function handleResize() {
 			if (globe && globeInitialized) {
 				globe.width(container.clientWidth);
@@ -208,9 +221,9 @@
 </script>
 
 <div bind:this={container} class="globe-container relative">
-	{#if loading}
+	{#if loading || !window.Globe}
 		<div class="absolute inset-0 flex items-center justify-center">
-			<div class="h-12 w-12 animate-spin rounded-full border-2 border-brand-500/30 border-t-brand-500"></div>
+			<div class="h-8 w-8 animate-spin rounded-full border-2 border-brand-500/30 border-t-brand-500 sm:h-12 sm:w-12"></div>
 		</div>
 	{/if}
 </div>

@@ -35,8 +35,16 @@
 	></div>
 
 	<!-- Content -->
-	<div class="relative mx-auto flex min-h-screen max-w-7xl items-center px-4 sm:px-6">
-		<div class="relative z-10 max-w-2xl py-24 sm:py-32 lg:w-1/2">
+	<div class="relative mx-auto flex min-h-screen max-w-7xl flex-col px-4 sm:px-6 lg:flex-row lg:items-center">
+		<!-- Globe.gl 3D Globe - First on mobile -->
+		<div class="pointer-events-auto order-1 -mt-20 flex h-[280px] w-full items-center justify-center sm:h-[350px] lg:order-2 lg:mt-0 lg:h-[500px] lg:w-[55%] xl:h-[600px]">
+			<div class="h-[250px] w-[250px] sm:h-[320px] sm:w-[320px] lg:h-[450px] lg:w-[450px] xl:h-[550px] xl:w-[550px]">
+				<Globe3D />
+			</div>
+		</div>
+
+		<!-- Text Content -->
+		<div class="relative z-10 order-2 mt-8 max-w-2xl py-12 sm:py-16 lg:order-1 lg:w-1/2">
 			<!-- Badge -->
 			<div class="hero-fade-in mb-6">
 				<span
@@ -51,10 +59,12 @@
 				class="hero-fade-in font-display text-4xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl"
 				style="animation-delay: 0.1s"
 			>
-				{@html t.hero.headline.replace(
-					/(digitales|Digital)/,
-					'<span class="hero-gradient-text">$1</span>'
-				)}
+				<span class="typing-container">
+					{@html t.hero.headline.replace(
+						/(digitales|Digital)/,
+						'<span class="hero-gradient-text">$1</span>'
+					)}
+				</span>
 			</h1>
 			<p
 				class="hero-fade-in mt-6 max-w-xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400 sm:text-lg md:text-xl"
@@ -83,15 +93,6 @@
 				<Button variant="outline" href="/{lang}#portfolio">
 					{t.portfolio.label}
 				</Button>
-			</div>
-		</div>
-
-		<!-- Globe.gl 3D Globe -->
-		<div class="pointer-events-auto absolute inset-y-0 right-0 w-[55%] lg:w-[55%]">
-			<div class="flex h-full items-center justify-center">
-				<div class="h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px] xl:h-[600px] xl:w-[600px]">
-					<Globe3D />
-				</div>
 			</div>
 		</div>
 	</div>
