@@ -4,7 +4,8 @@
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Toast from '$lib/components/ui/Toast.svelte';
-	import { sendEmail, RECAPTCHA_SITE_KEY } from '$lib/utils/emailjs';
+	import { sendEmail, loadRecaptcha } from '$lib/utils/emailjs';
+	import { onMount } from 'svelte';
 	import type { Translations } from '$lib/i18n/types';
 
 	interface Props {
@@ -24,6 +25,11 @@
 	let errors = $state<Record<string, string>>({});
 	let submitting = $state(false);
 	let toast = $state({ visible: false, message: '', type: 'success' as 'success' | 'error' });
+
+	// Preload reCAPTCHA when component mounts
+	onMount(() => {
+		loadRecaptcha().catch(() => {});
+	});
 
 	function validate(): boolean {
 		const v = t.contact.form.validation;
