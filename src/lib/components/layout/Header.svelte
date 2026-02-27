@@ -26,8 +26,11 @@
 		{ label: t.nav.contact, href: `/${lang}#contact` }
 	]);
 
+	// Logo naming: "dark_one_line" = white text (for dark bg), "white_one_line" = black text (for white bg)
 	const logoSrc = $derived(
-		$theme === 'dark' ? '/images/logo/white_one_line.png' : '/images/logo/dark_one_line.png'
+		!scrolled || $theme === 'dark'
+			? '/images/logo/dark_one_line.png'
+			: '/images/logo/white_one_line.png'
 	);
 
 	onMount(() => {
@@ -54,7 +57,9 @@
 			{#each navLinks as link}
 				<a
 					href={link.href}
-					class="rounded-lg px-4 py-2 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100"
+					class="rounded-lg px-4 py-2 text-sm font-medium transition-colors {scrolled
+						? 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
+						: 'text-zinc-300 hover:bg-white/10 hover:text-white'}"
 				>
 					{link.label}
 				</a>

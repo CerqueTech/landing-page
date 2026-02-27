@@ -20,7 +20,7 @@
 	}
 </script>
 
-<div class="fixed bottom-6 left-6 z-50">
+<div class="fixed bottom-6 right-6 z-50">
 	{#if open}
 		<div
 			class="mb-4 w-80 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-2xl dark:border-zinc-700 dark:bg-zinc-800"

@@ -14,9 +14,11 @@ export interface Translations {
 		quote: string;
 	};
 	hero: {
+		badge: string;
 		headline: string;
 		subheadline: string;
 		cta: string;
+		features: string[];
 	};
 	services: {
 		label: string;

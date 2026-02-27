@@ -15,10 +15,16 @@ export const es: Translations = {
 		quote: 'Cotizar'
 	},
 	hero: {
+		badge: 'Transformamos ideas en tecnología',
 		headline: 'Soluciones digitales para tu empresa',
 		subheadline:
 			'Transformamos tus ideas en soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
-		cta: 'Contáctanos'
+		cta: 'Contáctanos',
+		features: [
+			'Desarrollo de aplicaciones a medida',
+			'Soluciones digitales de alto impacto',
+			'Tecnologías basadas en IA y Cloud'
+		]
 	},
 	services: {
 		label: 'Nuestros Servicios',
