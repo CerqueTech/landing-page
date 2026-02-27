@@ -135,25 +135,25 @@ export const en: Translations = {
 			members: [
 				{
 					name: 'Mateo Cerquetella',
-					role: 'CEO & Software Architect',
+					role: 'Sr. Full Stack Developer',
 					image: '/images/team/mateo.png',
 					linkedin: 'https://www.linkedin.com/in/mateocerquetella/'
 				},
 				{
-					name: 'Fernando Schlottman',
-					role: 'Sr. Software Developer',
-					image: '/images/team/fer.png',
-					linkedin: 'https://www.linkedin.com/in/fernando-schlottmann/'
+					name: 'Mateo Rodriguez',
+					role: 'Sr. Full Stack Developer',
+					image: '/images/team/mateo-rodriguez.png',
+					linkedin: ''
 				},
 				{
 					name: 'Federico Rosales',
-					role: 'Jr. Software Developer',
+					role: 'Sr. Full Stack Developer',
 					image: '/images/team/fede.png',
 					linkedin: 'https://www.linkedin.com/in/federosaless/'
 				},
 				{
 					name: 'Matias Kalil Gomez',
-					role: 'Jr. Software Developer',
+					role: 'Sr. Full Stack Developer',
 					image: '/images/team/mati.png',
 					linkedin: 'https://www.linkedin.com/in/mat%C3%ADas-kalil-g%C3%B3mez-26b647223/'
 				}

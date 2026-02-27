@@ -88,6 +88,7 @@
 							{member.name}
 						</h4>
 						<p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{member.role}</p>
+						{#if member.linkedin}
 						<a
 							href={member.linkedin}
 							target="_blank"
@@ -97,6 +98,7 @@
 						>
 							<Linkedin class="h-4 w-4" />
 						</a>
+						{/if}
 					</div>
 				{/each}
 			</div>
