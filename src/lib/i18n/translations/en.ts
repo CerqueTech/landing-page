@@ -225,9 +225,9 @@ export const en: Translations = {
 		},
 		info: {
 			email: 'info@cerquetech.com',
-			phone: '+54 11 1234-5678',
+			phone: '+54 9 11 4054-1120',
 			location: 'Núñez, Buenos Aires, Argentina',
-			whatsapp: 'https://wa.me/5491112345678'
+			whatsapp: 'https://wa.me/5491140541120'
 		},
 		success: 'Message sent successfully',
 		error: 'Error sending message. Please try again.',
