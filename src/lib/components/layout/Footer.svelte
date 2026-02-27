@@ -28,8 +28,8 @@
 
 <!-- CTA Bar -->
 <section class="bg-gradient-to-r from-brand-700 to-brand-500 py-16">
-	<div class="mx-auto max-w-7xl px-6 text-center">
-		<h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 text-center">
+		<h2 class="font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl">
 			{t.footer.cta.title}
 		</h2>
 		<div class="mt-8">
@@ -42,8 +42,8 @@
 
 <!-- Footer -->
 <footer class="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50">
-	<div class="mx-auto max-w-7xl px-6 py-16">
-		<div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 py-16">
+		<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 			<!-- Brand -->
 			<div class="lg:col-span-1">
 				<img src={logoSrc} alt="CerqueTech" class="mb-4 h-8" />
@@ -151,7 +151,7 @@
 
 	<!-- Copyright -->
 	<div class="border-t border-zinc-200 dark:border-zinc-800">
-		<div class="mx-auto max-w-7xl px-6 py-6">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 py-6">
 			<p class="text-center text-xs text-zinc-500 dark:text-zinc-500">
 				{t.footer.copyright}
 			</p>

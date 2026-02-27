@@ -32,7 +32,7 @@
 		class="fixed inset-y-0 right-0 z-50 w-80 max-w-full bg-white shadow-2xl lg:hidden dark:bg-zinc-900"
 		transition:fly={{ x: 320, duration: 300 }}
 	>
-		<div class="flex h-full flex-col px-6 py-20">
+		<div class="flex h-full flex-col px-6 pt-16 pb-6 sm:py-20">
 			<nav class="flex flex-col gap-1">
 				{#each navLinks as link}
 					<a

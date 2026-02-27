@@ -21,7 +21,7 @@
 		{title}
 	</h2>
 	{#if subtitle}
-		<p class="mx-auto mt-4 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">
+		<p class="mx-auto mt-4 max-w-2xl text-base text-zinc-600 sm:text-lg dark:text-zinc-400">
 			{subtitle}
 		</p>
 	{/if}

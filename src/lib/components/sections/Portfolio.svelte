@@ -29,7 +29,7 @@
 	<!-- Decorative gradient orb -->
 	<div class="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-600/15"></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
 		<SectionHeading label={t.portfolio.label} title={t.portfolio.title} />
 
 		<!-- Filter Buttons -->
@@ -48,7 +48,7 @@
 		</div>
 
 		<!-- Project Grid -->
-		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each filteredProjects as project, i (project.title)}
 				<PortfolioCard
 					title={project.title}

@@ -19,11 +19,11 @@
 	<div class="pointer-events-none absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
 	<div class="pointer-events-none absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/20 blur-[100px] dark:bg-brand-600/10"></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
 		<SectionHeading label={t.about.label} title={t.about.title} subtitle={t.about.description} />
 
 		<!-- Values -->
-		<div class="grid gap-6 sm:grid-cols-3" use:scrollReveal>
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-3" use:scrollReveal>
 			{#each t.about.values as val, i}
 				{@const Icon = valueIcons[i]}
 				<div
@@ -43,7 +43,7 @@
 		</div>
 
 		<!-- Stats -->
-		<div class="mt-20 grid gap-8 sm:grid-cols-3">
+		<div class="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-3">
 			{#each t.about.stats as stat}
 				<AnimatedCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
 			{/each}
@@ -62,14 +62,14 @@
 				</h3>
 			</div>
 
-			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+			<div class="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
 				{#each t.about.team.members as member, i}
 					<div
 						class="group text-center"
 						use:scrollReveal={{ delay: i * 100 }}
 					>
 						<div
-							class="relative mx-auto mb-4 h-40 w-40 overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800"
+							class="relative mx-auto mb-4 h-32 w-32 overflow-hidden rounded-2xl bg-zinc-100 sm:h-40 sm:w-40 dark:bg-zinc-800"
 						>
 							<img
 								src={member.image}

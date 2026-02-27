@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="rounded-2xl border border-zinc-200 bg-white p-8 transition-all duration-300 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900/50"
+	class="rounded-2xl border border-zinc-200 bg-white p-6 transition-all duration-300 hover:shadow-lg sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50"
 	use:scrollReveal={{ delay: index * 150 }}
 >
 	<!-- Stars -->

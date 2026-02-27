@@ -73,10 +73,10 @@
 	<!-- Decorative gradient orb -->
 	<div class="pointer-events-none absolute right-0 top-1/3 h-72 w-72 rounded-full bg-brand-200/30 blur-[100px] dark:bg-brand-700/15"></div>
 
-	<div class="relative mx-auto max-w-7xl px-6">
+	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
 		<SectionHeading label={t.contact.label} title={t.contact.title} subtitle={t.contact.subtitle} />
 
-		<div class="grid gap-12 lg:grid-cols-5">
+		<div class="grid grid-cols-1 gap-12 lg:grid-cols-5">
 			<!-- Form -->
 			<div class="lg:col-span-3" use:scrollReveal>
 				<form onsubmit={(e) => { e.preventDefault(); handleSubmit(); }} class="space-y-5">
@@ -162,7 +162,7 @@
 
 			<!-- Info Sidebar -->
 			<div class="lg:col-span-2" use:scrollReveal={{ delay: 200 }}>
-				<div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900/50">
+				<div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50">
 					<h3 class="font-display text-lg font-bold text-zinc-900 dark:text-white">
 						{t.contact.label}
 					</h3>

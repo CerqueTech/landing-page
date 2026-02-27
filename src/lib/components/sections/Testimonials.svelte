@@ -11,10 +11,10 @@
 </script>
 
 <section class="relative overflow-hidden bg-zinc-50 py-24 lg:py-32 dark:bg-zinc-900/50">
-	<div class="mx-auto max-w-7xl px-6">
+	<div class="mx-auto max-w-7xl px-4 sm:px-6">
 		<SectionHeading label={t.testimonials.label} title={t.testimonials.title} />
 
-		<div class="grid gap-8 md:grid-cols-3">
+		<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3">
 			{#each t.testimonials.items as item, i}
 				<TestimonialCard
 					quote={item.quote}
