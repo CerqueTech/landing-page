@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Linkedin, Github, Instagram, MapPin, Mail, Phone } from 'lucide-svelte';
+	import { Linkedin, Github, Instagram, MapPin, Mail, Phone, ArrowRight } from 'lucide-svelte';
 	import type { Translations, Locale } from '$lib/i18n/types';
 	import { theme } from '$lib/stores/theme';
 
@@ -27,29 +27,37 @@
 </script>
 
 <!-- CTA Bar -->
-<section class="relative overflow-hidden bg-gradient-to-br from-brand-800 via-brand-600 to-brand-500 py-20 sm:py-24">
-	<!-- Decorative elements -->
-	<div class="pointer-events-none absolute inset-0">
-		<div class="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-white/10 blur-[80px]"></div>
-		<div class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-brand-300/20 blur-[90px]"></div>
-		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-[600px] rounded-full bg-white/5 blur-[60px]"></div>
+<section class="cta-section relative overflow-hidden py-24 sm:py-32">
+	<!-- Animated aurora background -->
+	<div class="cta-aurora pointer-events-none absolute inset-0"></div>
+
+	<!-- Floating particles -->
+	<div class="pointer-events-none absolute inset-0 overflow-hidden">
+		{#each { length: 8 } as _, i}
+			<div
+				class="cta-particle absolute rounded-full bg-white"
+				style="--i: {i}; --x: {10 + (i * 37) % 80}; --size: {2 + (i % 3)}; --duration: {4 + (i % 5) * 1.5}; --delay: {i * 0.7}"
+			></div>
+		{/each}
 	</div>
+
 	<!-- Grid pattern -->
 	<div class="pointer-events-none absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
 
 	<div class="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
-		<h2 class="font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+		<h2 class="cta-title font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
 			{t.footer.cta.title}
 		</h2>
-		<p class="mx-auto mt-4 max-w-lg text-base text-white/70 sm:text-lg">
+		<p class="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg">
 			{t.footer.cta.subtitle}
 		</p>
 		<div class="mt-10">
 			<a
 				href="/{lang}#contact"
-				class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3.5 font-display text-sm font-semibold text-brand-700 shadow-lg shadow-brand-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600"
+				class="cta-button group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-9 py-4 font-display text-sm font-bold text-brand-700 transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600"
 			>
 				{t.footer.cta.button}
+				<ArrowRight class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
 			</a>
 		</div>
 	</div>
@@ -168,8 +176,96 @@
 	<div class="border-t border-zinc-200 dark:border-zinc-800">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 py-6">
 			<p class="text-center text-xs text-zinc-500 dark:text-zinc-500">
-				{t.footer.copyright}
+				© {new Date().getFullYear()} CerqueTech Solutions. {t.footer.copyright}
 			</p>
 		</div>
 	</div>
 </footer>
+
+<style>
+	/* Aurora animated gradient background */
+	.cta-aurora {
+		background: linear-gradient(
+			-45deg,
+			#6b21a8,
+			#7c3aed,
+			#9333ea,
+			#a855f7,
+			#7c3aed,
+			#6b21a8
+		);
+		background-size: 300% 300%;
+		animation: aurora-shift 8s ease infinite;
+	}
+
+	@keyframes aurora-shift {
+		0%, 100% { background-position: 0% 50%; }
+		25% { background-position: 50% 0%; }
+		50% { background-position: 100% 50%; }
+		75% { background-position: 50% 100%; }
+	}
+
+	/* Floating particles */
+	.cta-particle {
+		width: calc(var(--size) * 1px);
+		height: calc(var(--size) * 1px);
+		left: calc(var(--x) * 1%);
+		bottom: -10px;
+		opacity: 0;
+		animation: particle-float calc(var(--duration) * 1s) ease-in-out calc(var(--delay) * 1s) infinite;
+	}
+
+	@keyframes particle-float {
+		0% {
+			opacity: 0;
+			transform: translateY(0) scale(0);
+		}
+		10% {
+			opacity: 0.6;
+			transform: translateY(-20px) scale(1);
+		}
+		90% {
+			opacity: 0.3;
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(-300px) scale(0.5);
+		}
+	}
+
+	/* Title shimmer effect */
+	.cta-title {
+		background: linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 1) 0%,
+			rgba(255, 255, 255, 1) 40%,
+			rgba(232, 210, 255, 0.9) 50%,
+			rgba(255, 255, 255, 1) 60%,
+			rgba(255, 255, 255, 1) 100%
+		);
+		background-size: 200% 100%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: title-shimmer 4s ease-in-out infinite;
+	}
+
+	@keyframes title-shimmer {
+		0%, 100% { background-position: 200% center; }
+		50% { background-position: -200% center; }
+	}
+
+	/* Button glow */
+	.cta-button {
+		box-shadow:
+			0 0 20px rgba(255, 255, 255, 0.15),
+			0 4px 15px rgba(0, 0, 0, 0.1);
+	}
+
+	.cta-button:hover {
+		box-shadow:
+			0 0 30px rgba(255, 255, 255, 0.25),
+			0 0 60px rgba(168, 85, 247, 0.2),
+			0 8px 25px rgba(0, 0, 0, 0.15);
+	}
+</style>
