@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* Self-hosted fonts (eliminates external Google Fonts requests) */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/manrope/wght.css';
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -17,8 +21,8 @@
 	--color-brand-950: #3b0764;
 
 	/* Font Families */
-	--font-display: 'Manrope', sans-serif;
-	--font-body: 'Inter', sans-serif;
+	--font-display: 'Manrope Variable', 'Manrope', sans-serif;
+	--font-body: 'Inter Variable', 'Inter', sans-serif;
 
 	/* Animations */
 	--animate-float: float 6s ease-in-out infinite;

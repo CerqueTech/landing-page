@@ -33,8 +33,11 @@
 		<img
 			src={avatar}
 			alt={name}
+			width="40"
+			height="40"
 			class="h-9 w-9 rounded-full bg-zinc-100 object-cover sm:h-10 sm:w-10 dark:bg-zinc-800"
 			loading="lazy"
+			decoding="async"
 		/>
 		<div>
 			<p class="text-xs font-semibold text-zinc-900 sm:text-sm dark:text-white">{name}</p>

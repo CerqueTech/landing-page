@@ -47,7 +47,7 @@
 		<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 			<!-- Brand -->
 			<div class="lg:col-span-1">
-				<img src={logoSrc} alt="CerqueTech" class="mb-4 h-8" />
+				<img src={logoSrc} alt="CerqueTech" class="mb-4 h-8" loading="lazy" decoding="async" />
 				<p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
 					{t.footer.description}
 				</p>
