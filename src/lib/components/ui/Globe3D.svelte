@@ -49,19 +49,32 @@
 	});
 
 	function scheduleGlobeLoad() {
-		// Preload the current theme's texture
-		const dark = isDarkMode();
-		const link = document.createElement('link');
-		link.rel = 'preload';
-		link.as = 'image';
-		link.href = dark ? GLOBE_NIGHT : GLOBE_DAY;
-		document.head.appendChild(link);
+		// Wait for the page to be fully loaded and idle before starting the globe
+		// This ensures all text, images, and other content loads first
+		const startGlobe = () => {
+			// Preload the texture right before init
+			const dark = isDarkMode();
+			const img = new Image();
+			img.src = dark ? GLOBE_NIGHT : GLOBE_DAY;
+			img.onload = () => initGlobe();
+			img.onerror = () => initGlobe();
+		};
 
-		// Use requestIdleCallback to avoid blocking the main thread during initial render
-		if ('requestIdleCallback' in window) {
-			requestIdleCallback(() => initGlobe(), { timeout: 3000 });
+		// Wait for document to be fully loaded (all resources), then use idle callback
+		if (document.readyState === 'complete') {
+			if ('requestIdleCallback' in window) {
+				requestIdleCallback(startGlobe, { timeout: 5000 });
+			} else {
+				setTimeout(startGlobe, 1000);
+			}
 		} else {
-			setTimeout(() => initGlobe(), 200);
+			window.addEventListener('load', () => {
+				if ('requestIdleCallback' in window) {
+					requestIdleCallback(startGlobe, { timeout: 5000 });
+				} else {
+					setTimeout(startGlobe, 1000);
+				}
+			}, { once: true });
 		}
 	}
 
@@ -126,10 +139,19 @@
 
 <div bind:this={container} class="globe-container relative">
 	{#if !loaded}
-		<div class="absolute inset-0 flex items-center justify-center">
-			<div class="relative h-full w-full">
-				<div class="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-brand-500/20 to-brand-700/20"></div>
-				<div class="absolute inset-4 animate-pulse rounded-full bg-gradient-to-br from-brand-400/30 to-brand-600/30" style="animation-delay: 0.2s"></div>
+		<div class="globe-placeholder absolute inset-0 flex items-center justify-center">
+			<div class="relative aspect-square w-[75%]">
+				<!-- Outer glow -->
+				<div class="absolute -inset-4 rounded-full bg-brand-500/10 blur-2xl dark:bg-brand-400/15"></div>
+				<!-- Planet shape -->
+				<div class="absolute inset-0 rounded-full bg-gradient-to-br from-brand-200 via-brand-300 to-brand-500 opacity-30 dark:from-brand-900 dark:via-brand-700 dark:to-brand-500 dark:opacity-40"></div>
+				<div class="absolute inset-[3%] rounded-full bg-gradient-to-br from-brand-100 via-brand-200/80 to-brand-400/60 dark:from-zinc-800 dark:via-brand-950 dark:to-brand-800/80"></div>
+				<!-- Shine highlight -->
+				<div class="absolute inset-0 rounded-full bg-gradient-to-tl from-transparent via-transparent to-white/30 dark:to-white/10"></div>
+				<!-- Subtle spinner -->
+				<div class="absolute inset-0 flex items-center justify-center">
+					<div class="h-8 w-8 rounded-full border-2 border-brand-400/30 border-t-brand-500 animate-spin"></div>
+				</div>
 			</div>
 		</div>
 	{/if}
@@ -142,5 +164,13 @@
 	}
 	.globe-container :global(canvas) {
 		cursor: default !important;
+		animation: globe-canvas-in 0.8s ease-out forwards;
+	}
+	@keyframes globe-canvas-in {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+	.globe-placeholder {
+		transition: opacity 0.5s ease-out;
 	}
 </style>
