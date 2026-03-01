@@ -125,13 +125,13 @@
 
 <style>
 	:global(.hero-neon-text) {
-		color: #bf5af2;
-		text-shadow: 0 0 10px rgba(191, 90, 242, 0.6), 0 0 30px rgba(191, 90, 242, 0.3), 0 0 60px rgba(191, 90, 242, 0.15);
+		color: #7c3aed;
+		text-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
 	}
 
 	:global(.dark .hero-neon-text) {
-		color: #d084ff;
-		text-shadow: 0 0 10px rgba(208, 132, 255, 0.7), 0 0 40px rgba(208, 132, 255, 0.4), 0 0 80px rgba(208, 132, 255, 0.2);
+		color: #c084fc;
+		text-shadow: 0 0 15px rgba(192, 132, 252, 0.5), 0 0 40px rgba(192, 132, 252, 0.2);
 	}
 
 	.hero-gradient-text {
