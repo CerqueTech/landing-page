@@ -17,15 +17,17 @@
 	onMount(() => {
 		if (!browser) return;
 
-		// Preload the current theme's texture
-		const dark = isDarkMode();
-		const link = document.createElement('link');
-		link.rel = 'preload';
-		link.as = 'image';
-		link.href = dark ? GLOBE_NIGHT : GLOBE_DAY;
-		document.head.appendChild(link);
-
-		setTimeout(() => initGlobe(), 50);
+		// Only start loading globe when it's visible in the viewport
+		const visibilityObserver = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					visibilityObserver.disconnect();
+					scheduleGlobeLoad();
+				}
+			},
+			{ rootMargin: '100px' }
+		);
+		visibilityObserver.observe(container);
 
 		// Watch for theme changes
 		const themeObserver = new MutationObserver(() => {
@@ -41,9 +43,27 @@
 		themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
 		return () => {
+			visibilityObserver.disconnect();
 			themeObserver.disconnect();
 		};
 	});
+
+	function scheduleGlobeLoad() {
+		// Preload the current theme's texture
+		const dark = isDarkMode();
+		const link = document.createElement('link');
+		link.rel = 'preload';
+		link.as = 'image';
+		link.href = dark ? GLOBE_NIGHT : GLOBE_DAY;
+		document.head.appendChild(link);
+
+		// Use requestIdleCallback to avoid blocking the main thread during initial render
+		if ('requestIdleCallback' in window) {
+			requestIdleCallback(() => initGlobe(), { timeout: 3000 });
+		} else {
+			setTimeout(() => initGlobe(), 200);
+		}
+	}
 
 	async function initGlobe() {
 		if (globeInitialized || !container) return;

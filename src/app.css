@@ -122,10 +122,17 @@
 html {
 	scroll-behavior: smooth;
 	font-family: var(--font-body);
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
 	@apply bg-white text-zinc-800 antialiased;
+	overflow-y: scroll;
+}
+
+/* Optimize image rendering */
+img {
+	content-visibility: auto;
 }
 
 .dark body {

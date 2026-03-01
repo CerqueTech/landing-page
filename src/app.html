@@ -26,14 +26,17 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<!-- Loading spinner (removed by JS when app is ready) -->
-		<div id="app-loader" style="position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;background:#09090b;">
-			<img src="/images/logo/favicon.webp" alt="" width="48" height="48" style="animation:lp 1.5s ease-in-out infinite" />
-			<div style="width:32px;height:32px;border:3px solid rgba(168,85,247,0.2);border-top-color:#a855f7;border-radius:50%;animation:ls 0.8s linear infinite"></div>
+		<!-- Loading indicator (non-blocking overlay, removed by JS when app is ready) -->
+		<div id="app-loader" style="position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:rgba(9,9,11,0.85);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);pointer-events:none;">
+			<!-- Progress bar at top -->
+			<div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7c3aed,#a855f7,#c084fc,#a855f7);background-size:200% 100%;animation:lbar 1.2s linear infinite"></div>
+			<img src="/images/logo/favicon.webp" alt="" width="44" height="44" style="animation:lp 1.5s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(168,85,247,0.4))" />
+			<div style="width:28px;height:28px;border:3px solid rgba(168,85,247,0.2);border-top-color:#a855f7;border-radius:50%;animation:ls .8s linear infinite"></div>
 			<style>
 				@keyframes ls{to{transform:rotate(360deg)}}
 				@keyframes lp{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
-				html:not(.dark) #app-loader{background:#ffffff}
+				@keyframes lbar{0%{background-position:200% 0}100%{background-position:-200% 0}}
+				html:not(.dark) #app-loader{background:rgba(255,255,255,0.85)}
 			</style>
 		</div>
 		<div style="display: contents">%sveltekit.body%</div>
