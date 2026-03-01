@@ -4,7 +4,6 @@
 
 	let container: HTMLDivElement;
 	let loaded = $state(false);
-	let skippedMobile = $state(false);
 	let globe: any = null;
 	let globeInitialized = false;
 
@@ -54,14 +53,6 @@
 
 	onMount(() => {
 		if (!browser) return;
-
-		// Skip globe entirely on small screens - saves 1.8MB download
-		// The globe is mostly hidden on mobile (translated off-screen) and just eats bandwidth
-		if (window.innerWidth < 640) {
-			skippedMobile = true;
-			loaded = true;
-			return;
-		}
 
 		// Defer globe loading until browser is idle (don't block initial paint)
 		onIdle(() => {
@@ -169,23 +160,21 @@
 </script>
 
 <div bind:this={container} class="globe-container relative">
-	{#if !skippedMobile}
-		<div class="globe-placeholder absolute inset-0 flex items-center justify-center transition-opacity duration-700" class:opacity-0={loaded} class:pointer-events-none={loaded}>
-			<div class="relative aspect-square w-[75%]">
-				<!-- Outer glow -->
-				<div class="absolute -inset-4 rounded-full bg-brand-500/10 blur-2xl dark:bg-brand-400/15"></div>
-				<!-- Planet shape -->
-				<div class="absolute inset-0 rounded-full bg-gradient-to-br from-brand-200 via-brand-300 to-brand-500 opacity-30 dark:from-brand-900 dark:via-brand-700 dark:to-brand-500 dark:opacity-40"></div>
-				<div class="absolute inset-[3%] rounded-full bg-gradient-to-br from-brand-100 via-brand-200/80 to-brand-400/60 dark:from-zinc-800 dark:via-brand-950 dark:to-brand-800/80"></div>
-				<!-- Shine highlight -->
-				<div class="absolute inset-0 rounded-full bg-gradient-to-tl from-transparent via-transparent to-white/30 dark:to-white/10"></div>
-				<!-- Subtle spinner -->
-				<div class="absolute inset-0 flex items-center justify-center">
-					<div class="h-8 w-8 rounded-full border-2 border-brand-400/30 border-t-brand-500 animate-spin"></div>
-				</div>
+	<div class="globe-placeholder absolute inset-0 flex items-center justify-center transition-opacity duration-700" class:opacity-0={loaded} class:pointer-events-none={loaded}>
+		<div class="relative aspect-square w-[75%]">
+			<!-- Outer glow -->
+			<div class="absolute -inset-4 rounded-full bg-brand-500/10 blur-2xl dark:bg-brand-400/15"></div>
+			<!-- Planet shape -->
+			<div class="absolute inset-0 rounded-full bg-gradient-to-br from-brand-200 via-brand-300 to-brand-500 opacity-30 dark:from-brand-900 dark:via-brand-700 dark:to-brand-500 dark:opacity-40"></div>
+			<div class="absolute inset-[3%] rounded-full bg-gradient-to-br from-brand-100 via-brand-200/80 to-brand-400/60 dark:from-zinc-800 dark:via-brand-950 dark:to-brand-800/80"></div>
+			<!-- Shine highlight -->
+			<div class="absolute inset-0 rounded-full bg-gradient-to-tl from-transparent via-transparent to-white/30 dark:to-white/10"></div>
+			<!-- Subtle spinner -->
+			<div class="absolute inset-0 flex items-center justify-center">
+				<div class="h-8 w-8 rounded-full border-2 border-brand-400/30 border-t-brand-500 animate-spin"></div>
 			</div>
 		</div>
-	{/if}
+	</div>
 </div>
 
 <style>
