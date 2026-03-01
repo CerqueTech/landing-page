@@ -10,17 +10,21 @@
 		<meta name="robots" content="index, follow" />
 		<meta name="author" content="CerqueTech Solutions" />
 		<!-- Fonts are self-hosted via @fontsource (no external requests needed) -->
-		<!-- Preload globe texture so it's cached before JS requests it -->
-		<link rel="preload" href="/images/globe/earth-night.webp" as="image" media="(prefers-color-scheme: dark)" />
-		<link rel="preload" href="/images/globe/earth-blue-marble.webp" as="image" media="(prefers-color-scheme: light)" />
 		<script>
 			(function () {
-				const theme = localStorage.getItem('theme');
-				if (theme === 'light') {
-					document.documentElement.classList.remove('dark');
-				} else {
+				var theme = localStorage.getItem('theme');
+				var isDark = theme !== 'light';
+				if (isDark) {
 					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
 				}
+				// Preload only the correct globe texture for current theme
+				var link = document.createElement('link');
+				link.rel = 'preload';
+				link.as = 'image';
+				link.href = isDark ? '/images/globe/earth-night.webp' : '/images/globe/earth-blue-marble.webp';
+				document.head.appendChild(link);
 			})();
 		</script>
 		%sveltekit.head%

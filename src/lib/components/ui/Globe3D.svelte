@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	let container: HTMLDivElement;
 	let loaded = $state(false);
 	let globe: any = null;
 	let globeInitialized = false;
+	let renderer: any = null;
+	let animFrameId: number | null = null;
 
 	const GLOBE_NIGHT = '/images/globe/earth-night.webp';
 	const GLOBE_DAY = '/images/globe/earth-blue-marble.webp';
@@ -23,6 +25,24 @@
 			img.src = src;
 		});
 	}
+
+	// Pause/resume globe rendering based on visibility
+	function pauseGlobe() {
+		if (globe && globeInitialized) {
+			globe.controls().autoRotate = false;
+			globe.pauseAnimation();
+		}
+	}
+
+	function resumeGlobe() {
+		if (globe && globeInitialized) {
+			globe.controls().autoRotate = true;
+			globe.resumeAnimation();
+		}
+	}
+
+	let visibilityObserver: IntersectionObserver | null = null;
+	let themeObserver: MutationObserver | null = null;
 
 	onMount(() => {
 		if (!browser) return;
@@ -44,7 +64,7 @@
 		});
 
 		// Watch for theme changes
-		const themeObserver = new MutationObserver(() => {
+		themeObserver = new MutationObserver(() => {
 			if (globe && globeInitialized) {
 				const nowDark = isDarkMode();
 				globe.globeImageUrl(nowDark ? GLOBE_NIGHT : GLOBE_DAY);
@@ -56,9 +76,26 @@
 		});
 		themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
-		return () => {
-			themeObserver.disconnect();
-		};
+		// Pause globe rendering when scrolled out of view (massive CPU saving)
+		visibilityObserver = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					resumeGlobe();
+				} else {
+					pauseGlobe();
+				}
+			},
+			{ rootMargin: '100px' }
+		);
+		if (container) visibilityObserver.observe(container);
+	});
+
+	onDestroy(() => {
+		themeObserver?.disconnect();
+		visibilityObserver?.disconnect();
+		if (globe) {
+			try { globe._destructor?.(); } catch {}
+		}
 	});
 
 	function initGlobe(Globe: any) {
@@ -97,12 +134,13 @@
 
 		globe(container);
 
-		globe.controls().autoRotate = true;
-		globe.controls().autoRotateSpeed = 0.4;
-		globe.controls().enableZoom = false;
-		globe.controls().enablePan = false;
-		globe.controls().minDistance = globe.controls().getDistance();
-		globe.controls().maxDistance = globe.controls().getDistance();
+		const controls = globe.controls();
+		controls.autoRotate = true;
+		controls.autoRotateSpeed = 0.4;
+		controls.enableZoom = false;
+		controls.enablePan = false;
+		controls.minDistance = controls.getDistance();
+		controls.maxDistance = controls.getDistance();
 
 		globe.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.0 }, 1000);
 

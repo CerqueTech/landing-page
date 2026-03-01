@@ -31,10 +31,10 @@
 </script>
 
 <section id="portfolio" class="relative overflow-hidden bg-zinc-50 py-20 sm:py-24 lg:py-32 dark:bg-zinc-900/50">
-	<!-- Gradient Orbs -->
+	<!-- Gradient Orbs (reduced blur for perf) -->
 	<div class="pointer-events-none absolute inset-0">
-		<div class="absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-brand-200/25 blur-[100px] dark:bg-brand-600/12"></div>
-		<div class="absolute -right-32 top-1/4 h-64 w-64 rounded-full bg-brand-300/15 blur-[100px] dark:bg-brand-500/8"></div>
+		<div class="absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-brand-200/25 blur-[60px] dark:bg-brand-600/12"></div>
+		<div class="absolute -right-32 top-1/4 h-64 w-64 rounded-full bg-brand-300/15 blur-[60px] dark:bg-brand-500/8"></div>
 	</div>
 
 	<!-- Grid Pattern -->

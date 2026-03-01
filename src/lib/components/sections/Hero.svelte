@@ -23,10 +23,10 @@
 		<div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(139,92,246,0.06),transparent_60%)] dark:bg-[radial-gradient(ellipse_60%_40%_at_80%_60%,rgba(139,92,246,0.12),transparent_60%)]"></div>
 		<div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_20%_80%,rgba(168,85,247,0.06),transparent_60%)] dark:bg-[radial-gradient(ellipse_50%_50%_at_20%_80%,rgba(168,85,247,0.10),transparent_60%)]"></div>
 
-		<!-- Animated orbs -->
-		<div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-brand-400/8 blur-[120px] animate-float dark:bg-brand-700/15"></div>
-		<div class="absolute top-1/3 -right-20 h-[400px] w-[400px] rounded-full bg-brand-300/8 blur-[100px] animate-float-delayed dark:bg-brand-500/10"></div>
-		<div class="absolute -bottom-20 left-1/3 h-[350px] w-[350px] rounded-full bg-brand-400/6 blur-[100px] animate-float-slow dark:bg-brand-600/12"></div>
+		<!-- Animated orbs (reduced blur for perf, GPU-promoted) -->
+		<div class="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-brand-400/8 blur-[80px] animate-float dark:bg-brand-700/15" style="will-change: transform;"></div>
+		<div class="absolute top-1/3 -right-20 h-[400px] w-[400px] rounded-full bg-brand-300/8 blur-[70px] animate-float-delayed dark:bg-brand-500/10" style="will-change: transform;"></div>
+		<div class="absolute -bottom-20 left-1/3 h-[350px] w-[350px] rounded-full bg-brand-400/6 blur-[70px] animate-float-slow dark:bg-brand-600/12" style="will-change: transform;"></div>
 
 		<!-- Grid -->
 		<div
@@ -145,6 +145,7 @@
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		animation: gradient-shift 4s ease-in-out infinite;
+		will-change: background-position;
 	}
 
 	@keyframes gradient-shift {
@@ -156,6 +157,7 @@
 		opacity: 0;
 		transform: translateY(20px);
 		animation: hero-enter 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+		will-change: opacity, transform;
 	}
 
 	@keyframes hero-enter {
@@ -180,6 +182,7 @@
 
 	.globe-wrapper {
 		animation: globe-fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+		will-change: opacity, transform;
 	}
 
 	@keyframes globe-fade-in {

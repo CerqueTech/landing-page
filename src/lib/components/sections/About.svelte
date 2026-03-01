@@ -4,21 +4,22 @@
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import AnimatedCounter from '$lib/components/ui/AnimatedCounter.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
-	import type { Translations } from '$lib/i18n/types';
+	import type { Translations, Locale } from '$lib/i18n/types';
 
 	interface Props {
 		t: Translations;
+		lang: Locale;
 	}
 
-	let { t }: Props = $props();
+	let { t, lang }: Props = $props();
 </script>
 
 <section id="about" class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-36 dark:bg-zinc-950">
-	<!-- Gradient Orbs -->
+	<!-- Gradient Orbs (reduced blur for perf) -->
 	<div class="pointer-events-none absolute inset-0">
-		<div class="absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/25 blur-[100px] dark:bg-brand-700/12"></div>
-		<div class="absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/15 blur-[100px] dark:bg-brand-600/8"></div>
-		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-brand-400/10 blur-[120px] dark:bg-brand-500/8"></div>
+		<div class="absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/25 blur-[60px] dark:bg-brand-700/12"></div>
+		<div class="absolute -left-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/15 blur-[60px] dark:bg-brand-600/8"></div>
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-brand-400/10 blur-[80px] dark:bg-brand-500/8"></div>
 	</div>
 
 	<!-- Grid Pattern -->
@@ -26,20 +27,20 @@
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
 		<!-- Steps + Heading -->
-		<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-			<!-- Left: Steps -->
-			<div class="space-y-6" use:staggerChildren={{ stagger: 150 }}>
+		<div class="grid grid-cols-1 items-center gap-8 sm:gap-12 lg:grid-cols-2">
+			<!-- Steps (appears second on mobile, first on desktop) -->
+			<div class="order-2 lg:order-1 space-y-5 sm:space-y-6" use:staggerChildren={{ stagger: 150 }}>
 				{#each t.about.steps as step, i}
-					<div class="flex items-center gap-6">
-						<span class="font-display text-5xl font-bold text-brand-500/20 sm:text-6xl">{step.number}</span>
-						<div class="h-px flex-1 max-w-8 bg-brand-500/20"></div>
-						<h3 class="font-display text-lg font-bold text-zinc-900 sm:text-xl dark:text-white">{step.title}</h3>
+					<div class="group flex items-center gap-4 sm:gap-6 rounded-2xl border border-transparent p-3 sm:p-4 transition-all duration-300 hover:border-brand-500/10 hover:bg-brand-500/[0.03] dark:hover:border-brand-500/15 dark:hover:bg-brand-500/[0.05]">
+						<span class="font-display text-4xl font-bold text-brand-500/25 transition-colors duration-300 group-hover:text-brand-500/50 sm:text-5xl">{step.number}</span>
+						<div class="h-px w-6 bg-brand-500/20 transition-all duration-300 group-hover:w-10 group-hover:bg-brand-500/40 sm:w-8"></div>
+						<h3 class="font-display text-base font-bold text-zinc-900 sm:text-lg dark:text-white">{step.title}</h3>
 					</div>
 				{/each}
 			</div>
 
-			<!-- Right: Heading + Description + CTA -->
-			<div use:scrollReveal>
+			<!-- Heading + Description + CTA (appears first on mobile, second on desktop) -->
+			<div class="order-1 lg:order-2" use:scrollReveal>
 				<span
 					class="mb-4 inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-700 uppercase dark:bg-brand-950/50 dark:text-brand-400"
 				>
@@ -52,7 +53,7 @@
 					{t.about.description}
 				</p>
 				<div class="mt-8">
-					<Button href="#services" variant="primary">{t.nav.services}</Button>
+					<Button href="/{lang}#services" variant="primary">{t.nav.services}</Button>
 				</div>
 			</div>
 		</div>

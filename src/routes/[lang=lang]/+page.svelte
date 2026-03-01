@@ -16,7 +16,7 @@
 	<Services t={data.t} />
 </div>
 <div class="below-fold">
-	<About t={data.t} />
+	<About t={data.t} lang={data.lang} />
 </div>
 <div class="below-fold">
 	<Portfolio t={data.t} />

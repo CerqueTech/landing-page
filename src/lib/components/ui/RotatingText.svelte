@@ -13,14 +13,16 @@
 	let currentIndex = $state(0);
 	let characters = $state<string[]>([]);
 	let phase = $state<'enter' | 'visible' | 'exit'>('enter');
-	let timer: ReturnType<typeof setInterval>;
+	let timer: ReturnType<typeof setInterval> | null = null;
+	let wrapper: HTMLSpanElement;
+	let isVisible = true;
 
 	$effect(() => {
 		characters = texts[currentIndex].split('');
 	});
 
-	onMount(() => {
-		phase = 'enter';
+	function startTimer() {
+		if (timer) return;
 		timer = setInterval(() => {
 			phase = 'exit';
 			setTimeout(() => {
@@ -28,14 +30,45 @@
 				phase = 'enter';
 			}, characters.length * staggerMs + 200);
 		}, interval);
+	}
+
+	function stopTimer() {
+		if (timer) {
+			clearInterval(timer);
+			timer = null;
+		}
+	}
+
+	onMount(() => {
+		phase = 'enter';
+		startTimer();
+
+		// Pause animation when scrolled out of view
+		const observer = new IntersectionObserver(
+			(entries) => {
+				isVisible = entries[0].isIntersecting;
+				if (isVisible) {
+					startTimer();
+				} else {
+					stopTimer();
+				}
+			},
+			{ rootMargin: '50px' }
+		);
+		if (wrapper) observer.observe(wrapper);
+
+		return () => {
+			observer.disconnect();
+			stopTimer();
+		};
 	});
 
 	onDestroy(() => {
-		if (timer) clearInterval(timer);
+		stopTimer();
 	});
 </script>
 
-<span class="rotating-text-wrapper {className}">
+<span bind:this={wrapper} class="rotating-text-wrapper {className}">
 	{#key currentIndex}
 		<span class="rotating-text-inner" aria-label={texts[currentIndex]}>
 			{#each characters as char, i}

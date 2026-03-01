@@ -223,6 +223,7 @@ export const en: Translations = {
 	footer: {
 		cta: {
 			title: 'Ready to start your project?',
+			subtitle: 'Tell us your idea and we\'ll help you make it happen.',
 			button: 'Get Started'
 		},
 		description:

@@ -124,6 +124,7 @@ export interface Translations {
 	footer: {
 		cta: {
 			title: string;
+			subtitle: string;
 			button: string;
 		};
 		description: string;

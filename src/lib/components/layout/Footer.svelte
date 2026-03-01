@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { Linkedin, Github, Instagram, MapPin, Mail, Phone } from 'lucide-svelte';
-	import Button from '$lib/components/ui/Button.svelte';
 	import type { Translations, Locale } from '$lib/i18n/types';
 	import { theme } from '$lib/stores/theme';
 
@@ -28,15 +27,30 @@
 </script>
 
 <!-- CTA Bar -->
-<section class="bg-gradient-to-r from-brand-700 to-brand-500 py-16">
-	<div class="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-		<h2 class="font-display text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+<section class="relative overflow-hidden bg-gradient-to-br from-brand-800 via-brand-600 to-brand-500 py-20 sm:py-24">
+	<!-- Decorative elements -->
+	<div class="pointer-events-none absolute inset-0">
+		<div class="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-white/10 blur-[80px]"></div>
+		<div class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-brand-300/20 blur-[90px]"></div>
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-40 w-[600px] rounded-full bg-white/5 blur-[60px]"></div>
+	</div>
+	<!-- Grid pattern -->
+	<div class="pointer-events-none absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+	<div class="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
+		<h2 class="font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
 			{t.footer.cta.title}
 		</h2>
-		<div class="mt-8">
-			<Button variant="secondary" href="/{lang}#contact">
+		<p class="mx-auto mt-4 max-w-lg text-base text-white/70 sm:text-lg">
+			{t.footer.cta.subtitle}
+		</p>
+		<div class="mt-10">
+			<a
+				href="/{lang}#contact"
+				class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-3.5 font-display text-sm font-semibold text-brand-700 shadow-lg shadow-brand-900/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-900/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600"
+			>
 				{t.footer.cta.button}
-			</Button>
+			</a>
 		</div>
 	</div>
 </section>
@@ -47,7 +61,7 @@
 		<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 			<!-- Brand -->
 			<div class="lg:col-span-1">
-				<img src={logoSrc} alt="CerqueTech" class="mb-4 h-8" loading="lazy" decoding="async" />
+				<img src={logoSrc} alt="CerqueTech" class="mb-4 h-[7.5rem]" loading="lazy" decoding="async" />
 				<p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
 					{t.footer.description}
 				</p>

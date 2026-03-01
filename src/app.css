@@ -4,6 +4,16 @@
 @import '@fontsource-variable/inter/wght.css';
 @import '@fontsource-variable/manrope/wght.css';
 
+/* Prevent Flash of Invisible Text - show fallback font while custom fonts load */
+@font-face {
+	font-family: 'Inter Variable';
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Manrope Variable';
+	font-display: swap;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -119,6 +129,15 @@
 	50% {
 		opacity: 0.8;
 		transform: scale(1.05);
+	}
+}
+
+/* Respect reduced-motion preference - disable expensive animations */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
 	}
 }
 
