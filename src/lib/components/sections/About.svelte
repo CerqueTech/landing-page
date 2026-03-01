@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { scrollReveal, staggerChildren } from '$lib/utils/animations';
-	import { Linkedin } from 'lucide-svelte';
+	import { Linkedin, MessageSquare, Lightbulb, Rocket } from 'lucide-svelte';
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import AnimatedCounter from '$lib/components/ui/AnimatedCounter.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
@@ -12,6 +12,8 @@
 	}
 
 	let { t, lang }: Props = $props();
+
+	const stepIcons = [MessageSquare, Lightbulb, Rocket];
 </script>
 
 <section id="about" class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-36 dark:bg-zinc-950">
@@ -26,45 +28,63 @@
 	<div class="pointer-events-none absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style="background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
-		<!-- Steps + Heading -->
-		<div class="grid grid-cols-1 items-center gap-8 sm:gap-12 lg:grid-cols-2">
-			<!-- Steps (appears second on mobile, first on desktop) -->
-			<div class="order-2 lg:order-1 space-y-5 sm:space-y-6" use:staggerChildren={{ stagger: 150 }}>
+		<!-- Heading + Description + CTA -->
+		<div class="mx-auto max-w-3xl text-center" use:scrollReveal>
+			<span
+				class="mb-4 inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-700 uppercase dark:bg-brand-950/50 dark:text-brand-400"
+			>
+				{t.about.label}
+			</span>
+			<h2 class="font-display text-3xl font-bold text-zinc-900 sm:text-4xl lg:text-5xl dark:text-white">
+				{t.about.title}
+			</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
+				{t.about.description}
+			</p>
+			<div class="mt-8">
+				<Button href="/{lang}#services" variant="primary">{t.nav.services}</Button>
+			</div>
+		</div>
+
+		<!-- Steps -->
+		<div class="mt-20 sm:mt-24">
+			<div class="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3" use:staggerChildren={{ stagger: 150 }}>
 				{#each t.about.steps as step, i}
-					<div class="group flex items-center gap-4 sm:gap-6 rounded-2xl border border-transparent p-3 sm:p-4 transition-all duration-300 hover:border-brand-500/10 hover:bg-brand-500/[0.03] dark:hover:border-brand-500/15 dark:hover:bg-brand-500/[0.05]">
-						<span class="font-display text-4xl font-bold text-brand-500/25 transition-colors duration-300 group-hover:text-brand-500/50 sm:text-5xl">{step.number}</span>
-						<div class="h-px w-6 bg-brand-500/20 transition-all duration-300 group-hover:w-10 group-hover:bg-brand-500/40 sm:w-8"></div>
-						<h3 class="font-display text-base font-bold text-zinc-900 sm:text-lg dark:text-white">{step.title}</h3>
+					{@const Icon = stepIcons[i]}
+					<div class="group relative rounded-2xl border border-zinc-200/60 bg-zinc-50/50 p-6 sm:p-8 transition-all duration-300 hover:border-brand-500/20 hover:bg-brand-500/[0.03] hover:shadow-lg hover:shadow-brand-500/5 dark:border-zinc-800/60 dark:bg-zinc-900/50 dark:hover:border-brand-500/25 dark:hover:bg-brand-500/[0.05] dark:hover:shadow-brand-500/10">
+						<!-- Step number badge -->
+						<div class="mb-5 flex items-center gap-4">
+							<div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 transition-colors duration-300 group-hover:bg-brand-200 dark:bg-brand-950/60 dark:group-hover:bg-brand-900/60">
+								<Icon class="h-5 w-5 text-brand-600 dark:text-brand-400" />
+							</div>
+							<span class="font-display text-sm font-bold tracking-wider text-brand-500/40 uppercase transition-colors duration-300 group-hover:text-brand-500/70">{step.number}</span>
+						</div>
+						<!-- Step title -->
+						<h3 class="font-display text-lg font-bold text-zinc-900 sm:text-xl dark:text-white">
+							{step.title}
+						</h3>
+						<!-- Step description -->
+						<p class="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+							{step.description}
+						</p>
+						<!-- Connector line (hidden on last item and on mobile) -->
+						{#if i < t.about.steps.length - 1}
+							<div class="pointer-events-none absolute top-1/2 -right-4 hidden h-px w-8 bg-gradient-to-r from-brand-500/20 to-transparent md:block"></div>
+						{/if}
 					</div>
 				{/each}
-			</div>
-
-			<!-- Heading + Description + CTA (appears first on mobile, second on desktop) -->
-			<div class="order-1 lg:order-2" use:scrollReveal>
-				<span
-					class="mb-4 inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-700 uppercase dark:bg-brand-950/50 dark:text-brand-400"
-				>
-					{t.about.label}
-				</span>
-				<h2 class="font-display text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-white">
-					{t.about.title}
-				</h2>
-				<p class="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-					{t.about.description}
-				</p>
-				<div class="mt-8">
-					<Button href="/{lang}#services" variant="primary">{t.nav.services}</Button>
-				</div>
 			</div>
 		</div>
 
 		<!-- Stats -->
-		<div class="mt-24 border-t border-zinc-200/50 pt-16 sm:mt-32 sm:pt-20 dark:border-zinc-800/50">
-		<div class="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
-			{#each t.about.stats as stat}
-				<AnimatedCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
-			{/each}
-		</div>
+		<div class="mt-20 sm:mt-24">
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6" use:staggerChildren={{ stagger: 120 }}>
+				{#each t.about.stats as stat}
+					<div class="rounded-2xl border border-zinc-200/60 bg-zinc-50/30 p-6 sm:p-8 text-center transition-all duration-300 hover:border-brand-500/15 hover:shadow-md hover:shadow-brand-500/5 dark:border-zinc-800/60 dark:bg-zinc-900/30 dark:hover:border-brand-500/20 dark:hover:shadow-brand-500/10">
+						<AnimatedCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
+					</div>
+				{/each}
+			</div>
 		</div>
 
 		<!-- Team -->
