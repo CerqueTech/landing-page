@@ -79,7 +79,7 @@
 			<br />
 			<RotatingText
 				texts={t.hero.rotatingWords}
-				class="hero-gradient-text"
+				class="hero-neon-text"
 				interval={3000}
 				staggerMs={30}
 			/>
@@ -124,6 +124,16 @@
 </section>
 
 <style>
+	.hero-neon-text {
+		color: #bf5af2;
+		text-shadow: 0 0 10px rgba(191, 90, 242, 0.6), 0 0 30px rgba(191, 90, 242, 0.3), 0 0 60px rgba(191, 90, 242, 0.15);
+	}
+
+	:global(.dark) .hero-neon-text {
+		color: #d084ff;
+		text-shadow: 0 0 10px rgba(208, 132, 255, 0.7), 0 0 40px rgba(208, 132, 255, 0.4), 0 0 80px rgba(208, 132, 255, 0.2);
+	}
+
 	.hero-gradient-text {
 		background: linear-gradient(135deg, #a855f7, #c084fc, #a855f7);
 		background-size: 200% 200%;
