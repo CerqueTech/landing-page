@@ -40,8 +40,8 @@
 
 	<!-- Globe: mobile=absolute right half-visible, desktop=flex item -->
 	<div class="pointer-events-none absolute inset-0 z-[1] lg:hidden">
-		<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[55%]">
-			<div class="globe-wrapper h-[1300px] w-[1300px] sm:h-[1400px] sm:w-[1400px]">
+		<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[60%]">
+			<div class="globe-wrapper h-[1100px] w-[1100px] sm:h-[1200px] sm:w-[1200px]">
 				<Globe3D />
 			</div>
 		</div>
@@ -124,12 +124,12 @@
 </section>
 
 <style>
-	.hero-neon-text {
+	:global(.hero-neon-text) {
 		color: #bf5af2;
 		text-shadow: 0 0 10px rgba(191, 90, 242, 0.6), 0 0 30px rgba(191, 90, 242, 0.3), 0 0 60px rgba(191, 90, 242, 0.15);
 	}
 
-	:global(.dark) .hero-neon-text {
+	:global(.dark .hero-neon-text) {
 		color: #d084ff;
 		text-shadow: 0 0 10px rgba(208, 132, 255, 0.7), 0 0 40px rgba(208, 132, 255, 0.4), 0 0 80px rgba(208, 132, 255, 0.2);
 	}
