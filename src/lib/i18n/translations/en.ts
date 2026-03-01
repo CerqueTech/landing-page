@@ -29,11 +29,9 @@ export const en: Translations = {
 	trustedBy: {
 		title: 'Trusted by',
 		clients: [
-			{ name: 'Finanzas Argy', logo: '/images/clients/finanzas-argy.webp' },
-			{ name: 'Siempre Alerta', logo: '/images/clients/siempre-alerta.webp' },
-			{ name: 'QRZ App', logo: '/images/clients/qrz-app.webp' },
-			{ name: 'Escuela de Negocios', logo: '/images/clients/escuela-negocios.webp' },
-			{ name: 'Esports Events', logo: '/images/clients/esports-events.webp' }
+			{ name: 'Finanzas Argy', logo: '/images/clients/finanzasargy.png' },
+			{ name: 'Campana', logo: '/images/clients/campana.png' },
+			{ name: 'San Miguel Municipality', logo: '/images/clients/sanmiguel.png' }
 		]
 	},
 	services: {
