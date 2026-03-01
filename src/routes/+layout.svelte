@@ -16,8 +16,7 @@
 		// Fade out and remove the loader
 		if (loader) {
 			loader.style.opacity = '0';
-			loader.style.transition = 'opacity 0.3s';
-			setTimeout(() => loader.remove(), 300);
+			setTimeout(() => loader.remove(), 500);
 		}
 	});
 </script>

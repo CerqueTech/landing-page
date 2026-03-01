@@ -30,14 +30,20 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<!-- Loading spinner (removed by JS when app is ready) -->
-		<div id="app-loader" style="position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;background:#09090b;">
-			<img src="/images/logo/favicon.png" alt="" width="48" height="48" style="animation:lp 1.5s ease-in-out infinite" />
-			<div style="width:32px;height:32px;border:3px solid rgba(168,85,247,0.2);border-top-color:#a855f7;border-radius:50%;animation:ls 0.8s linear infinite"></div>
+		<!-- Full-page loading screen: Breathing Orb -->
+		<div id="app-loader" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#09090b;transition:opacity 0.5s ease-out;">
+			<!-- Orb glow -->
+			<div style="position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,0.35) 0%,rgba(124,58,237,0.2) 35%,rgba(59,7,100,0.1) 60%,transparent 80%);filter:blur(50px);animation:orb-breathe 3s ease-in-out infinite;"></div>
+			<!-- Secondary orb -->
+			<div style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.25) 0%,transparent 70%);filter:blur(40px);animation:orb-breathe 3s ease-in-out 1.5s infinite;transform:translate(40px,-30px);"></div>
+			<!-- Logo -->
+			<img src="/images/logo/favicon.png" alt="" width="52" height="52" style="position:relative;z-index:1;animation:logo-pulse 3s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(168,85,247,0.4));" />
 			<style>
-				@keyframes ls{to{transform:rotate(360deg)}}
-				@keyframes lp{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+				@keyframes orb-breathe{0%,100%{transform:scale(0.85);opacity:0.6}50%{transform:scale(1.15);opacity:1}}
+				@keyframes logo-pulse{0%,100%{opacity:0.8;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
 				html:not(.dark) #app-loader{background:#ffffff}
+				html:not(.dark) #app-loader>div:first-of-type{background:radial-gradient(circle,rgba(168,85,247,0.2) 0%,rgba(124,58,237,0.1) 35%,transparent 60%)}
+				html:not(.dark) #app-loader>div:nth-of-type(2){background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%)}
 			</style>
 		</div>
 		<div id="app-root" style="display: contents; visibility: hidden;">%sveltekit.body%</div>
