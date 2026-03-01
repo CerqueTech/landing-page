@@ -4,7 +4,7 @@
 	import Services from '$lib/components/sections/Services.svelte';
 	import About from '$lib/components/sections/About.svelte';
 	import Portfolio from '$lib/components/sections/Portfolio.svelte';
-	import Testimonials from '$lib/components/sections/Testimonials.svelte';
+	import FAQ from '$lib/components/sections/FAQ.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
 
 	let { data } = $props();
@@ -22,7 +22,7 @@
 	<Portfolio t={data.t} />
 </div>
 <div class="below-fold">
-	<Testimonials t={data.t} />
+	<FAQ t={data.t} />
 </div>
 <div class="below-fold">
 	<Contact t={data.t} />
