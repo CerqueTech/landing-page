@@ -18,34 +18,43 @@
 	}: Props = $props();
 
 	let currentIndex = $state(0);
-	let characters = $state<string[]>([]);
 	let phase = $state<'enter' | 'visible' | 'exit'>('enter');
 	let timer: ReturnType<typeof setInterval> | null = null;
 	let wrapper: HTMLSpanElement;
-	let isVisible = true;
 
-	$effect(() => {
-		characters = texts[currentIndex].split('');
+	// Split text into words, each word into characters (like propi-www)
+	interface WordGroup {
+		chars: string[];
+		needsSpace: boolean;
+	}
+
+	let words = $derived.by((): WordGroup[] => {
+		const parts = texts[currentIndex].split(' ');
+		return parts.map((word, i) => ({
+			chars: Array.from(word),
+			needsSpace: i < parts.length - 1
+		}));
 	});
 
-	function getDelay(i: number): number {
-		const len = characters.length;
-		if (phase === 'exit') {
-			// Exit: reverse of enter
-			return (staggerFrom === 'last' ? i : len - 1 - i) * staggerMs;
-		}
-		// Enter
-		return (staggerFrom === 'last' ? len - 1 - i : i) * staggerMs;
+	let totalChars = $derived(
+		words.reduce((sum, w) => sum + w.chars.length, 0)
+	);
+
+	// Same stagger direction for enter AND exit (matches Framer Motion AnimatePresence behavior)
+	function getDelay(globalIndex: number): number {
+		return (staggerFrom === 'last' ? totalChars - 1 - globalIndex : globalIndex) * staggerMs;
 	}
 
 	function startTimer() {
 		if (timer) return;
 		timer = setInterval(() => {
 			phase = 'exit';
+			// Wait for exit to finish, then swap text and enter
+			const exitDuration = totalChars * staggerMs + 350;
 			setTimeout(() => {
 				currentIndex = (currentIndex + 1) % texts.length;
 				phase = 'enter';
-			}, characters.length * staggerMs + 200);
+			}, exitDuration);
 		}, interval);
 	}
 
@@ -62,8 +71,7 @@
 
 		const observer = new IntersectionObserver(
 			(entries) => {
-				isVisible = entries[0].isIntersecting;
-				if (isVisible) {
+				if (entries[0].isIntersecting) {
 					startTimer();
 				} else {
 					stopTimer();
@@ -84,62 +92,75 @@
 	});
 </script>
 
-<span bind:this={wrapper} class="rotating-text-wrapper {className}">
+<span bind:this={wrapper} class="rt-wrapper {className}">
 	{#key currentIndex}
-		<span class="rotating-text-inner" aria-label={texts[currentIndex]}>
-			{#each characters as char, i}
-				<span
-					class="rotating-char"
-					class:is-space={char === ' '}
-					class:enter={phase === 'enter'}
-					class:exit={phase === 'exit'}
-					style="--delay: {getDelay(i)}ms"
-				>{char === ' ' ? '\u00A0' : char}</span>
+		<span class="rt-inner" aria-label={texts[currentIndex]}>
+			{#each words as word, wordIdx}
+				{@const prevChars = words.slice(0, wordIdx).reduce((s, w) => s + w.chars.length, 0)}
+				<span class="rt-word">
+					{#each word.chars as char, charIdx}
+						<span
+							class="rt-char"
+							class:enter={phase === 'enter'}
+							class:exit={phase === 'exit'}
+							style="--delay: {getDelay(prevChars + charIdx)}ms"
+						>{char}</span>
+					{/each}
+					{#if word.needsSpace}
+						<span class="rt-space">&nbsp;</span>
+					{/if}
+				</span>
 			{/each}
 		</span>
 	{/key}
 </span>
 
 <style>
-	.rotating-text-wrapper {
+	.rt-wrapper {
 		display: inline-flex;
 		overflow: hidden;
 		vertical-align: baseline;
+		position: relative;
 		background: transparent;
 		-webkit-text-fill-color: inherit;
 	}
 
-	.rotating-text-inner {
+	.rt-inner {
 		display: inline-flex;
+		flex-wrap: wrap;
+		white-space: pre-wrap;
 		background: transparent;
 	}
 
-	.rotating-char {
+	.rt-word {
+		display: inline-flex;
+	}
+
+	.rt-space {
+		white-space: pre;
+	}
+
+	.rt-char {
 		display: inline-block;
 		opacity: 0;
 		transform: translateY(100%);
-		animation: none;
 		color: inherit;
 		text-shadow: inherit;
 	}
 
-	.rotating-char.enter {
-		animation: char-enter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+	.rt-char.enter {
+		animation: rt-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 		animation-delay: var(--delay);
 	}
 
-	.rotating-char.exit {
+	.rt-char.exit {
 		opacity: 1;
 		transform: translateY(0);
-		animation: char-exit 0.35s cubic-bezier(0.6, 0, 0.735, 0.045) forwards;
+		animation: rt-exit 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
 		animation-delay: var(--delay);
 	}
 
-	.rotating-char.is-space {
-		width: 0.3em;
-	}
-
-	@keyframes char-enter {
+	@keyframes rt-enter {
 		from {
 			opacity: 0;
 			transform: translateY(100%);
@@ -150,7 +171,7 @@
 		}
 	}
 
-	@keyframes char-exit {
+	@keyframes rt-exit {
 		from {
 			opacity: 1;
 			transform: translateY(0);

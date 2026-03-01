@@ -120,7 +120,7 @@
 			.atmosphereAltitude(dark ? 0.12 : 0.1)
 			.width(width)
 			.height(height)
-			.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
+			.pointOfView({ lat: -34.6037, lng: -38, altitude: 2.2 }, 0);
 
 		const connections = [
 			{ startLat: -34.6037, startLng: -58.3816, endLat: -23.5505, endLng: -46.6333, color: ['#7C3AED', '#A855F7'] },
@@ -152,7 +152,7 @@
 		controls.minDistance = controls.getDistance();
 		controls.maxDistance = controls.getDistance();
 
-		globe.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.0 }, 1000);
+		globe.pointOfView({ lat: -34.6037, lng: -38, altitude: 2.0 }, 1000);
 
 		globeInitialized = true;
 		loaded = true;
