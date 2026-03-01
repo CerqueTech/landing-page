@@ -58,6 +58,7 @@ export interface Translations {
 		steps: Array<{
 			number: string;
 			title: string;
+			description: string;
 		}>;
 		stats: Array<{
 			value: number;

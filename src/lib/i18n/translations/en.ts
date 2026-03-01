@@ -107,9 +107,9 @@ export const en: Translations = {
 		description:
 			'At CerqueTech, we fuse experience, innovation and commitment to transform your ideas into cutting-edge technological solutions. We are dedicated to understanding and anticipating your needs, guaranteeing a collaboration that goes beyond the conventional. With us, your vision becomes reality, propelling your business to new heights of success and efficiency.',
 		steps: [
-			{ number: '01', title: 'Tell us your idea' },
-			{ number: '02', title: 'We design the solution' },
-			{ number: '03', title: 'We develop and deliver' }
+			{ number: '01', title: 'Tell us your idea', description: 'We listen to your goals and analyze your business needs to define the best path forward.' },
+			{ number: '02', title: 'We design the solution', description: 'We create a custom strategy using modern technologies tailored to your project.' },
+			{ number: '03', title: 'We develop and deliver', description: 'We build, test, and launch your product with continuous support at every stage.' }
 		],
 		stats: [
 			{ value: 14, suffix: '+', label: 'Satisfied clients' },
