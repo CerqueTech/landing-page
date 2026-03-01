@@ -14,20 +14,34 @@
 		return document.documentElement.classList.contains('dark');
 	}
 
+	// Preload texture into browser cache
+	function preloadTexture(src: string): Promise<void> {
+		return new Promise((resolve) => {
+			const img = new Image();
+			img.onload = () => resolve();
+			img.onerror = () => resolve();
+			img.src = src;
+		});
+	}
+
 	onMount(() => {
 		if (!browser) return;
 
-		// Only start loading globe when it's visible in the viewport
-		const visibilityObserver = new IntersectionObserver(
-			(entries) => {
-				if (entries[0].isIntersecting) {
-					visibilityObserver.disconnect();
-					scheduleGlobeLoad();
-				}
-			},
-			{ rootMargin: '100px' }
-		);
-		visibilityObserver.observe(container);
+		// Start loading globe.gl module + texture in parallel immediately
+		const dark = isDarkMode();
+		const textureUrl = dark ? GLOBE_NIGHT : GLOBE_DAY;
+
+		const modulePromise = import('globe.gl');
+		const texturePromise = preloadTexture(textureUrl);
+
+		// Initialize as soon as both are ready
+		Promise.all([modulePromise, texturePromise]).then(([GlobeModule]) => {
+			if (globeInitialized || !container) return;
+			initGlobe(GlobeModule.default as any);
+		}).catch((e) => {
+			console.error('Globe load error:', e);
+			loaded = true;
+		});
 
 		// Watch for theme changes
 		const themeObserver = new MutationObserver(() => {
@@ -43,97 +57,57 @@
 		themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 
 		return () => {
-			visibilityObserver.disconnect();
 			themeObserver.disconnect();
 		};
 	});
 
-	function scheduleGlobeLoad() {
-		// Wait for the page to be fully loaded and idle before starting the globe
-		// This ensures all text, images, and other content loads first
-		const startGlobe = () => {
-			// Preload the texture right before init
-			const dark = isDarkMode();
-			const img = new Image();
-			img.src = dark ? GLOBE_NIGHT : GLOBE_DAY;
-			img.onload = () => initGlobe();
-			img.onerror = () => initGlobe();
-		};
+	function initGlobe(Globe: any) {
+		const width = container.clientWidth;
+		const height = container.clientHeight;
 
-		// Wait for document to be fully loaded (all resources), then use idle callback
-		if (document.readyState === 'complete') {
-			if ('requestIdleCallback' in window) {
-				requestIdleCallback(startGlobe, { timeout: 5000 });
-			} else {
-				setTimeout(startGlobe, 1000);
-			}
-		} else {
-			window.addEventListener('load', () => {
-				if ('requestIdleCallback' in window) {
-					requestIdleCallback(startGlobe, { timeout: 5000 });
-				} else {
-					setTimeout(startGlobe, 1000);
-				}
-			}, { once: true });
-		}
-	}
+		const dark = isDarkMode();
+		globe = Globe()
+			.globeImageUrl(dark ? GLOBE_NIGHT : GLOBE_DAY)
+			.backgroundColor('rgba(0,0,0,0)')
+			.atmosphereColor(dark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(120, 100, 255, 0.15)')
+			.atmosphereAltitude(dark ? 0.12 : 0.1)
+			.width(width)
+			.height(height)
+			.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
 
-	async function initGlobe() {
-		if (globeInitialized || !container) return;
+		const connections = [
+			{ startLat: -34.6037, startLng: -58.3816, endLat: -23.5505, endLng: -46.6333, color: ['#7C3AED', '#A855F7'] },
+			{ startLat: -34.6037, startLng: -58.3816, endLat: -22.9068, endLng: -43.1729, color: ['#7C3AED', '#8B5CF6'] },
+			{ startLat: -34.6037, startLng: -58.3816, endLat: 19.4326, endLng: -99.1332, color: ['#A855F7', '#C084FC'] },
+			{ startLat: 19.4326, startLng: -99.1332, endLat: 40.4168, endLng: -3.7038, color: ['#A855F7', '#7C3AED'] },
+			{ startLat: 40.4168, startLng: -3.7038, endLat: 35.6762, endLng: 139.6503, color: ['#7C3AED', '#8B5CF6'] },
+			{ startLat: -34.6037, startLng: -58.3816, endLat: -33.8688, endLng: 151.2093, arcAltitude: 0.25, color: ['#8B5CF6', '#7C3AED'] },
+			{ startLat: 51.5074, startLng: -0.1278, endLat: 48.8566, endLng: 2.3522, color: ['#7C3AED', '#8B5CF6'] }
+		];
 
-		try {
-			const GlobeModule = await import('globe.gl');
-			const Globe = GlobeModule.default as any;
-			const width = container.clientWidth;
-			const height = container.clientHeight;
+		globe
+			.arcsData(connections)
+			.arcColor('color')
+			.arcDashLength(0.4)
+			.arcDashGap(0.25)
+			.arcDashAnimateTime(2000)
+			.arcStroke(0.6)
+			.arcAltitude(0.08)
+			.arcAltitudeAutoScale(0.12);
 
-			const dark = isDarkMode();
-			globe = Globe()
-				.globeImageUrl(dark ? GLOBE_NIGHT : GLOBE_DAY)
-				.backgroundColor('rgba(0,0,0,0)')
-				.atmosphereColor(dark ? 'rgba(100, 160, 255, 0.3)' : 'rgba(120, 100, 255, 0.15)')
-				.atmosphereAltitude(dark ? 0.12 : 0.1)
-				.width(width)
-				.height(height)
-				.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.2 }, 0);
+		globe(container);
 
-			const connections = [
-				{ startLat: -34.6037, startLng: -58.3816, endLat: -23.5505, endLng: -46.6333, color: ['#7C3AED', '#A855F7'] },
-				{ startLat: -34.6037, startLng: -58.3816, endLat: -22.9068, endLng: -43.1729, color: ['#7C3AED', '#8B5CF6'] },
-				{ startLat: -34.6037, startLng: -58.3816, endLat: 19.4326, endLng: -99.1332, color: ['#A855F7', '#C084FC'] },
-				{ startLat: 19.4326, startLng: -99.1332, endLat: 40.4168, endLng: -3.7038, color: ['#A855F7', '#7C3AED'] },
-				{ startLat: 40.4168, startLng: -3.7038, endLat: 35.6762, endLng: 139.6503, color: ['#7C3AED', '#8B5CF6'] },
-				{ startLat: -34.6037, startLng: -58.3816, endLat: -33.8688, endLng: 151.2093, arcAltitude: 0.25, color: ['#8B5CF6', '#7C3AED'] },
-				{ startLat: 51.5074, startLng: -0.1278, endLat: 48.8566, endLng: 2.3522, color: ['#7C3AED', '#8B5CF6'] }
-			];
+		globe.controls().autoRotate = true;
+		globe.controls().autoRotateSpeed = 0.4;
+		globe.controls().enableZoom = false;
+		globe.controls().enablePan = false;
+		globe.controls().minDistance = globe.controls().getDistance();
+		globe.controls().maxDistance = globe.controls().getDistance();
 
-			globe
-				.arcsData(connections)
-				.arcColor('color')
-				.arcDashLength(0.4)
-				.arcDashGap(0.25)
-				.arcDashAnimateTime(2000)
-				.arcStroke(0.6)
-				.arcAltitude(0.08)
-				.arcAltitudeAutoScale(0.12);
+		globe.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.0 }, 1000);
 
-			globe(container);
-
-			globe.controls().autoRotate = true;
-			globe.controls().autoRotateSpeed = 0.4;
-			globe.controls().enableZoom = false;
-			globe.controls().enablePan = false;
-			globe.controls().minDistance = globe.controls().getDistance();
-			globe.controls().maxDistance = globe.controls().getDistance();
-
-			globe.pointOfView({ lat: -34.6037, lng: -58.3816, altitude: 2.0 }, 1000);
-
-			globeInitialized = true;
-			loaded = true;
-		} catch (e) {
-			console.error('Globe error:', e);
-			loaded = true;
-		}
+		globeInitialized = true;
+		loaded = true;
 	}
 </script>
 
