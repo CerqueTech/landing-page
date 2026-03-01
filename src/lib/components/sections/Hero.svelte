@@ -37,17 +37,26 @@
 		<div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white dark:to-zinc-950"></div>
 	</div>
 
+	<!-- Globe: mobile=absolute right half-visible, desktop=flex item -->
+	<div class="pointer-events-none absolute inset-0 z-[1] lg:hidden">
+		<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[45%]">
+			<div class="globe-wrapper h-[500px] w-[500px]">
+				<Globe3D />
+			</div>
+		</div>
+	</div>
+
 	<!-- Content -->
 	<div class="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:pt-0">
-		<!-- Globe - LAST on mobile, second on desktop -->
-		<div class="order-2 flex w-full items-center justify-center py-4 sm:py-6 lg:w-[58%] lg:py-0">
-			<div class="globe-wrapper overflow-hidden rounded-full dark:overflow-visible dark:rounded-none h-[300px] w-[300px] sm:h-[340px] sm:w-[340px] md:h-[400px] md:w-[400px] lg:h-[520px] lg:w-[520px] xl:h-[650px] xl:w-[650px] 2xl:h-[720px] 2xl:w-[720px]">
+		<!-- Globe - desktop only (inline) -->
+		<div class="hidden lg:flex order-2 w-full items-center justify-center lg:w-[58%] lg:py-0">
+			<div class="globe-wrapper overflow-hidden rounded-full dark:overflow-visible dark:rounded-none lg:h-[520px] lg:w-[520px] xl:h-[650px] xl:w-[650px] 2xl:h-[720px] 2xl:w-[720px]">
 				<Globe3D />
 			</div>
 		</div>
 
-		<!-- Text Content - FIRST always -->
-		<div class="relative z-10 order-1 max-w-2xl pb-8 sm:pb-10 lg:pb-0 pt-4 sm:pt-6 lg:pt-0 lg:w-[42%]">
+		<!-- Text Content -->
+		<div class="relative z-10 order-1 max-w-2xl lg:pb-0 lg:pt-0 lg:w-[42%] flex flex-col justify-center min-h-[calc(100vh-5rem)] lg:min-h-0">
 			<!-- Badge -->
 			<div class="hero-fade-in mb-4 sm:mb-6">
 				<span
