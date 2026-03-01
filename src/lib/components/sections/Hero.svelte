@@ -39,15 +39,15 @@
 
 	<!-- Content -->
 	<div class="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 pt-20 sm:px-6 lg:flex-row lg:items-center lg:pt-0">
-		<!-- Globe - First on mobile -->
-		<div class="order-1 flex w-full items-center justify-center py-4 sm:py-6 lg:order-2 lg:w-[58%] lg:py-0">
+		<!-- Globe - LAST on mobile, second on desktop -->
+		<div class="order-2 flex w-full items-center justify-center py-4 sm:py-6 lg:w-[58%] lg:py-0">
 			<div class="globe-wrapper overflow-hidden rounded-full dark:overflow-visible dark:rounded-none h-[300px] w-[300px] sm:h-[340px] sm:w-[340px] md:h-[400px] md:w-[400px] lg:h-[520px] lg:w-[520px] xl:h-[650px] xl:w-[650px] 2xl:h-[720px] 2xl:w-[720px]">
 				<Globe3D />
 			</div>
 		</div>
 
-		<!-- Text Content -->
-		<div class="relative z-10 order-2 max-w-2xl pb-16 sm:pb-20 lg:order-1 lg:w-[42%] lg:pb-0">
+		<!-- Text Content - FIRST always -->
+		<div class="relative z-10 order-1 max-w-2xl pb-8 sm:pb-10 lg:pb-0 pt-4 sm:pt-6 lg:pt-0 lg:w-[42%]">
 			<!-- Badge -->
 			<div class="hero-fade-in mb-4 sm:mb-6">
 				<span
