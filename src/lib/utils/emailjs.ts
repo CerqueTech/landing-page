@@ -70,8 +70,8 @@ export async function sendEmail(params: {
 	let token = '';
 	try {
 		token = await getRecaptchaToken();
-	} catch {
-		// reCAPTCHA unavailable (ad blocker, network, etc.) — send without token
+	} catch (err) {
+		console.warn('[Contact] reCAPTCHA unavailable, sending without token:', err);
 	}
 
 	const templateParams: Record<string, string> = {
@@ -86,5 +86,12 @@ export async function sendEmail(params: {
 		templateParams['g-recaptcha-response'] = token;
 	}
 
-	await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+	try {
+		await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+	} catch (err: unknown) {
+		const status = (err as { status?: number })?.status;
+		const text = (err as { text?: string })?.text;
+		console.error('[Contact] EmailJS error:', { status, text, err });
+		throw err;
+	}
 }

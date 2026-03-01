@@ -79,7 +79,8 @@
 			});
 			toast = { visible: true, message: t.contact.success, type: 'success' };
 			form = { name: '', email: '', phone: '', subject: '', message: '' };
-		} catch {
+		} catch (err) {
+			console.error('[Contact] Form submission failed:', err);
 			toast = { visible: true, message: t.contact.error, type: 'error' };
 		} finally {
 			submitting = false;
