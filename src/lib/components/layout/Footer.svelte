@@ -196,22 +196,24 @@
 	.cta-aurora {
 		background: linear-gradient(
 			-45deg,
-			#6b21a8,
+			#3b0764,
+			#581c87,
 			#7c3aed,
-			#9333ea,
 			#a855f7,
+			#c084fc,
 			#7c3aed,
-			#6b21a8
+			#4c1d95,
+			#3b0764
 		);
-		background-size: 300% 300%;
-		animation: aurora-shift 8s ease infinite;
+		background-size: 400% 400%;
+		animation: aurora-shift 10s ease infinite;
 	}
 
 	@keyframes aurora-shift {
 		0%, 100% { background-position: 0% 50%; }
-		25% { background-position: 50% 0%; }
-		50% { background-position: 100% 50%; }
-		75% { background-position: 50% 100%; }
+		25% { background-position: 100% 0%; }
+		50% { background-position: 100% 100%; }
+		75% { background-position: 0% 100%; }
 	}
 
 	/* Floating particles */
