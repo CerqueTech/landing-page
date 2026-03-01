@@ -31,19 +31,43 @@
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<!-- Full-page loading screen: Breathing Orb -->
-		<div id="app-loader" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#09090b;transition:opacity 0.5s ease-out;">
-			<!-- Orb glow -->
-			<div style="position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(168,85,247,0.35) 0%,rgba(124,58,237,0.2) 35%,rgba(59,7,100,0.1) 60%,transparent 80%);filter:blur(50px);animation:orb-breathe 3s ease-in-out infinite;"></div>
-			<!-- Secondary orb -->
-			<div style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,0.25) 0%,transparent 70%);filter:blur(40px);animation:orb-breathe 3s ease-in-out 1.5s infinite;transform:translate(40px,-30px);"></div>
+		<div id="app-loader" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#09090b;transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1);">
+			<div id="orb-scene" style="position:relative;width:400px;height:400px;">
+				<!-- Primary orb -->
+				<div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 45% 45%,rgba(168,85,247,0.4) 0%,rgba(124,58,237,0.18) 40%,transparent 70%);filter:blur(60px);animation:orb1 4s cubic-bezier(0.4,0,0.6,1) infinite;will-change:transform,opacity;"></div>
+				<!-- Secondary orb — drifts right -->
+				<div style="position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle at 55% 55%,rgba(139,92,246,0.35) 0%,rgba(109,40,217,0.12) 50%,transparent 75%);filter:blur(50px);animation:orb2 5s cubic-bezier(0.4,0,0.6,1) infinite;will-change:transform,opacity;"></div>
+				<!-- Tertiary orb — drifts up -->
+				<div style="position:absolute;inset:25%;border-radius:50%;background:radial-gradient(circle,rgba(192,132,252,0.3) 0%,transparent 65%);filter:blur(45px);animation:orb3 6s cubic-bezier(0.4,0,0.6,1) infinite;will-change:transform,opacity;"></div>
+			</div>
 			<!-- Logo -->
-			<img src="/images/logo/favicon.png" alt="" width="52" height="52" style="position:relative;z-index:1;animation:logo-pulse 3s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(168,85,247,0.4));" />
+			<img src="/images/logo/favicon.png" alt="" width="48" height="48" style="position:absolute;z-index:1;animation:logo-in 0.8s cubic-bezier(0,0,0.2,1) both,logo-float 4s cubic-bezier(0.4,0,0.6,1) 0.8s infinite;filter:drop-shadow(0 0 24px rgba(168,85,247,0.5));" />
 			<style>
-				@keyframes orb-breathe{0%,100%{transform:scale(0.85);opacity:0.6}50%{transform:scale(1.15);opacity:1}}
-				@keyframes logo-pulse{0%,100%{opacity:0.8;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+				@keyframes orb1{
+					0%,100%{transform:scale(0.9) translate(0,0);opacity:0.5}
+					25%{transform:scale(1.05) translate(-8px,12px);opacity:0.8}
+					50%{transform:scale(1.12) translate(4px,-6px);opacity:1}
+					75%{transform:scale(1.0) translate(10px,8px);opacity:0.7}
+				}
+				@keyframes orb2{
+					0%,100%{transform:scale(1) translate(0,0);opacity:0.4}
+					30%{transform:scale(1.15) translate(15px,-10px);opacity:0.9}
+					60%{transform:scale(0.95) translate(-10px,15px);opacity:0.6}
+				}
+				@keyframes orb3{
+					0%,100%{transform:scale(1) translate(0,0);opacity:0.35}
+					40%{transform:scale(1.2) translate(-12px,-18px);opacity:0.85}
+					70%{transform:scale(0.9) translate(8px,10px);opacity:0.5}
+				}
+				@keyframes logo-in{from{opacity:0;transform:scale(0.8)}to{opacity:1;transform:scale(1)}}
+				@keyframes logo-float{
+					0%,100%{transform:translateY(0)}
+					50%{transform:translateY(-4px)}
+				}
 				html:not(.dark) #app-loader{background:#ffffff}
-				html:not(.dark) #app-loader>div:first-of-type{background:radial-gradient(circle,rgba(168,85,247,0.2) 0%,rgba(124,58,237,0.1) 35%,transparent 60%)}
-				html:not(.dark) #app-loader>div:nth-of-type(2){background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%)}
+				html:not(.dark) #orb-scene div:nth-child(1){background:radial-gradient(circle at 45% 45%,rgba(168,85,247,0.22) 0%,rgba(124,58,237,0.08) 40%,transparent 70%)}
+				html:not(.dark) #orb-scene div:nth-child(2){background:radial-gradient(circle at 55% 55%,rgba(139,92,246,0.18) 0%,transparent 60%)}
+				html:not(.dark) #orb-scene div:nth-child(3){background:radial-gradient(circle,rgba(192,132,252,0.15) 0%,transparent 65%)}
 			</style>
 		</div>
 		<div id="app-root" style="display: contents; visibility: hidden;">%sveltekit.body%</div>
