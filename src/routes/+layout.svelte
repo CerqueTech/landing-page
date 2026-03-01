@@ -16,14 +16,7 @@
 		// Fade out and remove the loader
 		if (loader) {
 			loader.style.opacity = '0';
-			setTimeout(() => {
-				const w = window as Record<string, unknown>;
-				if (typeof w.__loaderCleanup === 'function') {
-					(w.__loaderCleanup as () => void)();
-					delete w.__loaderCleanup;
-				}
-				loader.remove();
-			}, 600);
+			setTimeout(() => loader.remove(), 500);
 		}
 	});
 </script>
