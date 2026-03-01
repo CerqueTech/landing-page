@@ -40,7 +40,7 @@
 	<!-- Globe: mobile=absolute right half-visible, desktop=flex item -->
 	<div class="pointer-events-none absolute inset-0 z-[1] lg:hidden">
 		<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[45%]">
-			<div class="globe-wrapper h-[500px] w-[500px]">
+			<div class="globe-wrapper h-[800px] w-[800px] sm:h-[900px] sm:w-[900px]">
 				<Globe3D />
 			</div>
 		</div>

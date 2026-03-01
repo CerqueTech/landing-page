@@ -87,28 +87,20 @@ export const en: Translations = {
 		filterAI: 'AI',
 		projects: [
 			{
-				title: 'Siempre Alerta',
+				title: 'Propi',
 				description:
-					'Emergency button mobile app connecting users with emergency services, achieving a 47% reduction in response times.',
-				category: 'mobile',
-				image: '/images/portfolio/siempre-alerta.webp',
-				tags: ['React Native', 'Node.js', 'Firebase']
-			},
-			{
-				title: 'Digital Queue System',
-				description:
-					'Digital queue management system that reduced wait times by 65% and handles over 50,000 monthly appointments.',
+					'Digital real estate management platform with automated payments, digital contracts, and a centralized dashboard for property administrators.',
 				category: 'web',
-				image: '/images/portfolio/turnero-digital.webp',
-				tags: ['Angular', 'Spring Boot', 'PostgreSQL']
+				image: '/images/portfolio/propi.webp',
+				tags: ['Next.js', 'TypeScript', 'AWS', 'PostgreSQL']
 			},
 			{
-				title: 'AI Chatbot',
+				title: 'VendeYaBot',
 				description:
-					'Customer service chatbot with natural language processing that autonomously resolves 75% of inquiries.',
+					'AI-powered WhatsApp chatbot for SMBs that handles inquiries, showcases product catalogs, and takes orders automatically 24/7.',
 				category: 'ai',
-				image: '/images/portfolio/ai-chatbot.webp',
-				tags: ['Python', 'NLP', 'TensorFlow']
+				image: '/images/portfolio/vendeyabot.webp',
+				tags: ['WhatsApp API', 'AI', 'Node.js', 'NLP']
 			}
 		]
 	},
