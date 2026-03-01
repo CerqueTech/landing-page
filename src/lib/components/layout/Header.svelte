@@ -44,7 +44,7 @@
 >
 	<nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 		<a href="/{lang}" class="shrink-0">
-			<img src={logoSrc} alt="CerqueTech" class="h-7 w-7" />
+			<img src={logoSrc} alt="CerqueTech" class="h-7 w-7" width="28" height="28" fetchpriority="high" />
 		</a>
 
 		<div class="hidden items-center gap-1 lg:flex">

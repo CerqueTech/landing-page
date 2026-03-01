@@ -10,8 +10,25 @@
 </script>
 
 <Hero t={data.t} lang={data.lang} />
-<Services t={data.t} />
-<About t={data.t} />
-<Portfolio t={data.t} />
-<Testimonials t={data.t} />
-<Contact t={data.t} />
+<div class="below-fold">
+	<Services t={data.t} />
+</div>
+<div class="below-fold">
+	<About t={data.t} />
+</div>
+<div class="below-fold">
+	<Portfolio t={data.t} />
+</div>
+<div class="below-fold">
+	<Testimonials t={data.t} />
+</div>
+<div class="below-fold">
+	<Contact t={data.t} />
+</div>
+
+<style>
+	.below-fold {
+		content-visibility: auto;
+		contain-intrinsic-size: auto 800px;
+	}
+</style>
