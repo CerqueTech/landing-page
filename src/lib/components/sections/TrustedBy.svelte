@@ -26,7 +26,7 @@
 							<img
 								src={client.logo}
 								alt={client.name}
-								class="h-8 w-auto max-w-[120px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-10 sm:max-w-[150px]"
+								class="h-10 w-auto max-w-[140px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[180px]"
 								loading="lazy"
 							/>
 						</div>
