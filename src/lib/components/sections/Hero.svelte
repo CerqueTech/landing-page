@@ -2,6 +2,7 @@
 	import { ArrowRight, CheckCircle } from 'lucide-svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import Globe3D from '$lib/components/ui/Globe3D.svelte';
+	import RotatingText from '$lib/components/ui/RotatingText.svelte';
 	import type { Translations, Locale } from '$lib/i18n/types';
 
 	interface Props {
@@ -71,12 +72,17 @@
 			class="hero-fade-in font-display text-3xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
 			style="animation-delay: 0.1s"
 		>
-			<span class="typing-container">
-				{@html t.hero.headline.replace(
-					/(digitales|Digital)/,
-					'<span class="hero-gradient-text">$1</span>'
-				)}
-			</span>
+			{@html t.hero.headlineBefore.replace(
+				/(digitales|Digital)/,
+				'<span class="hero-gradient-text">$1</span>'
+			)}
+			<br />
+			<RotatingText
+				texts={t.hero.rotatingWords}
+				class="hero-gradient-text"
+				interval={3000}
+				staggerMs={30}
+			/>
 		</h1>
 		<p
 			class="hero-fade-in mt-4 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:mt-6 sm:text-base md:text-lg lg:text-xl"

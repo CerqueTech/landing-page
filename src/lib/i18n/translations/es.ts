@@ -16,7 +16,8 @@ export const es: Translations = {
 	},
 	hero: {
 		badge: 'Transformamos ideas en tecnología',
-		headline: 'Soluciones digitales para tu empresa',
+		headlineBefore: 'Soluciones digitales para',
+		rotatingWords: ['tu empresa', 'tu negocio', 'el futuro', 'tu marca'],
 		subheadline:
 			'Transformamos tus ideas en soluciones tecnológicas innovadoras que impulsan el crecimiento de tu negocio.',
 		cta: 'Contáctanos',

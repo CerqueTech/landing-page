@@ -15,7 +15,8 @@ export interface Translations {
 	};
 	hero: {
 		badge: string;
-		headline: string;
+		headlineBefore: string;
+		rotatingWords: string[];
 		subheadline: string;
 		cta: string;
 		features: string[];
