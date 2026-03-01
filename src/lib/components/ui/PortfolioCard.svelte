@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { ExternalLink } from 'lucide-svelte';
+
 	interface Props {
 		title: string;
 		description: string;
@@ -6,13 +8,18 @@
 		image: string;
 		tags: string[];
 		index: number;
+		url?: string;
 	}
 
-	let { title, description, category, image, tags, index }: Props = $props();
+	let { title, description, category, image, tags, index, url }: Props = $props();
 </script>
 
-<div
-	class="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900/50"
+<svelte:element
+	this={url ? 'a' : 'div'}
+	href={url || undefined}
+	target={url ? '_blank' : undefined}
+	rel={url ? 'noopener noreferrer' : undefined}
+	class="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900/50"
 >
 	<!-- Image -->
 	<div class="relative aspect-video overflow-hidden bg-zinc-100 dark:bg-zinc-800">
@@ -41,11 +48,16 @@
 				</span>
 			{/each}
 		</div>
-		<h3 class="font-display text-base font-bold text-zinc-900 sm:text-lg dark:text-white">
-			{title}
-		</h3>
+		<div class="flex items-start justify-between gap-2">
+			<h3 class="font-display text-base font-bold text-zinc-900 sm:text-lg dark:text-white">
+				{title}
+			</h3>
+			{#if url}
+				<ExternalLink class="mt-1 h-4 w-4 shrink-0 text-zinc-400 transition-colors group-hover:text-brand-500" />
+			{/if}
+		</div>
 		<p class="mt-1 text-xs leading-relaxed text-zinc-600 sm:mt-2 sm:text-sm dark:text-zinc-400">
 			{description}
 		</p>
 	</div>
-</div>
+</svelte:element>

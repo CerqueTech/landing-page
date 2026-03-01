@@ -81,9 +81,7 @@ export const en: Translations = {
 		label: 'Our Work',
 		title: 'Featured projects',
 		filterAll: 'All',
-		filterMobile: 'Mobile',
-		filterWeb: 'Web',
-		filterAI: 'AI',
+		filterLabels: { web: 'Web', ai: 'AI', mobile: 'Mobile' },
 		projects: [
 			{
 				title: 'Propi',

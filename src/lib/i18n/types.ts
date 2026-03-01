@@ -41,15 +41,14 @@ export interface Translations {
 		label: string;
 		title: string;
 		filterAll: string;
-		filterMobile: string;
-		filterWeb: string;
-		filterAI: string;
+		filterLabels: Record<string, string>;
 		projects: Array<{
 			title: string;
 			description: string;
 			category: string;
 			image: string;
 			tags: string[];
+			url?: string;
 		}>;
 	};
 	about: {

@@ -12,11 +12,15 @@
 
 	let activeFilter = $state('all');
 
+	// Build filters dynamically from categories that actually exist in projects
+	// Build filters dynamically from categories that actually exist in projects
+	const categories = $derived([...new Set(t.portfolio.projects.map((p) => p.category))]);
 	const filters = $derived([
 		{ key: 'all', label: t.portfolio.filterAll },
-		{ key: 'mobile', label: t.portfolio.filterMobile },
-		{ key: 'web', label: t.portfolio.filterWeb },
-		{ key: 'ai', label: t.portfolio.filterAI }
+		...categories.map((cat) => ({
+			key: cat,
+			label: t.portfolio.filterLabels[cat] ?? cat
+		}))
 	]);
 
 	const filteredProjects = $derived(
@@ -64,6 +68,7 @@
 						category={project.category}
 						image={project.image}
 						tags={project.tags}
+						url={project.url}
 						index={i}
 					/>
 				{/each}
