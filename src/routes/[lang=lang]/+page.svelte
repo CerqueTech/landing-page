@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Hero from '$lib/components/sections/Hero.svelte';
+	import TrustedBy from '$lib/components/sections/TrustedBy.svelte';
 	import Services from '$lib/components/sections/Services.svelte';
 	import About from '$lib/components/sections/About.svelte';
 	import Portfolio from '$lib/components/sections/Portfolio.svelte';
@@ -10,6 +11,7 @@
 </script>
 
 <Hero t={data.t} lang={data.lang} />
+<TrustedBy t={data.t} />
 <div class="below-fold">
 	<Services t={data.t} />
 </div>

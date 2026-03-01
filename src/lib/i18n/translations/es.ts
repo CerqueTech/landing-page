@@ -26,6 +26,16 @@ export const es: Translations = {
 			'Tecnologías basadas en IA y Cloud'
 		]
 	},
+	trustedBy: {
+		title: 'Confían en nosotros',
+		clients: [
+			{ name: 'Finanzas Argy', logo: '/images/clients/finanzas-argy.webp' },
+			{ name: 'Siempre Alerta', logo: '/images/clients/siempre-alerta.webp' },
+			{ name: 'QRZ App', logo: '/images/clients/qrz-app.webp' },
+			{ name: 'Escuela de Negocios', logo: '/images/clients/escuela-negocios.webp' },
+			{ name: 'Esports Events', logo: '/images/clients/esports-events.webp' }
+		]
+	},
 	services: {
 		label: 'Nuestros Servicios',
 		title: 'Las soluciones que necesitás',
@@ -125,9 +135,9 @@ export const es: Translations = {
 			}
 		],
 		stats: [
-			{ value: 50, suffix: '+', label: 'Clientes satisfechos' },
+			{ value: 14, suffix: '+', label: 'Clientes satisfechos' },
 			{ value: 4, suffix: '+', label: 'Años de experiencia' },
-			{ value: 100, suffix: '+', label: 'Proyectos completados' }
+			{ value: 23, suffix: '+', label: 'Proyectos completados' }
 		],
 		team: {
 			label: 'Nuestro Equipo',

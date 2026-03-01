@@ -20,6 +20,13 @@ export interface Translations {
 		cta: string;
 		features: string[];
 	};
+	trustedBy: {
+		title: string;
+		clients: Array<{
+			name: string;
+			logo: string;
+		}>;
+	};
 	services: {
 		label: string;
 		title: string;

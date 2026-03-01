@@ -58,45 +58,45 @@
 				</span>
 			</div>
 
-			<h1
-				class="hero-fade-in font-display text-3xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
-				style="animation-delay: 0.1s"
-			>
-				<span class="typing-container">
-					{@html t.hero.headline.replace(
-						/(digitales|Digital)/,
-						'<span class="hero-gradient-text">$1</span>'
-					)}
-				</span>
-			</h1>
-			<p
-				class="hero-fade-in mt-4 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:mt-6 sm:text-base md:text-lg lg:text-xl"
-				style="animation-delay: 0.2s"
-			>
-				{t.hero.subheadline}
-			</p>
+		<h1
+			class="hero-fade-in font-display text-3xl leading-[1.1] font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+			style="animation-delay: 0.1s"
+		>
+			<span class="typing-container">
+				{@html t.hero.headline.replace(
+					/(digitales|Digital)/,
+					'<span class="hero-gradient-text">$1</span>'
+				)}
+			</span>
+		</h1>
+		<p
+			class="hero-fade-in mt-4 max-w-xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 sm:mt-6 sm:text-base md:text-lg lg:text-xl"
+			style="animation-delay: 0.2s"
+		>
+			{t.hero.subheadline}
+		</p>
 
-			<!-- Feature bullets -->
-			{#if features.length > 0}
-				<ul class="hero-fade-in mt-4 flex flex-col gap-1.5 sm:mt-6 sm:gap-2 lg:mt-8" style="animation-delay: 0.3s">
-					{#each features as feature, i}
-						<li class="feature-item flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300 sm:text-sm" style="animation-delay: {0.3 + i * 0.08}s">
-							<CheckCircle class="h-3.5 w-3.5 shrink-0 text-brand-400 sm:h-4 sm:w-4" />
-							{feature}
-						</li>
-					{/each}
-				</ul>
-			{/if}
+		<!-- Feature bullets -->
+		{#if features.length > 0}
+			<ul class="hero-fade-in mt-4 flex flex-col gap-1.5 sm:mt-6 sm:gap-2 lg:mt-8" style="animation-delay: 0.3s">
+				{#each features as feature, i}
+					<li class="feature-item flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300 sm:text-sm" style="animation-delay: {0.3 + i * 0.08}s">
+						<CheckCircle class="h-3.5 w-3.5 shrink-0 text-brand-400 sm:h-4 sm:w-4" />
+						{feature}
+					</li>
+				{/each}
+			</ul>
+		{/if}
 
-			<div class="hero-fade-in mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4 lg:mt-10" style="animation-delay: 0.4s">
-				<Button variant="primary" href="/{lang}#contact">
-					{t.hero.cta}
-					<ArrowRight class="h-4 w-4" />
-				</Button>
-				<Button variant="outline" href="/{lang}#portfolio">
-					{t.portfolio.label}
-				</Button>
-			</div>
+		<div class="hero-fade-in mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4 lg:mt-10" style="animation-delay: 0.4s">
+			<Button variant="primary" href="/{lang}#contact">
+				{t.hero.cta}
+				<ArrowRight class="h-4 w-4" />
+			</Button>
+			<Button variant="outline" href="/{lang}#portfolio">
+				{t.portfolio.label}
+			</Button>
+		</div>
 		</div>
 	</div>
 
