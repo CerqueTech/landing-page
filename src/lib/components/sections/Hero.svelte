@@ -79,7 +79,7 @@
 			<br />
 			<RotatingText
 				texts={t.hero.rotatingWords}
-				class="hero-neon-text"
+				class="hero-gradient-text"
 				interval={3000}
 				staggerMs={30}
 			/>
