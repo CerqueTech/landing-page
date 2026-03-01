@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { scrollReveal, staggerChildren } from '$lib/utils/animations';
-	import { Award, Shield, Zap, Linkedin } from 'lucide-svelte';
+	import { Linkedin } from 'lucide-svelte';
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import AnimatedCounter from '$lib/components/ui/AnimatedCounter.svelte';
+	import Button from '$lib/components/ui/Button.svelte';
 	import type { Translations } from '$lib/i18n/types';
 
 	interface Props {
@@ -10,11 +11,9 @@
 	}
 
 	let { t }: Props = $props();
-
-	const valueIcons = [Award, Shield, Zap];
 </script>
 
-<section id="about" class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-32 dark:bg-zinc-950">
+<section id="about" class="relative overflow-hidden bg-white pt-16 pb-24 sm:pt-20 sm:pb-28 lg:pt-24 lg:pb-36 dark:bg-zinc-950">
 	<!-- Gradient Orbs -->
 	<div class="pointer-events-none absolute inset-0">
 		<div class="absolute -right-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/25 blur-[100px] dark:bg-brand-700/12"></div>
@@ -26,26 +25,36 @@
 	<div class="pointer-events-none absolute inset-0 opacity-[0.02] dark:opacity-[0.03]" style="background-image: linear-gradient(rgba(0,0,0,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
 	<div class="relative mx-auto max-w-7xl px-4 sm:px-6">
-		<SectionHeading label={t.about.label} title={t.about.title} subtitle={t.about.description} />
-
-		<!-- Values -->
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6" use:staggerChildren={{ stagger: 150, direction: 'scale' }}>
-			{#each t.about.values as val, i}
-				{@const Icon = valueIcons[i]}
-				<div
-					class="rounded-2xl border border-zinc-200 bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50"
-				>
-					<div
-						class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-100 text-brand-600 dark:bg-brand-950/50 dark:text-brand-400"
-					>
-						<Icon class="h-6 w-6" />
+		<!-- Steps + Heading -->
+		<div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+			<!-- Left: Steps -->
+			<div class="space-y-6" use:staggerChildren={{ stagger: 150 }}>
+				{#each t.about.steps as step, i}
+					<div class="flex items-center gap-6">
+						<span class="font-display text-5xl font-bold text-brand-500/20 sm:text-6xl">{step.number}</span>
+						<div class="h-px flex-1 max-w-8 bg-brand-500/20"></div>
+						<h3 class="font-display text-lg font-bold text-zinc-900 sm:text-xl dark:text-white">{step.title}</h3>
 					</div>
-					<h3 class="font-display text-lg font-bold text-zinc-900 dark:text-white">
-						{val.title}
-					</h3>
-					<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{val.description}</p>
+				{/each}
+			</div>
+
+			<!-- Right: Heading + Description + CTA -->
+			<div use:scrollReveal>
+				<span
+					class="mb-4 inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold tracking-wider text-brand-700 uppercase dark:bg-brand-950/50 dark:text-brand-400"
+				>
+					{t.about.label}
+				</span>
+				<h2 class="font-display text-3xl font-bold text-zinc-900 sm:text-4xl dark:text-white">
+					{t.about.title}
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+					{t.about.description}
+				</p>
+				<div class="mt-8">
+					<Button href="#services" variant="primary">{t.nav.services}</Button>
 				</div>
-			{/each}
+			</div>
 		</div>
 
 		<!-- Stats -->

@@ -107,22 +107,10 @@ export const es: Translations = {
 		title: 'Impulsamos tu negocio',
 		description:
 			'En CerqueTech, transformamos tus ideas en soluciones tecnológicas innovadoras. Nos comprometemos a entender tus necesidades y colaborar contigo para llevar tu negocio a nuevas alturas de éxito y eficiencia. Con nosotros, tu visión se hace realidad.',
-		values: [
-			{
-				title: 'Expertos Globales',
-				description:
-					'Equipo con experiencia internacional en las tecnologías más demandadas del mercado.'
-			},
-			{
-				title: 'Calidad Garantizada',
-				description:
-					'Procesos rigurosos de desarrollo y testing que aseguran productos de excelencia.'
-			},
-			{
-				title: 'Respuesta Rápida',
-				description:
-					'Comunicación ágil y tiempos de entrega optimizados para tu tranquilidad.'
-			}
+		steps: [
+			{ number: '01', title: 'Contanos tu idea' },
+			{ number: '02', title: 'Diseñamos la solución' },
+			{ number: '03', title: 'Desarrollamos y entregamos' }
 		],
 		stats: [
 			{ value: 14, suffix: '+', label: 'Clientes satisfechos' },

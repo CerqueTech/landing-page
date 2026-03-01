@@ -55,9 +55,9 @@ export interface Translations {
 		label: string;
 		title: string;
 		description: string;
-		values: Array<{
+		steps: Array<{
+			number: string;
 			title: string;
-			description: string;
 		}>;
 		stats: Array<{
 			value: number;
