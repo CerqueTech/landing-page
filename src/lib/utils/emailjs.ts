@@ -6,7 +6,7 @@ const PUBLIC_KEY = '-FHCpc8dqO74zCggh';
 export const RECAPTCHA_SITE_KEY = '6LcR3VIpAAAAAIrEQNSLspAIsWliq76GBc4RP675';
 
 let initialized = false;
-let recaptchaLoaded = false;
+let recaptchaLoadPromise: Promise<void> | null = null;
 
 export function initEmailJS() {
 	if (!initialized) {
@@ -16,14 +16,13 @@ export function initEmailJS() {
 }
 
 export function loadRecaptcha(): Promise<void> {
-	if (recaptchaLoaded) return Promise.resolve();
+	if (recaptchaLoadPromise) return recaptchaLoadPromise;
 
-	return new Promise((resolve, reject) => {
+	recaptchaLoadPromise = new Promise((resolve, reject) => {
 		if (typeof window === 'undefined') return reject(new Error('No window'));
 
 		// Check if already loaded
 		if ((window as any).grecaptcha) {
-			recaptchaLoaded = true;
 			return resolve();
 		}
 
@@ -31,13 +30,15 @@ export function loadRecaptcha(): Promise<void> {
 		script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
 		script.async = true;
 		script.defer = true;
-		script.onload = () => {
-			recaptchaLoaded = true;
-			resolve();
+		script.onload = () => resolve();
+		script.onerror = () => {
+			recaptchaLoadPromise = null;
+			reject(new Error('Failed to load reCAPTCHA'));
 		};
-		script.onerror = () => reject(new Error('Failed to load reCAPTCHA'));
 		document.head.appendChild(script);
 	});
+
+	return recaptchaLoadPromise;
 }
 
 export async function getRecaptchaToken(): Promise<string> {
@@ -65,15 +66,25 @@ export async function sendEmail(params: {
 }): Promise<void> {
 	initEmailJS();
 
-	// Get reCAPTCHA token
-	const token = await getRecaptchaToken();
+	// Try to get reCAPTCHA token, but don't block form if it fails
+	let token = '';
+	try {
+		token = await getRecaptchaToken();
+	} catch {
+		// reCAPTCHA unavailable (ad blocker, network, etc.) — send without token
+	}
 
-	await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+	const templateParams: Record<string, string> = {
 		from_name: params.name,
 		from_email: params.email,
 		phone: params.phone,
 		subject: params.subject,
-		message: params.message,
-		'g-recaptcha-response': token
-	});
+		message: params.message
+	};
+
+	if (token) {
+		templateParams['g-recaptcha-response'] = token;
+	}
+
+	await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
 }
