@@ -5,10 +5,17 @@
 		texts: string[];
 		interval?: number;
 		staggerMs?: number;
+		staggerFrom?: 'first' | 'last';
 		class?: string;
 	}
 
-	let { texts, interval = 3000, staggerMs = 25, class: className = '' }: Props = $props();
+	let {
+		texts,
+		interval = 3000,
+		staggerMs = 25,
+		staggerFrom = 'last',
+		class: className = ''
+	}: Props = $props();
 
 	let currentIndex = $state(0);
 	let characters = $state<string[]>([]);
@@ -20,6 +27,16 @@
 	$effect(() => {
 		characters = texts[currentIndex].split('');
 	});
+
+	function getDelay(i: number): number {
+		const len = characters.length;
+		if (phase === 'exit') {
+			// Exit: reverse of enter
+			return (staggerFrom === 'last' ? i : len - 1 - i) * staggerMs;
+		}
+		// Enter
+		return (staggerFrom === 'last' ? len - 1 - i : i) * staggerMs;
+	}
 
 	function startTimer() {
 		if (timer) return;
@@ -43,7 +60,6 @@
 		phase = 'enter';
 		startTimer();
 
-		// Pause animation when scrolled out of view
 		const observer = new IntersectionObserver(
 			(entries) => {
 				isVisible = entries[0].isIntersecting;
@@ -77,7 +93,7 @@
 					class:is-space={char === ' '}
 					class:enter={phase === 'enter'}
 					class:exit={phase === 'exit'}
-					style="--delay: {(phase === 'exit' ? characters.length - 1 - i : i) * staggerMs}ms"
+					style="--delay: {getDelay(i)}ms"
 				>{char === ' ' ? '\u00A0' : char}</span>
 			{/each}
 		</span>
@@ -108,14 +124,14 @@
 	}
 
 	.rotating-char.enter {
-		animation: char-enter 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+		animation: char-enter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 		animation-delay: var(--delay);
 	}
 
 	.rotating-char.exit {
 		opacity: 1;
 		transform: translateY(0);
-		animation: char-exit 0.3s cubic-bezier(0.55, 0, 1, 0.45) forwards;
+		animation: char-exit 0.35s cubic-bezier(0.6, 0, 0.735, 0.045) forwards;
 		animation-delay: var(--delay);
 	}
 
