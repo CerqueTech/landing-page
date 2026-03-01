@@ -58,7 +58,7 @@
 		</div>
 
 		<!-- Stats -->
-		<div class="mt-16 grid grid-cols-1 gap-6 sm:mt-20 sm:grid-cols-3 sm:gap-8">
+		<div class="mt-20 grid grid-cols-1 gap-6 sm:mt-28 sm:grid-cols-3 sm:gap-8">
 			{#each t.about.stats as stat}
 				<AnimatedCounter value={stat.value} suffix={stat.suffix} label={stat.label} />
 			{/each}
