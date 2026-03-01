@@ -56,10 +56,13 @@
 		display: inline-flex;
 		overflow: hidden;
 		vertical-align: baseline;
+		background: transparent;
+		-webkit-text-fill-color: inherit;
 	}
 
 	.rotating-text-inner {
 		display: inline-flex;
+		background: transparent;
 	}
 
 	.rotating-char {

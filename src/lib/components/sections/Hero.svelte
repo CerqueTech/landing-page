@@ -127,6 +127,10 @@
 	:global(.hero-neon-text) {
 		color: #7c3aed;
 		text-shadow: 0 0 20px rgba(124, 58, 237, 0.35);
+		background: none !important;
+		-webkit-background-clip: unset !important;
+		-webkit-text-fill-color: currentColor !important;
+		background-clip: unset !important;
 	}
 
 	:global(.dark .hero-neon-text) {
