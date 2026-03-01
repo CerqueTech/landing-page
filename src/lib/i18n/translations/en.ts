@@ -30,9 +30,9 @@ export const en: Translations = {
 	trustedBy: {
 		title: 'Trusted by',
 		clients: [
-			{ name: 'Finanzas Argy', logo: '/images/clients/finanzasargy.png' },
-			{ name: 'Campana', logo: '/images/clients/campana.png' },
-			{ name: 'San Miguel Municipality', logo: '/images/clients/sanmiguel.png' }
+			{ name: 'Finanzas Argy', logo: '/images/clients/finanzasargy.webp' },
+			{ name: 'Campana', logo: '/images/clients/campana.webp' },
+			{ name: 'San Miguel Municipality', logo: '/images/clients/sanmiguel.webp' }
 		]
 	},
 	services: {
