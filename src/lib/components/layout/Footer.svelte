@@ -31,6 +31,11 @@
 	<!-- Animated aurora background -->
 	<div class="cta-aurora pointer-events-none absolute inset-0"></div>
 
+	<!-- Top fade: page bg → aurora -->
+	<div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent dark:from-zinc-950"></div>
+	<!-- Bottom fade: aurora → footer bg -->
+	<div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-50 to-transparent dark:from-zinc-900/50"></div>
+
 	<!-- Floating particles -->
 	<div class="pointer-events-none absolute inset-0 overflow-hidden">
 		{#each { length: 8 } as _, i}
@@ -64,7 +69,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50">
+<footer class="bg-zinc-50 dark:bg-zinc-900/50">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 py-16">
 		<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 			<!-- Brand -->
