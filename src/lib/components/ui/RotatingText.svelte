@@ -67,6 +67,8 @@
 		opacity: 0;
 		transform: translateY(100%);
 		animation: none;
+		color: inherit;
+		text-shadow: inherit;
 	}
 
 	.rotating-char.enter {
