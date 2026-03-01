@@ -26,50 +26,54 @@
 	const serviceLinks = $derived(t.services.items.slice(0, 4).map((s) => s.title));
 </script>
 
-<!-- CTA Bar -->
-<section class="cta-section relative overflow-hidden py-24 sm:py-32">
-	<!-- Animated aurora background -->
-	<div class="cta-aurora pointer-events-none absolute inset-0"></div>
+<!-- CTA Section -->
+<section class="bg-white px-4 py-16 sm:px-6 sm:py-24 dark:bg-zinc-950">
+	<div class="cta-card relative mx-auto max-w-5xl overflow-hidden rounded-2xl">
+		<!-- Animated aurora background -->
+		<div class="cta-aurora pointer-events-none absolute inset-0"></div>
 
-	<!-- Top fade: page bg → aurora -->
-	<div class="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent dark:from-zinc-950"></div>
-	<!-- Bottom fade: aurora → footer bg -->
-	<div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-50 to-transparent dark:from-zinc-900/50"></div>
+		<!-- Decorative blurred accents -->
+		<div class="pointer-events-none absolute inset-0">
+			<div class="absolute -top-20 -right-20 h-80 w-80 rounded-full bg-white/10 blur-[80px]"></div>
+			<div class="absolute -bottom-16 -left-16 h-64 w-64 rounded-full bg-brand-300/15 blur-[70px]"></div>
+		</div>
 
-	<!-- Floating particles -->
-	<div class="pointer-events-none absolute inset-0 overflow-hidden">
-		{#each { length: 8 } as _, i}
-			<div
-				class="cta-particle absolute rounded-full bg-white"
-				style="--i: {i}; --x: {10 + (i * 37) % 80}; --size: {2 + (i % 3)}; --duration: {4 + (i % 5) * 1.5}; --delay: {i * 0.7}"
-			></div>
-		{/each}
-	</div>
+		<!-- Dot grid pattern -->
+		<div class="pointer-events-none absolute inset-0 opacity-[0.05]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
 
-	<!-- Grid pattern -->
-	<div class="pointer-events-none absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
+		<!-- Floating particles -->
+		<div class="pointer-events-none absolute inset-0 overflow-hidden">
+			{#each { length: 8 } as _, i}
+				<div
+					class="cta-particle absolute rounded-full bg-white"
+					style="--i: {i}; --x: {10 + (i * 37) % 80}; --size: {2 + (i % 3)}; --duration: {4 + (i % 5) * 1.5}; --delay: {i * 0.7}"
+				></div>
+			{/each}
+		</div>
 
-	<div class="relative mx-auto max-w-3xl px-4 sm:px-6 text-center">
-		<h2 class="cta-title font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-			{t.footer.cta.title}
-		</h2>
-		<p class="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg">
-			{t.footer.cta.subtitle}
-		</p>
-		<div class="mt-10">
-			<a
-				href="/{lang}#contact"
-				class="cta-button group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-9 py-4 font-display text-sm font-bold text-brand-700 transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600"
-			>
-				{t.footer.cta.button}
-				<ArrowRight class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-			</a>
+		<!-- Content -->
+		<div class="relative px-6 py-16 text-center sm:px-12 sm:py-20 lg:py-24">
+			<h2 class="cta-title font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+				{t.footer.cta.title}
+			</h2>
+			<p class="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg">
+				{t.footer.cta.subtitle}
+			</p>
+			<div class="mt-10">
+				<a
+					href="/{lang}#contact"
+					class="cta-button group relative inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-9 py-4 font-display text-sm font-bold text-brand-700 transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-600"
+				>
+					{t.footer.cta.button}
+					<ArrowRight class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-zinc-50 dark:bg-zinc-900/50">
+<footer class="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 py-16">
 		<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
 			<!-- Brand -->
