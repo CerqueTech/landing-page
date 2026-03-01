@@ -211,7 +211,7 @@ export const en: Translations = {
 			}
 		},
 		info: {
-			email: 'info@cerquetech.com',
+			email: 'mateo.cerquetella@cerquetech.com',
 			phone: '+54 9 11 4054-1120',
 			location: 'Núñez, Buenos Aires, Argentina',
 			whatsapp: 'https://wa.me/5491140541120'
@@ -234,7 +234,7 @@ export const en: Translations = {
 			contact: 'Contact'
 		},
 		location: 'Núñez, Buenos Aires, Argentina',
-		copyright: '© 2024 CerqueTech Solutions. All rights reserved.'
+		copyright: 'All rights reserved.'
 	},
 	whatsapp: {
 		message: 'Hello! How can I help you?',

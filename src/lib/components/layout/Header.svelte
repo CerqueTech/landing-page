@@ -28,8 +28,15 @@
 	const logoSrc = '/images/logo/favicon.webp';
 
 	onMount(() => {
+		let ticking = false;
 		const onScroll = () => {
-			scrolled = window.scrollY > 20;
+			if (!ticking) {
+				requestAnimationFrame(() => {
+					scrolled = window.scrollY > 20;
+					ticking = false;
+				});
+				ticking = true;
+			}
 		};
 		window.addEventListener('scroll', onScroll, { passive: true });
 		onScroll();

@@ -100,30 +100,3 @@ export function staggerChildren(node: HTMLElement, options?: { delay?: number; s
 	};
 }
 
-export function parallax(node: HTMLElement, options?: { speed?: number }) {
-	const speed = options?.speed ?? 0.3;
-	let ticking = false;
-
-	function onScroll() {
-		if (!ticking) {
-			requestAnimationFrame(() => {
-				const rect = node.getBoundingClientRect();
-				const center = rect.top + rect.height / 2;
-				const windowCenter = window.innerHeight / 2;
-				const offset = (center - windowCenter) * speed;
-				node.style.transform = `translateY(${offset}px)`;
-				ticking = false;
-			});
-			ticking = true;
-		}
-	}
-
-	window.addEventListener('scroll', onScroll, { passive: true });
-	onScroll();
-
-	return {
-		destroy() {
-			window.removeEventListener('scroll', onScroll);
-		}
-	};
-}

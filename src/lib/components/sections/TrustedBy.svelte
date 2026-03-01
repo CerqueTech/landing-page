@@ -19,7 +19,7 @@
 
 	<div class="marquee-wrapper">
 		<div class="marquee-track">
-			{#each Array(2) as _, setIndex}
+			{#each Array(4) as _, setIndex}
 				<div class="marquee-set" aria-hidden={setIndex > 0}>
 					{#each clients as client}
 						<div class="mx-8 flex shrink-0 items-center sm:mx-12">
@@ -60,7 +60,7 @@
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(-50%);
+			transform: translateX(-25%);
 		}
 	}
 

@@ -20,8 +20,8 @@
 <section class="relative overflow-hidden bg-zinc-50 py-20 sm:py-24 lg:py-32 dark:bg-zinc-900/50">
 	<!-- Gradient Orbs -->
 	<div class="pointer-events-none absolute inset-0">
-		<div class="absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/20 blur-[100px] dark:bg-brand-600/10"></div>
-		<div class="absolute -right-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/15 blur-[100px] dark:bg-brand-500/8"></div>
+		<div class="absolute -left-32 top-1/4 h-72 w-72 rounded-full bg-brand-200/20 blur-[60px] dark:bg-brand-600/10"></div>
+		<div class="absolute -right-32 bottom-1/4 h-64 w-64 rounded-full bg-brand-300/15 blur-[60px] dark:bg-brand-500/8"></div>
 	</div>
 
 	<!-- Grid Pattern -->

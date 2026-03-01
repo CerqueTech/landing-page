@@ -1,17 +1,37 @@
 @import 'tailwindcss';
 
-/* Self-hosted fonts (eliminates external Google Fonts requests) */
-@import '@fontsource-variable/inter/wght.css';
-@import '@fontsource-variable/manrope/wght.css';
-
-/* Prevent Flash of Invisible Text - show fallback font while custom fonts load */
+/* Self-hosted fonts: latin + latin-ext only (ES/EN site, no cyrillic/greek/vietnamese needed) */
 @font-face {
 	font-family: 'Inter Variable';
+	font-style: normal;
 	font-display: swap;
+	font-weight: 100 900;
+	src: url('@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2') format('woff2-variations');
+	unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Inter Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 100 900;
+	src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+	unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 @font-face {
 	font-family: 'Manrope Variable';
+	font-style: normal;
 	font-display: swap;
+	font-weight: 200 800;
+	src: url('@fontsource-variable/manrope/files/manrope-latin-ext-wght-normal.woff2') format('woff2-variations');
+	unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Manrope Variable';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 200 800;
+	src: url('@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2') format('woff2-variations');
+	unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -34,18 +54,11 @@
 	--font-display: 'Manrope Variable', 'Manrope', sans-serif;
 	--font-body: 'Inter Variable', 'Inter', sans-serif;
 
-	/* Animations */
+	/* Animations (only define ones actually used in components) */
 	--animate-float: float 6s ease-in-out infinite;
 	--animate-float-delayed: float 6s ease-in-out 2s infinite;
 	--animate-float-slow: float 8s ease-in-out 1s infinite;
-	--animate-fade-up: fade-up 0.6s ease-out forwards;
 	--animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-	--animate-shimmer: shimmer 2s linear infinite;
-	--animate-scale-in: scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-	--animate-slide-in-left: slide-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-	--animate-slide-in-right: slide-in-right 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-	--animate-globe-spin: globe-spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-	--animate-globe-pulse: globe-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes float {
@@ -58,79 +71,6 @@
 	}
 }
 
-@keyframes fade-up {
-	from {
-		opacity: 0;
-		transform: translateY(2rem);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes shimmer {
-	0% {
-		background-position: -200% 0;
-	}
-	100% {
-		background-position: 200% 0;
-	}
-}
-
-@keyframes scale-in {
-	0% {
-		opacity: 0;
-		transform: scale(0.95);
-	}
-	100% {
-		opacity: 1;
-		transform: scale(1);
-	}
-}
-
-@keyframes slide-in-left {
-	0% {
-		opacity: 0;
-		transform: translateX(-30px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes slide-in-right {
-	0% {
-		opacity: 0;
-		transform: translateX(30px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes globe-spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
-@keyframes globe-pulse {
-	0%,
-	100% {
-		opacity: 0.4;
-		transform: scale(1);
-	}
-	50% {
-		opacity: 0.8;
-		transform: scale(1.05);
-	}
-}
 
 /* Respect reduced-motion preference - disable expensive animations */
 @media (prefers-reduced-motion: reduce) {
