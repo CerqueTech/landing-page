@@ -39,8 +39,8 @@
 
 	<!-- Globe: mobile=absolute right half-visible, desktop=flex item -->
 	<div class="pointer-events-none absolute inset-0 z-[1] lg:hidden">
-		<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[45%]">
-			<div class="globe-wrapper h-[1500px] w-[1500px] sm:h-[1600px] sm:w-[1600px]">
+		<div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[55%]">
+			<div class="globe-wrapper h-[1300px] w-[1300px] sm:h-[1400px] sm:w-[1400px]">
 				<Globe3D />
 			</div>
 		</div>
