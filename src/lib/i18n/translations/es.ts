@@ -89,7 +89,8 @@ export const es: Translations = {
 					'Plataforma de gestión inmobiliaria digital con cobros automáticos, contratos digitales y dashboard centralizado para administradores de propiedades.',
 				category: 'web',
 				image: '/images/portfolio/propi.webp',
-				tags: ['Next.js', 'TypeScript', 'AWS', 'PostgreSQL']
+				tags: ['Next.js', 'TypeScript', 'AWS', 'PostgreSQL'],
+				url: 'https://somospropi.com'
 			},
 			{
 				title: 'VendeYaBot',
@@ -97,7 +98,8 @@ export const es: Translations = {
 					'Chatbot de WhatsApp con IA para PYMES que atiende consultas, muestra catálogos y toma pedidos automáticamente las 24/7.',
 				category: 'ai',
 				image: '/images/portfolio/vendeyabot.webp',
-				tags: ['WhatsApp API', 'IA', 'Node.js', 'NLP']
+				tags: ['WhatsApp API', 'IA', 'Node.js', 'NLP'],
+				url: 'https://ventayabot.com'
 			}
 		]
 	},

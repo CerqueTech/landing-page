@@ -89,7 +89,8 @@ export const en: Translations = {
 					'Digital real estate management platform with automated payments, digital contracts, and a centralized dashboard for property administrators.',
 				category: 'web',
 				image: '/images/portfolio/propi.webp',
-				tags: ['Next.js', 'TypeScript', 'AWS', 'PostgreSQL']
+				tags: ['Next.js', 'TypeScript', 'AWS', 'PostgreSQL'],
+				url: 'https://somospropi.com'
 			},
 			{
 				title: 'VendeYaBot',
@@ -97,7 +98,8 @@ export const en: Translations = {
 					'AI-powered WhatsApp chatbot for SMBs that handles inquiries, showcases product catalogs, and takes orders automatically 24/7.',
 				category: 'ai',
 				image: '/images/portfolio/vendeyabot.webp',
-				tags: ['WhatsApp API', 'AI', 'Node.js', 'NLP']
+				tags: ['WhatsApp API', 'AI', 'Node.js', 'NLP'],
+				url: 'https://ventayabot.com'
 			}
 		]
 	},
