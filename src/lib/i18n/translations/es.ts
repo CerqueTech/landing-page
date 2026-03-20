@@ -90,7 +90,7 @@ export const es: Translations = {
 				category: 'web',
 				image: '/images/portfolio/propi.webp',
 				tags: ['Next.js', 'TypeScript', 'AWS', 'PostgreSQL'],
-				url: 'https://somospropi.com'
+				url: 'https://somospropi.com?ref=cerquetech'
 			},
 			{
 				title: 'VendeYaBot',
@@ -99,7 +99,16 @@ export const es: Translations = {
 				category: 'ai',
 				image: '/images/portfolio/vendeyabot.webp',
 				tags: ['WhatsApp API', 'IA', 'Node.js', 'NLP'],
-				url: 'https://ventayabot.com'
+				url: 'https://ventayabot.com?ref=cerquetech'
+			},
+			{
+				title: 'Casa Wada',
+				description:
+					'Sitio web de alquiler de eventos con más de 40 años de trayectoria. Catálogo completo con precios, selector de cantidades con estimador de presupuesto, descarga de catálogo PDF y contacto directo por WhatsApp.',
+				category: 'web',
+				image: '/images/portfolio/casawada.webp',
+				tags: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+				url: 'https://casawada.com.ar?ref=cerquetech'
 			}
 		]
 	},
