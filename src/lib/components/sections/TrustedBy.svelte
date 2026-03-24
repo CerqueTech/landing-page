@@ -17,12 +17,12 @@
 		</p>
 	</div>
 
-	<div class="marquee-wrapper">
+	<div class="marquee-wrapper touch-pan-x">
 		<div class="marquee-track">
 			{#each Array(4) as _, setIndex}
 				<div class="marquee-set" aria-hidden={setIndex > 0}>
 					{#each clients as client}
-						<div class="mx-8 flex shrink-0 items-center sm:mx-12">
+						<div class="mx-6 flex shrink-0 items-center sm:mx-12">
 							{#if client.size === 'lg'}
 								<img
 									src={client.logo}
@@ -48,16 +48,24 @@
 
 <style>
 	.marquee-wrapper {
-		overflow: hidden;
+		overflow-x: auto;
+		overflow-y: hidden;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
 		-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+	}
+
+	.marquee-wrapper::-webkit-scrollbar {
+		display: none;
 	}
 
 	.marquee-track {
 		display: flex;
 		width: max-content;
 		animation-name: marquee;
-		animation-duration: 30s;
+		animation-duration: 18s;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
 	}
