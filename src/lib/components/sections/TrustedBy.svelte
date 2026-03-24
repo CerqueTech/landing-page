@@ -19,16 +19,25 @@
 
 	<div class="marquee-wrapper">
 		<div class="marquee-track">
-			{#each [0, 1] as setIndex}
+			{#each Array(4) as _, setIndex}
 				<div class="marquee-set" aria-hidden={setIndex > 0}>
 					{#each clients as client}
 						<div class="mx-8 flex shrink-0 items-center sm:mx-12">
-							<img
-								src={client.logo}
-								alt={client.name}
-								class="{client.size === 'lg' ? 'h-16 sm:h-24 max-w-[200px] sm:max-w-[260px]' : 'h-10 sm:h-14 max-w-[140px] sm:max-w-[180px]'} w-auto object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-								loading="lazy"
-							/>
+							{#if client.size === 'lg'}
+								<img
+									src={client.logo}
+									alt={client.name}
+									class="h-20 w-auto max-w-[240px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-28 sm:max-w-[320px]"
+									loading="lazy"
+								/>
+							{:else}
+								<img
+									src={client.logo}
+									alt={client.name}
+									class="h-10 w-auto max-w-[140px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[180px]"
+									loading="lazy"
+								/>
+							{/if}
 						</div>
 					{/each}
 				</div>
@@ -47,7 +56,7 @@
 	.marquee-track {
 		display: flex;
 		width: max-content;
-		animation: marquee 20s linear infinite;
+		animation: marquee 30s linear infinite;
 	}
 
 	.marquee-set {
@@ -60,7 +69,7 @@
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(-50%);
+			transform: translateX(-25%);
 		}
 	}
 

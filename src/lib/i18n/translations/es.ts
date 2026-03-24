@@ -111,6 +111,15 @@ export const es: Translations = {
 				image: '/images/portfolio/casawada.webp',
 				tags: ['Next.js', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
 				url: 'https://casawada.com.ar?ref=cerquetech'
+			},
+			{
+				title: 'Agropark',
+				description:
+					'E-commerce de maquinaria y herramientas para jardinería y espacios verdes. Catálogo de productos con carrito de compras, marcas como Stihl, Husqvarna y Echo.',
+				category: 'web',
+				image: '/images/portfolio/agropark.webp',
+				tags: ['WordPress', 'WooCommerce', 'PHP', 'SEO'],
+				url: 'https://agropark.com.ar?ref=cerquetech'
 			}
 		]
 	},
