@@ -86,6 +86,15 @@ export const en: Translations = {
 		filterLabels: { web: 'Web', ai: 'AI', mobile: 'Mobile' },
 		projects: [
 			{
+				title: 'FinanzasArgy',
+				description:
+					'Comprehensive personal finance platform for Argentina. Investment tracking, real-time dollar exchange rates, tax calculator, and budgeting tools tailored to the Argentine market.',
+				category: 'web',
+				image: '/images/portfolio/finanzasargy.webp',
+				tags: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
+				url: 'https://finanzasargy.com?ref=cerquetech'
+			},
+			{
 				title: 'Propi',
 				description:
 					'Digital real estate management platform with automated payments, digital contracts, and a centralized dashboard for property administrators.',
