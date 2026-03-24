@@ -27,14 +27,14 @@
 								<img
 									src={client.logo}
 									alt={client.name}
-									class="h-20 w-auto max-w-[240px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-28 sm:max-w-[320px]"
+									class="client-logo client-logo-lg"
 									loading="lazy"
 								/>
 							{:else}
 								<img
 									src={client.logo}
 									alt={client.name}
-									class="h-10 w-auto max-w-[140px] object-contain opacity-50 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:max-w-[180px]"
+									class="client-logo"
 									loading="lazy"
 								/>
 							{/if}
@@ -56,12 +56,53 @@
 	.marquee-track {
 		display: flex;
 		width: max-content;
-		animation: marquee 30s linear infinite;
+		animation-name: marquee;
+		animation-duration: 30s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
 	}
 
 	.marquee-set {
 		display: flex;
 		flex-shrink: 0;
+	}
+
+	.client-logo {
+		height: 2.5rem;
+		width: auto;
+		max-width: 140px;
+		object-fit: contain;
+		filter: grayscale(100%) brightness(0) opacity(0.4);
+		transition: all 0.3s ease;
+	}
+
+	.client-logo:hover {
+		filter: grayscale(0) brightness(1) opacity(1);
+	}
+
+	.client-logo-lg {
+		height: 5rem;
+		max-width: 280px;
+	}
+
+	@media (min-width: 640px) {
+		.client-logo {
+			height: 3.5rem;
+			max-width: 180px;
+		}
+
+		.client-logo-lg {
+			height: 7rem;
+			max-width: 360px;
+		}
+	}
+
+	:global(.dark) .client-logo {
+		filter: grayscale(100%) brightness(0) invert(1) opacity(0.4);
+	}
+
+	:global(.dark) .client-logo:hover {
+		filter: grayscale(0) brightness(1) invert(0) opacity(1);
 	}
 
 	@keyframes marquee {
