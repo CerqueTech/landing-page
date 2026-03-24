@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Translations } from '$lib/i18n/types';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		t: Translations;
@@ -8,6 +9,28 @@
 	let { t }: Props = $props();
 
 	const clients = $derived(t.trustedBy.clients ?? []);
+
+	let trackEl: HTMLDivElement;
+	let animation: Animation | null = null;
+
+	onMount(() => {
+		if (trackEl) {
+			animation = trackEl.animate(
+				[
+					{ transform: 'translateX(0)' },
+					{ transform: 'translateX(-25%)' }
+				],
+				{
+					duration: 18000,
+					iterations: Infinity,
+					easing: 'linear'
+				}
+			);
+
+			trackEl.addEventListener('mouseenter', () => animation?.pause());
+			trackEl.addEventListener('mouseleave', () => animation?.play());
+		}
+	});
 </script>
 
 <section class="relative overflow-hidden border-y border-zinc-200/60 bg-zinc-50/50 py-10 sm:py-14 dark:border-zinc-800/60 dark:bg-zinc-900/30">
@@ -18,7 +41,7 @@
 	</div>
 
 	<div class="marquee-wrapper touch-pan-x">
-		<div class="marquee-track">
+		<div class="marquee-track" bind:this={trackEl}>
 			{#each Array(4) as _, setIndex}
 				<div class="marquee-set" aria-hidden={setIndex > 0}>
 					{#each clients as client}
@@ -64,10 +87,6 @@
 	.marquee-track {
 		display: flex;
 		width: max-content;
-		animation-name: marquee;
-		animation-duration: 18s;
-		animation-timing-function: linear;
-		animation-iteration-count: infinite;
 	}
 
 	.marquee-set {
@@ -111,18 +130,5 @@
 
 	:global(.dark) .client-logo:hover {
 		filter: grayscale(0) brightness(1) invert(0) opacity(1);
-	}
-
-	@keyframes marquee {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-25%);
-		}
-	}
-
-	.marquee-track:hover {
-		animation-play-state: paused;
 	}
 </style>
