@@ -86,6 +86,15 @@ export const es: Translations = {
 		filterLabels: { web: 'Web', ai: 'IA', mobile: 'Móvil' },
 		projects: [
 			{
+				title: 'FinanzasArgy',
+				description:
+					'Plataforma integral de finanzas personales para Argentina. Seguimiento de inversiones, cotización del dólar en tiempo real, calculadora de impuestos y herramientas de presupuesto adaptadas al mercado argentino.',
+				category: 'web',
+				image: '/images/portfolio/finanzasargy.webp',
+				tags: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
+				url: 'https://finanzasargy.com?ref=cerquetech'
+			},
+			{
 				title: 'Propi',
 				description:
 					'Plataforma de gestión inmobiliaria digital con cobros automáticos, contratos digitales y dashboard centralizado para administradores de propiedades.',
