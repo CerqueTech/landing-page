@@ -91,7 +91,7 @@ export const es: Translations = {
 					'Plataforma integral de finanzas personales para Argentina. Seguimiento de inversiones, cotización del dólar en tiempo real, calculadora de impuestos y herramientas de presupuesto adaptadas al mercado argentino.',
 				category: 'web',
 				image: '/images/portfolio/finanzasargy.webp',
-				tags: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
+				tags: ['Astro', 'React', 'TypeScript', 'Serverless'],
 				url: 'https://finanzasargy.com?ref=cerquetech'
 			},
 			{

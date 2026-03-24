@@ -91,7 +91,7 @@ export const en: Translations = {
 					'Comprehensive personal finance platform for Argentina. Investment tracking, real-time dollar exchange rates, tax calculator, and budgeting tools tailored to the Argentine market.',
 				category: 'web',
 				image: '/images/portfolio/finanzasargy.webp',
-				tags: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
+				tags: ['Astro', 'React', 'TypeScript', 'Serverless'],
 				url: 'https://finanzasargy.com?ref=cerquetech'
 			},
 			{
