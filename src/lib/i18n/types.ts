@@ -26,6 +26,7 @@ export interface Translations {
 		clients: Array<{
 			name: string;
 			logo: string;
+			size?: 'default' | 'lg';
 		}>;
 	};
 	services: {
