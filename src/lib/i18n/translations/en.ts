@@ -33,8 +33,7 @@ export const en: Translations = {
 			{ name: 'Finanzas Argy', logo: '/images/clients/finanzasargy.webp' },
 			{ name: 'Campana', logo: '/images/clients/campana.webp' },
 			{ name: 'San Miguel Municipality', logo: '/images/clients/sanmiguel.webp', size: 'lg' },
-			{ name: 'Agropark', logo: '/images/clients/agropark.webp' },
-			{ name: 'Casa Wada', logo: '/images/clients/casawada.webp' }
+			{ name: 'Agropark', logo: '/images/clients/agropark.webp' }
 		]
 	},
 	services: {
