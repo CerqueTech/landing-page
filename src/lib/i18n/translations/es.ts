@@ -86,12 +86,12 @@ export const es: Translations = {
 		filterLabels: { web: 'Web', ai: 'IA', mobile: 'Móvil' },
 		projects: [
 			{
-				title: 'FinanzasArgy',
+				title: 'Finanzas Argy',
 				description:
-					'Plataforma integral de finanzas personales para Argentina. Seguimiento de inversiones, cotización del dólar en tiempo real, calculadora de impuestos y herramientas de presupuesto adaptadas al mercado argentino.',
+					'Portal financiero con cotizaciones del dólar en tiempo real, mercado blue, criptomonedas, commodities y noticias en una experiencia optimizada para desktop y mobile.',
 				category: 'web',
-				image: '/images/portfolio/finanzasargy.webp',
-				tags: ['Astro', 'React', 'TypeScript', 'Serverless'],
+				image: '/images/portfolio/ifa-preview.png',
+				tags: ['Astro', 'TypeScript', 'Tailwind CSS', 'AWS'],
 				url: 'https://finanzasargy.com?ref=cerquetech'
 			},
 			{

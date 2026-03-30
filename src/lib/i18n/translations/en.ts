@@ -86,12 +86,12 @@ export const en: Translations = {
 		filterLabels: { web: 'Web', ai: 'AI', mobile: 'Mobile' },
 		projects: [
 			{
-				title: 'FinanzasArgy',
+				title: 'Finanzas Argy',
 				description:
-					'Comprehensive personal finance platform for Argentina. Investment tracking, real-time dollar exchange rates, tax calculator, and budgeting tools tailored to the Argentine market.',
+					'Financial portal with real-time dollar exchange rates, blue market tracking, crypto, commodities, and news in an experience optimized for desktop and mobile.',
 				category: 'web',
-				image: '/images/portfolio/finanzasargy.webp',
-				tags: ['Astro', 'React', 'TypeScript', 'Serverless'],
+				image: '/images/portfolio/ifa-preview.png',
+				tags: ['Astro', 'TypeScript', 'Tailwind CSS', 'AWS'],
 				url: 'https://finanzasargy.com?ref=cerquetech'
 			},
 			{
