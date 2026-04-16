@@ -104,13 +104,13 @@ export const en: Translations = {
 				url: 'https://somospropi.com?ref=cerquetech'
 			},
 			{
-				title: 'VendeYaBot',
+				title: 'Bandely',
 				description:
-					'AI-powered WhatsApp chatbot for SMBs that handles inquiries, showcases product catalogs, and takes orders automatically 24/7.',
+					'AI-powered conversational sales platform for WhatsApp that handles inquiries, showcases product catalogs, and takes orders automatically 24/7.',
 				category: 'ai',
-				image: '/images/portfolio/vendeyabot.webp',
+				image: '/images/portfolio/bandely.webp',
 				tags: ['WhatsApp API', 'AI', 'Node.js', 'NLP'],
-				url: 'https://ventayabot.com?ref=cerquetech'
+				url: 'https://bandely.com?ref=cerquetech'
 			},
 			{
 				title: 'Casa Wada',
@@ -243,9 +243,9 @@ export const en: Translations = {
 		},
 		info: {
 			email: 'mateo.cerquetella@cerquetech.com',
-			phone: '+54 9 11 4054-1120',
+			phone: '+54 9 11 7061-2073',
 			location: 'Núñez, Buenos Aires, Argentina',
-			whatsapp: 'https://wa.me/5491140541120'
+			whatsapp: 'https://wa.me/5491170612073'
 		},
 		success: 'Message sent successfully',
 		error: 'Error sending message. Please try again.',
